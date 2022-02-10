@@ -24,7 +24,12 @@ dd {
 }
 
 body {
+	padding-top: 7rem;
   background: hsl(var(--clr-neutral-200));
+}
+
+textarea {
+	width: 100%;
 }
 
 .login-greeting {
@@ -111,4 +116,8 @@ body.loggedin {
 .content > div p {
 	padding: 5px;
 	margin: 0 0 10px 0;
+}
+
+.card h2 {
+	padding-bottom: 10px;
 }
