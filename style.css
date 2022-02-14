@@ -24,14 +24,21 @@ dd {
 }
 
 body {
-  padding-top: 7rem;
   background: hsl(var(--clr-background));
 }
 
 textarea {
   width: 100%;
+  resize: none;
 }
 
 .card h2 {
   padding-bottom: 10px;
+}
+
+/* Login */
+
+.login-greeting {
+  margin: 0 auto;
+  text-align: center;
 }
