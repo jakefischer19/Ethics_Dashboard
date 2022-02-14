@@ -14,18 +14,18 @@
     <link rel="stylesheet" href="style.css" />
     <title>Document</title>
     <script>
-      $(document).ready(function(){
-          $(".dropdown").hover(function(){
-              var dropdownMenu = $(this).children(".dropdown-menu");
-              if(dropdownMenu.is(":visible")){
-                  dropdownMenu.parent().toggleClass("open");
-              }
-          });
-      });     
-      </script>
+      $(document).ready(function () {
+        $(".dropdown").hover(function () {
+          var dropdownMenu = $(this).children(".dropdown-menu");
+          if (dropdownMenu.is(":visible")) {
+            dropdownMenu.parent().toggleClass("open");
+          }
+        });
+      });
+    </script>
   </head>
   <body class="p-5 mt-5">
- <!-- Load Header -->
+    <!-- Load Header -->
     <div id="header">
       <script>
         $(function () {
@@ -33,7 +33,7 @@
         });
       </script>
     </div>
-
+    <br />
 
     <div class="container-fluid">
       <div class="row pb-3">
