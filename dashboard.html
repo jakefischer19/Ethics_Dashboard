@@ -13,9 +13,19 @@
     <script src="//code.jquery.com/jquery.min.js"></script>
     <link rel="stylesheet" href="style.css" />
     <title>Document</title>
+    <script>
+      $(document).ready(function () {
+        $(".dropdown").hover(function () {
+          var dropdownMenu = $(this).children(".dropdown-menu");
+          if (dropdownMenu.is(":visible")) {
+            dropdownMenu.parent().toggleClass("open");
+          }
+        });
+      });
+    </script>
   </head>
-  <body>
- <!-- Load Header -->
+  <body class="p-5 mt-5">
+    <!-- Load Header -->
     <div id="header">
       <script>
         $(function () {
@@ -23,7 +33,7 @@
         });
       </script>
     </div>
-
+    <br />
 
     <div class="container-fluid">
       <div class="row pb-3">
@@ -71,12 +81,10 @@ Put yourself in the position of a key decision maker in the case.</textarea
           <div class="card">
             <div class="card-body">
               <h3 class="pb-2">Indentify Your Options</h3>
-              <textarea
-                name="dilemmas"
-                id="dilemmas"
-                cols="30"
-                rows="8"
-              ></textarea>
+              <br>
+              <h5>Option 1</h5>
+              <h5>Option 2</h5>
+              <h5>Option 3</h5>
             </div>
           </div>
         </div>

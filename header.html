@@ -1,28 +1,43 @@
 <nav
-      class="navbar fixed-top navbar-expand-lg navbar-light bg-light shadow-sm p-3 mb-5 bg-body rounded"
+  class="navbar fixed-top navbar-expand-xxl navbar-light bg-light shadow-sm p-3 mb-5 bg-body rounded"
+>
+  <div class="container-fluid">
+    <a class="navbar-brand fs-3 fw-bolder">Ethics Dashboard</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
     >
-      <div class="container-fluid">
-        <a class="navbar-brand fs-3 fw-bolder">Ethics Dashboard</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav ms-auto">
-            <a class="nav-link ms-5 text-dark fw-normal" href="#">Dashboard</a>
-            <a class="nav-link ms-5 text-dark fw-normal" href="#">Utilitarianism</a>
-            <a class="nav-link ms-5 text-dark fw-normal" href="#">Deontology</a>
-            <a class="nav-link ms-5 text-dark fw-normal" href="#">Virtue Ethics</a>
-            <a class="nav-link ms-5 text-dark fw-normal" href="#">Care Ethics</a>
-            <a class="nav-link ms-5 text-dark fw-normal" href="#">My Progress</a>
-          </div>
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ms-auto">
+        <div class="dropdown">
+          <button
+            class="btn ms-3 btn-secondary dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton1"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Dashboard
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="#">Option1</a></li>
+            <li><a class="dropdown-item" href="#">Opiton2</a></li>
+            <li><a class="dropdown-item" href="#">Option3</a></li>
+          </ul>
         </div>
+        <button type="button" class="btn ms-2" href="#">Utilitarianism</button>
+        <button type="button" class="btn ms-2" href="#">Deontology</button>
+        <button type="button" class="btn ms-2" href="#">Virtue Ethics</button>
+        <button type="button" class="btn ms-2" href="#">Care Ethics</button>
+        <button type="button" class="btn ms-2" href="#">My Progress</button>
       </div>
-    </nav>
+    </div>
+  </div>
+</nav>
