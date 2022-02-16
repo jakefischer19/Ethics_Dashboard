@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--home.html may be renamed to dashboard, and dashboard.html renamed to home-->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -23,15 +24,18 @@
         </div>
       </nav>
     </div>
-    <div class="container-fluid">
+    <div class="container-fluid" onload="checkCase()">
+        <!--4 div id's used for adding new cases-->
         <div id="case1"></div>
         <div id="case2"></div>
         <div id="case3"></div>
         <div id="case4"></div>
-    
+        <!--Load case page to be filled out, also add a case to be stored into database, implementation once database is started-->
         <div class="row pb-3">
-            <div class="col">
-                <button type="button" onclick="addCase()" class="btn btn-secondary">Add a case</button>
+            <div class="col text-center">
+                <form action="/dashboard.html" method="get">
+                    <button type="submit" onclick="addCase()" class="btn btn-secondary">Create a new case</button>
+                </form>
             </div>
         </div>
       </div>
@@ -46,12 +50,19 @@
       crossorigin="anonymous"
     ></script>
     <script>
+        //store case num into database when new case is created
         let case_max = 4;
         let case_num = 1;
         function addCase() {    
             if(case_num <= case_max){
-                document.getElementById("case"+case_num).innerHTML += '<div class="row pb-3"><div class="col pb"><div class="card"><form action="/dashboard.html" method="get"><button type="submit" class="btn btn-light"><div class="card-body"><h3 class="pb-2">Case 1</h3></div></button></form></div></div></div>'
                 case_num++;
+            }
+        }
+        function checkCase(){
+            //load stored database variable
+            let current_stored_cases = something; //loaded number
+            for(i = 0; i <= current_stored_cases; i++){
+                document.getElementById("case"+case_num).innerHTML += '<div class="row pb-3"><div class="col pb"><div class="card"><form action="/dashboard.html" method="get"><button type="submit" class="btn btn-light"><div class="card-body"><h3 class="pb-2">Case 1</h3></div></button></form></div></div></div>'
             }
         }
     </script>
