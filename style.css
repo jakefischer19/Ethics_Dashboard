@@ -96,3 +96,7 @@ textarea {
       justify-content: space-between;
   }
   /* options page ends */
+  /* Utilitarianism page*/
+  textarea[name="util_option1"]{ font-size: 200%;}
+  textarea[name="util_option2"]{ font-size: 200%;}
+  /* end of utilitariansim */
