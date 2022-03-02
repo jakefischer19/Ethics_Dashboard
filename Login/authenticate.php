@@ -2,9 +2,9 @@
 session_start();
 
 $DATABASE_HOST = '69.172.204.200';
-$DATABASE_USER = 'rwalker';
-$DATABASE_PASS = 'weN2021account';
-$DATABASE_NAME = 'rwalker_Ethics_Dashboard_OC_224';
+$DATABASE_USER = 'herrycooly';
+$DATABASE_PASS = 'hY592836711@';
+$DATABASE_NAME = 'herrycoo_Ethic_Dashboard';
 
 // Connect to database
 $con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
