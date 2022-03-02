@@ -1,42 +1,40 @@
-<nav
-  class="navbar fixed-top navbar-expand-xxl navbar-light bg-light shadow-sm p-3 mb-5 bg-body rounded"
->
+<nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top shadow-sm p-3 mb-5 bg-body rounded">
   <div class="container-fluid">
-    <a class="navbar-brand fs-3 fw-bolder">Ethics Dashboard</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNavAltMarkup"
-      aria-controls="navbarNavAltMarkup"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+      <a class="navbar-brand fs-3 fw-bolder">Ethics Dashborad</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav ms-auto">
-        <div class="dropdown">
-          <button
-            class="btn ms-3 btn-secondary dropdown-toggle"
-            type="button"
-            id="dropdownMenuButton1"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Dashboard
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item" href="#">Option1</a></li>
-            <li><a class="dropdown-item" href="#">Opiton2</a></li>
-            <li><a class="dropdown-item" href="#">Option3</a></li>
-          </ul>
-        </div>
-        <form action="/utilitarianism.html" method="get">
-        <button type="submit" class="btn ms-2" href="#">Utilitarianism</button>
-        </form>
-        <button type="button" class="btn ms-2" href="#">My Progress</button>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Ethics Dashborad</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+
       </div>
+      <div class="navbar-nav justify-content-end">
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle justify-content-end"
+              type="button"
+              id="dropdownMenuButton1"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Dashboard
+            </button>
+            <ul class="dropdown-menu justify-content-end" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="#">Option1</a></li>
+              <li><a class="dropdown-item" href="#">Opiton2</a></li>
+              <li><a class="dropdown-item" href="#">Option3</a></li>
+            </ul>
+          </div>
+          <form action="/utilitarianism.html" method="get">
+            <button type="submit" class="btn justify-content-end" href="#">Utilitarianism</button>
+          </form>
+          <form action="#" method="get">
+            <button type="submit" class="btn justify-content-end" href="#">My progress</button>
+          </form>
+        </div>
     </div>
   </div>
 </nav>
