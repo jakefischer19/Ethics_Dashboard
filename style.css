@@ -70,33 +70,45 @@ textarea {
 }
 
 /* options-page */
-.input_text
-    {
-        width: 500px;
-        height:200px;
-        margin-right:2px;
-        border-radius:3px;
-        border:1px solid green;
-    }
+.input_text {
+  width: 500px;
+  height: 200px;
+  margin-right: 2px;
+  border-radius: 3px;
+  border: 1px solid green;
+}
 
-    .options-btn
-    {
-        background:none;
-        color:white;
-        border:none;
-        width: 200px;
-        height:35px;
-        border-radius:3px;
-        background-color:black;
-        font-size:16px;      
-    }
+.options-btn {
+  background: none;
+  color: white;
+  border: none;
+  width: 200px;
+  height: 35px;
+  border-radius: 3px;
+  background-color: black;
+  font-size: 16px;
+}
 
-    .button-wrapper{
-      display: flex; 
-      justify-content: space-between;
+.button-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+/* options page ends */
+/* Utilitarianism page*/
+textarea[name="util_option1"] {
+  font-size: 200%;
+}
+textarea[name="util_option2"] {
+  font-size: 200%;
+}
+/* end of utilitariansim */
+
+/* Media */
+
+@media only screen and (max-width: 1200px) {
+  body {
+    padding: 0 5rem;
+    padding-top: 8rem;
+    padding-bottom: 3rem;
   }
-  /* options page ends */
-  /* Utilitarianism page*/
-  textarea[name="util_option1"]{ font-size: 200%;}
-  textarea[name="util_option2"]{ font-size: 200%;}
-  /* end of utilitariansim */
+}

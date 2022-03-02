@@ -12,95 +12,100 @@
     />
     <script src="//code.jquery.com/jquery.min.js"></script>
     <script>
-
-function add_field(el)
-{
-    var total_text = document.getElementsByClassName("input_text"); 
-    if ( el.value === "Add another option" ){
-         el.value = "Remove the added option"; 
-    document.getElementById("field_div").innerHTML = "<br><h4 class='pb-2'>OPTION 3</h4><textarea cols='14' rows='9' placeholder='Enter your option here'></textarea>";
-    }
-    else
-    {
-         document.getElementById("field_div").innerHTML="";
-        el.value = "Add another option";
-    }
-}
+      function add_field(el) {
+        var total_text = document.getElementsByClassName("input_text");
+        if (el.value === "Add another option") {
+          el.value = "Remove the added option";
+          document.getElementById("field_div").innerHTML =
+            "<br><h4 class='pb-2'>OPTION 3</h4><textarea cols='14' rows='9' placeholder='Enter your option here'></textarea>";
+        } else {
+          document.getElementById("field_div").innerHTML = "";
+          el.value = "Add another option";
+        }
+      }
     </script>
     <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <title>Ethics Dashboard</title>
   </head>
   <body>
     <!-- Load Header -->
     <div id="header">
-        <script>
-          $(function () {
-            $("#header").load("header.html");
-          });
-        </script>
-      </div>
+      <script>
+        $(function () {
+          $("#header").load("header.html");
+        });
+      </script>
+    </div>
 
     <div class="container-fluid">
-        <div class = "row p-2">
-            <div class = "col p-2">
-        <div class="card">
-            <div class = "card-body">
+      <div class="row p-2">
+        <div class="col-lg p-2">
+          <div class="card">
+            <div class="card-body">
               <h3 class="pb-2">Ethical Issue</h3>
-                <p>
-               Describe the ethical issue or dilemma you would like to analyze. Remember ethical values are things that are important because they are right or wrong - lying, courage,loyalty, theft, etc.
+              <p>
+                Describe the ethical issue or dilemma you would like to analyze.
+                Remember ethical values are things that are important because
+                they are right or wrong - lying, courage,loyalty, theft, etc.
               </p>
             </div>
-        </div>
-        <br><br>
-        <div class="row p-2">
-            <div class="col p-2">
-                <div class="card">
-                    <div class="card-body">
-                      <h3 class="pb-2">Case Summary</h3>
-                        <textarea disabled
-                        name="ethical"
-                        id="ethical"
-                        cols="15"
-                        rows="14"
-                        placeholder="I am the engineer who is asked to create the VW defeat device. It will make it possible for vehicles to pass emissions tests designed to protect the environment. I’m not  sure I should do it because it seems wrong to cheat."  
-></textarea>
-                        </div>
+          </div>
+          <br /><br />
+          <div class="row p-2">
+            <div class="col-lg p-2">
+              <div class="card">
+                <div class="card-body">
+                  <h3 class="pb-2">Case Summary</h3>
+                  <textarea
+                    disabled
+                    name="ethical"
+                    id="ethical"
+                    cols="15"
+                    rows="14"
+                    placeholder="I am the engineer who is asked to create the VW defeat device. It will make it possible for vehicles to pass emissions tests designed to protect the environment. I’m not  sure I should do it because it seems wrong to cheat."
+                  ></textarea>
                 </div>
-            </div>          
-        </div>
-    </div>
-    <div class = "col p-2">
-        <div class="card">
-            <div class = "card-body" style="height: 630px; overflow-y: auto">
-              <h4 class="pb-2">OPTION 1</h4>
-              <textarea 
-              name="options1"
-              id="options1"
-              cols="14"
-              rows="9"
-              placeholder="I can put loyalty to the company above my personal concerns and do my job – create the device."
-              ></textarea>
-             <br><br>
-             <h4 class="pb-2">OPTION 2</h4>
-              <textarea
-              name="options2"
-              id="option2"
-              cols="14"
-              rows="9"
-              placeholder="I can betray the company, go to the press and blow the whistle."></textarea>
-
-                <div id="field_div">          
-                </div>
-               
-                <br>
-                    <div class="button-wrapper">
-                <input type="button" value="Add another option" onclick="return add_field(this);" class="options-btn ms-1"> 
-                <input type="submit" value="Submit" class="options-btn ms-3">
-                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-    </div>
+        <div class="col-lg p-2">
+          <div class="card">
+            <div class="card-body" style="height: 630px; overflow-y: auto">
+              <h4 class="pb-2">OPTION 1</h4>
+              <textarea
+                name="options1"
+                id="options1"
+                cols="14"
+                rows="9"
+                placeholder="I can put loyalty to the company above my personal concerns and do my job – create the device."
+              ></textarea>
+              <br /><br />
+              <h4 class="pb-2">OPTION 2</h4>
+              <textarea
+                name="options2"
+                id="option2"
+                cols="14"
+                rows="9"
+                placeholder="I can betray the company, go to the press and blow the whistle."
+              ></textarea>
+
+              <div id="field_div"></div>
+
+              <br />
+              <div class="button-wrapper">
+                <input
+                  type="button"
+                  value="Add another option"
+                  onclick="return add_field(this);"
+                  class="options-btn ms-1"
+                />
+                <input type="submit" value="Submit" class="options-btn ms-3" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script
