@@ -28,14 +28,32 @@
     <section class="vh-100" style="background: hsl(var(--clr-neutral-200))">
       <div class="container py-5 h-75">
         <div class="row d-flex justify-content-center align-items-center h-100">
-          <div class="col-12 col-lg-6">
+          <div class="col-12 col-lg-6 ">
             <div
               class="card shadow p-3 mb-5 bg-white rounded"
               style="border-radius: 1rem"
             >
               <div class="card-body p-5 text-center">
-                <h3 class="mb-5">Sign in</h3>
-                <form action="authenticate.php" method="post">
+                <h3 class="mb-5">Sign Up</h3>
+                <form action="add_account.php" method="post">
+                  <div class="form-outline mb-4">
+                    <input
+                      type="text"
+                      name="f_name"
+                      id="f_name"
+                      class="form-control form-control-lg"
+                    />
+                    <label class="form-label" for="email">First Name</label>
+                  </div>
+                  <div class="form-outline mb-4">
+                    <input
+                      type="text"
+                      name="l_name"
+                      id="l_name"
+                      class="form-control form-control-lg"
+                    />
+                    <label class="form-label" for="email">Last Name</label>
+                  </div>
                   <div class="form-outline mb-4">
                     <input
                       type="email"
@@ -45,7 +63,6 @@
                     />
                     <label class="form-label" for="email">Email</label>
                   </div>
-
                   <div class="form-outline mb-4">
                     <input
                       type="password"
@@ -55,19 +72,12 @@
                     />
                     <label class="form-label" for="password">Password</label>
                   </div>
-
+                  <hr class="my-4" />
                   <button
                     class="login-btn btn btn-dark btn-lg btn-block"
                     type="submit"
                   >
-                    Login
-                  </button>
-                  <hr class="my-4" />
-                  <button
-                    class="register-btn btn btn-dark btn-lg btn-block"
-                    type="button"
-                  >
-                    Sign Up
+                    Register
                   </button>
                 </form>
               </div>
