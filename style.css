@@ -94,6 +94,32 @@ textarea {
   justify-content: space-between;
 }
 /* options page ends */
+
+/*stakeholders page*/
+.stakeholders-btn {
+  background: none;
+  color: white;
+  border: none;
+  width: 300px;
+  height: 35px;
+  border-radius: 3px;
+  background-color: black;
+  font-size: 16px;
+  text-align: center;
+}
+
+.btns {
+  text-align: center;
+  position: relative;
+}
+
+@media only screen and (max-width: 400px) {
+  .stakeholders-btn {
+    margin-top: 10px;
+  }
+}
+/*stakeholders page ends*/
+
 /* Utilitarianism page*/
 textarea[name="util_option1"] {
   font-size: 200%;
