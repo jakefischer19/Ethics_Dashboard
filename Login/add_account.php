@@ -75,8 +75,9 @@ function iimysqli_result_fetch_array(&$result)
 
 if (isset($_POST['submit'])) {
   //check for required fields from the form
-  if ((!filter_input(INPUT_POST, 'email')) || (!filter_input(INPUT_POST, 'password'))) {
-    header("Location: https://https://herrycooly.com/EBoard/Login/add_account.php");
+  if ((!filter_input(INPUT_POST, 'email')) || (!filter_input(INPUT_POST, 'password')) || 
+  (!filter_input(INPUT_POST, 'f_name')) || (!filter_input(INPUT_POST, 'l_name'))) {
+    header("Location: https://https://herrycooly.com/EBoard/Login/stu_registration.html");
     exit;
   }
 }
