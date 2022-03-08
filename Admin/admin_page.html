@@ -29,15 +29,9 @@
     </div>
 
     <div class="container-fluid" onload="checkCase()">
-      <!--4 div id's used for adding new cases-->
-      <div id="case1"></div>
-      <div id="case2"></div>
-      <div id="case3"></div>
-      <div id="case4"></div>
-      <!--Load case page to be filled out, also add a case to be stored into database, implementation once database is started-->
       <div class="row pb-3">
         <div class="col text-center">
-          <form action="registration.html" method="get">
+          <form action="stu_registration.html" method="get">
             <button type="submit" class="btn btn-secondary">
               Add a new student account
             </button>
@@ -47,9 +41,18 @@
     </div>
     <div class="row pb-3">
       <div class="col text-center">
-        <form action="registration.html" method="get">
+        <form action="admin_registration.html" method="get">
           <button type="submit" class="btn btn-secondary">
             Add a new admin/TA account
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="row pb-3">
+      <div class="col text-center">
+        <form action="Login/logout.php" method="get">
+          <button type="submit" class="btn btn-secondary">
+            Logout
           </button>
         </form>
       </div>
@@ -65,23 +68,5 @@
       integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
       crossorigin="anonymous"
     ></script>
-    <script>
-      //store case num into database when new case is created
-      let case_max = 4;
-      let case_num = 1;
-      function addCase() {
-        if (case_num <= case_max) {
-          case_num++;
-        }
-      }
-      function checkCase() {
-        //load stored database variable
-        let current_stored_cases = something; //loaded number
-        for (i = 0; i <= current_stored_cases; i++) {
-          document.getElementById("case" + case_num).innerHTML +=
-            '<div class="row pb-3"><div class="col pb"><div class="card"><form action="/dashboard.html" method="get"><button type="submit" class="btn btn-light"><div class="card-body"><h3 class="pb-2">Case 1</h3></div></button></form></div></div></div>';
-        }
-      }
-    </script>
   </body>
 </html>
