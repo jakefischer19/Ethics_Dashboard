@@ -50,6 +50,17 @@ $_SESSION["email"] = "$email";
 
     header("Location: https://https://herrycooly.com/EBoard/home.html");
     exit;
+  }else if(!password_verify($password, $hash)){
+    //check if in admin database
+    $query = "SELECT password FROM admins WHERE email='".$email."'";
+    $result = mysqli_query($db_connection, $query);
+
+    $row = mysqli_fetch_row($result);
+    $hash = $row[0] ?? false;
+    if(password_verify($password, $hash)){
+      header("Location: https://https://herrycooly.com/EBoard/admin_page.html");
+      exit;
+    }
   }else{
     //redirect back to login form if not authorized
     
