@@ -13,11 +13,17 @@ $DATABASE_HOST = '69.172.204.200';
 $DATABASE_USER = 'herrycoo_yhu';
 $DATABASE_PASS = 'hY592836711@';
 $DATABASE_NAME = 'herrycoo_Ethic_Dashboard';
+/*
+$DATABASE_HOST = 'localhost';
+$DATABASE_USER = 'root';
+$DATABASE_PASS = '';
+$DATABASE_NAME = 'herrycoo_Ethic_Dashboard';*/
 
 
 //check for required fields from the form
 if ((!filter_input(INPUT_POST, 'email')) || (!filter_input(INPUT_POST, 'password'))) {
-  header("Location: https://https://herrycooly.com/EBoard/Login/login.html");
+ // header("Location: https://https://herrycooly.com/EBoard/Login/login.html");
+  header("Location: login.html");
   exit;
 }
 
@@ -56,13 +62,17 @@ if ($login_result){
     //set authorization cookie using curent Session ID
     //setcookie("user", $email, time()+3600, '/');
 
-    header("Location: https://https://herrycooly.com/EBoard/home.html");
+    //header("Location: https://https://herrycooly.com/EBoard/home.html");
+    header("Location: /EBoard/home.html");
+
     exit;
   }else{
     //redirect back to login form if not authorized
     
     unset($_SESSION['username']);
-    header("Location: https://https://herrycooly.com/EBoard/Login/login.html");
+    //header("Location: https://https://herrycooly.com/EBoard/Login/login.html");
+    header("Location: login.html");
+
     echo '<script language="javascript">alert("Incorrect email/password")</script>';
     exit;
   }
@@ -87,17 +97,21 @@ if ($login_result){
     $hash = $row[0] ?? false;
     
     if(password_verify($password, $hash)){
-      header("Location: https://https://herrycooly.com/EBoard/Admin/admin_page.html");
+      //header("Location: https://https://herrycooly.com/EBoard/Admin/admin_page.html");
+      header("Location: /EBoard/Admin/admin_page.html");
+
       exit;
     }else{
       unset($_SESSION['username']);
-      header("Location: https://https://herrycooly.com/EBoard/Login/login.html");
+      //header("Location: https://https://herrycooly.com/EBoard/Login/login.html");
+      header("Location: login.html");
     }
   }else{
     //redirect back to login form if not authorized
     
     unset($_SESSION['username']);
-    header("Location: https://https://herrycooly.com/EBoard/Login/login.html");
+    //header("Location: https://https://herrycooly.com/EBoard/Login/login.html");
+    header("Location: login.html");
     echo '<script language="javascript">alert("Incorrect email/password")</script>';
     exit;
   }

@@ -12,7 +12,11 @@ $DATABASE_HOST = '69.172.204.200';
 $DATABASE_USER = 'herrycoo_yhu';
 $DATABASE_PASS = 'hY592836711@';
 $DATABASE_NAME = 'herrycoo_Ethic_Dashboard';
-
+/*
+$DATABASE_HOST = 'localhost';
+$DATABASE_USER = 'root';
+$DATABASE_PASS = '';
+$DATABASE_NAME = 'herrycoo_Ethic_Dashboard';*/
 
 class iimysqli_result
 {
@@ -105,6 +109,7 @@ $hash = password_hash($password, PASSWORD_DEFAULT);
 //prepared statement for select
 
 //$query = mysqli_query($db_connection, "SELECT email FROM `admins` WHERE (email='" . $email . "'");
+//if (isset($_POST['submit'])) {
 
 $login_sql = $db_connection->prepare("SELECT email FROM admins WHERE email=?");
 $login_sql->bind_param("s", $email);
@@ -119,22 +124,24 @@ $login_result = $login_sql->fetch();
   //if ($result->num_rows > 0) {
 if($login_result){
 
-  header("Location: https://https://herrycooly.com/EBoard/Login/login.html");
+  //header("Location: https://https://herrycooly.com/EBoard/Login/login.html");
+  header("Location: add_admin.php");
   echo '<script>alert("User Account Already Exists")</script>';
 
-}
-$login_sql->close();
-if (isset($_POST['submit'])) {
+}else{
+  $login_sql->close();
+
   //$stmt_check->close();
 
-  $stmt_check = $db_connection->prepare("INSERT INTO user_accounts (admin, f_name, l_name, email, password) VALUES(?,?,?,?)");
-  $stmt_check->bind_param("issss",$admin, $f_name, $l_name, $email, $password);
+  $stmt_check = $db_connection->prepare("INSERT INTO admins (admin, f_name, l_name, email, password) VALUES(?,?,?,?,?)");
+  $stmt_check->bind_param("issss",$admin, $f_name, $l_name, $email, $hash);
   $stmt_check->execute();
 
   echo '<script language="javascript">alert("New User Account Created, Please Log In")</script>';
 
   $stmt_check->close();
 
-  header("Location: https://https://herrycooly.com/EBoard/Login/login.html");;
+  //header("Location: https://https://herrycooly.com/EBoard/Login/login.html");
+  header("Location: login.html");
 }
 ?>
