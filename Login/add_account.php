@@ -1,4 +1,6 @@
 <?php
+error_reporting(-1);
+ini_set('display_errors', 'On');
 session_start();
 
 //$DATABASE_HOST = '69.172.204.200';
@@ -114,7 +116,7 @@ if (mysqli_num_rows($query) > 0) {
   //$stmt_check->close();
 
   $stmt_check = $db_connection->prepare("INSERT INTO user_accounts (f_name, l_name, email, password) VALUES(?,?,?,?)");
-  $stmt_check->bind_param("sssi", $f_name, $l_name, $email, $password);
+  $stmt_check->bind_param("ssss", $f_name, $l_name, $email, $password);
   $stmt_check->execute();
 
   echo '<script language="javascript">alert("New User Account Created, Please Log In")</script>';
