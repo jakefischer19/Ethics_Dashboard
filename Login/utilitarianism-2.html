@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!--home.html may be renamed to dashboard, and dashboard.html renamed to home-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Ethics Dashboard</title>
+    <script>
+      $(document).ready(function () {
+        //st-o1-slider-5 is the slider for Aggregation of short-term outcomes for option 1
+        document.getElementById("st-o1-slider-5").disabled = true;
+
+        //st-o1-slider-6 is the slider for Aggregation of long-term outcomes for option 1
+        document.getElementById("st-o1-slider-6").disabled = true;
+        document.getElementById("st-o1-slider-6").style.background = "grey";
+        document.getElementById("long-term").style.color = "grey";
+        document.getElementById("long-term-slider").style.color = "grey";
+
+        //st-o1-slider-7 is the slider for Aggregation of short-term outcomes for option 2
+        document.getElementById("st-o1-slider-7").disabled = true;
+        document.getElementById("st-o1-slider-7").style.background = "grey";
+        document.getElementById("short-term-2").style.color = "grey";
+        document.getElementById("short-term-slider-2").style.color = "grey";
+
+        //st-o1-slider-8 is the slider for Aggregation of long-term outcomes for option 2
+        document.getElementById("st-o1-slider-8").disabled = true;
+        document.getElementById("st-o1-slider-8").style.background = "grey";
+        document.getElementById("long-term-2").style.color = "grey";
+        document.getElementById("long-term-slider-2").style.color = "grey";
+
+        document.getElementById("option-2").style.color = "grey";
+
+        // Hiding the sliders for st-o1-stakeholder-5 and st-o1-stakeholder-6 initially
+        //If st-o1-stakeholder-5 and st-o1-stakeholder-6 value is present in database , need to change the value of the two slider displays to != "none";
+        document.getElementById("st-o1-stakeholder-5").style.display = "none";
+        document.getElementById("st-o1-stakeholder-6").style.display = "none";
+
+        $(".dropdown").hover(function () {
+          var dropdownMenu = $(this).children(".dropdown-menu");
+          if (dropdownMenu.is(":visible")) {
+            dropdownMenu.parent().toggleClass("open");
+          }
+        });
+      });
+    </script>
+    <script>
+      var avg = 0;
+      var name = 0,
+        name2 = 0,
+        name3 = 0,
+        name4 = 0,
+        name5 = 0,
+        name6 = 0,
+        send = 0,
+        countHighRBT = 0,
+        countLowRBT = 0,
+        sendHighRadioButton = 0,
+        sendLowRadioButton = 0;
+
+      //st-o1-slider-1 is the slider for Stakeholder-1
+      function getValue() {
+        name = document.getElementById("st-o1-slider-1").value;
+        avg = (+name + +name2 + +name3 + +name4) / 4;
+        document.getElementById("st-o1-slider-5").value = avg;
+      }
+      //st-o1-slider-2 is the slider for Stakeholder-2
+      function getValue2() {
+        name2 = document.getElementById("st-o1-slider-2").value;
+        avg = (+name + +name2 + +name3 + +name4) / 4;
+        document.getElementById("st-o1-slider-5").value = avg;
+      }
+      //st-o1-slider-3 is the slider for Stakeholder-3
+      function getValue3() {
+        name3 = document.getElementById("st-o1-slider-3").value;
+        avg = (+name + +name2 + +name3 + +name4) / 4;
+        document.getElementById("st-o1-slider-5").value = avg;
+      }
+      //st-o1-slider-4 is the slider for Stakeholder-4
+      function getValue4() {
+        name4 = document.getElementById("st-o1-slider-4").value;
+        avg = (+name + +name2 + +name3 + +name4) / 4;
+        document.getElementById("st-o1-slider-5").value = avg;
+      }
+      //st-o1-slider-9 is the slider for Stakeholder-5
+      function getValue5() {
+        name5 = document.getElementById("st-o1-slider-9").value;
+        avg = (+name + +name2 + +name3 + +name4 + +name5) / 5;
+        document.getElementById("st-o1-slider-5").value = avg;
+      }
+      //st-o1-slider-10 is the slider for Stakeholder-6
+      function getValue6() {
+        name6 = document.getElementById("st-o1-slider-10").value;
+        avg = (+name + +name2 + +name3 + +name4 + +name5 + +name6) / 6;
+        document.getElementById("st-o1-slider-5").value = avg;
+      }
+
+      function valueSender() {
+        send = avg;
+        localStorage.setItem("myValue", send);
+        window.location.href = "utilitarianism-4.html";
+      }
+
+      function countHigh() {
+        countHighRBT++;
+      }
+
+      function countLow() {
+        countLowRBT++;
+      }
+
+      function valueSenderRadioButtonHigh() {
+        sendHighRadioButton = countHighRBT;
+        localStorage.setItem(
+          "myValueHighRadioButton-ST-1",
+          sendHighRadioButton
+        );
+        window.location.href = "utilitarianism-7.html";
+      }
+
+      function valueSenderRadioButtonLow() {
+        sendLowRadioButton = countLowRBT;
+        localStorage.setItem("myValueLowRadioButton-ST-1", sendLowRadioButton);
+        window.location.href = "utilitarianism-7.html";
+      }
+    </script>
+  </head>
+  <style></style>
+  <body>
+    <!-- Load Header -->
+    <div id="header">
+      <script>
+        $(function () {
+          $("#header").load("header.html");
+        });
+      </script>
+    </div>
+
+    <script>
+      src =
+        "https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js";
+      integrity =
+        "sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB";
+      crossorigin = "anonymous";
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
