@@ -16,7 +16,8 @@ if ((!filter_input(INPUT_POST, 'email')) || (!filter_input(INPUT_POST, 'password
 }
 
 //declare login variables
-$email = filter_input(INPUT_POST, 'email');
+$old_email = filter_input(INPUT_POST, 'email');
+$email = strtolower($old_email);
 $password = filter_input(INPUT_POST, 'password');
 //session username for home
 $_SESSION["email"] = "$email";
@@ -29,20 +30,26 @@ $login_sql->bind_result($email);
 $login_result = $login_sql->fetch();
 
 
-if ($login_result){
+if($login_result){
   $login_sql->close();
   $query = "SELECT password FROM students WHERE email='".$email."'";
   $result = mysqli_query($db_connection, $query);
 
-  $row = mysqli_fetch_row($result);
+  $row = mysqli_fetch_array($result, MYSQLI_NUM);
   $hash = $row[0] ?? false;
   
   if(password_verify($password, $hash)){
-    //set authorization cookie using curent Session ID
-    //setcookie("user", $email, time()+3600, '/');
+    //set session
+    $_SESSION['loggedin'] = true;
+    //pass stuID
+    $idquery = "SELECT stuID FROM students WHERE email='".$email."'";
+    $result = mysqli_query($db_connection, $idquery);
+    $row = mysqli_fetch_array($result, MYSQLI_NUM);
+    $stuID = $row[0] ?? false;
+    $_SESSION["stuID"] = $stuID;
 
     //header("Location: https://https://herrycooly.com/EBoard/home.html");
-    header("Location: /EBoard/home.html");
+    header("Location: /EBoard/home.php");
 
     exit;
   }else{
@@ -91,7 +98,6 @@ if ($login_result){
     unset($_SESSION['email']);
     //header("Location: https://https://herrycooly.com/EBoard/Login/login.html");
     header("Location: login.html");
-    echo '<script language="javascript">alert("Incorrect email/password")</script>';
     exit;
   }
 }
