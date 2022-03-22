@@ -2,7 +2,6 @@
   class="navbar navbar-light navbar-expand-lg bg-light fixed-top shadow-sm p-3 mb-5 bg-body rounded"
 >
   <div class="container-fluid">
-
     <a class="navbar-brand fs-3 fw-bolder">Ethics Dashboard</a>
 
     <button
@@ -33,39 +32,18 @@
         ></button>
       </div>
       <div class="navbar-nav justify-content-end">
-        <div class="dropdown">
-          <button
-            class="btn btn-secondary dropdown-toggle justify-content-end"
-            type="button"
-            id="dropdownMenuButton1"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Dashboard
-          </button>
-          <ul
-            class="dropdown-menu justify-content-end"
-            aria-labelledby="dropdownMenuButton1"
-          >
-            <li><a class="dropdown-item" href="#">Option1</a></li>
-            <li><a class="dropdown-item" href="#">Opiton2</a></li>
-            <li><a class="dropdown-item" href="#">Option3</a></li>
-          </ul>
-        </div>
-        <form action="/utilitarianism.html" method="get">
-          <button type="submit" class="btn justify-content-end" href="#">
-            Utilitarianism
-          </button>
-        </form>
-        <form action="#" method="get">
-          <button type="submit" class="btn justify-content-end" href="#">
-            My progress
-          </button>
-        </form>
-        <form action="Login/logout.php" method="get">
-          <button type="submit" class="btn justify-content-end" href="#">
-            Logoff
-          </button>
+        <a href="/dashboard.html" class="btn justify-content-end" role="button"
+          >Dashboard</a
+        >
+        <a
+          href="/utilitarianism.html"
+          class="btn justify-content-end"
+          role="button"
+          >Utilitarianism</a
+        >
+        <a href="/progress.html" class="btn justify-content-end" role="button"
+          >My Progress</a
+        >
       </div>
     </div>
   </div>
