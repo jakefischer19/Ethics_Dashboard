@@ -1,8 +1,8 @@
 <?php 
 session_start();
-$DATABASE_HOST = 'localhost';
-$DATABASE_USER = 'root';
-$DATABASE_PASS = '';
+$DATABASE_HOST = '69.172.204.200';
+$DATABASE_USER = 'herrycoo_yhu';
+$DATABASE_PASS = 'hY592836711@';
 $DATABASE_NAME = 'herrycoo_Ethic_Dashboard';
  
 //open mysql databse
