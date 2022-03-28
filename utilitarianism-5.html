@@ -16,39 +16,69 @@
     <title>Ethics Dashboard</title>
 
     <script>
-      var b, c;
+      var b,
+        c,
+        d,
+        e,
+        f = 0,
+        g = 0,
+        h = 0,
+        i = 0,
+        j = 0,
+        k = 0,
+        l = 0,
+        m = 0;
       $(document).ready(function () {
         b = localStorage.getItem("myValue");
         c = localStorage.getItem("myValue2");
-        document.getElementById("st-o2-slider-5").value = b;
-        document.getElementById("st-o2-slider-6").value = c;
+        d = localStorage.getItem("myValue3");
+        e = localStorage.getItem("myValue4");
+        f = localStorage.getItem("myValueHighRadioButton-ST-1");
+        g = localStorage.getItem("myValueLowRadioButton-ST-1");
+        h = localStorage.getItem("myValueHighRadioButton-LT-1");
+        i = localStorage.getItem("myValueLowRadioButton-LT-1");
+        j = localStorage.getItem("myValueHighRadioButton-ST-2");
+        k = localStorage.getItem("myValueLowRadioButton-ST-2");
+        l = localStorage.getItem("myValueHighRadioButton-LT-2");
+        m = localStorage.getItem("myValueLowRadioButton-LT-2");
+
+        // window.alert("j:" + j);
+        // window.alert("k:" + k);
+        // window.alert("l:" + l);
+        //window.alert("m:" + m);
+
+        document.getElementById("agg-st-o1-slider").value = b;
+        document.getElementById("agg-lt-o1-slider").value = c;
+        document.getElementById("agg-st-o2-slider").value = d;
+        document.getElementById("agg-lt-o2-slider").value = e;
+
+        document.getElementById("agg-st-o1-slider-txt").value =
+          "Higher: " + f + "                             " + "Lower: " + g;
+
+        document.getElementById("agg-lt-o1-slider-txt").value =
+          "Higher: " + h + "                             " + "Lower: " + i;
+
+        document.getElementById("agg-st-o2-slider-txt").value =
+          "Higher: " + j + "                                " + "Lower: " + k;
+
+        document.getElementById("agg-lt-o2-slider-txt").value =
+          "Higher: " + l + "                                " + "Lower: " + m;
 
         var resetValue = 0;
         localStorage.setItem("myValue", resetValue);
         localStorage.setItem("myValue2", resetValue);
-        //window.alert("Value 1:" + b);
-        //window.alert("Value 2:" + c);
+        localStorage.setItem("myValue3", resetValue);
+        localStorage.setItem("myValue4", resetValue);
+        localStorage.setItem("myValueHighRadioButton-ST-1", resetValue);
+        localStorage.setItem("myValueLowRadioButton-ST-1", resetValue);
+        localStorage.setItem("myValueHighRadioButton-LT-1", resetValue);
+        localStorage.setItem("myValueLowRadioButton-LT-1", resetValue);
+        localStorage.setItem("myValueHighRadioButton-ST-2", resetValue);
+        localStorage.setItem("myValueLowRadioButton-ST-2", resetValue);
+        localStorage.setItem("myValueHighRadioButton-LT-2", resetValue);
+        localStorage.setItem("myValueLowRadioButton-LT-2", resetValue);
 
-        //st-o2-slider-5 is the slider for Aggregation of short-term outcomes for option 1
-        document.getElementById("st-o2-slider-5").disabled = true;
-
-        //st-o2-slider-6 is the slider for Aggregation of long-term outcomes for option 1
-        document.getElementById("st-o2-slider-6").disabled = true;
-
-        //st-o2-slider-7 is the slider for Aggregation of short-term outcomes for option 2
-        document.getElementById("st-o2-slider-7").disabled = true;
-
-        //st-o2-slider-8 is the slider for Aggregation of long-term outcomes for option 2
-        document.getElementById("st-o2-slider-8").disabled = true;
-        document.getElementById("st-o2-slider-8").style.background = "grey";
-        document.getElementById("long-term-2").style.color = "grey";
-        document.getElementById("long-term-slider-2").style.color = "grey";
-
-        // Hiding the sliders for st-o2-stakeholder-5 and st-o2-stakeholder-6 initially
-        //If st-o2-stakeholder-5 and st-o2-stakeholder-6 value is present in database , need to change the value of the two slider displays to != "none";
-
-        document.getElementById("st-o2-stakeholder-5").style.display = "none";
-        document.getElementById("st-o2-stakeholder-6").style.display = "none";
+        document.getElementById("course-of-action-3").style.color = "black";
 
         $(".dropdown").hover(function () {
           var dropdownMenu = $(this).children(".dropdown-menu");
@@ -58,103 +88,7 @@
         });
       });
     </script>
-    <script>
-      var avg = 0;
-      var name = 0,
-        name2 = 0,
-        name3 = 0,
-        name4 = 0,
-        name5 = 0,
-        name6 = 0,
-        send = 0,
-        send2 = 0,
-        send3 = 0,
-        countHighRBT = 0,
-        countLowRBT = 0,
-        sendHighRadioButton = 0,
-        sendLowRadioButton = 0;
-      //st-o2-slider-1 is the slider for Stakeholder-1
-      function getValue() {
-        name = document.getElementById("st-o2-slider-1").value;
-        avg = (+name + +name2 + +name3 + +name4) / 4;
-        document.getElementById("st-o2-slider-7").value = avg;
-      }
-      //st-o2-slider-2 is the slider for Stakeholder-2
-      function getValue2() {
-        name2 = document.getElementById("st-o2-slider-2").value;
-        avg = (+name + +name2 + +name3 + +name4) / 4;
-        document.getElementById("st-o2-slider-7").value = avg;
-      }
-      //st-o2-slider-3 is the slider for Stakeholder-3
-      function getValue3() {
-        name3 = document.getElementById("st-o2-slider-3").value;
-        avg = (+name + +name2 + +name3 + +name4) / 4;
-        document.getElementById("st-o2-slider-7").value = avg;
-      }
-      //st-o2-slider-4 is the slider for Stakeholder-4
-      function getValue4() {
-        name4 = document.getElementById("st-o2-slider-4").value;
-        avg = (+name + +name2 + +name3 + +name4) / 4;
-        document.getElementById("st-o2-slider-7").value = avg;
-      }
-
-      //st-o2-slider-9 is the slider for Stakeholder-5
-      function getValue5() {
-        name5 = document.getElementById("st-o2-slider-9").value;
-        avg = (+name + +name2 + +name3 + +name4 + +name5) / 5;
-        document.getElementById("st-o2-slider-7").value = avg;
-      }
-
-      //st-o2-slider-10 is the slider for Stakeholder-6
-      function getValue6() {
-        name6 = document.getElementById("st-o2-slider-10").value;
-        avg = (+name + +name2 + +name3 + +name4 + +name5 + +name6) / 6;
-        document.getElementById("st-o2-slider-7").value = avg;
-      }
-
-      function valueSender() {
-        send2 = b;
-        localStorage.setItem("myValue", send2);
-        window.location.href = "utilitarianism-6.html";
-      }
-
-      function valueSender2() {
-        send3 = c;
-        localStorage.setItem("myValue2", send3);
-        window.location.href = "utilitarianism-6.html";
-      }
-
-      function valueSender3() {
-        send = avg;
-        localStorage.setItem("myValue3", send);
-        window.location.href = "utilitarianism-6.html";
-      }
-
-      function countHigh() {
-        countHighRBT++;
-      }
-
-      function countLow() {
-        countLowRBT++;
-      }
-
-      function valueSenderRadioButtonHigh() {
-        sendHighRadioButton = countHighRBT;
-        localStorage.setItem(
-          "myValueHighRadioButton-ST-2",
-          sendHighRadioButton
-        );
-        window.location.href = "utilitarianism-7.html";
-      }
-
-      function valueSenderRadioButtonLow() {
-        sendLowRadioButton = countLowRBT;
-        localStorage.setItem("myValueLowRadioButton-ST-2", sendLowRadioButton);
-        window.location.href = "utilitarianism-7.html";
-      }
-    </script>
   </head>
-  <style></style>
   <body>
     <!-- Load Header -->
     <div id="header">
@@ -171,41 +105,26 @@
           <div class="row p-2">
             <div class="col-lg">
               <h5 class="pb-2">
-                The Greatest Happiness Principle, actions are right if they
-                promote happiness (pleasure) and wrong if they promote
-                unhappiness (pain). Consider the relative stakeholder pleasures
-                or pains for the options you identified. Identify the pleasures
-                as higher or lower by ticking the box.
+                The last thing to consider is the type of pleasures contributing
+                to the greatest happiness. It isn’t just how many stakeholders
+                experience higher pleasures – you have to judge how much the
+                higher pleasure should be worth in your final analysis.
               </h5>
             </div>
           </div>
         </div>
       </div>
-
+      <br />
       <div class="card">
         <div class="card-body">
           <h4 class="p-2">
-            <center>
-              OPTION 2 -<span class="title-span" id="title-span">
-                I can betray the company...</span
-              >
-            </center>
+            <center>OPTION 1</center>
           </h4>
-          <h4 class="p-2">
-            <b><center>Short-term consequences</center></b>
-          </h4>
-          <br />
-          <div class="row p-2" id="st-o2-stakeholder-1">
-            <h4 class="p-2">STAKEHOLDER-1</h4>
-            <h5>
-              <span
-                class="stakeholders-name"
-                id="stakeholders-name-1"
-                name="stakeholders-name-1"
-                >The engineer asked to design the VW defeat...</span
-              >
-            </h5>
 
+          <div class="row p-2">
+            <h4 class="p-2">
+              <b><center>Aggregate of Short-term outcomes:</center></b>
+            </h4>
             <div class="col-lg p-2">
               <div class="border">
                 <h6 class="pt-2">
@@ -216,9 +135,9 @@
                     max="100"
                     value="50"
                     class="slider"
-                    id="st-o2-slider-1"
-                    name="st-o2-slider-1"
-                    onchange="getValue()"
+                    id="agg-st-o1-slider"
+                    name="agg-st-o1-slider"
+                    disabled
                   />
                   Pain
                 </h6>
@@ -228,42 +147,19 @@
               <div class="util-3-text">
                 <input
                   type="text"
-                  id="st-o2-slider-txt-1"
-                  name="st-o2-slider-txt-1"
+                  id="agg-st-o1-slider-txt"
+                  name="agg-st-o1-slider-txt"
                   class="text-class"
-                  placeholder="Explain the selection"
+                  placeholder="Higher Lower"
+                  disabled
                 />
               </div>
-              <h5 class="p-2">
-                Pleasure:&ensp;<label>High</label>
-                <input
-                  type="radio"
-                  name="st-o2-radio-1"
-                  id="st-o2-radio-1"
-                  value="High"
-                  onclick="countHigh()"
-                />&emsp; <label>Low</label>
-                <input
-                  type="radio"
-                  name="st-o2-radio-1"
-                  id="st-o2-radio-2"
-                  value="Low"
-                  onclick="countLow()"
-                />
-              </h5>
             </div>
           </div>
-          <div class="row p-2" id="st-o2-stakeholder-2">
-            <h4 class="pb-2">STAKEHOLDER-2</h4>
-            <h5>
-              <span
-                class="stakeholders-name"
-                id="stakeholders-name-2"
-                name="stakeholders-name-2"
-                >The decision makers at VW who asked...</span
-              >
-            </h5>
-
+          <div class="row p-2">
+            <h4 class="p-2">
+              <b><center>Long-term outcomes:</center></b>
+            </h4>
             <div class="col-lg p-2">
               <div class="border">
                 <h6 class="pt-2">
@@ -272,11 +168,11 @@
                     type="range"
                     min="1"
                     max="100"
-                    value="30"
+                    value="50"
                     class="slider"
-                    id="st-o2-slider-2"
-                    name="st-o2-slider-2"
-                    onchange="getValue2()"
+                    id="agg-lt-o1-slider"
+                    name="agg-lt-o1-slider"
+                    disabled
                   />
                   Pain
                 </h6>
@@ -286,42 +182,24 @@
               <div class="util-3-text">
                 <input
                   type="text"
-                  id="st-o2-slider-txt-2"
-                  name="st-o2-slider-txt-2"
+                  id="agg-lt-o1-slider-txt"
+                  name="agg-lt-o1-slider-txt"
                   class="text-class"
-                  placeholder="Explain the selection"
+                  placeholder="Higher Lower"
+                  disabled
                 />
               </div>
-              <h5 class="p-2">
-                Pleasure:&ensp;<label>High</label>
-                <input
-                  type="radio"
-                  name="st-o2-radio-2"
-                  id="st-o2-radio-3"
-                  value="High"
-                  onclick="countHigh()"
-                />&emsp; <label>Low</label>
-                <input
-                  type="radio"
-                  name="st-o2-radio-2"
-                  id="st-o2-radio-4"
-                  value="Low"
-                  onclick="countLow()"
-                />
-              </h5>
             </div>
           </div>
-          <div class="row p-2" id="st-o2-stakeholder-3">
-            <h4 class="pb-2">STAKEHOLDER-3</h4>
-            <h5>
-              <span
-                class="stakeholders-name"
-                id="stakeholders-name-3"
-                name="stakeholders-name-3"
-                >Consumers...</span
-              >
-            </h5>
+          <br />
+          <h4 class="p-2">
+            <center>OPTION 2</center>
+          </h4>
 
+          <div class="row p-2">
+            <h4 class="p-2">
+              <b><center>Short-term outcomes:</center></b>
+            </h4>
             <div class="col-lg p-2">
               <div class="border">
                 <h6 class="pt-2">
@@ -330,11 +208,11 @@
                     type="range"
                     min="1"
                     max="100"
-                    value="15"
+                    value="50"
                     class="slider"
-                    id="st-o2-slider-3"
-                    name="st-o2-slider-3"
-                    onchange="getValue3()"
+                    id="agg-st-o2-slider"
+                    name="agg-st-o2-slider"
+                    disabled
                   />
                   Pain
                 </h6>
@@ -344,42 +222,19 @@
               <div class="util-3-text">
                 <input
                   type="text"
-                  id="st-o2-slider-txt-3"
-                  name="st-o2-slider-txt-3"
+                  id="agg-st-o2-slider-txt"
+                  name="agg-st-o2-slider-txt"
                   class="text-class"
-                  placeholder="Explain the selection"
+                  placeholder="Higher Lower"
+                  disabled
                 />
               </div>
-              <h5 class="p-2">
-                Pleasure:&ensp;<label>High</label>
-                <input
-                  type="radio"
-                  name="st-o2-radio-3"
-                  id="st-o2-radio-5"
-                  value="High"
-                  onclick="countHigh()"
-                />&emsp; <label>Low</label>
-                <input
-                  type="radio"
-                  name="st-o2-radio-3"
-                  id="st-o2-radio-6"
-                  value="Low"
-                  onclick="countLow()"
-                />
-              </h5>
             </div>
           </div>
-          <div class="row p-2" id="st-o2-stakeholder-4">
-            <h4 class="pb-2">STAKEHOLDER-4</h4>
-            <h5>
-              <span
-                class="stakeholders-name"
-                id="stakeholders-name-4"
-                name="stakeholders-name-4"
-                >VW Owners/Shareholders...</span
-              >
-            </h5>
-
+          <div class="row p-2">
+            <h4 class="p-2">
+              <b><center>Long-term outcomes:</center></b>
+            </h4>
             <div class="col-lg p-2">
               <div class="border">
                 <h6 class="pt-2">
@@ -388,11 +243,11 @@
                     type="range"
                     min="1"
                     max="100"
-                    value="15"
+                    value="50"
                     class="slider"
-                    id="st-o2-slider-4"
-                    name="st-o2-slider-4"
-                    onchange="getValue4()"
+                    id="agg-lt-o2-slider"
+                    name="agg-lt-o2-slider"
+                    disabled
                   />
                   Pain
                 </h6>
@@ -402,241 +257,57 @@
               <div class="util-3-text">
                 <input
                   type="text"
-                  id="st-o2-slider-txt-4"
-                  name="st-o2-slider-txt-4"
+                  id="agg-lt-o2-slider-txt"
+                  name="agg-lt-o2-slider-txt"
                   class="text-class"
-                  placeholder="Explain the selection"
+                  placeholder="Higher Lower"
+                  disabled
                 />
               </div>
-              <h5 class="p-2">
-                Pleasure:&ensp;<label>High</label>
-                <input
-                  type="radio"
-                  name="st-o2-radio-4"
-                  id="st-o2-radio-7"
-                  value="High"
-                  onclick="countHigh()"
-                />&emsp; <label>Low</label>
-                <input
-                  type="radio"
-                  name="st-o2-radio-4"
-                  id="st-o2-radio-8"
-                  value="Low"
-                  onclick="countLow()"
-                />
-              </h5>
             </div>
           </div>
-          <div class="row p-2" id="st-o2-stakeholder-5">
-            <h4 class="pb-2">STAKEHOLDER-5</h4>
-            <h5>
-              <span
-                class="stakeholders-name"
-                id="stakeholders-name-5"
-                name="stakeholders-name-5"
-                >Stakeholder-5</span
-              >
-            </h5>
 
-            <div class="col-lg p-2">
-              <div class="border">
-                <h6 class="pt-2">
-                  Pleasure
-                  <input
-                    type="range"
-                    min="1"
-                    max="100"
-                    value="15"
-                    class="slider"
-                    id="st-o2-slider-9"
-                    name="st-o2-slider-9"
-                    onchange="getValue5()"
-                  />
-                  Pain
-                </h6>
-              </div>
-            </div>
-            <div class="col-lg p-2">
-              <div class="util-3-text">
-                <input
-                  type="text"
-                  id="st-o2-slider-txt-5"
-                  name="st-o2-slider-txt-5"
-                  class="text-class"
-                  placeholder="Explain the selection"
-                />
-              </div>
-              <h5 class="p-2">
-                Pleasure:&ensp;<label>High</label>
-                <input
-                  type="radio"
-                  name="st-o2-radio-5"
-                  id="st-o2-radio-9"
-                  value="High"
-                  onclick="countHigh()"
-                />&emsp; <label>Low</label>
-                <input
-                  type="radio"
-                  name="st-o2-radio-5"
-                  id="st-o2-radio-10"
-                  value="Low"
-                  onclick="countLow()"
-                />
-              </h5>
-            </div>
-          </div>
-          <div class="row p-2" id="st-o2-stakeholder-6">
-            <h4 class="pb-2">STAKEHOLDER-6</h4>
-            <h5>
-              <span
-                class="stakeholders-name"
-                id="stakeholders-name-6"
-                name="stakeholders-name-6"
-                >Stakeholder-6</span
-              >
-            </h5>
-
-            <div class="col-lg p-2">
-              <div class="border">
-                <h6 class="pt-2">
-                  Pleasure
-                  <input
-                    type="range"
-                    min="1"
-                    max="100"
-                    value="15"
-                    class="slider"
-                    id="st-o2-slider-10"
-                    name="st-o2-slider-10"
-                    onchange="getValue6()"
-                  />
-                  Pain
-                </h6>
-              </div>
-            </div>
-            <div class="col-lg p-2">
-              <div class="util-3-text">
-                <input
-                  type="text"
-                  id="st-o2-slider-txt-6"
-                  name="st-o2-slider-txt-6"
-                  class="text-class"
-                  placeholder="Explain the selection"
-                />
-              </div>
-              <h5 class="p-2">
-                Pleasure:&ensp;<label>High</label>
-                <input
-                  type="radio"
-                  name="st-o2-radio-6"
-                  id="st-o2-radio-11"
-                  value="High"
-                  onclick="countHigh()"
-                />&emsp; <label>Low</label>
-                <input
-                  type="radio"
-                  name="st-o2-radio-6"
-                  id="st-o2-radio-12"
-                  value="Low"
-                  onclick="countLow()"
-                />
-              </h5>
-            </div>
-          </div>
           <hr style="color: black; height: 2px" />
           <div class="row p-2">
             <div class="col-lg p-2">
               <center>
-                <h4 class="p-2">OPTION 1</h4>
+                <h4 class="p-2">ETHICAL DECISION / COURSE OF ACTION</h4>
               </center>
             </div>
           </div>
           <div class="row p-2">
-            <div class="col-lg p-2">
-              <h5 class="p-2" id="short-term">
-                Aggregate of short-term outcomes:
-              </h5>
-              <h6 class="pt-2" id="short-term-slider">
-                Pleasure
-                <input
-                  type="range"
-                  min="1"
-                  max="100"
-                  value="50"
-                  class="slider"
-                  id="st-o2-slider-5"
-                  name="st-o2-slider-5"
-                />
-                Pain
-              </h6>
-            </div>
-            <div class="col-lg p-2">
-              <h5 class="p-2" id="long-term">Long-term Outcomes:</h5>
-              <h6 class="pt-2" id="long-term-slider">
-                Pleasure
-                <input
-                  type="range"
-                  min="1"
-                  max="100"
-                  value="50"
-                  class="slider"
-                  id="st-o2-slider-6"
-                  name="st-o2-slider-6"
-                />
-                Pain
-              </h6>
-            </div>
-          </div>
-          <div class="row p-2">
-            <div class="col-lg p-2">
+            <h5 class="p-2">
               <center>
-                <h4 class="p-2" id="option-2">OPTION 2</h4>
+                <span
+                  class="course-of-action"
+                  name="course-of-action-1"
+                  id="course-of-action-1"
+                  >Although Option 1 produces pleasures in the short-term , they
+                  are lower pleasures.
+                </span>
               </center>
-            </div>
-          </div>
-          <div class="row p-2">
-            <div class="col-lg p-2">
-              <h5 class="p-2" id="short-term-2">Short-term outcomes:</h5>
-              <h6 class="pt-2" id="short-term-slider-2">
-                Pleasure
-                <input
-                  type="range"
-                  min="1"
-                  max="100"
-                  value="50"
-                  class="slider"
-                  id="st-o2-slider-7"
-                  name="st-o2-slider-7"
-                />
-                Pain
-              </h6>
-            </div>
-            <div class="col-lg p-2">
-              <h5 class="p-2" id="long-term-2">Long-term Outcomes:</h5>
-              <h6 class="pt-2" id="long-term-slider-2">
-                Pleasure
-                <input
-                  type="range"
-                  min="1"
-                  max="100"
-                  value="50"
-                  class="slider"
-                  id="st-o2-slider-8"
-                  name="st-o2-slider-8"
-                />
-                Pain
-              </h6>
-            </div>
-          </div>
-          <br />
-          <div class="row justify-content-center">
-            <input
-              type="submit"
-              id="st-o2-submit"
-              name="st-o2-submit"
-              class="stakeholders-btn"
-              onclick="valueSenderRadioButtonHigh();valueSenderRadioButtonLow();valueSender(); valueSender2(); valueSender3()"
-            />
+              <br />
+              <center>
+                <span
+                  class="course-of-action"
+                  name="course-of-action-2"
+                  id="course-of-action-2"
+                  >Option 2 results in less overall pain and higher pleasures to
+                  the stakeholders most impacted by the issue.</span
+                >
+              </center>
+              <br />
+              <center>
+                <span
+                  class="course-of-action"
+                  name="course-of-action-3"
+                  id="course-of-action-3"
+                  >Option 2 will produce the greatest happiness and is therefore
+                  the right option.</span
+                >
+              </center>
+              <br />
+            </h5>
           </div>
         </div>
       </div>
@@ -669,14 +340,9 @@
         <li class="page-item">
           <a class="page-link" href="utilitarianism-5.html">5</a>
         </li>
+
         <li class="page-item">
-          <a class="page-link" href="utilitarianism-6.html">6</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="utilitarianism-7.html">7</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="utilitarianism-6.html" aria-label="Next">
+          <a class="page-link" href="#" aria-label="Next">
             <span aria-hidden="true">&raquo;</span>
             <span class="sr-only">Next</span>
           </a>

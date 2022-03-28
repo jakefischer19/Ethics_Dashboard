@@ -14,40 +14,39 @@
     <script src="//code.jquery.com/jquery.min.js"></script>
     <link rel="stylesheet" href="style.css" />
     <title>Ethics Dashboard</title>
+
     <script>
-      var b;
+      var b, c;
       $(document).ready(function () {
         b = localStorage.getItem("myValue");
+        c = localStorage.getItem("myValue2");
+        document.getElementById("o1-st-agg-slider").value = b;
+        document.getElementById("o1-lt-agg-slider").value = c;
 
-        document.getElementById("lt-o1-slider-5").value = b;
         var resetValue = 0;
         localStorage.setItem("myValue", resetValue);
+        localStorage.setItem("myValue2", resetValue);
 
-        //lt-o1-slider-5 is the slider for Aggregation of short-term outcomes for option 1
-        document.getElementById("lt-o1-slider-5").disabled = true;
+        //o1-st-agg-slider is the slider for Aggregation of short-term outcomes for option 1
+        document.getElementById("o1-st-agg-slider").disabled = true;
 
-        //lt-o1-slider-6 is the slider for Aggregation of long-term outcomes for option 1
-        document.getElementById("lt-o1-slider-6").disabled = true;
+        //o1-lt-agg-slider is the slider for Aggregation of long-term outcomes for option 1
+        document.getElementById("o1-lt-agg-slider").disabled = true;
 
-        //lt-o1-slider-7 is the slider for Aggregation of short-term outcomes for option 2
-        document.getElementById("lt-o1-slider-7").disabled = true;
-        document.getElementById("lt-o1-slider-7").style.background = "grey";
-        document.getElementById("short-term-2").style.color = "grey";
-        document.getElementById("short-term-slider-2").style.color = "grey";
+        //o2-st-agg-slider is the slider for Aggregation of short-term outcomes for option 2
+        document.getElementById("o2-st-agg-slider").disabled = true;
 
-        //lt-o1-slider-8 is the slider for Aggregation of long-term outcomes for option 2
-        document.getElementById("lt-o1-slider-8").disabled = true;
-        document.getElementById("lt-o1-slider-8").style.background = "grey";
-        document.getElementById("long-term-2").style.color = "grey";
-        document.getElementById("long-term-slider-2").style.color = "grey";
+        //o2-lt-agg-slider is the slider for Aggregation of long-term outcomes for option 2
+        document.getElementById("o2-lt-agg-slider").disabled = true;
 
-        document.getElementById("option-2").style.color = "grey";
-
-        // Hiding the sliders for lt-o1-stakeholder-5 and lt-o1-stakeholder-6 initially
-        //If lt-o1-stakeholder-5 and lt-o1-stakeholder-6 value is present in database , need to change the value of the two slider displays to != "none";
-
-        document.getElementById("lt-o1-stakeholder-5").style.display = "none";
-        document.getElementById("lt-o1-stakeholder-6").style.display = "none";
+        // Hiding the sliders for st-o2-stakeholder-4 , st-o2-stakeholder-5 and st-o2-stakeholder-6 initially
+        //If st-o2-stakeholder-4 ,st-o2-stakeholder-5 and st-o2-stakeholder-6 value is present in database , need to change the value of the two slider displays to != "none";
+        document.getElementById("st-o2-stakeholder-4").style.display = "none";
+        document.getElementById("st-o2-stakeholder-5").style.display = "none";
+        document.getElementById("st-o2-stakeholder-6").style.display = "none";
+        document.getElementById("lt-o2-stakeholder-4").style.display = "none";
+        document.getElementById("lt-o2-stakeholder-5").style.display = "none";
+        document.getElementById("lt-o2-stakeholder-6").style.display = "none";
 
         $(".dropdown").hover(function () {
           var dropdownMenu = $(this).children(".dropdown-menu");
@@ -58,91 +57,177 @@
       });
     </script>
     <script>
-      var avg = 0;
-      var name = 0,
-        name2 = 0,
-        name3 = 0,
-        name4 = 0,
-        name5 = 0,
-        name6 = 0,
+      var stAvg = 0,
+        ltAvg = 0,
+        stName = 0,
+        stName2 = 0,
+        stName3 = 0,
+        stName4 = 0,
+        stName5 = 0,
+        stName6 = 0,
+        ltName = 0,
+        ltName2 = 0,
+        ltName3 = 0,
+        ltName4 = 0,
+        ltName5 = 0,
+        ltName6 = 0,
         send = 0,
         send2 = 0,
-        countHighRBT = 0,
-        countLowRBT = 0,
-        sendHighRadioButton = 0,
-        sendLowRadioButton = 0;
-      //lt-o1-slider-1 is the slider for Stakeholder-1
-      function getValue() {
-        name = document.getElementById("lt-o1-slider-1").value;
-        avg = (+name + +name2 + +name3 + +name4) / 4;
-        document.getElementById("lt-o1-slider-6").value = avg;
+        send3 = 0,
+        send4 = 0,
+        stCountHighRBT = 0,
+        stCountLowRBT = 0,
+        stSendHighRadioButton = 0,
+        stSendLowRadioButton = 0,
+        ltCountHighRBT = 0,
+        ltCountLowRBT = 0,
+        ltSendHighRadioButton = 0,
+        ltSendLowRadioButton = 0;
+
+      //st-o2-slider-1 is the slider for Stakeholder-1
+      function stGetValue() {
+        stName = document.getElementById("st-o2-slider-1").value;
+        stAvg = (+stName + +stName2 + +stName3) / 3;
+        document.getElementById("o2-st-agg-slider").value = stAvg;
       }
-      //lt-o1-slider-2 is the slider for Stakeholder-2
-      function getValue2() {
-        name2 = document.getElementById("lt-o1-slider-2").value;
-        avg = (+name + +name2 + +name3 + +name4) / 4;
-        document.getElementById("lt-o1-slider-6").value = avg;
+      //st-o2-slider-2 is the slider for Stakeholder-2
+      function stGetValue2() {
+        stName2 = document.getElementById("st-o2-slider-2").value;
+        stAvg = (+stName + +stName2 + +stName3) / 3;
+        document.getElementById("o2-st-agg-slider").value = stAvg;
       }
-      //lt-o1-slider-3 is the slider for Stakeholder-3
-      function getValue3() {
-        name3 = document.getElementById("lt-o1-slider-3").value;
-        avg = (+name + +name2 + +name3 + +name4) / 4;
-        document.getElementById("lt-o1-slider-6").value = avg;
+      //st-o2-slider-3 is the slider for Stakeholder-3
+      function stGetValue3() {
+        stName3 = document.getElementById("st-o2-slider-3").value;
+        stAvg = (+stName + +stName2 + +stName3) / 3;
+        document.getElementById("o2-st-agg-slider").value = stAvg;
       }
-      //lt-o1-slider-4 is the slider for Stakeholder-4
-      function getValue4() {
-        name4 = document.getElementById("lt-o1-slider-4").value;
-        avg = (+name + +name2 + +name3 + +name4) / 4;
-        document.getElementById("lt-o1-slider-6").value = avg;
+      //st-o2-slider-4 is the slider for Stakeholder-4
+      function stGetValue4() {
+        stName4 = document.getElementById("st-o2-slider-4").value;
+        stAvg = (+stName + +stName2 + +stName3 + +stName4) / 4;
+        document.getElementById("o2-st-agg-slider").value = stAvg;
       }
 
-      //lt-o1-slider-9 is the slider for Stakeholder-5
-      function getValue5() {
-        name5 = document.getElementById("lt-o1-slider-9").value;
-        avg = (+name + +name2 + +name3 + +name4 + +name5) / 5;
-        document.getElementById("lt-o1-slider-6").value = avg;
+      //st-o2-slider-5 is the slider for Stakeholder-5
+      function stGetValue5() {
+        stName5 = document.getElementById("st-o2-slider-5").value;
+        stAvg = (+stName + +stName2 + +stName3 + +stName4 + +stName5) / 5;
+        document.getElementById("o2-st-agg-slider").value = stAvg;
       }
 
-      //lt-o1-slider-10 is the slider for Stakeholder-6
-      function getValue6() {
-        name6 = document.getElementById("lt-o1-slider-10").value;
-        avg = (+name + +name2 + +name3 + +name4 + +name5 + +name6) / 6;
-        document.getElementById("lt-o1-slider-6").value = avg;
+      //st-o2-slider-6 is the slider for Stakeholder-6
+      function stGetValue6() {
+        stName6 = document.getElementById("st-o2-slider-6").value;
+        stAvg =
+          (+stName + +stName2 + +stName3 + +stName4 + +stName5 + +stName6) / 6;
+        document.getElementById("o2-st-agg-slider").value = stAvg;
+      }
+
+      function ltGetValue() {
+        ltName = document.getElementById("lt-o2-slider-1").value;
+        ltAvg = (+ltName + +ltName2 + +ltName3) / 3;
+        document.getElementById("o2-lt-agg-slider").value = ltAvg;
+      }
+
+      //lt-o2-slider-2 is the slider for Stakeholder-2
+      function ltGetValue2() {
+        ltName2 = document.getElementById("lt-o2-slider-2").value;
+        ltAvg = (+ltName + +ltName2 + +ltName3) / 3;
+        document.getElementById("o2-lt-agg-slider").value = ltAvg;
+      }
+      //lt-o2-slider-3 is the slider for Stakeholder-3
+      function ltGetValue3() {
+        ltName3 = document.getElementById("lt-o2-slider-3").value;
+        ltAvg = (+ltName + +ltName2 + +ltName3) / 3;
+        document.getElementById("o2-lt-agg-slider").value = ltAvg;
+      }
+      //lt-o2-slider-4 is the slider for Stakeholder-4
+      function ltGetValue4() {
+        ltName4 = document.getElementById("lt-o2-slider-4").value;
+        ltAvg = (+ltName + +ltName2 + +ltName3 + +ltName4) / 4;
+        document.getElementById("o2-lt-agg-slider").value = ltAvg;
+      }
+
+      //lt-o2-slider-5 is the slider for Stakeholder-5
+      function ltGetValue5() {
+        ltName5 = document.getElementById("lt-o2-slider-5").value;
+        ltAvg = (+ltName + +ltName2 + +ltName3 + +ltName4 + +ltName5) / 5;
+        document.getElementById("o2-lt-agg-slider").value = ltAvg;
+      }
+
+      //lt-o2-slider-6 is the slider for Stakeholder-6
+      function ltGetValue6() {
+        ltName6 = document.getElementById("lt-o2-slider-6").value;
+        ltAvg =
+          (+ltName + +ltName2 + +ltName3 + +ltName4 + +ltName5 + +ltName6) / 6;
+        document.getElementById("o2-lt-agg-slider").value = ltAvg;
       }
 
       function valueSender() {
-        send2 = b;
-        localStorage.setItem("myValue", send2);
+        send = b;
+        send2 = c;
+        send3 = stAvg;
+        send4 = ltAvg;
+
+        localStorage.setItem("myValue", send);
+        localStorage.setItem("myValue2", send2);
+        localStorage.setItem("myValue3", send3);
+        localStorage.setItem("myValue4", send4);
+
         window.location.href = "utilitarianism-5.html";
       }
 
-      function valueSender2() {
-        send = avg;
-        localStorage.setItem("myValue2", send);
-        window.location.href = "utilitarianism-5.html";
+      function stCountHigh() {
+        stCountHighRBT++;
       }
 
-      function countHigh() {
-        countHighRBT++;
+      function stCountLow() {
+        stCountLowRBT++;
       }
 
-      function countLow() {
-        countLowRBT++;
+      function ltCountHigh() {
+        ltCountHighRBT++;
       }
 
-      function valueSenderRadioButtonHigh() {
-        sendHighRadioButton = countHighRBT;
+      function ltCountLow() {
+        ltCountLowRBT++;
+      }
+
+      function stValueSenderRadioButtonHigh() {
+        stSendHighRadioButton = stCountHighRBT;
         localStorage.setItem(
-          "myValueHighRadioButton-LT-1",
-          sendHighRadioButton
+          "myValueHighRadioButton-ST-2",
+          stSendHighRadioButton
         );
-        window.location.href = "utilitarianism-7.html";
+        window.location.href = "utilitarianism-5.html";
       }
 
-      function valueSenderRadioButtonLow() {
-        sendLowRadioButton = countLowRBT;
-        localStorage.setItem("myValueLowRadioButton-LT-1", sendLowRadioButton);
-        window.location.href = "utilitarianism-7.html";
+      function stValueSenderRadioButtonLow() {
+        stSendLowRadioButton = stCountLowRBT;
+        localStorage.setItem(
+          "myValueLowRadioButton-ST-2",
+          stSendLowRadioButton
+        );
+        window.location.href = "utilitarianism-5.html";
+      }
+
+      function ltValueSenderRadioButtonHigh() {
+        ltSendHighRadioButton = ltCountHighRBT;
+        localStorage.setItem(
+          "myValueHighRadioButton-LT-2",
+          ltSendHighRadioButton
+        );
+        window.location.href = "utilitarianism-5.html";
+      }
+
+      function ltValueSenderRadioButtonLow() {
+        ltSendLowRadioButton = ltCountLowRBT;
+        localStorage.setItem(
+          "myValueLowRadioButton-LT-2",
+          ltSendLowRadioButton
+        );
+        window.location.href = "utilitarianism-5.html";
       }
     </script>
   </head>
@@ -178,22 +263,23 @@
         <div class="card-body">
           <h4 class="p-2">
             <center>
-              OPTION 1 -<span class="title-span" id="title-span">
-                I can put loyalty to the company first ...</span
+              OPTION 2 -<span class="title-span" id="title-span">
+                I can betray the company...</span
               >
             </center>
           </h4>
+          <hr style="color: black; height: 2px" />
           <h4 class="p-2">
-            <b><center>Long-term consequences</center></b>
+            <b><center>Short-term consequences</center></b>
           </h4>
           <br />
-          <div class="row p-2" id="lt-o1-stakeholder-1">
+          <div class="row p-2" id="st-o2-stakeholder-1">
             <h4 class="p-2">STAKEHOLDER-1</h4>
             <h5>
               <span
                 class="stakeholders-name"
-                id="stakeholders-name-1"
-                name="stakeholders-name-1"
+                id="st-stakeholders-name-1"
+                name="st-stakeholders-name-1"
                 >The engineer asked to design the VW defeat...</span
               >
             </h5>
@@ -208,9 +294,9 @@
                     max="100"
                     value="50"
                     class="slider"
-                    id="lt-o1-slider-1"
-                    name="lt-o1-slider-1"
-                    onchange="getValue()"
+                    id="st-o2-slider-1"
+                    name="st-o2-slider-1"
+                    onchange="stGetValue()"
                   />
                   Pain
                 </h6>
@@ -220,8 +306,8 @@
               <div class="util-3-text">
                 <input
                   type="text"
-                  id="lt-o1-slider-txt-1"
-                  name="lt-o1-slider-txt-1"
+                  id="st-o2-slider-txt-1"
+                  name="st-o2-slider-txt-1"
                   class="text-class"
                   placeholder="Explain the selection"
                 />
@@ -230,28 +316,28 @@
                 Pleasure:&ensp;<label>High</label>
                 <input
                   type="radio"
-                  name="lt-o1-radio-1"
-                  id="lt-o1-radio-1"
+                  name="st-o2-radio-1"
+                  id="st-o2-radio-1"
                   value="High"
-                  onclick="countHigh()"
+                  onclick="stCountHigh()"
                 />&emsp; <label>Low</label>
                 <input
                   type="radio"
-                  name="lt-o1-radio-1"
-                  id="lt-o1-radio-2"
+                  name="st-o2-radio-1"
+                  id="st-o2-radio-2"
                   value="Low"
-                  onclick="countLow()"
+                  onclick="stCountLow()"
                 />
               </h5>
             </div>
           </div>
-          <div class="row p-2" id="lt-o1-stakeholder-2">
+          <div class="row p-2" id="st-o2-stakeholder-2">
             <h4 class="pb-2">STAKEHOLDER-2</h4>
             <h5>
               <span
                 class="stakeholders-name"
-                id="stakeholders-name-2"
-                name="stakeholders-name-2"
+                id="st-stakeholders-name-2"
+                name="st-stakeholders-name-2"
                 >The decision makers at VW who asked...</span
               >
             </h5>
@@ -266,9 +352,9 @@
                     max="100"
                     value="30"
                     class="slider"
-                    id="lt-o1-slider-2"
-                    name="lt-o1-slider-2"
-                    onchange="getValue2()"
+                    id="st-o2-slider-2"
+                    name="st-o2-slider-2"
+                    onchange="stGetValue2()"
                   />
                   Pain
                 </h6>
@@ -278,8 +364,8 @@
               <div class="util-3-text">
                 <input
                   type="text"
-                  id="lt-o1-slider-txt-2"
-                  name="lt-o1-slider-txt-2"
+                  id="st-o2-slider-txt-2"
+                  name="st-o2-slider-txt-2"
                   class="text-class"
                   placeholder="Explain the selection"
                 />
@@ -288,28 +374,28 @@
                 Pleasure:&ensp;<label>High</label>
                 <input
                   type="radio"
-                  name="lt-o1-radio-2"
-                  id="lt-o1-radio-3"
+                  name="st-o2-radio-2"
+                  id="st-o2-radio-3"
                   value="High"
-                  onclick="countHigh()"
+                  onclick="stCountHigh()"
                 />&emsp; <label>Low</label>
                 <input
                   type="radio"
-                  name="lt-o1-radio-2"
-                  id="lt-o1-radio-4"
+                  name="st-o2-radio-2"
+                  id="st-o2-radio-4"
                   value="Low"
-                  onclick="countLow()"
+                  onclick="stCountLow()"
                 />
               </h5>
             </div>
           </div>
-          <div class="row p-2" id="lt-o1-stakeholder-3">
+          <div class="row p-2" id="st-o2-stakeholder-3">
             <h4 class="pb-2">STAKEHOLDER-3</h4>
             <h5>
               <span
                 class="stakeholders-name"
-                id="stakeholders-name-3"
-                name="stakeholders-name-3"
+                id="st-stakeholders-name-3"
+                name="st-stakeholders-name-3"
                 >Consumers...</span
               >
             </h5>
@@ -324,9 +410,9 @@
                     max="100"
                     value="15"
                     class="slider"
-                    id="lt-o1-slider-3"
-                    name="lt-o1-slider-3"
-                    onchange="getValue3()"
+                    id="st-o2-slider-3"
+                    name="st-o2-slider-3"
+                    onchange="stGetValue3()"
                   />
                   Pain
                 </h6>
@@ -336,8 +422,8 @@
               <div class="util-3-text">
                 <input
                   type="text"
-                  id="lt-o1-slider-txt-3"
-                  name="lt-o1-slider-txt-3"
+                  id="st-o2-slider-txt-3"
+                  name="st-o2-slider-txt-3"
                   class="text-class"
                   placeholder="Explain the selection"
                 />
@@ -346,28 +432,28 @@
                 Pleasure:&ensp;<label>High</label>
                 <input
                   type="radio"
-                  name="lt-o1-radio-3"
-                  id="lt-o1-radio-5"
+                  name="st-o2-radio-3"
+                  id="st-o2-radio-5"
                   value="High"
-                  onclick="countHigh()"
+                  onclick="stCountHigh()"
                 />&emsp; <label>Low</label>
                 <input
                   type="radio"
-                  name="lt-o1-radio-3"
-                  id="lt-o1-radio-6"
+                  name="st-o2-radio-3"
+                  id="st-o2-radio-6"
                   value="Low"
-                  onclick="countLow()"
+                  onclick="stCountLow()"
                 />
               </h5>
             </div>
           </div>
-          <div class="row p-2" id="lt-o1-stakeholder-4">
+          <div class="row p-2" id="st-o2-stakeholder-4">
             <h4 class="pb-2">STAKEHOLDER-4</h4>
             <h5>
               <span
                 class="stakeholders-name"
-                id="stakeholders-name-4"
-                name="stakeholders-name-4"
+                id="st-stakeholders-name-4"
+                name="st-stakeholders-name-4"
                 >VW Owners/Shareholders...</span
               >
             </h5>
@@ -382,9 +468,9 @@
                     max="100"
                     value="15"
                     class="slider"
-                    id="lt-o1-slider-4"
-                    name="lt-o1-slider-4"
-                    onchange="getValue4()"
+                    id="st-o2-slider-4"
+                    name="st-o2-slider-4"
+                    onchange="stGetValue4()"
                   />
                   Pain
                 </h6>
@@ -394,8 +480,8 @@
               <div class="util-3-text">
                 <input
                   type="text"
-                  id="lt-o1-slider-txt-4"
-                  name="lt-o1-slider-txt-4"
+                  id="st-o2-slider-txt-4"
+                  name="st-o2-slider-txt-4"
                   class="text-class"
                   placeholder="Explain the selection"
                 />
@@ -404,28 +490,28 @@
                 Pleasure:&ensp;<label>High</label>
                 <input
                   type="radio"
-                  name="lt-o1-radio-4"
-                  id="lt-o1-radio-7"
+                  name="st-o2-radio-4"
+                  id="st-o2-radio-7"
                   value="High"
-                  onclick="countHigh()"
+                  onclick="stCountHigh()"
                 />&emsp; <label>Low</label>
                 <input
                   type="radio"
-                  name="lt-o1-radio-4"
-                  id="lt-o1-radio-8"
+                  name="st-o2-radio-4"
+                  id="st-o2-radio-8"
                   value="Low"
-                  onclick="countLow()"
+                  onclick="stCountLow()"
                 />
               </h5>
             </div>
           </div>
-          <div class="row p-2" id="lt-o1-stakeholder-5">
+          <div class="row p-2" id="st-o2-stakeholder-5">
             <h4 class="pb-2">STAKEHOLDER-5</h4>
             <h5>
               <span
                 class="stakeholders-name"
-                id="stakeholders-name-5"
-                name="stakeholders-name-5"
+                id="st-stakeholders-name-5"
+                name="st-stakeholders-name-5"
                 >Stakeholder-5</span
               >
             </h5>
@@ -440,9 +526,9 @@
                     max="100"
                     value="15"
                     class="slider"
-                    id="lt-o1-slider-9"
-                    name="lt-o1-slider-9"
-                    onchange="getValue5()"
+                    id="st-o2-slider-5"
+                    name="st-o2-slider-5"
+                    onchange="stGetValue5()"
                   />
                   Pain
                 </h6>
@@ -452,8 +538,8 @@
               <div class="util-3-text">
                 <input
                   type="text"
-                  id="lt-o1-slider-txt-5"
-                  name="lt-o1-slider-txt-5"
+                  id="st-o2-slider-txt-5"
+                  name="st-o2-slider-txt-5"
                   class="text-class"
                   placeholder="Explain the selection"
                 />
@@ -462,28 +548,28 @@
                 Pleasure:&ensp;<label>High</label>
                 <input
                   type="radio"
-                  name="lt-o1-radio-5"
-                  id="lt-o1-radio-9"
+                  name="st-o2-radio-5"
+                  id="st-o2-radio-9"
                   value="High"
-                  onclick="countHigh()"
+                  onclick="stCountHigh()"
                 />&emsp; <label>Low</label>
                 <input
                   type="radio"
-                  name="lt-o1-radio-5"
-                  id="lt-o1-radio-10"
+                  name="st-o2-radio-5"
+                  id="st-o2-radio-10"
                   value="Low"
-                  onclick="countLow()"
+                  onclick="stCountLow()"
                 />
               </h5>
             </div>
           </div>
-          <div class="row p-2" id="lt-o1-stakeholder-6">
+          <div class="row p-2" id="st-o2-stakeholder-6">
             <h4 class="pb-2">STAKEHOLDER-6</h4>
             <h5>
               <span
                 class="stakeholders-name"
-                id="stakeholders-name-6"
-                name="stakeholders-name-6"
+                id="st-stakeholders-name-6"
+                name="st-stakeholders-name-6"
                 >Stakeholder-6</span
               >
             </h5>
@@ -498,9 +584,9 @@
                     max="100"
                     value="15"
                     class="slider"
-                    id="lt-o1-slider-10"
-                    name="lt-o1-slider-10"
-                    onchange="getValue6()"
+                    id="st-o2-slider-6"
+                    name="st-o2-slider-6"
+                    onchange="stGetValue6()"
                   />
                   Pain
                 </h6>
@@ -510,8 +596,8 @@
               <div class="util-3-text">
                 <input
                   type="text"
-                  id="lt-o1-slider-txt-6"
-                  name="lt-o1-slider-txt-6"
+                  id="st-o2-slider-txt-6"
+                  name="st-o2-slider-txt-6"
                   class="text-class"
                   placeholder="Explain the selection"
                 />
@@ -520,17 +606,370 @@
                 Pleasure:&ensp;<label>High</label>
                 <input
                   type="radio"
-                  name="lt-o1-radio-6"
-                  id="lt-o1-radio-11"
+                  name="st-o2-radio-6"
+                  id="st-o2-radio-11"
                   value="High"
-                  onclick="countHigh()"
+                  onclick="stCountHigh()"
                 />&emsp; <label>Low</label>
                 <input
                   type="radio"
-                  name="lt-o1-radio-6"
-                  id="lt-o1-radio-12"
+                  name="st-o2-radio-6"
+                  id="st-o2-radio-12"
                   value="Low"
-                  onclick="countLow()"
+                  onclick="stCountLow()"
+                />
+              </h5>
+            </div>
+          </div>
+          <hr style="color: black; height: 2px" />
+          <h4 class="p-2">
+            <b><center>Long-term consequences</center></b>
+          </h4>
+          <br />
+          <div class="row p-2" id="lt-o2-stakeholder-1">
+            <h4 class="p-2">STAKEHOLDER-1</h4>
+            <h5>
+              <span
+                class="stakeholders-name"
+                id="lt-stakeholders-name-1"
+                name="lt-stakeholders-name-1"
+                >The engineer asked to design the VW defeat...</span
+              >
+            </h5>
+
+            <div class="col-lg p-2">
+              <div class="border">
+                <h6 class="pt-2">
+                  Pleasure
+                  <input
+                    type="range"
+                    min="1"
+                    max="100"
+                    value="50"
+                    class="slider"
+                    id="lt-o2-slider-1"
+                    name="lt-o2-slider-1"
+                    onchange="ltGetValue()"
+                  />
+                  Pain
+                </h6>
+              </div>
+            </div>
+            <div class="col-lg p-2">
+              <div class="util-3-text">
+                <input
+                  type="text"
+                  id="lt-o2-slider-txt-1"
+                  name="lt-o2-slider-txt-1"
+                  class="text-class"
+                  placeholder="Explain the selection"
+                />
+              </div>
+              <h5 class="p-2">
+                Pleasure:&ensp;<label>High</label>
+                <input
+                  type="radio"
+                  name="lt-o2-radio-1"
+                  id="lt-o2-radio-1"
+                  value="High"
+                  onclick="ltCountHigh()"
+                />&emsp; <label>Low</label>
+                <input
+                  type="radio"
+                  name="lt-o2-radio-1"
+                  id="lt-o2-radio-2"
+                  value="Low"
+                  onclick="ltCountLow()"
+                />
+              </h5>
+            </div>
+          </div>
+          <div class="row p-2" id="lt-o2-stakeholder-2">
+            <h4 class="pb-2">STAKEHOLDER-2</h4>
+            <h5>
+              <span
+                class="stakeholders-name"
+                id="lt-stakeholders-name-2"
+                name="lt-stakeholders-name-2"
+                >The decision makers at VW who asked...</span
+              >
+            </h5>
+
+            <div class="col-lg p-2">
+              <div class="border">
+                <h6 class="pt-2">
+                  Pleasure
+                  <input
+                    type="range"
+                    min="1"
+                    max="100"
+                    value="30"
+                    class="slider"
+                    id="lt-o2-slider-2"
+                    name="lt-o2-slider-2"
+                    onchange="ltGetValue2()"
+                  />
+                  Pain
+                </h6>
+              </div>
+            </div>
+            <div class="col-lg p-2">
+              <div class="util-3-text">
+                <input
+                  type="text"
+                  id="lt-o2-slider-txt-2"
+                  name="lt-o2-slider-txt-2"
+                  class="text-class"
+                  placeholder="Explain the selection"
+                />
+              </div>
+              <h5 class="p-2">
+                Pleasure:&ensp;<label>High</label>
+                <input
+                  type="radio"
+                  name="lt-o2-radio-2"
+                  id="lt-o2-radio-3"
+                  value="High"
+                  onclick="ltCountHigh()"
+                />&emsp; <label>Low</label>
+                <input
+                  type="radio"
+                  name="lt-o2-radio-2"
+                  id="lt-o2-radio-4"
+                  value="Low"
+                  onclick="ltCountLow()"
+                />
+              </h5>
+            </div>
+          </div>
+          <div class="row p-2" id="lt-o2-stakeholder-3">
+            <h4 class="pb-2">STAKEHOLDER-3</h4>
+            <h5>
+              <span
+                class="stakeholders-name"
+                id="lt-stakeholders-name-3"
+                name="lt-stakeholders-name-3"
+                >Consumers...</span
+              >
+            </h5>
+
+            <div class="col-lg p-2">
+              <div class="border">
+                <h6 class="pt-2">
+                  Pleasure
+                  <input
+                    type="range"
+                    min="1"
+                    max="100"
+                    value="15"
+                    class="slider"
+                    id="lt-o2-slider-3"
+                    name="lt-o2-slider-3"
+                    onchange="ltGetValue3()"
+                  />
+                  Pain
+                </h6>
+              </div>
+            </div>
+            <div class="col-lg p-2">
+              <div class="util-3-text">
+                <input
+                  type="text"
+                  id="lt-o2-slider-txt-3"
+                  name="lt-o2-slider-txt-3"
+                  class="text-class"
+                  placeholder="Explain the selection"
+                />
+              </div>
+              <h5 class="p-2">
+                Pleasure:&ensp;<label>High</label>
+                <input
+                  type="radio"
+                  name="lt-o2-radio-3"
+                  id="lt-o2-radio-5"
+                  value="High"
+                  onclick="ltCountHigh()"
+                />&emsp; <label>Low</label>
+                <input
+                  type="radio"
+                  name="lt-o2-radio-3"
+                  id="lt-o2-radio-6"
+                  value="Low"
+                  onclick="ltCountLow()"
+                />
+              </h5>
+            </div>
+          </div>
+          <div class="row p-2" id="lt-o2-stakeholder-4">
+            <h4 class="pb-2">STAKEHOLDER-4</h4>
+            <h5>
+              <span
+                class="stakeholders-name"
+                id="lt-stakeholders-name-4"
+                name="lt-stakeholders-name-4"
+                >VW Owners/Shareholders...</span
+              >
+            </h5>
+
+            <div class="col-lg p-2">
+              <div class="border">
+                <h6 class="pt-2">
+                  Pleasure
+                  <input
+                    type="range"
+                    min="1"
+                    max="100"
+                    value="15"
+                    class="slider"
+                    id="lt-o2-slider-4"
+                    name="lt-o2-slider-4"
+                    onchange="ltGetValue4()"
+                  />
+                  Pain
+                </h6>
+              </div>
+            </div>
+            <div class="col-lg p-2">
+              <div class="util-3-text">
+                <input
+                  type="text"
+                  id="lt-o2-slider-txt-4"
+                  name="lt-o2-slider-txt-4"
+                  class="text-class"
+                  placeholder="Explain the selection"
+                />
+              </div>
+              <h5 class="p-2">
+                Pleasure:&ensp;<label>High</label>
+                <input
+                  type="radio"
+                  name="lt-o2-radio-4"
+                  id="lt-o2-radio-7"
+                  value="High"
+                  onclick="ltCountHigh()"
+                />&emsp; <label>Low</label>
+                <input
+                  type="radio"
+                  name="lt-o2-radio-4"
+                  id="lt-o2-radio-8"
+                  value="Low"
+                  onclick="ltCountLow()"
+                />
+              </h5>
+            </div>
+          </div>
+          <div class="row p-2" id="lt-o2-stakeholder-5">
+            <h4 class="pb-2">STAKEHOLDER-5</h4>
+            <h5>
+              <span
+                class="stakeholders-name"
+                id="lt-stakeholders-name-5"
+                name="lt-stakeholders-name-5"
+                >Stakeholder-5</span
+              >
+            </h5>
+
+            <div class="col-lg p-2">
+              <div class="border">
+                <h6 class="pt-2">
+                  Pleasure
+                  <input
+                    type="range"
+                    min="1"
+                    max="100"
+                    value="15"
+                    class="slider"
+                    id="l2-o2-slider-5"
+                    name="l2-o2-slider-5"
+                    onchange="ltGetValue5()"
+                  />
+                  Pain
+                </h6>
+              </div>
+            </div>
+            <div class="col-lg p-2">
+              <div class="util-3-text">
+                <input
+                  type="text"
+                  id="lt-o2-slider-txt-5"
+                  name="lt-o2-slider-txt-5"
+                  class="text-class"
+                  placeholder="Explain the selection"
+                />
+              </div>
+              <h5 class="p-2">
+                Pleasure:&ensp;<label>High</label>
+                <input
+                  type="radio"
+                  name="lt-o2-radio-5"
+                  id="lt-o2-radio-9"
+                  value="High"
+                  onclick="ltCountHigh()"
+                />&emsp; <label>Low</label>
+                <input
+                  type="radio"
+                  name="lt-o2-radio-5"
+                  id="lt-o2-radio-10"
+                  value="Low"
+                  onclick="ltCountLow()"
+                />
+              </h5>
+            </div>
+          </div>
+          <div class="row p-2" id="lt-o2-stakeholder-6">
+            <h4 class="pb-2">STAKEHOLDER-6</h4>
+            <h5>
+              <span
+                class="stakeholders-name"
+                id="lt-stakeholders-name-6"
+                name="lt-stakeholders-name-6"
+                >Stakeholder-6</span
+              >
+            </h5>
+
+            <div class="col-lg p-2">
+              <div class="border">
+                <h6 class="pt-2">
+                  Pleasure
+                  <input
+                    type="range"
+                    min="1"
+                    max="100"
+                    value="15"
+                    class="slider"
+                    id="l2-o2-slider-6"
+                    name="l2-o2-slider-6"
+                    onchange="ltGetValue6()"
+                  />
+                  Pain
+                </h6>
+              </div>
+            </div>
+            <div class="col-lg p-2">
+              <div class="util-3-text">
+                <input
+                  type="text"
+                  id="lt-o2-slider-txt-6"
+                  name="lt-o2-slider-txt-6"
+                  class="text-class"
+                  placeholder="Explain the selection"
+                />
+              </div>
+              <h5 class="p-2">
+                Pleasure:&ensp;<label>High</label>
+                <input
+                  type="radio"
+                  name="lt-o2-radio-6"
+                  id="lt-o2-radio-11"
+                  value="High"
+                  onclick="ltCountHigh()"
+                />&emsp; <label>Low</label>
+                <input
+                  type="radio"
+                  name="lt-o2-radio-6"
+                  id="lt-o2-radio-12"
+                  value="Low"
+                  onclick="ltCountLow()"
                 />
               </h5>
             </div>
@@ -556,8 +995,8 @@
                   max="100"
                   value="50"
                   class="slider"
-                  id="lt-o1-slider-5"
-                  name="lt-o1-slider-5"
+                  id="o1-st-agg-slider"
+                  name="o1-st-agg-slider"
                 />
                 Pain
               </h6>
@@ -572,8 +1011,8 @@
                   max="100"
                   value="50"
                   class="slider"
-                  id="lt-o1-slider-6"
-                  name="lt-o1-slider-6"
+                  id="o1-lt-agg-slider"
+                  name="o1-lt-agg-slider"
                 />
                 Pain
               </h6>
@@ -597,8 +1036,8 @@
                   max="100"
                   value="50"
                   class="slider"
-                  id="lt-o1-slider-7"
-                  name="lt-o1-slider-7"
+                  id="o2-st-agg-slider"
+                  name="o2-st-agg-slider"
                 />
                 Pain
               </h6>
@@ -613,8 +1052,8 @@
                   max="100"
                   value="50"
                   class="slider"
-                  id="lt-o1-slider-8"
-                  name="lt-o1-slider-8"
+                  id="o2-lt-agg-slider"
+                  name="o2-lt-agg-slider"
                 />
                 Pain
               </h6>
@@ -624,10 +1063,10 @@
           <div class="row justify-content-center">
             <input
               type="submit"
-              id="lt-o1-submit"
-              name="lt-o1-submit"
+              id="st-o2-submit"
+              name="st-o2-submit"
               class="stakeholders-btn"
-              onclick="valueSenderRadioButtonHigh();valueSenderRadioButtonLow();valueSender(); valueSender2()"
+              onclick="stValueSenderRadioButtonHigh();stValueSenderRadioButtonLow();ltValueSenderRadioButtonHigh();ltValueSenderRadioButtonLow();valueSender()"
             />
           </div>
         </div>
@@ -661,12 +1100,7 @@
         <li class="page-item">
           <a class="page-link" href="utilitarianism-5.html">5</a>
         </li>
-        <li class="page-item">
-          <a class="page-link" href="utilitarianism-6.html">6</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="utilitarianism-7.html">7</a>
-        </li>
+
         <li class="page-item">
           <a class="page-link" href="utilitarianism-5.html" aria-label="Next">
             <span aria-hidden="true">&raquo;</span>
