@@ -38,7 +38,12 @@
               counter +
               "id = stakeholder-" +
               counter +
-              "cols=10 rows=7 placeholder='Enter the Stakeholder here'></textarea></div></div>"
+              "cols=10 rows=7 placeholder='Enter the Stakeholder here'></textarea></div></div>" +
+              "<label for='stakeholder" +
+              counter +
+              "' class='form-label'>Importance</label><input type='range' class='form-range' id='stakeholder" +
+              counter +
+              "' />"
           );
 
           if (counter > 5) {
@@ -102,6 +107,8 @@
               ></textarea>
             </div>
           </div>
+          <label for="stakeholder1" class="form-label">Importance:</label>
+          <input type="range" class="form-range" id="stakeholder1" />
 
           <div class="row p-2">
             <div class="col-lg p-2">
@@ -115,6 +122,8 @@
               ></textarea>
             </div>
           </div>
+          <label for="stakeholder2" class="form-label">Importance:</label>
+          <input type="range" class="form-range" id="stakeholder2" />
 
           <div class="row p-2">
             <div class="col-lg p-2">
@@ -128,7 +137,8 @@
               ></textarea>
             </div>
           </div>
-
+          <label for="stakeholder3" class="form-label">Importance:</label>
+          <input type="range" class="form-range" id="stakeholder3" />
           <br />
           <div id="textboxDiv"></div>
           <div class="btns">
