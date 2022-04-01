@@ -1,16 +1,10 @@
 <?php
+error_reporting(-1);
+ini_set('display_errors', 'On');
 session_start();
 
-//$DATABASE_HOST = '69.172.204.200';
-//$DATABASE_USER = 'rwalker';
-//$DATABASE_PASS = 'weN2021account';
-//$DATABASE_NAME = 'rwalker_Ethics_Dashboard_OC_224';
-
-$DATABASE_HOST = '69.172.204.200';
-$DATABASE_USER = 'herrycoo_yhu';
-$DATABASE_PASS = 'hY592836711@';
-$DATABASE_NAME = 'herrycoo_Ethic_Dashboard';
-
+//msqli server connection file
+require_once "config.php";
 
 class iimysqli_result
 {
@@ -98,29 +92,34 @@ $password = filter_input(INPUT_POST, 'password');
 $hash = password_hash($password, PASSWORD_DEFAULT);
 
 
+
 //prepared statement for select
+$login_sql = $db_connection->prepare("SELECT email FROM students WHERE email=?");
+$login_sql->bind_param("s", $email);
+$login_sql->execute();
+$login_sql->bind_result($email);
+$login_result = $login_sql->fetch();
 
-$query = mysqli_query($db_connection, "SELECT email FROM `students` WHERE (email='" . $email . "'");
+if($login_result){
 
-//bad
-if (mysqli_num_rows($query) > 0) {
-  //if ($result->num_rows > 0) {
-
-  //header("Location: applyaccount.php");
+  //header("Location: https://https://herrycooly.com/EBoard/Login/login.html");
+  header("Location: add_account.php");
   echo '<script>alert("User Account Already Exists")</script>';
+
+}else{
+  $login_sql->close();
+
   //$stmt_check->close();
 
-} else if (isset($_POST['submit'])) {
-  //$stmt_check->close();
-
-  $stmt_check = $db_connection->prepare("INSERT INTO user_accounts (f_name, l_name, email, password) VALUES(?,?,?,?)");
-  $stmt_check->bind_param("sssi", $f_name, $l_name, $email, $password);
+  $stmt_check = $db_connection->prepare("INSERT INTO students (f_name, l_name, email, password) VALUES(?,?,?,?)");
+  $stmt_check->bind_param("ssss", $f_name, $l_name, $email, $hash);
   $stmt_check->execute();
 
-  echo '<script language="javascript">alert("New User Account Created, Please Log In")</script>';
+  //echo '<script language="javascript">alert("New User Account Created, Please Log In")</script>';
 
   $stmt_check->close();
 
-  header("Location: https://https://herrycooly.com/EBoard/Login/login.html");
+  //header("Location: https://https://herrycooly.com/EBoard/Login/login.html");
+  header("Location: login.html");
 }
 ?>
