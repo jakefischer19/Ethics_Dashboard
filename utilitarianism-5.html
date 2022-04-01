@@ -29,6 +29,22 @@
         l = 0,
         m = 0;
       $(document).ready(function () {
+        document.getElementById("agg-st-o1-slider").disabled = true;
+        document.getElementById("agg-st-o1-slider").style.background = "grey";
+        document.getElementById("short-term-1").style.color = "grey";
+
+        document.getElementById("agg-st-o2-slider").disabled = true;
+        document.getElementById("agg-st-o2-slider").style.background = "grey";
+        document.getElementById("short-term-2").style.color = "grey";
+
+        document.getElementById("agg-lt-o1-slider").disabled = true;
+        document.getElementById("agg-lt-o1-slider").style.background = "grey";
+        document.getElementById("long-term-1").style.color = "grey";
+
+        document.getElementById("agg-lt-o2-slider").disabled = true;
+        document.getElementById("agg-lt-o2-slider").style.background = "grey";
+        document.getElementById("long-term-2").style.color = "grey";
+
         b = localStorage.getItem("myValue");
         c = localStorage.getItem("myValue2");
         d = localStorage.getItem("myValue3");
@@ -78,8 +94,6 @@
         localStorage.setItem("myValueHighRadioButton-LT-2", resetValue);
         localStorage.setItem("myValueLowRadioButton-LT-2", resetValue);
 
-        document.getElementById("course-of-action-3").style.color = "black";
-
         $(".dropdown").hover(function () {
           var dropdownMenu = $(this).children(".dropdown-menu");
           if (dropdownMenu.is(":visible")) {
@@ -127,7 +141,7 @@
             </h4>
             <div class="col-lg p-2">
               <div class="border">
-                <h6 class="pt-2">
+                <h6 class="pt-2" id="short-term-1">
                   Pleasure
                   <input
                     type="range"
@@ -162,7 +176,7 @@
             </h4>
             <div class="col-lg p-2">
               <div class="border">
-                <h6 class="pt-2">
+                <h6 class="pt-2" id="long-term-1">
                   Pleasure
                   <input
                     type="range"
@@ -202,7 +216,7 @@
             </h4>
             <div class="col-lg p-2">
               <div class="border">
-                <h6 class="pt-2">
+                <h6 class="pt-2" id="short-term-2">
                   Pleasure
                   <input
                     type="range"
@@ -237,7 +251,7 @@
             </h4>
             <div class="col-lg p-2">
               <div class="border">
-                <h6 class="pt-2">
+                <h6 class="pt-2" id="long-term-2">
                   Pleasure
                   <input
                     type="range"
@@ -271,43 +285,33 @@
           <div class="row p-2">
             <div class="col-lg p-2">
               <center>
-                <h4 class="p-2">ETHICAL DECISION / COURSE OF ACTION</h4>
+                <h4 class="p-2">
+                  ENTER THE CORRECT ETHICAL DECISION / COURSE OF ACTION
+                </h4>
               </center>
             </div>
-          </div>
-          <div class="row p-2">
+
             <h5 class="p-2">
-              <center>
-                <span
-                  class="course-of-action"
-                  name="course-of-action-1"
-                  id="course-of-action-1"
-                  >Although Option 1 produces pleasures in the short-term , they
-                  are lower pleasures.
-                </span>
-              </center>
-              <br />
-              <center>
-                <span
-                  class="course-of-action"
-                  name="course-of-action-2"
-                  id="course-of-action-2"
-                  >Option 2 results in less overall pain and higher pleasures to
-                  the stakeholders most impacted by the issue.</span
-                >
-              </center>
-              <br />
-              <center>
-                <span
-                  class="course-of-action"
-                  name="course-of-action-3"
-                  id="course-of-action-3"
-                  >Option 2 will produce the greatest happiness and is therefore
-                  the right option.</span
-                >
-              </center>
-              <br />
+              <textarea
+                name="course-of-action-txt"
+                id="course-of-action-txt"
+                cols="10"
+                rows="7"
+                placeholder="Although Option 1 produces pleasures in the short-term , they are lower pleasures.
+
+Option 2 results in less overall pain and higher pleasures to the stakeholders most impacted by the issue.
+
+Option 2 will produce the greatest happiness and is therefore the right option."
+              ></textarea>
             </h5>
+            <div class="row justify-content-center">
+              <input
+                type="submit"
+                name="agg-submit"
+                id="agg-submit"
+                class="stakeholders-btn"
+              />
+            </div>
           </div>
         </div>
       </div>

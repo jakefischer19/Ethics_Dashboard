@@ -31,7 +31,7 @@
         if (el.value === "Add another option") {
           el.value = "Remove option";
           document.getElementById("field_div").innerHTML =
-            "<br><h3 class='pb-2'>Option 3</h3><span class='border'><textarea rows='1'name='util_option1'placeholder='Enter your option here'oninput='this.style.height = '';this.style.height = this.scrollHeight + 3 + 'px''></textarea></span><textarea name='util_option1_response'id='util_option1_response'cols='30'rows='15'placeholder='Please analyse short term and long term consequences''></textarea>";
+            "<br><h4 class='pb-2'>Option 3</h4><span class='border'><textarea rows='1' name='util_option3' id='util_option3' placeholder='Enter your option here' oninput='this.style.height = '';this.style.height = this.scrollHeight + 3 + 'px''></textarea></span><textarea name='util_option3_response'id='util_option3_response'cols='10'rows='7'placeholder='Please analyse short term and long term consequences''></textarea>";
         } else {
           document.getElementById("field_div").innerHTML = "";
           el.value = "Add another option";
@@ -55,12 +55,12 @@
         <div class="col-lg">
           <div class="card">
             <div class="card-body">
-              <h3 class="pb-2">
+              <h5 class="pb-2">
                 Utilitarianism is a consequentialist theory - meaning that the
                 moral worth of an action is determined by the consequences of
                 the action. The first step is to consider the consequences, both
                 short-term and long-term, for the options you've identified.
-              </h3>
+              </h5>
             </div>
           </div>
         </div>
@@ -69,44 +69,56 @@
         <div class="col-lg">
           <div class="card">
             <div class="card-body">
-              <h3 class="pb-2">Option 1</h3>
-              <!-- Text area should stretch to text -->
-              <span class="border">
-                <textarea
-                  rows="1"
-                  name="util_option1"
-                  placeholder="I can put loyalty to the company....."
-                  oninput='this.style.height = "";this.style.height = this.scrollHeight + 3 + "px"'
-                ></textarea>
-              </span>
-              <textarea
-                name="util_option1_response"
-                id="util_option1_response"
-                cols="30"
-                rows="15"
-                placeholder="Short term – personal guilt but I keep my job – the consumers are betrayed – the environment is damaged
-Long term - If the device is discovered I will likely lose my job and possibly my career – VW’s reputation, and business, will be damaged"
-              ></textarea>
+              <div class="row p-2">
+                <div class="col-lg p-2">
+                  <h4 class="pb-2">Option 1</h4>
+                  <!-- Text area should stretch to text -->
+                  <span class="border">
+                    <textarea
+                      rows="1"
+                      name="util_option1"
+                      id="util_option1"
+                      placeholder="I can put loyalty to the company....."
+                      oninput='this.style.height = "";this.style.height = this.scrollHeight + 3 + "px"'
+                    ></textarea>
+                  </span>
+                  <textarea
+                    name="util_option1_response"
+                    id="util_option1_response"
+                    cols="10"
+                    rows="7"
+                    placeholder="Short term – personal guilt but I keep my job – the consumers are betrayed – the environment is damaged
 
-              <br /><br />
-              <h3 class="pb-2">Option 2</h3>
-              <!-- Text area should stretch to text -->
-              <span class="border">
-                <textarea
-                  rows="1"
-                  placeholder="I can betray the company, go to the press....."
-                  name="util_option2"
-                  oninput='this.style.height = "";this.style.height = this.scrollHeight + 3'
-                ></textarea>
-              </span>
-              <textarea
-                name="util_option2_response"
-                id="util_option2_response"
-                cols="30"
-                rows="15"
-                placeholder="Short term – I will have done the right thing, but I will likely lose my job and possibly my career. The device will not be built and that will have a negative impact on VW’s ability to produce certain types of vehicles. 
+Long term - If the device is discovered I will likely lose my job and possibly my career – VW’s reputation, and business, will be damaged"
+                  ></textarea>
+                </div>
+              </div>
+              <br />
+              <div class="row p-2">
+                <div class="col-lg p-2">
+                  <h4 class="pb-2">Option 2</h4>
+                  <!-- Text area should stretch to text -->
+                  <span class="border">
+                    <textarea
+                      rows="1"
+                      placeholder="I can betray the company, go to the press....."
+                      name="util_option2"
+                      id="util_option2"
+                      oninput='this.style.height = "";this.style.height = this.scrollHeight + 3'
+                    ></textarea>
+                  </span>
+                  <textarea
+                    name="util_option2_response"
+                    id="util_option2_response"
+                    cols="10"
+                    rows="7"
+                    placeholder="Short term – I will have done the right thing, but I will likely lose my job and possibly my career. The device will not be built and that will have a negative impact on VW’s ability to produce certain types of vehicles.
+                     
 Long term – I will feel good knowing that I did the right thing – consumers will not be betrayed – the environment is protected"
-              ></textarea>
+                  ></textarea>
+                </div>
+              </div>
+
               <div id="field_div"></div>
               <br />
 

@@ -38,12 +38,14 @@
               counter +
               "id = stakeholder-" +
               counter +
-              "cols=10 rows=7 placeholder='Enter the Stakeholder here'></textarea></div></div>" +
+
+              "cols=10 rows=7 placeholder='Enter the Stakeholder here' class='stakeholder-input'></textarea></div></div>" +
               "<label for='stakeholder" +
               counter +
-              "' class='form-label'>Importance</label><input type='range' class='form-range' id='stakeholder" +
+              "' class='form-label stakeholder-input'>Importance:</label><input type='range' class='form-range' id='stakeholder" +
               counter +
-              "' />"
+              "' /><br><br>" 
+
           );
 
           if (counter > 5) {
@@ -86,13 +88,13 @@
       <div class="card">
         <div class="card-body">
           <p style="font-size: 18px">
-            <b>
+           <h5 class="pb-2">
               Stakeholders are persons or groups that will be impacted by the
               decision/action taken. List the stakeholders and what they want in
               the simplest terms – wealth, social status, etc. Note: It’s good
               to start with the decision-maker as the first stakeholder and then
               work out from there.
-            </b>
+           </h5>
           </p>
           <hr />
           <div class="row p-2">
@@ -104,11 +106,16 @@
                 cols="10"
                 rows="7"
                 placeholder="The engineer asked to design the VW defeat device."
+                class="stakeholder-input"
               ></textarea>
             </div>
           </div>
-          <label for="stakeholder1" class="form-label">Importance:</label>
+
+          <label for="stakeholder1" class="form-label stakeholder-input">Importance:</label>
           <input type="range" class="form-range" id="stakeholder1" />
+          <br><br>
+
+
 
           <div class="row p-2">
             <div class="col-lg p-2">
@@ -119,12 +126,16 @@
                 cols="10"
                 rows="7"
                 placeholder="The decision makers at VW who asked the engineer to create the device"
+                class="stakeholder-input"
               ></textarea>
             </div>
           </div>
-          <label for="stakeholder2" class="form-label">Importance:</label>
+
+          <label for="stakeholder2" class="form-label stakeholder-input">Importance:</label>
+
           <input type="range" class="form-range" id="stakeholder2" />
 
+       <br><br>
           <div class="row p-2">
             <div class="col-lg p-2">
               <h4 class="pb-2">STAKEHOLDER 3</h4>
@@ -134,12 +145,15 @@
                 cols="10"
                 rows="7"
                 placeholder="Consumers - vehicle buyers"
-              ></textarea>
+                class="stakeholder-input"
+              ></textarea>        
             </div>
           </div>
-          <label for="stakeholder3" class="form-label">Importance:</label>
+
+          <label for="stakeholder3" class="form-label stakeholder-input">Importance:</label>
           <input type="range" class="form-range" id="stakeholder3" />
-          <br />
+          <br><br>
+  
           <div id="textboxDiv"></div>
           <div class="btns">
             <button id="Add" class="stakeholders-btn ms-1">
