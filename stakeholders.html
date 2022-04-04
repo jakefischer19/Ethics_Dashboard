@@ -14,6 +14,9 @@
     <script src="//code.jquery.com/jquery.min.js"></script>
 
     <script>
+      function nextPage() {
+        window.location.href = "/utilitarianism.html";
+      }
       var hook = true;
       window.onbeforeunload = function () {
         if (hook) {
@@ -181,6 +184,9 @@
               onclick="unhook()"
             >
               Submit
+            </button>
+            <button class="stakeholders-btn ms-2 mt-3" onclick="nextPage()">
+              Go to utilitarianism
             </button>
           </div>
         </div>
