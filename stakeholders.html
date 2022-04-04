@@ -14,6 +14,15 @@
     <script src="//code.jquery.com/jquery.min.js"></script>
 
     <script>
+      var hook = true;
+      window.onbeforeunload = function () {
+        if (hook) {
+          return "Did you save your stuff?";
+        }
+      };
+      function unhook() {
+        hook = false;
+      }
       var counter = 3;
       $(document).ready(function () {
         document.getElementById("Remove").disabled = true;
