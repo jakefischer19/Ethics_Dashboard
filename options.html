@@ -13,6 +13,9 @@
     <title>Ethics Dashboard</title>
     <script src="//code.jquery.com/jquery.min.js"></script>
     <script>
+      function goBack(){
+        window.location.href="/dashboard.html"
+      }
       function add_field(el) {
         var total_text = document.getElementsByClassName("input_text");
         if (el.value === "Add another option") {
@@ -115,17 +118,25 @@
                 <input
                   type="submit"
                   value="Submit"
-                  class="options-btn ms-3"
+                  class="options-btn ms-1"
                   onclick="unhook()"
                 />
+                <input
+                  type="button"
+                  value="Go back"
+                  onclick="goBack();"
+                  class="options-btn ms-1"
+                />
+                
               </div>
               
               </div>
             </div>
-            <div class="col-lg p-2"><a href="/dashboard.html" class="btn btn-secondary justify-content-end">Go back</a></div>
+            
             
           </div>
         </div>
+        
       </div>
     </div>
 
