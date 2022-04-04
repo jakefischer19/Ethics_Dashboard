@@ -25,9 +25,7 @@
       function unhook() {
         hook = false;
       }
-      function nextPage() {
-        window.location.href = "utilitarianism-3.html";
-      }
+
       $(".dropdown").hover(function () {
         var dropdownMenu = $(this).children(".dropdown-menu");
         if (dropdownMenu.is(":visible")) {
@@ -163,7 +161,7 @@
               id="util-2-submit"
               name="util-2-submit"
               class="stakeholders-btn ms-2 mt-3"
-              onclick="nextPage()"
+              onclick="unhook()"
             />
           </div>
         </div>
