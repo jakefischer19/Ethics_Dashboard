@@ -33,13 +33,21 @@
         });
 
         var hook = true;
+        var hook2 = true;
+        var hook3 = true;
         window.onbeforeunload = function () {
-          if (hook) {
+          if (hook && hook2 && hook3) {
             return "Did you save your stuff?";
           }
         };
         function unhook() {
           hook = false;
+        }
+        function unhook2() {
+          hook2 = false;
+        }
+        function unhook3() {
+          hook3 = false;
         }
       </script>
     </div>
@@ -57,7 +65,12 @@
                 rows="12"
                 placeholder="Briefly describe the key, features of the case—the who, what, where, when and why."
               ></textarea>
-              <button class="btn btn-dark justify-content-end">Save</button>
+              <button
+                class="btn btn-dark justify-content-end"
+                onClick="unhook()"
+              >
+                Save
+              </button>
             </div>
           </div>
         </div>
@@ -72,7 +85,12 @@
                 rows="12"
                 placeholder="Put yourself in the position of a key decision maker in the case."
               ></textarea>
-              <button class="btn btn-dark justify-content-end">Save</button>
+              <button
+                class="btn btn-dark justify-content-end"
+                onClick="unhook2()"
+              >
+                Save
+              </button>
             </div>
           </div>
         </div>
@@ -89,7 +107,12 @@
                 rows="13"
                 placeholder="What are the ethical dilemmas you are facing? Describe the dilemmas in ethical terms, eg. Honesty, deception, loyalty, betrayal, beneficence, malfeasance, autonmy, paternalism, confidentiality, transparency, integrity, etc..."
               ></textarea>
-              <button class="btn btn-dark justify-content-end">Save</button>
+              <button
+                class="btn btn-dark justify-content-end"
+                onClick="unhook3()"
+              >
+                Save
+              </button>
             </div>
           </div>
         </div>
