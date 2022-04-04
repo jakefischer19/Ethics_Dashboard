@@ -16,6 +16,15 @@
     <title>Ethics Dashboard</title>
 
     <script>
+      var hook = true;
+      window.onbeforeunload = function () {
+        if (hook) {
+          return "Did you save your stuff?";
+        }
+      };
+      function unhook() {
+        hook = false;
+      }
       function nextPage() {
         window.location.href = "utilitarianism-3.html";
       }
