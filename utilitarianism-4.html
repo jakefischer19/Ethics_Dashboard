@@ -17,15 +17,54 @@
 
     <script>
       var b, c;
+      var op2 = "";
+      var st1,
+        st2,
+        st3,
+        st4,
+        st5,
+        st6,
+        counter,
+        opt_counter = "";
       $(document).ready(function () {
+        op2 = localStorage.getItem("title2");
+        document.getElementById("title-span").textContent = op2;
+
         b = localStorage.getItem("myValue");
         c = localStorage.getItem("myValue2");
+
         document.getElementById("o1-st-agg-slider").value = b;
         document.getElementById("o1-lt-agg-slider").value = c;
 
+        st1 = localStorage.getItem("stake-1-value");
+        st2 = localStorage.getItem("stake-2-value");
+        st3 = localStorage.getItem("stake-3-value");
+        st4 = localStorage.getItem("stake-4-value");
+        st5 = localStorage.getItem("stake-5-value");
+        st6 = localStorage.getItem("stake-6-value");
+        counter = localStorage.getItem("counter-val");
+        opt_counter = localStorage.getItem("opt_counter");
+
+        document.getElementById("st-stakeholders-name-1").textContent = st1;
+        document.getElementById("st-stakeholders-name-2").textContent = st2;
+        document.getElementById("st-stakeholders-name-3").textContent = st3;
+        document.getElementById("st-stakeholders-name-4").textContent = st4;
+        document.getElementById("st-stakeholders-name-5").textContent = st5;
+        document.getElementById("st-stakeholders-name-6").textContent = st6;
+
+        document.getElementById("lt-stakeholders-name-1").textContent = st1;
+        document.getElementById("lt-stakeholders-name-2").textContent = st2;
+        document.getElementById("lt-stakeholders-name-3").textContent = st3;
+        document.getElementById("lt-stakeholders-name-4").textContent = st4;
+        document.getElementById("lt-stakeholders-name-5").textContent = st5;
+        document.getElementById("lt-stakeholders-name-6").textContent = st6;
+
         var resetValue = 0;
+        var resetValue2 = "OPTION 2";
+
         localStorage.setItem("myValue", resetValue);
         localStorage.setItem("myValue2", resetValue);
+        localStorage.setItem("title2", resetValue2);
 
         //o1-st-agg-slider is the slider for Aggregation of short-term outcomes for option 1
         document.getElementById("o1-st-agg-slider").disabled = true;
@@ -39,14 +78,43 @@
         //o2-lt-agg-slider is the slider for Aggregation of long-term outcomes for option 2
         document.getElementById("o2-lt-agg-slider").disabled = true;
 
+        document.getElementById("o3-st-agg-slider").disabled = true;
+        document.getElementById("o3-st-agg-slider").style.background = "grey";
+        document.getElementById("short-term-3").style.color = "grey";
+        document.getElementById("short-term-slider-3").style.color = "grey";
+
+        document.getElementById("o3-lt-agg-slider").disabled = true;
+        document.getElementById("o3-lt-agg-slider").style.background = "grey";
+        document.getElementById("long-term-3").style.color = "grey";
+        document.getElementById("long-term-slider-3").style.color = "grey";
+        document.getElementById("option-3").style.color = "grey";
         // Hiding the sliders for st-o2-stakeholder-4 , st-o2-stakeholder-5 and st-o2-stakeholder-6 initially
         //If st-o2-stakeholder-4 ,st-o2-stakeholder-5 and st-o2-stakeholder-6 value is present in database , need to change the value of the two slider displays to != "none";
-        document.getElementById("st-o2-stakeholder-4").style.display = "none";
-        document.getElementById("st-o2-stakeholder-5").style.display = "none";
-        document.getElementById("st-o2-stakeholder-6").style.display = "none";
-        document.getElementById("lt-o2-stakeholder-4").style.display = "none";
-        document.getElementById("lt-o2-stakeholder-5").style.display = "none";
-        document.getElementById("lt-o2-stakeholder-6").style.display = "none";
+        if (counter <= 3) {
+          document.getElementById("st-o2-stakeholder-4").style.display = "none";
+          document.getElementById("st-o2-stakeholder-5").style.display = "none";
+          document.getElementById("st-o2-stakeholder-6").style.display = "none";
+
+          document.getElementById("lt-o2-stakeholder-4").style.display = "none";
+          document.getElementById("lt-o2-stakeholder-5").style.display = "none";
+          document.getElementById("lt-o2-stakeholder-6").style.display = "none";
+        } else if (counter == 4) {
+          document.getElementById("st-o2-stakeholder-5").style.display = "none";
+          document.getElementById("st-o2-stakeholder-6").style.display = "none";
+
+          document.getElementById("lt-o2-stakeholder-5").style.display = "none";
+          document.getElementById("lt-o2-stakeholder-6").style.display = "none";
+        } else if (counter == 5) {
+          document.getElementById("st-o2-stakeholder-6").style.display = "none";
+
+          document.getElementById("lt-o2-stakeholder-6").style.display = "none";
+        }
+
+        if (opt_counter < 3) {
+          document.getElementById("agg-option-3").style.display = "none";
+          document.getElementById("agg-option-3-sliders").style.display =
+            "none";
+        }
 
         $(".dropdown").hover(function () {
           var dropdownMenu = $(this).children(".dropdown-menu");
@@ -165,17 +233,31 @@
       }
 
       function valueSender() {
-        send = b;
-        send2 = c;
-        send3 = stAvg;
-        send4 = ltAvg;
+        if (opt_counter < 3) {
+          send = b;
+          send2 = c;
+          send3 = stAvg;
+          send4 = ltAvg;
 
-        localStorage.setItem("myValue", send);
-        localStorage.setItem("myValue2", send2);
-        localStorage.setItem("myValue3", send3);
-        localStorage.setItem("myValue4", send4);
+          localStorage.setItem("myValue", send);
+          localStorage.setItem("myValue2", send2);
+          localStorage.setItem("myValue3", send3);
+          localStorage.setItem("myValue4", send4);
 
-        window.location.href = "utilitarianism-5.html";
+          window.location.href = "utilitarianism-5.html";
+        } else {
+          send = b;
+          send2 = c;
+          send3 = stAvg;
+          send4 = ltAvg;
+
+          localStorage.setItem("myValue", send);
+          localStorage.setItem("myValue2", send2);
+          localStorage.setItem("myValue3", send3);
+          localStorage.setItem("myValue4", send4);
+
+          window.location.href = "utilitarianism-3rd-option.html";
+        }
       }
 
       function stCountHigh() {
@@ -292,7 +374,7 @@
                     type="range"
                     min="1"
                     max="100"
-                    value="50"
+                    value="0"
                     class="slider"
                     id="st-o2-slider-1"
                     name="st-o2-slider-1"
@@ -350,7 +432,7 @@
                     type="range"
                     min="1"
                     max="100"
-                    value="30"
+                    value="0"
                     class="slider"
                     id="st-o2-slider-2"
                     name="st-o2-slider-2"
@@ -408,7 +490,7 @@
                     type="range"
                     min="1"
                     max="100"
-                    value="15"
+                    value="0"
                     class="slider"
                     id="st-o2-slider-3"
                     name="st-o2-slider-3"
@@ -466,7 +548,7 @@
                     type="range"
                     min="1"
                     max="100"
-                    value="15"
+                    value="0"
                     class="slider"
                     id="st-o2-slider-4"
                     name="st-o2-slider-4"
@@ -524,7 +606,7 @@
                     type="range"
                     min="1"
                     max="100"
-                    value="15"
+                    value="0"
                     class="slider"
                     id="st-o2-slider-5"
                     name="st-o2-slider-5"
@@ -582,7 +664,7 @@
                     type="range"
                     min="1"
                     max="100"
-                    value="15"
+                    value="0"
                     class="slider"
                     id="st-o2-slider-6"
                     name="st-o2-slider-6"
@@ -645,7 +727,7 @@
                     type="range"
                     min="1"
                     max="100"
-                    value="50"
+                    value="0"
                     class="slider"
                     id="lt-o2-slider-1"
                     name="lt-o2-slider-1"
@@ -703,7 +785,7 @@
                     type="range"
                     min="1"
                     max="100"
-                    value="30"
+                    value="0"
                     class="slider"
                     id="lt-o2-slider-2"
                     name="lt-o2-slider-2"
@@ -761,7 +843,7 @@
                     type="range"
                     min="1"
                     max="100"
-                    value="15"
+                    value="0"
                     class="slider"
                     id="lt-o2-slider-3"
                     name="lt-o2-slider-3"
@@ -819,7 +901,7 @@
                     type="range"
                     min="1"
                     max="100"
-                    value="15"
+                    value="0"
                     class="slider"
                     id="lt-o2-slider-4"
                     name="lt-o2-slider-4"
@@ -877,10 +959,10 @@
                     type="range"
                     min="1"
                     max="100"
-                    value="15"
+                    value="0"
                     class="slider"
-                    id="l2-o2-slider-5"
-                    name="l2-o2-slider-5"
+                    id="lt-o2-slider-5"
+                    name="lt-o2-slider-5"
                     onchange="ltGetValue5()"
                   />
                   Pain
@@ -935,10 +1017,10 @@
                     type="range"
                     min="1"
                     max="100"
-                    value="15"
+                    value="0"
                     class="slider"
-                    id="l2-o2-slider-6"
-                    name="l2-o2-slider-6"
+                    id="lt-o2-slider-6"
+                    name="lt-o2-slider-6"
                     onchange="ltGetValue6()"
                   />
                   Pain
@@ -978,22 +1060,20 @@
           <div class="row p-2">
             <div class="col-lg p-2">
               <center>
-                <h4 class="p-2">OPTION 1</h4>
+                <h4 class="p-2">OPTION 1 AGGREGATE</h4>
               </center>
             </div>
           </div>
           <div class="row p-2">
             <div class="col-lg p-2">
-              <h5 class="p-2" id="short-term">
-                Aggregate of short-term outcomes:
-              </h5>
+              <h5 class="p-2" id="short-term">Short-term Outcomes:</h5>
               <h6 class="pt-2" id="short-term-slider">
                 Pleasure
                 <input
                   type="range"
                   min="1"
                   max="100"
-                  value="50"
+                  value="0"
                   class="slider"
                   id="o1-st-agg-slider"
                   name="o1-st-agg-slider"
@@ -1009,7 +1089,7 @@
                   type="range"
                   min="1"
                   max="100"
-                  value="50"
+                  value="0"
                   class="slider"
                   id="o1-lt-agg-slider"
                   name="o1-lt-agg-slider"
@@ -1021,7 +1101,7 @@
           <div class="row p-2">
             <div class="col-lg p-2">
               <center>
-                <h4 class="p-2" id="option-2">OPTION 2</h4>
+                <h4 class="p-2" id="option-2">OPTION 2 AGGREGATE</h4>
               </center>
             </div>
           </div>
@@ -1034,7 +1114,7 @@
                   type="range"
                   min="1"
                   max="100"
-                  value="50"
+                  value="0"
                   class="slider"
                   id="o2-st-agg-slider"
                   name="o2-st-agg-slider"
@@ -1050,10 +1130,51 @@
                   type="range"
                   min="1"
                   max="100"
-                  value="50"
+                  value="0"
                   class="slider"
                   id="o2-lt-agg-slider"
                   name="o2-lt-agg-slider"
+                />
+                Pain
+              </h6>
+            </div>
+          </div>
+          <div class="row p-2" id="agg-option-3">
+            <div class="col-lg p-2">
+              <center>
+                <h4 class="p-2" id="option-3">OPTION 3 AGGREGATE</h4>
+              </center>
+            </div>
+          </div>
+          <div class="row p-2" id="agg-option-3-sliders">
+            <div class="col-lg p-2">
+              <h5 class="p-2" id="short-term-3">Short-term outcomes:</h5>
+              <h6 class="pt-2" id="short-term-slider-3">
+                Pleasure
+                <input
+                  type="range"
+                  min="1"
+                  max="100"
+                  value="0"
+                  class="slider"
+                  id="o3-st-agg-slider"
+                  name="o3-st-agg-slider"
+                />
+                Pain
+              </h6>
+            </div>
+            <div class="col-lg p-2">
+              <h5 class="p-2" id="long-term-3">Long-term Outcomes:</h5>
+              <h6 class="pt-2" id="long-term-slider-3">
+                Pleasure
+                <input
+                  type="range"
+                  min="1"
+                  max="100"
+                  value="0"
+                  class="slider"
+                  id="o3-lt-agg-slider"
+                  name="o3-lt-agg-slider"
                 />
                 Pain
               </h6>
