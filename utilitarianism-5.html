@@ -27,7 +27,15 @@
         j = 0,
         k = 0,
         l = 0,
-        m = 0;
+        m = 0,
+        opt_3_st_slider = 0,
+        opt_3_lt_slider = 0,
+        opt_3_st_high_radio = 0,
+        opt_3_st_low_radio = 0,
+        opt_3_lt_high_radio = 0,
+        opt_3_lt_low_radio = 0,
+        opt_counter = 0;
+
       $(document).ready(function () {
         document.getElementById("agg-st-o1-slider").disabled = true;
         document.getElementById("agg-st-o1-slider").style.background = "grey";
@@ -37,6 +45,10 @@
         document.getElementById("agg-st-o2-slider").style.background = "grey";
         document.getElementById("short-term-2").style.color = "grey";
 
+        document.getElementById("agg-st-o3-slider").disabled = true;
+        document.getElementById("agg-st-o3-slider").style.background = "grey";
+        document.getElementById("short-term-3").style.color = "grey";
+
         document.getElementById("agg-lt-o1-slider").disabled = true;
         document.getElementById("agg-lt-o1-slider").style.background = "grey";
         document.getElementById("long-term-1").style.color = "grey";
@@ -45,10 +57,16 @@
         document.getElementById("agg-lt-o2-slider").style.background = "grey";
         document.getElementById("long-term-2").style.color = "grey";
 
+        document.getElementById("agg-lt-o3-slider").disabled = true;
+        document.getElementById("agg-lt-o3-slider").style.background = "grey";
+        document.getElementById("long-term-3").style.color = "grey";
+
         b = localStorage.getItem("myValue");
         c = localStorage.getItem("myValue2");
         d = localStorage.getItem("myValue3");
         e = localStorage.getItem("myValue4");
+        opt_3_st_slider = localStorage.getItem("myValue5");
+        opt_3_lt_slider = localStorage.getItem("myValue6");
         f = localStorage.getItem("myValueHighRadioButton-ST-1");
         g = localStorage.getItem("myValueLowRadioButton-ST-1");
         h = localStorage.getItem("myValueHighRadioButton-LT-1");
@@ -57,16 +75,23 @@
         k = localStorage.getItem("myValueLowRadioButton-ST-2");
         l = localStorage.getItem("myValueHighRadioButton-LT-2");
         m = localStorage.getItem("myValueLowRadioButton-LT-2");
+        opt_3_st_high_radio = localStorage.getItem(
+          "myValueHighRadioButton-ST-3"
+        );
+        opt_3_st_low_radio = localStorage.getItem("myValueLowRadioButton-ST-3");
+        opt_3_lt_high_radio = localStorage.getItem(
+          "myValueHighRadioButton-LT-3"
+        );
+        opt_3_lt_low_radio = localStorage.getItem("myValueLowRadioButton-LT-3");
 
-        // window.alert("j:" + j);
-        // window.alert("k:" + k);
-        // window.alert("l:" + l);
-        //window.alert("m:" + m);
+        opt_counter = localStorage.getItem("opt_counter");
 
         document.getElementById("agg-st-o1-slider").value = b;
         document.getElementById("agg-lt-o1-slider").value = c;
         document.getElementById("agg-st-o2-slider").value = d;
         document.getElementById("agg-lt-o2-slider").value = e;
+        document.getElementById("agg-st-o3-slider").value = opt_3_st_slider;
+        document.getElementById("agg-lt-o3-slider").value = opt_3_lt_slider;
 
         document.getElementById("agg-st-o1-slider-txt").value =
           "Higher: " + f + "                             " + "Lower: " + g;
@@ -80,6 +105,19 @@
         document.getElementById("agg-lt-o2-slider-txt").value =
           "Higher: " + l + "                                " + "Lower: " + m;
 
+        document.getElementById("agg-st-o3-slider-txt").value =
+          "Higher: " +
+          opt_3_st_high_radio +
+          "                                " +
+          "Lower: " +
+          opt_3_st_low_radio;
+
+        document.getElementById("agg-lt-o3-slider-txt").value =
+          "Higher: " +
+          opt_3_lt_high_radio +
+          "                                " +
+          "Lower: " +
+          opt_3_lt_low_radio;
         var resetValue = 0;
         localStorage.setItem("myValue", resetValue);
         localStorage.setItem("myValue2", resetValue);
@@ -93,6 +131,12 @@
         localStorage.setItem("myValueLowRadioButton-ST-2", resetValue);
         localStorage.setItem("myValueHighRadioButton-LT-2", resetValue);
         localStorage.setItem("myValueLowRadioButton-LT-2", resetValue);
+
+        if (opt_counter < 3) {
+          document.getElementById("option-3").style.display = "none";
+          document.getElementById("option-3-st").style.display = "none";
+          document.getElementById("option-3-lt").style.display = "none";
+        }
 
         $(".dropdown").hover(function () {
           var dropdownMenu = $(this).children(".dropdown-menu");
@@ -132,12 +176,12 @@
       <div class="card">
         <div class="card-body">
           <h4 class="p-2">
-            <center>OPTION 1</center>
+            <b><center>OPTION 1</center></b>
           </h4>
 
           <div class="row p-2">
             <h4 class="p-2">
-              <b><center>Aggregate of Short-term outcomes:</center></b>
+              <center>Aggregate of Short-term outcomes:</center>
             </h4>
             <div class="col-lg p-2">
               <div class="border">
@@ -172,7 +216,7 @@
           </div>
           <div class="row p-2">
             <h4 class="p-2">
-              <b><center>Long-term outcomes:</center></b>
+              <center>Aggregate of Long-term outcomes:</center>
             </h4>
             <div class="col-lg p-2">
               <div class="border">
@@ -207,12 +251,12 @@
           </div>
           <br />
           <h4 class="p-2">
-            <center>OPTION 2</center>
+            <b><center>OPTION 2</center></b>
           </h4>
 
           <div class="row p-2">
             <h4 class="p-2">
-              <b><center>Short-term outcomes:</center></b>
+              <center>Aggregate of Short-term outcomes:</center>
             </h4>
             <div class="col-lg p-2">
               <div class="border">
@@ -247,7 +291,7 @@
           </div>
           <div class="row p-2">
             <h4 class="p-2">
-              <b><center>Long-term outcomes:</center></b>
+              <center>Aggregate of Long-term outcomes:</center>
             </h4>
             <div class="col-lg p-2">
               <div class="border">
@@ -273,6 +317,81 @@
                   type="text"
                   id="agg-lt-o2-slider-txt"
                   name="agg-lt-o2-slider-txt"
+                  class="text-class"
+                  placeholder="Higher Lower"
+                  disabled
+                />
+              </div>
+            </div>
+          </div>
+          <br />
+          <h4 class="p-2" id="option-3">
+            <b><center>OPTION 3</center></b>
+          </h4>
+
+          <div class="row p-2" id="option-3-st">
+            <h4 class="p-2">
+              <center>Aggregate of Short-term outcomes:</center>
+            </h4>
+            <div class="col-lg p-2">
+              <div class="border">
+                <h6 class="pt-2" id="short-term-3">
+                  Pleasure
+                  <input
+                    type="range"
+                    min="1"
+                    max="100"
+                    value="50"
+                    class="slider"
+                    id="agg-st-o3-slider"
+                    name="agg-st-o3-slider"
+                    disabled
+                  />
+                  Pain
+                </h6>
+              </div>
+            </div>
+            <div class="col-lg p-2">
+              <div class="util-3-text">
+                <input
+                  type="text"
+                  id="agg-st-o3-slider-txt"
+                  name="agg-st-o3-slider-txt"
+                  class="text-class"
+                  placeholder="Higher Lower"
+                  disabled
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row p-2" id="option-3-lt">
+            <h4 class="p-2">
+              <center>Aggregate of Long-term outcomes:</center>
+            </h4>
+            <div class="col-lg p-2">
+              <div class="border">
+                <h6 class="pt-2" id="long-term-3">
+                  Pleasure
+                  <input
+                    type="range"
+                    min="1"
+                    max="100"
+                    value="50"
+                    class="slider"
+                    id="agg-lt-o3-slider"
+                    name="agg-lt-o3-slider"
+                    disabled
+                  />
+                  Pain
+                </h6>
+              </div>
+            </div>
+            <div class="col-lg p-2">
+              <div class="util-3-text">
+                <input
+                  type="text"
+                  id="agg-lt-o3-slider-txt"
+                  name="agg-lt-o3-slider-txt"
                   class="text-class"
                   placeholder="Higher Lower"
                   disabled
