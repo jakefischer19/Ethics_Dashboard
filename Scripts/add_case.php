@@ -1,11 +1,21 @@
 <?php 
+error_reporting(-1);
+ini_set('display_errors', 'On');
 session_start();
+
+$DATABASE_HOST = '69.172.204.200';
+$DATABASE_USER = 'herrycoo_yhu';
+$DATABASE_PASS = 'hY592836711@';
+$DATABASE_NAME = 'herrycoo_Ethic_Dashboard';
+
+/*
 $DATABASE_HOST = 'localhost';
 $DATABASE_USER = 'root';
 $DATABASE_PASS = '';
-$DATABASE_NAME = 'herrycoo_Ethic_Dashboard';
+$DATABASE_NAME = 'herrycoo_Ethic_Dashboard';*/
  
 //open mysql databse
+//$db_connection = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
 $db_connection = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
 
 //check if database connection succeeded 
@@ -13,12 +23,20 @@ if(!$db_connection){
   die("Connection failed: " . mysqli_connect_error());
   
 }
-
-$caseID = $_POST["caseID"];
 $stuID = $_POST["stuID"];
-$caseID++;
-$query = "UPDATE cases SET caseID = '".$caseID."' WHERE stuID='".$stuID."'";
-mysqli_query($db_connection, $query); 
+$ID = $stuID;
+$insert = "INSERT INTO cases (`stuID`) VALUES ('".$ID."')"; 
 
-echo $caseID;
+mysqli_query($db_connection, $insert);
+//if(mysqli_query($db_connection, $insert)){
+  $query = "SELECT COUNT(caseID) as mycount FROM cases WHERE stuID='".$stuID."'";
+  $result = mysqli_query($db_connection, $query);
+  $fetch = mysqli_fetch_object($result);
+  $currentCases = $fetch->mycount;
+  echo $currentCases;
+    //echo json_encode(array("statusCode"=>200));
+//}else{
+    //echo json_encode(array("statusCode"=>201));
+//}
+mysqli_close($db_connection);
 ?>
