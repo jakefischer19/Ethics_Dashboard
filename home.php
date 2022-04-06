@@ -55,6 +55,7 @@ $currentCases = $fetch->mycount;
       >
         <div class="container-fluid">
           <a class="navbar-brand fs-3 fw-bolder">Ethics Dashboard</a>
+          <a href="Login/logout.php" id="logoutbtn" class="btn justify-content-end btn-outline-primary btn-sm" role="button" style="position: relative; top: 0; right: 0;">Log out</a>
         </div>
       </nav>
     </div>
@@ -86,8 +87,8 @@ $currentCases = $fetch->mycount;
     ></script>
     <script>
       //store case num into database when new case is created
-      var caseMax = 4;
-      var caseNum = <?php echo json_encode($currentCases); ?>;
+      let caseMax = 4;
+      let caseNum = <?php echo json_encode($currentCases); ?>;
       var stuID = <?php echo json_encode($stuID);?>;
 
       function addCase() {
@@ -104,7 +105,7 @@ $currentCases = $fetch->mycount;
               caseNum = data[0];
               var caseID = data[1];
               //alert("Num of cases" + caseNum + ", case ID" + caseID);
-              var caseHTML = '<div class="row pb-3"><div class="col pb"><div class="card"><button id="'+ caseID +'" type="button" onclick="loadCase(this.id);" class="btn btn-light"><div class="card-body"><h3 class="pb-2">New Case</h3></div></button></div></div></div>';
+              var caseHTML = '<div class="row pb-3"><div class="col pb"><div class="card"><button id="'+ caseID +'" type="button" onclick="loadCase(this.id);" class="btn btn-light"><div class="card-body"><h3 class="pb-2">Case ' + caseNum + '</h3></div></button></div></div></div>';
               document.getElementById("case" + caseNum).insertAdjacentHTML('beforeend', caseHTML);
             },
             error: function(xhr, status, error){
@@ -124,6 +125,7 @@ $currentCases = $fetch->mycount;
             },
             cache: false,
             success: function(data){
+              // alert("caseID = " + clicked_id);
               location.href = "dashboard.php";
             },
             error: function(xhr, status, error){
@@ -143,7 +145,7 @@ $currentCases = $fetch->mycount;
             success: function(data){
               //alert(data[1]);
               for (i = 0; i < caseNum; i++) {
-                var caseHTML = '<div class="row pb-3"><div class="col pb"><div class="card"><button id="'+data[i]+'" type="button" onclick="loadCase(this.id);" class="btn btn-light"><div class="card-body"><h3 class="pb-2">New Case</h3></div></button></div></div></div>';
+                var caseHTML = '<div class="row pb-3"><div class="col pb"><div class="card"><button id="'+data[i]+'" type="button" onclick="loadCase(this.id);" class="btn btn-light"><div class="card-body"><h3 class="pb-2">Case ' + (i+1) + '</h3></div></button></div></div></div>';
                 document.getElementById("case" + caseNum).insertAdjacentHTML('beforeend', caseHTML);
               }
             },
@@ -156,7 +158,7 @@ $currentCases = $fetch->mycount;
         //load stored database variable
         //alert(caseNum);
         for (i = 0; i < caseNum; i++) {
-          var caseHTML = '<div class="row pb-3"><div class="col pb"><div class="card"><form action="dashboard.html" method="get"><button type="submit" class="btn btn-light"><div class="card-body"><h3 class="pb-2">New Case</h3></div></button></form></div></div></div>';
+          var caseHTML = '<div class="row pb-3"><div class="col pb"><div class="card"><form action="dashboard.php" method="get"><button type="submit" class="btn btn-light"><div class="card-body"><h3 class="pb-2">New Case</h3></div></button></form></div></div></div>';
           document.getElementById("case" + caseNum).insertAdjacentHTML('beforeend', caseHTML);
         }
       }
