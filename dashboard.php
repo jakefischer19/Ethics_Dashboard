@@ -25,19 +25,23 @@
     $dilemmas = filter_input(INPUT_POST, "dilemmas");
   }
 
-  $sql = "UPDATE cases SET summary= ?, role= ?, dilemmas= ? WHERE caseID= ?";
-  $save_sql = $db_connection->prepare($sql);
-  $save_sql->bind_param("sssi", $summary, $role, $dilemmas, $caseID);
-  $save_sql->execute();
-  if ($save_sql->affected_rows === 1) {
-		echo "<script> alert('Your case information was saved sucessfully.'); window.location='dashboard.php'</script>";
-  } else {
-		echo "<script> alert('Unable to save your information. Please try again.'); window.location='dashboard.php'</script>";
-  }
-		$db_connection->close();
-  }
 
-  $save_sql->close();
+//get case # from db
+// $query = "SELECT caseNum FROM cases WHERE caseID ='".$caseID."'";
+// $result = mysqli_query($db_connection, $query);
+// $row = mysqli_fetch_array($result, MYSQLI_NUM);
+// $caseNum = $row[0] ?? false;
+
+  $sql = "UPDATE cases SET summary='$summary', role='$role', dilemmas='$dilemmas' WHERE caseID='$caseID'";
+
+if ($db_connection->query($sql) === TRUE) {
+  echo "<script> alert('Your case information was saved sucessfully.'); window.location='dashboard.php'</script>";
+} else {
+  echo "<script> alert('Unable to save your information. Please try again.'); window.location='dashboard.php'</script>";
+}
+
+$db_connection->close();
+}
 
 
   $db_connection->close();
