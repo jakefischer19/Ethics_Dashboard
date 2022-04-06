@@ -16,7 +16,7 @@
     <title>Ethics Dashboard</title>
 
     <script>
-       var hook = true;
+      var hook = true;
       window.onbeforeunload = function () {
         if (hook) {
           return "Did you save your stuff?";
@@ -133,7 +133,7 @@
         localStorage.setItem("stake-6-value", send6);
         localStorage.setItem("counter-val",sendCounter);
 
-        window.location.href = "utilitarianism-3.html";
+        
       }
 
       function sendStakeholders2()
@@ -153,7 +153,7 @@
         localStorage.setItem("stake-6-value", send6);
         localStorage.setItem("counter-val",sendCounter);
 
-        window.location.href = "utilitarianism-4.html";
+        
       }
 
       
@@ -174,7 +174,7 @@
         localStorage.setItem("stake-6-value", send6);
         localStorage.setItem("counter-val",sendCounter);
 
-        window.location.href = "utilitarianism-3rd-option.html";
+        
       }
     </script>
   </head>
@@ -285,6 +285,7 @@
 -->
             <input
               type="submit"
+              value="Save"
               id="util-2-submit"
               name="util-2-submit"
               class="stakeholders-btn ms-2 mt-3"
