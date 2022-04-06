@@ -86,41 +86,78 @@ $currentCases = $fetch->mycount;
     ></script>
     <script>
       //store case num into database when new case is created
-      let caseMax = 3;
-      let caseNum = <?php echo json_encode($currentCases); ?>;
+      var caseMax = 4;
+      var caseNum = <?php echo json_encode($currentCases); ?>;
       var stuID = <?php echo json_encode($stuID);?>;
 
       function addCase() {
-        if(caseNum < 4){
+        if(caseNum < caseMax){
           $.ajax({
             type: "POST",
             url: 'Scripts/add_case.php',
             data: {
               "stuID": stuID
             },
+            dataType: 'json',
             cache: false,
             success: function(data){
-              caseNum = parseInt(data);
+              caseNum = data[0];
+              var caseID = data[1];
+              //alert("Num of cases" + caseNum + ", case ID" + caseID);
+              var caseHTML = '<div class="row pb-3"><div class="col pb"><div class="card"><button id="'+ caseID +'" type="button" onclick="loadCase(this.id);" class="btn btn-light"><div class="card-body"><h3 class="pb-2">New Case</h3></div></button></div></div></div>';
+              document.getElementById("case" + caseNum).insertAdjacentHTML('beforeend', caseHTML);
+            },
+            error: function(xhr, status, error){
+            console.error(xhr);
+            }
+          });
+        }
+      }
+      function loadCase(clicked_id){
+        //alert(clicked_id);
+        $.ajax({
+            type: "POST",
+            url: 'Scripts/load_case.php',
+            data: {
+              "stuID": stuID,
+              "caseID": clicked_id
+            },
+            cache: false,
+            success: function(data){
+              location.href = "dashboard.php";
+            },
+            error: function(xhr, status, error){
+            console.error(xhr);
+            }
+          });
+      }
+      function checkCase(){
+          $.ajax({
+            type: "POST",
+            url: 'Scripts/check_case.php',
+            data: {
+              "stuID": stuID
+            },
+            dataType: 'json',
+            cache: false,
+            success: function(data){
+              //alert(data[1]);
               for (i = 0; i < caseNum; i++) {
-                  document.getElementById("case" + caseNum).innerHTML +=
-                  '<div class="row pb-3"><div class="col pb"><div class="card"><form action="dashboard.html" method="get"><button type="submit" class="btn btn-light"><div class="card-body"><h3 class="pb-2">New Case</h3></div></button></form></div></div></div>';
+                var caseHTML = '<div class="row pb-3"><div class="col pb"><div class="card"><button id="'+data[i]+'" type="button" onclick="loadCase(this.id);" class="btn btn-light"><div class="card-body"><h3 class="pb-2">New Case</h3></div></button></div></div></div>';
+                document.getElementById("case" + caseNum).insertAdjacentHTML('beforeend', caseHTML);
               }
             },
             error: function(xhr, status, error){
             console.error(xhr);
             }
           });
-          //checkCase();
-        
-        }
       }
-      
-      function checkCase() {
+      function checkCase2() {
         //load stored database variable
-        alert(caseNum);
+        //alert(caseNum);
         for (i = 0; i < caseNum; i++) {
-          document.getElementById("case" + caseNum).innerHTML +=
-            '<div class="row pb-3"><div class="col pb"><div class="card"><form action="dashboard.html" method="get"><button type="submit" class="btn btn-light"><div class="card-body"><h3 class="pb-2">New Case</h3></div></button></form></div></div></div>';
+          var caseHTML = '<div class="row pb-3"><div class="col pb"><div class="card"><form action="dashboard.html" method="get"><button type="submit" class="btn btn-light"><div class="card-body"><h3 class="pb-2">New Case</h3></div></button></form></div></div></div>';
+          document.getElementById("case" + caseNum).insertAdjacentHTML('beforeend', caseHTML);
         }
       }
     </script>
