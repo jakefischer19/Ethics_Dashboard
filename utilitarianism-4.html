@@ -125,6 +125,15 @@
       });
     </script>
     <script>
+      var hook = true;
+      window.onbeforeunload = function () {
+        if (hook) {
+          return "Did you save your stuff?";
+        }
+      };
+      function unhook() {
+        hook = false;
+      }
       var stAvg = 0,
         ltAvg = 0,
         stName = 0,
@@ -1187,7 +1196,7 @@
               id="st-o2-submit"
               name="st-o2-submit"
               class="stakeholders-btn"
-              onclick="stValueSenderRadioButtonHigh();stValueSenderRadioButtonLow();ltValueSenderRadioButtonHigh();ltValueSenderRadioButtonLow();valueSender()"
+              onclick="stValueSenderRadioButtonHigh();stValueSenderRadioButtonLow();ltValueSenderRadioButtonHigh();ltValueSenderRadioButtonLow();valueSender();unhook()"
             />
           </div>
         </div>

@@ -24,9 +24,7 @@
       function unhook() {
         hook = false;
       }
-      function nextPage() {
-        window.location.href = "utilitarianism-2.html";
-      }
+
       $(document).ready(function () {
         $(".dropdown").hover(function () {
           var dropdownMenu = $(this).children(".dropdown-menu");
@@ -158,7 +156,7 @@ Long term – I will feel good knowing that I did the right thing – consumers 
                   id="util-1-submit"
                   name="util-1-submit"
                   class="stakeholders-btn ms-2 mt-3"
-                  onclick="nextPage();unhook()"
+                  onclick="unhook()"
                 />
               </div>
             </div>
