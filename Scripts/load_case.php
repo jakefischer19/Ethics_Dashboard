@@ -24,23 +24,11 @@ if(!$db_connection){
   
 }
 $stuID = $_POST["stuID"];
-$ID = $stuID;
-$insert = "INSERT INTO cases (`stuID`) VALUES ('".$ID."')"; 
-
-mysqli_query($db_connection, $insert);
-
-$query = "SELECT COUNT(caseID) as mycount FROM cases WHERE stuID='".$stuID."'";
-$result = mysqli_query($db_connection, $query);
-$fetch = mysqli_fetch_object($result);
-$currentCases = $fetch->mycount;
-
-$queryID = "SELECT LAST_INSERT_ID() as lastid";
-$resultID = mysqli_query($db_connection, $queryID);
-$fetchID = mysqli_fetch_object($resultID);
-$caseID = $fetchID->lastid;
-
-$returnArr = [$currentCases, $caseID];
-echo json_encode($returnArr);
+$caseID = $_POST["caseID"];
+$_SESSION["stuID"] = $stuID;
+$_SESSION["caseID"] = $caseID;
 
 mysqli_close($db_connection);
+//header("Location: EBoard/dashboard.php");
+
 ?>
