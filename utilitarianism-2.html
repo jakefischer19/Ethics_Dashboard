@@ -37,14 +37,16 @@
       function nextPage() {
         window.location.href = "utilitarianism-3.html";
       }
-      $(".dropdown").hover(function () {
+
+     
+      $(document).ready(function () {
+        $(".dropdown").hover(function () {
         var dropdownMenu = $(this).children(".dropdown-menu");
         if (dropdownMenu.is(":visible")) {
           dropdownMenu.parent().toggleClass("open");
         }
       });
-     
-      $(document).ready(function () {
+    });
         document.getElementById("Remove").disabled = true;
         document.getElementById("Remove").style.background = "grey";
         $("#Add").on("click", function () {
@@ -59,7 +61,7 @@
               "' class='form-label stakeholder-input'>Importance:</label><input type='range' class='form-range' id='stakeholder" +
               counter +
               "' /><br><br>" 
-
+            
           );
 
           if (counter > 5) {
@@ -90,7 +92,7 @@
           document.getElementById("util-3rd-option").style.display = "none";
         
         }
-      });
+      
 
       function getStakeholder1Title() {
         st1 = document.getElementById("stakeholder-1").value;
@@ -195,7 +197,11 @@
           <hr />
           <div class="row p-2">
             <div class="col-lg p-2">
-              <h4 class="pb-2">STAKEHOLDER 1</h4>
+              <h4 class="pb-2">STAKEHOLDER 1 - 
+                <span class="stakeholder1-title" style="color: grey"
+                      >Stakeholder 1 displays here</span
+                    >
+              </h4>
               <textarea
                 name="stakeholder-1"
                 id="stakeholder-1"
@@ -204,6 +210,7 @@
                 placeholder="The engineer asked to design the VW defeat device."
                 class="stakeholder-input"
                 onchange = "getStakeholder1Title()"
+                disabled
               ></textarea>
             </div>
           </div>
@@ -216,7 +223,10 @@
 
           <div class="row p-2">
             <div class="col-lg p-2">
-              <h4 class="pb-2">STAKEHOLDER 2</h4>
+              <h4 class="pb-2">STAKEHOLDER 2- 
+                <span class="stakeholder2-title" style="color: grey"
+                      >Stakeholder 2 displays here</span
+                    ></h4>
               <textarea
                 name="stakeholder-2"
                 id="stakeholder-2"
@@ -225,6 +235,7 @@
                 placeholder="The decision makers at VW who asked the engineer to create the device"
                 class="stakeholder-input"
                 onchange = "getStakeholder2Title()"
+                disabled
               ></textarea>
             </div>
           </div>
@@ -236,7 +247,10 @@
        <br><br>
           <div class="row p-2">
             <div class="col-lg p-2">
-              <h4 class="pb-2">STAKEHOLDER 3</h4>
+              <h4 class="pb-2">STAKEHOLDER 3- 
+                <span class="stakeholder3-title" style="color: grey"
+                      >Stakeholder 3 displays here</span
+                    ></h4>
               <textarea
                 name="stakeholder-3"
                 id="stakeholder-3"
@@ -245,6 +259,7 @@
                 placeholder="Consumers - vehicle buyers"
                 class="stakeholder-input"
                 onchange = "getStakeholder3Title()"
+                disabled
               ></textarea>        
             </div>
           </div>
@@ -255,13 +270,13 @@
   
           <div id="textboxDiv"></div>
           <div class="btns">
-            <button id="Add" class="stakeholders-btn ms-1">
+      <!--      <button id="Add" class="stakeholders-btn ms-1">
               Click to add stakeholder
             </button>
             <button id="Remove" class="stakeholders-btn ms-2 mt-3">
               Click to remove stakeholder
             </button>
-
+-->
             <input
               type="submit"
               id="util-2-submit"
