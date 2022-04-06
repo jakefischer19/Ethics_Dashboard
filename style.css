@@ -47,14 +47,14 @@ textarea {
 }
 
 .btn {
-  padding: 16px 32px;
+  padding: 8px 16px;
   text-align: center;
-  font-size: 16px;
+  font-size: 14px;
   margin: 4px 2px;
   transition: 0.3s;
 }
 #logoutbtn {
-  padding: 16px 32px;
+  padding: 8px 16px;
   text-align: center;
   font-size: 16px;
   margin: 4px 2px;
