@@ -15,6 +15,15 @@
     <link rel="stylesheet" href="style.css" />
     <title>Ethics Dashboard</title>
     <script>
+      var hook = true;
+      window.onbeforeunload = function () {
+        if (hook) {
+          return "Did you save your stuff?";
+        }
+      };
+      function unhook() {
+        hook = false;
+      }
       function nextPage() {
         window.location.href = "utilitarianism-2.html";
       }
@@ -149,7 +158,7 @@ Long term – I will feel good knowing that I did the right thing – consumers 
                   id="util-1-submit"
                   name="util-1-submit"
                   class="stakeholders-btn ms-2 mt-3"
-                  onclick="nextPage()"
+                  onclick="nextPage();unhook()"
                 />
               </div>
             </div>
