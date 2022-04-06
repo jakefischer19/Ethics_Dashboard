@@ -16,34 +16,23 @@
     <title>Ethics Dashboard</title>
 
     <script>
-       var st1 = "";
-      var st2 = "";
-      var st3 = "";
-      var st4 = "";
-      var st5 = "";
-      var st6 = "";
-
-      var send1 = "";
-      var send2 = "";
-      var send3 = "";
-      var send4 = "";
-      var send5 = "";
-      var send6 = "";
-
-      var sendCounter = 0;
-
-      var counter = 3;
-      var opt_counter = 0;
-      function nextPage() {
-        window.location.href = "utilitarianism-3.html";
+      var hook = true;
+      window.onbeforeunload = function () {
+        if (hook) {
+          return "Did you save your stuff?";
+        }
+      };
+      function unhook() {
+        hook = false;
       }
+
       $(".dropdown").hover(function () {
         var dropdownMenu = $(this).children(".dropdown-menu");
         if (dropdownMenu.is(":visible")) {
           dropdownMenu.parent().toggleClass("open");
         }
       });
-     
+      var counter = 3;
       $(document).ready(function () {
         document.getElementById("Remove").disabled = true;
         document.getElementById("Remove").style.background = "grey";
@@ -52,14 +41,16 @@
           $("#textboxDiv").append(
             "<div class='row p-2'><div class='col-lg p-2'><h4 class='pb-2'>STAKEHOLDER " +
               counter +
-              "</h4><textarea name = 'stakeholder-" + counter + "'id = 'stakeholder-" + counter +
-              "'cols=10 rows=7 placeholder='Enter the Stakeholder here' class='stakeholder-input' onchange='getStakeholderTitle()'></textarea></div></div>" +
+              "</h4><textarea name = stakeholder-" +
+              counter +
+              "id = stakeholder-" +
+              counter +
+              "cols=10 rows=7 placeholder='Enter the Stakeholder here'></textarea></div></div>" +
               "<label for='stakeholder" +
               counter +
-              "' class='form-label stakeholder-input'>Importance:</label><input type='range' class='form-range' id='stakeholder" +
+              "' class='form-label'>Importance</label><input type='range' class='form-range' id='stakeholder" +
               counter +
-              "' /><br><br>" 
-
+              "' />"
           );
 
           if (counter > 5) {
@@ -85,89 +76,7 @@
             document.getElementById("Remove").style.background = "grey";
           }
         });
-        opt_counter = localStorage.getItem("opt_counter");
-        if (opt_counter < 3) {
-          document.getElementById("util-3rd-option").style.display = "none";
-        
-        }
       });
-
-      function getStakeholder1Title() {
-        st1 = document.getElementById("stakeholder-1").value;
-      }
-      function getStakeholder2Title() {
-        st2 = document.getElementById("stakeholder-2").value;
-      }
-      function getStakeholder3Title() {
-        st3 = document.getElementById("stakeholder-3").value;
-      }
-      function getStakeholderTitle() {
-        st4 = document.getElementById("stakeholder-4").value;
-        st5 = document.getElementById("stakeholder-5").value;
-        st6 = document.getElementById("stakeholder-6").value;
-      }
-     
-      function sendStakeholders()
-      {
-        send1 = st1;
-        send2 = st2;
-        send3 = st3;
-        send4 = st4;
-        send5 = st5;
-        send6 = st6;
-        sendCounter = counter;
-
-        localStorage.setItem("stake-1-value", send1);
-        localStorage.setItem("stake-2-value", send2);
-        localStorage.setItem("stake-3-value", send3);
-        localStorage.setItem("stake-4-value", send4);
-        localStorage.setItem("stake-5-value", send5);
-        localStorage.setItem("stake-6-value", send6);
-        localStorage.setItem("counter-val",sendCounter);
-
-        window.location.href = "utilitarianism-3.html";
-      }
-
-      function sendStakeholders2()
-      {
-        send1 = st1;
-        send2 = st2;
-        send3 = st3;
-        send4 = st4;
-        send5 = st5;
-        send6 = st6;
-
-        localStorage.setItem("stake-1-value", send1);
-        localStorage.setItem("stake-2-value", send2);
-        localStorage.setItem("stake-3-value", send3);
-        localStorage.setItem("stake-4-value", send4);
-        localStorage.setItem("stake-5-value", send5);
-        localStorage.setItem("stake-6-value", send6);
-        localStorage.setItem("counter-val",sendCounter);
-
-        window.location.href = "utilitarianism-4.html";
-      }
-
-      
-      function sendStakeholders3()
-      {
-        send1 = st1;
-        send2 = st2;
-        send3 = st3;
-        send4 = st4;
-        send5 = st5;
-        send6 = st6;
-
-        localStorage.setItem("stake-1-value", send1);
-        localStorage.setItem("stake-2-value", send2);
-        localStorage.setItem("stake-3-value", send3);
-        localStorage.setItem("stake-4-value", send4);
-        localStorage.setItem("stake-5-value", send5);
-        localStorage.setItem("stake-6-value", send6);
-        localStorage.setItem("counter-val",sendCounter);
-
-        window.location.href = "utilitarianism-3rd-option.html";
-      }
     </script>
   </head>
   <body>
@@ -184,13 +93,13 @@
       <div class="card">
         <div class="card-body">
           <p style="font-size: 18px">
-           <h5 class="pb-2">
+            <b>
               Stakeholders are persons or groups that will be impacted by the
               decision/action taken. List the stakeholders and what they want in
               the simplest terms – wealth, social status, etc. Note: It’s good
               to start with the decision-maker as the first stakeholder and then
               work out from there.
-           </h5>
+            </b>
           </p>
           <hr />
           <div class="row p-2">
@@ -202,17 +111,11 @@
                 cols="10"
                 rows="7"
                 placeholder="The engineer asked to design the VW defeat device."
-                class="stakeholder-input"
-                onchange = "getStakeholder1Title()"
               ></textarea>
             </div>
           </div>
-
-          <label for="stakeholder1" class="form-label stakeholder-input">Importance:</label>
+          <label for="stakeholder1" class="form-label">Importance:</label>
           <input type="range" class="form-range" id="stakeholder1" />
-          <br><br>
-
-
 
           <div class="row p-2">
             <div class="col-lg p-2">
@@ -223,17 +126,12 @@
                 cols="10"
                 rows="7"
                 placeholder="The decision makers at VW who asked the engineer to create the device"
-                class="stakeholder-input"
-                onchange = "getStakeholder2Title()"
               ></textarea>
             </div>
           </div>
-
-          <label for="stakeholder2" class="form-label stakeholder-input">Importance:</label>
-
+          <label for="stakeholder2" class="form-label">Importance:</label>
           <input type="range" class="form-range" id="stakeholder2" />
 
-       <br><br>
           <div class="row p-2">
             <div class="col-lg p-2">
               <h4 class="pb-2">STAKEHOLDER 3</h4>
@@ -243,16 +141,12 @@
                 cols="10"
                 rows="7"
                 placeholder="Consumers - vehicle buyers"
-                class="stakeholder-input"
-                onchange = "getStakeholder3Title()"
-              ></textarea>        
+              ></textarea>
             </div>
           </div>
-
-          <label for="stakeholder3" class="form-label stakeholder-input">Importance:</label>
+          <label for="stakeholder3" class="form-label">Importance:</label>
           <input type="range" class="form-range" id="stakeholder3" />
-          <br><br>
-  
+          <br />
           <div id="textboxDiv"></div>
           <div class="btns">
             <button id="Add" class="stakeholders-btn ms-1">
@@ -267,7 +161,7 @@
               id="util-2-submit"
               name="util-2-submit"
               class="stakeholders-btn ms-2 mt-3"
-              onclick="sendStakeholders();sendStakeholders2();sendStakeholders3();nextPage()"
+              onclick="unhook()"
             />
           </div>
         </div>
@@ -293,13 +187,9 @@
       <li class="page-item">
         <a class="page-link" href="utilitarianism-4.html">4</a>
       </li>
-   <!--   <li class="page-item" id="util-3rd-option">
-        <a class="page-link" href="utilitarianism-3rd-option.html">3rd-option</a>
-      </li>-->
       <li class="page-item">
         <a class="page-link" href="utilitarianism-5.html">5</a>
       </li>
-     
 
       <li class="page-item">
         <a class="page-link" href="utilitarianism-3.html" aria-label="Next">

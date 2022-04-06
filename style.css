@@ -131,28 +131,11 @@ textarea {
 
 /* Utilitarianism page*/
 textarea[name="util_option1"] {
-  font-size: 120%;
+  font-size: 200%;
 }
 textarea[name="util_option2"] {
-  font-size: 120%;
+  font-size: 200%;
 }
-textarea[name="util_option3"] {
-  font-size: 120%;
-}
-textarea[name="util_option1_response"] {
-  font-size: 120%;
-}
-textarea[name="util_option2_response"] {
-  font-size: 120%;
-}
-textarea[name="util_option3_response"] {
-  font-size: 120%;
-}
-
-.stakeholder-input {
-  font-size: 120%;
-}
-
 /* end of utilitariansim */
 
 /* Media */

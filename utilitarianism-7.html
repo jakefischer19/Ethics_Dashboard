@@ -16,6 +16,15 @@
     <title>Ethics Dashboard</title>
 
     <script>
+      var hook = true;
+      window.onbeforeunload = function () {
+        if (hook) {
+          return "Did you save your stuff?";
+        }
+      };
+      function unhook() {
+        hook = false;
+      }
       var b,
         c,
         d,
@@ -42,11 +51,6 @@
         l = localStorage.getItem("myValueHighRadioButton-LT-2");
         m = localStorage.getItem("myValueLowRadioButton-LT-2");
 
-        // window.alert("j:" + j);
-        // window.alert("k:" + k);
-        // window.alert("l:" + l);
-        //window.alert("m:" + m);
-
         document.getElementById("agg-st-o1-slider").value = b;
         document.getElementById("agg-lt-o1-slider").value = c;
         document.getElementById("agg-st-o2-slider").value = d;
@@ -69,14 +73,14 @@
         localStorage.setItem("myValue2", resetValue);
         localStorage.setItem("myValue3", resetValue);
         localStorage.setItem("myValue4", resetValue);
-        localStorage.setItem("myValueHighRadioButton-ST-1", resetValue);
-        localStorage.setItem("myValueLowRadioButton-ST-1", resetValue);
-        localStorage.setItem("myValueHighRadioButton-LT-1", resetValue);
-        localStorage.setItem("myValueLowRadioButton-LT-1", resetValue);
-        localStorage.setItem("myValueHighRadioButton-ST-2", resetValue);
-        localStorage.setItem("myValueLowRadioButton-ST-2", resetValue);
-        localStorage.setItem("myValueHighRadioButton-LT-2", resetValue);
-        localStorage.setItem("myValueLowRadioButton-LT-2", resetValue);
+        localStorage.setItem("myValueHighCheckBox-ST-1", resetValue);
+        localStorage.setItem("myValueLowCheckBox-ST-1", resetValue);
+        localStorage.setItem("myValueHighCheckBox-LT-1", resetValue);
+        localStorage.setItem("myValueLowCheckBox-LT-1", resetValue);
+        localStorage.setItem("myValueHighCheckBox-ST-2", resetValue);
+        localStorage.setItem("myValueLowCheckBox-ST-2", resetValue);
+        localStorage.setItem("myValueHighCheckBox-LT-2", resetValue);
+        localStorage.setItem("myValueLowCheckBox-LT-2", resetValue);
 
         document.getElementById("course-of-action-3").style.color = "black";
 
@@ -318,7 +322,7 @@
         <li class="page-item">
           <a
             class="page-link"
-            href="utilitarianism-4.html"
+            href="utilitarianism-6.html"
             aria-label="Previous"
           >
             <span aria-hidden="true">&laquo;</span>
@@ -340,7 +344,12 @@
         <li class="page-item">
           <a class="page-link" href="utilitarianism-5.html">5</a>
         </li>
-
+        <li class="page-item">
+          <a class="page-link" href="utilitarianism-6.html">6</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="utilitarianism-7.html">7</a>
+        </li>
         <li class="page-item">
           <a class="page-link" href="#" aria-label="Next">
             <span aria-hidden="true">&raquo;</span>

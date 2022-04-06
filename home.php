@@ -1,6 +1,4 @@
 <?php
-error_reporting(-1);
-ini_set('display_errors', 'On');
 session_start();
 // If the user is not logged in redirect to the login page...
 if (!isset($_SESSION['loggedin'])) {
@@ -22,10 +20,10 @@ $stuID = $_SESSION['stuID'];
 require_once "Login/config.php";
 
 
-$query = "SELECT COUNT(caseID) as mycount FROM cases WHERE stuID='".$stuID."'";
+$query = "SELECT caseID FROM cases WHERE stuID ='".$stuID."'";
 $result = mysqli_query($db_connection, $query);
-$fetch = mysqli_fetch_object($result);
-$currentCases = $fetch->mycount;
+$row = mysqli_fetch_array($result, MYSQLI_NUM);
+$caseID = $row[0] ?? false;
 
 ?>
 
@@ -87,15 +85,16 @@ $currentCases = $fetch->mycount;
     <script>
       //store case num into database when new case is created
       let caseMax = 3;
-      let caseNum = <?php echo json_encode($currentCases); ?>;
-      var stuID = <?php echo json_encode($stuID);?>;
-
+      let caseNum = <?php echo json_encode($caseID); ?>;
+      let stuID = <?php echo json_encode($stuID); ?>;
       function addCase() {
-        if(caseNum < 4){
+        if (caseNum < caseMax) {
+          //$.post('Scripts/add_case.php', { caseID: caseNum, stuID: stuID });
           $.ajax({
             type: "POST",
             url: 'Scripts/add_case.php',
             data: {
+              "caseID": caseNum, 
               "stuID": stuID
             },
             cache: false,
@@ -111,13 +110,10 @@ $currentCases = $fetch->mycount;
             }
           });
           //checkCase();
-        
         }
       }
-      
       function checkCase() {
         //load stored database variable
-        alert(caseNum);
         for (i = 0; i < caseNum; i++) {
           document.getElementById("case" + caseNum).innerHTML +=
             '<div class="row pb-3"><div class="col pb"><div class="card"><form action="dashboard.html" method="get"><button type="submit" class="btn btn-light"><div class="card-body"><h3 class="pb-2">New Case</h3></div></button></form></div></div></div>';

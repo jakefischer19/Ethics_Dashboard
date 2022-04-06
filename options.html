@@ -13,6 +13,9 @@
     <title>Ethics Dashboard</title>
     <script src="//code.jquery.com/jquery.min.js"></script>
     <script>
+      function goBack(){
+        window.location.href="/dashboard.html"
+      }
       function add_field(el) {
         var total_text = document.getElementsByClassName("input_text");
         if (el.value === "Add another option") {
@@ -23,6 +26,15 @@
           document.getElementById("field_div").innerHTML = "";
           el.value = "Add another option";
         }
+      }
+      var hook = true;
+      window.onbeforeunload = function () {
+        if (hook) {
+          return "Did you save your stuff?";
+        }
+      };
+      function unhook() {
+        hook = false;
       }
     </script>
     <link rel="stylesheet" href="style.css" />
@@ -103,11 +115,28 @@
                   onclick="add_field(this);"
                   class="options-btn ms-1"
                 />
-                <input type="submit" value="Submit" class="options-btn ms-3" />
+                <input
+                  type="submit"
+                  value="Submit"
+                  class="options-btn ms-1"
+                  onclick="unhook()"
+                />
+                <input
+                  type="button"
+                  value="Go back"
+                  onclick="goBack();"
+                  class="options-btn ms-1"
+                />
+                
+              </div>
+              
               </div>
             </div>
+            
+            
           </div>
         </div>
+        
       </div>
     </div>
 

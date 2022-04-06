@@ -14,6 +14,18 @@
     <script src="//code.jquery.com/jquery.min.js"></script>
 
     <script>
+      function nextPage() {
+        window.location.href = "/utilitarianism.html";
+      }
+      var hook = true;
+      window.onbeforeunload = function () {
+        if (hook) {
+          return "Did you save your stuff?";
+        }
+      };
+      function unhook() {
+        hook = false;
+      }
       var counter = 3;
       $(document).ready(function () {
         document.getElementById("Remove").disabled = true;
@@ -166,8 +178,15 @@
             <button id="Remove" class="stakeholders-btn ms-2 mt-3">
               Click to remove stakeholder
             </button>
-            <button id="Submit" class="stakeholders-btn ms-2 mt-3">
+            <button
+              id="Submit"
+              class="stakeholders-btn ms-2 mt-3"
+              onclick="unhook()"
+            >
               Submit
+            </button>
+            <button class="stakeholders-btn ms-2 mt-3" onclick="nextPage()">
+              Go to utilitarianism
             </button>
           </div>
         </div>

@@ -15,11 +15,6 @@
     <link rel="stylesheet" href="style.css" />
     <title>Ethics Dashboard</title>
     <script>
-      var opt_counter = 2;
-      function nextPage() {
-        window.location.href = "utilitarianism-2.html";
-      }
-
       $(document).ready(function () {
         $(".dropdown").hover(function () {
           var dropdownMenu = $(this).children(".dropdown-menu");
@@ -31,63 +26,22 @@
       function add_field(el) {
         var total_text = document.getElementsByClassName("input_text");
         if (el.value === "Add another option") {
-          opt_counter++;
           el.value = "Remove option";
           document.getElementById("field_div").innerHTML =
-            "<br><h4 class='pb-2'>Option 3</h4><span class='border'><textarea rows='1' name='util_option3' id='util_option3' placeholder='Enter your option here' oninput='this.style.height = '';this.style.height = this.scrollHeight + 3 + 'px'' onchange = 'getOptions3Title()'></textarea></span><textarea name='util_option3_response'id='util_option3_response'cols='10'rows='7'placeholder='Please analyse short term and long term consequences''></textarea>";
+            "<br><h3 class='pb-2'>Option 3</h3><span class='border'><textarea rows='1'name='util_option1'placeholder='Enter your option here'oninput='this.style.height = '';this.style.height = this.scrollHeight + 3 + 'px''></textarea></span><textarea name='util_option1_response'id='util_option1_response'cols='30'rows='15'placeholder='Please analyse short term and long term consequences''></textarea>";
         } else {
-          opt_counter--;
           document.getElementById("field_div").innerHTML = "";
           el.value = "Add another option";
         }
       }
-
-      var op1 = "";
-      var op2 = "";
-      var op3 = "";
-
-      var send1 = "";
-      var send2 = "";
-      var send3 = "";
-
-      function getOptions1Title() {
-        op1 = document.getElementById("util_option1").value;
-      }
-
-      function getOptions2Title() {
-        op2 = document.getElementById("util_option2").value;
-      }
-
-      function getOptions3Title() {
-        op3 = document.getElementById("util_option3").value;
-      }
-
-      function sendOptions1Title() {
-        send = op1;
-        localStorage.setItem("title1", send);
-        localStorage.setItem("opt_counter", opt_counter);
-        window.location.href = "utilitarianism-3.html";
-      }
-
-      function sendOptions2Title() {
-        send2 = op2;
-        localStorage.setItem("title2", send2);
-        localStorage.setItem("opt_counter", opt_counter);
-        window.location.href = "utilitarianism-4.html";
-      }
-
-      function sendOptions3Title() {
-        send3 = op3;
-        localStorage.setItem("title3", send3);
-        localStorage.setItem("opt_counter", opt_counter);
-        window.location.href = "utilitarianism-3rd-option.html";
-      }
-
-      function sendOptionsAgg() {
-        localStorage.setItem("opt_counter", opt_counter);
-        window.location.href = "utilitarianism-5.html";
-        window.location.href = "header.html";
-        window.location.href = "utilitarianism-2.html";
+      var hook = true;
+      window.onbeforeunload = function () {
+        if (hook) {
+          return "Did you save your stuff?";
+        }
+      };
+      function unhook() {
+        hook = false;
       }
     </script>
   </head>
@@ -107,12 +61,12 @@
         <div class="col-lg">
           <div class="card">
             <div class="card-body">
-              <h5 class="pb-2">
+              <h3 class="pb-2">
                 Utilitarianism is a consequentialist theory - meaning that the
                 moral worth of an action is determined by the consequences of
                 the action. The first step is to consider the consequences, both
                 short-term and long-term, for the options you've identified.
-              </h5>
+              </h3>
             </div>
           </div>
         </div>
@@ -121,60 +75,44 @@
         <div class="col-lg">
           <div class="card">
             <div class="card-body">
-              <div class="row p-2">
-                <div class="col-lg p-2">
-                  <h4 class="pb-2">Option 1</h4>
-                  <!-- Text area should stretch to text -->
-                  <span class="border">
-                    <textarea
-                      rows="1"
-                      name="util_option1"
-                      id="util_option1"
-                      placeholder="I can put loyalty to the company....."
-                      oninput='this.style.height = "";this.style.height = this.scrollHeight + 3 + "px"'
-                      onchange="getOptions1Title()"
-                      required
-                    ></textarea>
-                  </span>
-                  <textarea
-                    name="util_option1_response"
-                    id="util_option1_response"
-                    cols="10"
-                    rows="7"
-                    placeholder="Short term – personal guilt but I keep my job – the consumers are betrayed – the environment is damaged
-
+              <h3 class="pb-2">Option 1</h3>
+              <!-- Text area should stretch to text -->
+              <span class="border">
+                <textarea
+                  rows="1"
+                  name="util_option1"
+                  placeholder="I can put loyalty to the company....."
+                  oninput='this.style.height = "";this.style.height = this.scrollHeight + 3 + "px"'
+                ></textarea>
+              </span>
+              <textarea
+                name="util_option1_response"
+                id="util_option1_response"
+                cols="30"
+                rows="15"
+                placeholder="Short term – personal guilt but I keep my job – the consumers are betrayed – the environment is damaged
 Long term - If the device is discovered I will likely lose my job and possibly my career – VW’s reputation, and business, will be damaged"
-                    required
-                  ></textarea>
-                </div>
-              </div>
-              <br />
-              <div class="row p-2">
-                <div class="col-lg p-2">
-                  <h4 class="pb-2">Option 2</h4>
-                  <!-- Text area should stretch to text -->
-                  <span class="border">
-                    <textarea
-                      rows="1"
-                      placeholder="I can betray the company, go to the press....."
-                      name="util_option2"
-                      id="util_option2"
-                      oninput='this.style.height = "";this.style.height = this.scrollHeight + 3'
-                      onchange="getOptions2Title()"
-                    ></textarea>
-                  </span>
-                  <textarea
-                    name="util_option2_response"
-                    id="util_option2_response"
-                    cols="10"
-                    rows="7"
-                    placeholder="Short term – I will have done the right thing, but I will likely lose my job and possibly my career. The device will not be built and that will have a negative impact on VW’s ability to produce certain types of vehicles.
-                     
-Long term – I will feel good knowing that I did the right thing – consumers will not be betrayed – the environment is protected"
-                  ></textarea>
-                </div>
-              </div>
+              ></textarea>
 
+              <br /><br />
+              <h3 class="pb-2">Option 2</h3>
+              <!-- Text area should stretch to text -->
+              <span class="border">
+                <textarea
+                  rows="1"
+                  placeholder="I can betray the company, go to the press....."
+                  name="util_option2"
+                  oninput='this.style.height = "";this.style.height = this.scrollHeight + 3'
+                ></textarea>
+              </span>
+              <textarea
+                name="util_option2_response"
+                id="util_option2_response"
+                cols="30"
+                rows="15"
+                placeholder="Short term – I will have done the right thing, but I will likely lose my job and possibly my career. The device will not be built and that will have a negative impact on VW’s ability to produce certain types of vehicles. 
+Long term – I will feel good knowing that I did the right thing – consumers will not be betrayed – the environment is protected"
+              ></textarea>
               <div id="field_div"></div>
               <br />
 
@@ -188,13 +126,12 @@ Long term – I will feel good knowing that I did the right thing – consumers 
                   class="stakeholders-btn ms-2 mt-3"
                 />
                 &nbsp;&nbsp;&nbsp;
-
                 <input
                   type="submit"
                   id="util-1-submit"
                   name="util-1-submit"
                   class="stakeholders-btn ms-2 mt-3"
-                  onclick="sendOptions1Title();sendOptions2Title();sendOptions3Title();sendOptionsAgg();nextPage()"
+                  onclick="unhook()"
                 />
               </div>
             </div>
@@ -202,7 +139,6 @@ Long term – I will feel good knowing that I did the right thing – consumers 
         </div>
       </div>
     </div>
-
     <br />
     <nav aria-label="Page navigation example">
       <ul class="pagination justify-content-center">
