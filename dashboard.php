@@ -13,34 +13,34 @@
   $stuID = $_SESSION["stuID"];
   $caseID = $_SESSION["caseID"];
 
-$summary = "";
-$role = "";
-$dilemmas = "";
+  $summary = "";
+  $role = "";
+  $dilemmas = "";
 
-if (isset($_POST['save'])) {
+  if (isset($_POST['save'])) {
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $summary = filter_input(INPUT_POST, "case-summary");
-  $role = filter_input(INPUT_POST, "role");
-  $dilemmas = filter_input(INPUT_POST, "dilemmas");
-}
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $summary = filter_input(INPUT_POST, "case-summary");
+    $role = filter_input(INPUT_POST, "role");
+    $dilemmas = filter_input(INPUT_POST, "dilemmas");
+  }
 
-$sql = "UPDATE cases SET summary= ?, role= ?, dilemmas= ? WHERE caseID= ?";
-$save_sql = $db_connection->prepare($sql);
-$save_sql->bind_param("sssi", $summary, $role, $dilemmas, $caseID);
-$save_sql->execute();
-if ($save_sql->affected_rows === 1) {
-  echo "<script> alert('Your case information was saved sucessfully.'); window.location='dashboard.php'</script>";
-} else {
-  echo "<script> alert('Unable to save your information. Please try again.'); window.location='dashboard.php'</script>";
-}
+  $sql = "UPDATE cases SET summary= ?, role= ?, dilemmas= ? WHERE caseID= ?";
+  $save_sql = $db_connection->prepare($sql);
+  $save_sql->bind_param("sssi", $summary, $role, $dilemmas, $caseID);
+  $save_sql->execute();
+  if ($save_sql->affected_rows === 1) {
+		echo "<script> alert('Your case information was saved sucessfully.'); window.location='dashboard.php'</script>";
+  } else {
+		echo "<script> alert('Unable to save your information. Please try again.'); window.location='dashboard.php'</script>";
+  }
+		$db_connection->close();
+  }
 
-$save_sql->close();
+  $save_sql->close();
 
 
-$db_connection->close();
-}
-
+  $db_connection->close();
 ?>
 
 <!DOCTYPE html>
@@ -55,7 +55,7 @@ $db_connection->close();
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="style.css" />
     <title>Ethics Dashboard</title>
     <script>
@@ -69,7 +69,7 @@ $db_connection->close();
       });
     </script>
   </head>
-  <body>
+  <body onload="loadDash();">
     <!-- Load Header -->
     <div id="header">
       <script>
@@ -184,5 +184,33 @@ $db_connection->close();
       integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
       crossorigin="anonymous"
     ></script>
+    <script>
+      var stuID = <?php echo json_encode($stuID);?>;
+      var caseID = <?php echo json_encode($caseID);?>;
+      function loadDash(){
+        //alert("working");
+        $.ajax({
+          type: "POST",
+          url: 'Scripts/load_dash.php',
+          data: {
+            "caseID": caseID
+          },
+          dataType: 'json',
+          cache: false,
+          success: function(data){
+            var summary = data[0];
+            var role = data[1];
+            var dilemmas = data[2];
+            //alert(summary + role + dilemmas);
+            document.getElementById('case-summary').innerHTML = summary;
+            document.getElementById('role').innerHTML = role;
+            document.getElementById('dilemmas').innerHTML = dilemmas;
+          },
+          error: function(xhr, status, error){
+          console.error(xhr);
+          }
+          });
+      }
+    </script>
   </body>
 </html>
