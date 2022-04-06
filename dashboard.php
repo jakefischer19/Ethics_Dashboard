@@ -1,15 +1,49 @@
 <?php
+  error_reporting(-1);
+  ini_set('display_errors', 'On');
   session_start();
 
   if(empty($_SESSION['caseID']) || $_SESSION['caseID'] == ''){
     header("Location: Login/login.html");
     die();
   } 
+
+  require_once "Login/config.php";
+
   $stuID = $_SESSION["stuID"];
   $caseID = $_SESSION["caseID"];
 
-  
+$summary = "";
+$role = "";
+$dilemmas = "";
+
+if (isset($_POST['save'])) {
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $summary = filter_input(INPUT_POST, "case-summary");
+  $role = filter_input(INPUT_POST, "role");
+  $dilemmas = filter_input(INPUT_POST, "dilemmas");
+}
+
+//get case # from db
+// $query = "SELECT caseNum FROM cases WHERE caseID ='".$caseID."'";
+// $result = mysqli_query($db_connection, $query);
+// $row = mysqli_fetch_array($result, MYSQLI_NUM);
+// $caseNum = $row[0] ?? false;
+
+  $sql = "UPDATE cases SET summary='$summary', role='$role', dilemmas='$dilemmas' WHERE caseID='$caseID'";
+
+if ($db_connection->query($sql) === TRUE) {
+  echo "<script> alert('Your case information was saved sucessfully.'); window.location='dashboard.php'</script>";
+} else {
+  echo "<script> alert('Unable to save your information. Please try again.'); window.location='dashboard.php'</script>";
+}
+
+$db_connection->close();
+}
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -45,96 +79,101 @@
         });
       </script>
     </div>
-
-    <div class="container-fluid">
-      <div class="row pb-3">
-        <div class="col-lg pb-3">
-          <div class="card">
-            <div class="card-body">
-              <h3 class="pb-2">Step 1 - Case Summary</h3>
-              <textarea
-                name="case-summary"
-                id="case-summary"
-                cols="30"
-                rows="12"
-                placeholder="Briefly describe the key, features of the case—the who, what, where, when and why."
-              ></textarea>
-              <button class="btn btn-dark justify-content-end">Save</button>
+    <form action="dashboard.php" method="POST">
+      <div class="container-fluid">
+        <div class="row pb-3">
+          <div class="col-lg pb-3">
+            <div class="card">
+              <div class="card-body">
+                <h3 class="pb-2">Step 1 - Case Summary</h3>
+                <textarea
+                  name="case-summary"
+                  id="case-summary"
+                  cols="30"
+                  rows="12"
+                  placeholder="Briefly describe the key, features of the case—the who, what, where, when and why."
+                ></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg pb-3">
+            <div class="card">
+              <div class="card-body">
+                <h3 class="pb-2">Step 2 - Choose Your Role</h3>
+                <textarea
+                  name="role"
+                  id="role"
+                  cols="30"
+                  rows="12"
+                  placeholder="Put yourself in the position of a key decision maker in the case."
+                ></textarea>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-lg pb-3">
-          <div class="card">
-            <div class="card-body">
-              <h3 class="pb-2">Step 2 - Choose Your Role</h3>
-              <textarea
-                name="dilemmas"
-                id="dilemmas"
-                cols="30"
-                rows="12"
-                placeholder="Put yourself in the position of a key decision maker in the case."
-              ></textarea>
-              <button class="btn btn-dark justify-content-end">Save</button>
+        <div class="row pb-3">
+          <div class="col-lg pb-3">
+            <div class="card">
+              <div class="card-body">
+                <h3 class="pb-2">Step 3 - Indentify the Dilemmas</h3>
+                <textarea
+                  name="dilemmas"
+                  id="dilemmas"
+                  cols="30"
+                  rows="13"
+                  placeholder="What are the ethical dilemmas you are facing? Describe the dilemmas in ethical terms, eg. Honesty, deception, loyalty, betrayal, beneficence, malfeasance, autonmy, paternalism, confidentiality, transparency, integrity, etc..."
+                ></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg pb-3">
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="pb-2">Step 4 -Indentify Your Options</h3>
+                <a
+                  href="options.html"
+                  class="btn btn-dark"
+                  role="button"
+                  style="position: absolute; bottom: 8px; right: 8px"
+                >
+                  Edit Options
+                </a>
+                <br />
+                <h5>Option 1</h5>
+                <h5>Option 2</h5>
+                <h5>Option 3</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg pb-3">
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="pb-2">Step 5 - Stakeholders</h3>
+                <br />
+                <a
+                  href="stakeholders.html"
+                  class="btn btn-dark"
+                  role="button"
+                  style="position: absolute; bottom: 8px; right: 8px"
+                >
+                  Edit Stakeholders
+                </a>
+                <h5>Stakeholder 1</h5>
+                <h5>Stakeholder 2</h5>
+                <h5>Stakeholder 3</h5>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="row pb-3">
-        <div class="col-lg pb-3">
-          <div class="card">
-            <div class="card-body">
-              <h3 class="pb-2">Step 3 - Indentify the Ethical Issue</h3>
-              <textarea
-                name="dilemmas"
-                id="dilemmas"
-                cols="30"
-                rows="13"
-                placeholder="What are the ethical dilemmas you are facing? Describe the dilemmas in ethical terms, eg. Honesty, deception, loyalty, betrayal, beneficence, malfeasance, autonmy, paternalism, confidentiality, transparency, integrity, etc..."
-              ></textarea>
-              <button class="btn btn-dark justify-content-end">Save</button>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg pb-3">
-          <div class="card h-100">
-            <div class="card-body">
-              <h3 class="pb-2">Step 4 - Indentify Your Options</h3>
-              <a
-                href="/options.html"
-                class="btn btn-dark"
-                role="button"
-                style="position: absolute; bottom: 8px; right: 8px"
-              >
-                Edit Options
-              </a>
-              <br />
-              <h5>Option 1</h5>
-              <h5>Option 2</h5>
-              <h5>Option 3</h5>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg pb-3">
-          <div class="card h-100">
-            <div class="card-body">
-              <h3 class="pb-2">Step 5 - Stakeholders</h3>
-              <br />
-              <a
-                href="/stakeholders.html"
-                class="btn btn-dark"
-                role="button"
-                style="position: absolute; bottom: 8px; right: 8px"
-              >
-                Edit Stakeholders
-              </a>
-              <h5>Stakeholder 1</h5>
-              <h5>Stakeholder 2</h5>
-              <h5>Stakeholder 3</h5>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+      <input
+        class="btn btn-dark"
+        type="submit"
+        name="save"
+        value="Save"
+        style="float: right; margin-bottom: 30px"
+      />
+    </form>
 
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
