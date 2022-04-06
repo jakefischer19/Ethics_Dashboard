@@ -14,6 +14,15 @@
     <link rel="stylesheet" href="style.css" />
     <title>Ethics Dashboard</title>
     <script>
+      var hook = true;
+      window.onbeforeunload = function () {
+        if (hook) {
+          return "Did you save your stuff?";
+        }
+      };
+      function unhook() {
+        hook = false;
+      }
       $(document).ready(function () {
         $(".dropdown").hover(function () {
           var dropdownMenu = $(this).children(".dropdown-menu");
@@ -125,6 +134,7 @@
         type="submit"
         value="Save"
         style="float: right; margin-bottom: 30px"
+        onclick="unhook()"
       />
     </form>
 
