@@ -5,7 +5,7 @@
   session_start();
 
   if(empty($_SESSION['caseID']) || $_SESSION['caseID'] == ''){
-    header("Location: Login/login.html");
+    header("Location: Login/login.php");
     die();
   } 
 

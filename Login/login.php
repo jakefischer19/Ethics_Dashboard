@@ -1,9 +1,7 @@
 <?php 
 session_start();
-$_SESSION['userName'] = 'Username';
-if (isset($_POST['Submit'])) {
-    $_SESSION['userName'] = $_POST['email'];
-}
+$_SESSION['firstName'] = 'First Name';
+$_SESSION['lastName'] = 'Last Name';
 
 ?>
 

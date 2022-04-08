@@ -1,5 +1,5 @@
 <?php session_start(); 
-
+$_SESSION["name"] = $_SESSION["firstName"] ." ". $_SESSION["lastName"];
 ?>
   <script>
     var op_count = "";
@@ -123,7 +123,7 @@
               <a href="progress.html" class="btn justify-content-end btn-sm" role="button"
                 >My Progress</a
               >
-               <a href="#" class="btn justify-content-end btn-sm" role="button"><img src="login-icon.png" height="20"> <?php echo $_SESSION["userName"]; ?></a>
+               <a href="#" class="btn justify-content-end btn-sm" role="button"><img src="login-icon.png" height="20"> <?php echo $_SESSION["name"]; ?></a>
               <a href="Login/logout.php" id="logoutbtn" class="btn justify-content-end btn-outline-primary btn-sm" role="button">Log out</a>
               
             </div> 

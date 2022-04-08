@@ -120,6 +120,6 @@ if($login_result){
   $stmt_check->close();
 
   //header("Location: https://https://herrycooly.com/EBoard/Login/login.html");
-  header("Location: login.html");
+  header("Location: login.php");
 }
 ?>
