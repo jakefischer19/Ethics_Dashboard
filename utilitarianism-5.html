@@ -16,6 +16,15 @@
     <title>Ethics Dashboard</title>
 
     <script>
+      var hook = true;
+      window.onbeforeunload = function () {
+        if (hook) {
+          return "Did you save your stuff?";
+        }
+      };
+      function unhook() {
+        hook = false;
+      }
       var b,
         c,
         d,
@@ -426,6 +435,8 @@ Option 2 will produce the greatest happiness and is therefore the right option."
             <div class="row justify-content-center">
               <input
                 type="submit"
+                value="Save"
+                onclick="unhook()"
                 name="agg-submit"
                 id="agg-submit"
                 class="stakeholders-btn"

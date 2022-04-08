@@ -25,23 +25,19 @@ if(!$db_connection){
   
 }
 $stuID = $_POST["stuID"];
-$ID = $stuID;
-$insert = "INSERT INTO cases (`stuID`) VALUES ('".$ID."')"; 
 
-mysqli_query($db_connection, $insert);
-
-$query = "SELECT COUNT(caseID) as mycount FROM cases WHERE stuID='".$stuID."'";
+$query = "SELECT caseID FROM cases WHERE stuID='".$stuID."'";
 $result = mysqli_query($db_connection, $query);
-$fetch = mysqli_fetch_object($result);
-$currentCases = $fetch->mycount;
+//$result = mysqli_fetch_all($mysqli->query($query), MYSQLI_NUM);
 
-$queryID = "SELECT LAST_INSERT_ID() as lastid";
-$resultID = mysqli_query($db_connection, $queryID);
-$fetchID = mysqli_fetch_object($resultID);
-$caseID = $fetchID->lastid;
+$returnArr = [];
+if (mysqli_num_rows($result) > 0) {
+  // output data of each row
+  while($row = mysqli_fetch_assoc($result)) {
+    array_push($returnArr, $row["caseID"]);
+  }
+} 
 
-$returnArr = [$currentCases, $caseID];
 echo json_encode($returnArr);
-
 mysqli_close($db_connection);
 ?>

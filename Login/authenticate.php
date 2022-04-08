@@ -21,7 +21,10 @@ $email = strtolower($old_email);
 $password = filter_input(INPUT_POST, 'password');
 //session username for home
 $_SESSION["email"] = "$email";
- 
+
+//Session username for header
+$_SESSION["userName"] = filter_input(INPUT_POST , 'email');
+
 $login_sql = $db_connection->prepare("SELECT email FROM students WHERE email=?");
 $login_sql->bind_param("s", $email);
 $login_sql->execute();

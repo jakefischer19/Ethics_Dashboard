@@ -47,16 +47,16 @@ textarea {
 }
 
 .btn {
-  padding: 16px 32px;
+  padding: 16px 20px;
   text-align: center;
-  font-size: 16px;
+  font-size: 15px;
   margin: 4px 2px;
   transition: 0.3s;
 }
 #logoutbtn {
-  padding: 16px 32px;
+  padding: 16px 25px;
   text-align: center;
-  font-size: 16px;
+  font-size: 15px;
   margin: 4px 2px;
   transition: 0.3s;
 }
@@ -115,11 +115,6 @@ textarea {
   background-color: black;
   font-size: 16px;
   text-align: center;
-}
-
-.btns {
-  text-align: center;
-  position: relative;
 }
 
 @media only screen and (max-width: 400px) {

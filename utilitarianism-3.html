@@ -123,6 +123,15 @@
       });
     </script>
     <script>
+      var hook = true;
+      window.onbeforeunload = function () {
+        if (hook) {
+          return "Did you save your stuff?";
+        }
+      };
+      function unhook() {
+        hook = false;
+      }
       var stAvg = 0,
         ltAvg = 0,
         stName = 0,
@@ -230,7 +239,6 @@
         send2 = ltAvg;
         localStorage.setItem("myValue", send);
         localStorage.setItem("myValue2", send2);
-        window.location.href = "utilitarianism-4.html";
       }
 
       function stCountHigh() {
@@ -255,7 +263,7 @@
           "myValueHighRadioButton-ST-1",
           stSendHighRadioButton
         );
-        window.location.href = "utilitarianism-5.html";
+        // window.location.href = "utilitarianism-5.html";
       }
 
       function stValueSenderRadioButtonLow() {
@@ -264,7 +272,7 @@
           "myValueLowRadioButton-ST-1",
           stSendLowRadioButton
         );
-        window.location.href = "utilitarianism-5.html";
+        // window.location.href = "utilitarianism-5.html";
       }
 
       function ltValueSenderRadioButtonHigh() {
@@ -273,7 +281,7 @@
           "myValueHighRadioButton-LT-1",
           ltSendHighRadioButton
         );
-        window.location.href = "utilitarianism-5.html";
+        //window.location.href = "utilitarianism-5.html";
       }
 
       function ltValueSenderRadioButtonLow() {
@@ -282,7 +290,7 @@
           "myValueLowRadioButton-LT-1",
           ltSendLowRadioButton
         );
-        window.location.href = "utilitarianism-5.html";
+        //window.location.href = "utilitarianism-5.html";
       }
     </script>
   </head>
@@ -1158,10 +1166,11 @@
           <div class="row justify-content-center">
             <input
               type="submit"
+              value="Save"
               id="st-o1-submit"
               name="st-o1-submit"
               class="stakeholders-btn"
-              onclick="stValueSenderRadioButtonHigh();ltValueSenderRadioButtonHigh();stValueSenderRadioButtonLow();ltValueSenderRadioButtonLow();valueSender()"
+              onclick="stValueSenderRadioButtonHigh();ltValueSenderRadioButtonHigh();stValueSenderRadioButtonLow();ltValueSenderRadioButtonLow();valueSender();unhook()"
             />
           </div>
         </div>

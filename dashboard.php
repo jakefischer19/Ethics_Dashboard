@@ -1,3 +1,50 @@
+<?php
+
+  error_reporting(-1);
+  ini_set('display_errors', 'On');
+  session_start();
+
+  if(empty($_SESSION['caseID']) || $_SESSION['caseID'] == ''){
+    header("Location: Login/login.html");
+    die();
+  } 
+
+  require_once "Login/config.php";
+
+  $stuID = $_SESSION["stuID"];
+  $caseID = $_SESSION["caseID"];
+
+$summary = "";
+$role = "";
+$dilemmas = "";
+
+if (isset($_POST['save'])) {
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $summary = filter_input(INPUT_POST, "case-summary");
+  $role = filter_input(INPUT_POST, "role");
+  $dilemmas = filter_input(INPUT_POST, "dilemmas");
+}
+
+//get case # from db
+// $query = "SELECT caseNum FROM cases WHERE caseID ='".$caseID."'";
+// $result = mysqli_query($db_connection, $query);
+// $row = mysqli_fetch_array($result, MYSQLI_NUM);
+// $caseNum = $row[0] ?? false;
+
+  $sql = "UPDATE cases SET summary='$summary', role='$role', dilemmas='$dilemmas' WHERE caseID='$caseID'";
+
+if ($db_connection->query($sql) === TRUE) {
+  echo "<script></script>";
+} else {
+  echo "<script> alert('Unable to save your information. Please try again.'); window.location='dashboard.php'</script>";
+}
+
+$db_connection->close();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,15 +61,6 @@
     <link rel="stylesheet" href="style.css" />
     <title>Ethics Dashboard</title>
     <script>
-      var hook = true;
-      window.onbeforeunload = function () {
-        if (hook) {
-          return "Did you save your stuff?";
-        }
-      };
-      function unhook() {
-        hook = false;
-      }
       $(document).ready(function () {
         $(".dropdown").hover(function () {
           var dropdownMenu = $(this).children(".dropdown-menu");
@@ -36,19 +74,32 @@
   <body>
     <!-- Load Header -->
     <div id="header">
+   
       <script>
-        $(function () {
-          $("#header").load("header.html");
+         $(function () {
+          $("#header").load("header.php");
         });
+        
+        var hook = true;
+      window.onbeforeunload = function () {
+        if (hook) {
+          return "Did you save your stuff?";
+        }
+      };
+      function unhook() {
+        hook = false;
+      }
+       
+        
       </script>
-    </div>
-    <form action="Scripts/dashboard_entry.php" method="POST">
+  </div>
+    <form action="dashboard.php" method="POST">
       <div class="container-fluid">
         <div class="row pb-3">
           <div class="col-lg pb-3">
             <div class="card">
               <div class="card-body">
-                <h3 class="pb-2">Case Summary</h3>
+                <h3 class="pb-2">Step 1 - Case Summary</h3>
                 <textarea
                   name="case-summary"
                   id="case-summary"
@@ -62,7 +113,7 @@
           <div class="col-lg pb-3">
             <div class="card">
               <div class="card-body">
-                <h3 class="pb-2">Choose Your Role</h3>
+                <h3 class="pb-2">Step 2 - Choose Your Role</h3>
                 <textarea
                   name="role"
                   id="role"
@@ -78,7 +129,7 @@
           <div class="col-lg pb-3">
             <div class="card">
               <div class="card-body">
-                <h3 class="pb-2">Indentify the Dilemmas</h3>
+                <h3 class="pb-2">Step 3 - Identify the Dilemmas</h3>
                 <textarea
                   name="dilemmas"
                   id="dilemmas"
@@ -92,7 +143,7 @@
           <div class="col-lg pb-3">
             <div class="card h-100">
               <div class="card-body">
-                <h3 class="pb-2">Indentify Your Options</h3>
+                <h3 class="pb-2">Step 4 -Identify Your Options</h3>
                 <a
                   href="options.html"
                   class="btn btn-dark"
@@ -111,7 +162,7 @@
           <div class="col-lg pb-3">
             <div class="card h-100">
               <div class="card-body">
-                <h3 class="pb-2">Stakeholders</h3>
+                <h3 class="pb-2">Step 5 - Stakeholders</h3>
                 <br />
                 <a
                   href="stakeholders.html"
@@ -129,13 +180,21 @@
           </div>
         </div>
       </div>
+         <center>
       <input
-        class="btn btn-dark"
+        class="btn btn-dark justify-content-center"
         type="submit"
-        value="Save"
-        style="float: right; margin-bottom: 30px"
+        name="save"
+        value="Save Data"
+        style="margin-bottom: 30px"
         onclick="unhook()"
       />
+   
+      <a href="/EBoard/utilitarianism.html" style="margin-left: 20px; margin-bottom: 30px;" class="btn btn-dark justify-content-center"
+        name="nextPage">Go to utilitarianism</a>
+      </center>
+     
+      
     </form>
 
     <script

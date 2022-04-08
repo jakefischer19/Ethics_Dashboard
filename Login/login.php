@@ -1,3 +1,12 @@
+<?php 
+session_start();
+$_SESSION['userName'] = 'Username';
+if (isset($_POST['Submit'])) {
+    $_SESSION['userName'] = $_POST['email'];
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -61,6 +70,7 @@
                   <button
                     class="login-btn btn btn-dark btn-lg btn-block col-7 mx-auto"
                     type="submit"
+                    name="Submit"
                   >
                     Login
                   </button>

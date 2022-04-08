@@ -1,4 +1,6 @@
+<?php session_start(); 
 
+?>
   <script>
     var op_count = "";
     var resetValue = 0;
@@ -121,7 +123,7 @@
               <a href="progress.html" class="btn justify-content-end btn-sm" role="button"
                 >My Progress</a
               >
-               <a href="#" class="btn justify-content-end btn-sm" role="button"><img src="login-icon.png" height="20"> </a>
+               <a href="#" class="btn justify-content-end btn-sm" role="button"><img src="login-icon.png" height="20"> <?php echo $_SESSION["userName"]; ?></a>
               <a href="Login/logout.php" id="logoutbtn" class="btn justify-content-end btn-outline-primary btn-sm" role="button">Log out</a>
               
             </div> 

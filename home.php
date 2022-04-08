@@ -1,4 +1,6 @@
 <?php
+error_reporting(-1);
+ini_set('display_errors', 'On');
 session_start();
 // If the user is not logged in redirect to the login page...
 if (!isset($_SESSION['loggedin'])) {
@@ -20,10 +22,10 @@ $stuID = $_SESSION['stuID'];
 require_once "Login/config.php";
 
 
-$query = "SELECT caseID FROM cases WHERE stuID ='".$stuID."'";
+$query = "SELECT COUNT(caseID) as mycount FROM cases WHERE stuID='".$stuID."'";
 $result = mysqli_query($db_connection, $query);
-$row = mysqli_fetch_array($result, MYSQLI_NUM);
-$caseID = $row[0] ?? false;
+$fetch = mysqli_fetch_object($result);
+$currentCases = $fetch->mycount;
 
 ?>
 
@@ -53,6 +55,7 @@ $caseID = $row[0] ?? false;
       >
         <div class="container-fluid">
           <a class="navbar-brand fs-3 fw-bolder">Ethics Dashboard</a>
+          <a href="Login/logout.php" id="logoutbtn" class="btn justify-content-end btn-outline-primary btn-sm" role="button" style="position: relative; top: 0; right: 0;">Log out</a>
         </div>
       </nav>
     </div>
@@ -84,39 +87,79 @@ $caseID = $row[0] ?? false;
     ></script>
     <script>
       //store case num into database when new case is created
-      let caseMax = 3;
-      let caseNum = <?php echo json_encode($caseID); ?>;
-      let stuID = <?php echo json_encode($stuID); ?>;
+      let caseMax = 4;
+      let caseNum = <?php echo json_encode($currentCases); ?>;
+      var stuID = <?php echo json_encode($stuID);?>;
+
       function addCase() {
-        if (caseNum < caseMax) {
-          //$.post('Scripts/add_case.php', { caseID: caseNum, stuID: stuID });
+        if(caseNum < caseMax){
           $.ajax({
             type: "POST",
             url: 'Scripts/add_case.php',
             data: {
-              "caseID": caseNum, 
               "stuID": stuID
+            },
+            dataType: 'json',
+            cache: false,
+            success: function(data){
+              caseNum = data[0];
+              var caseID = data[1];
+              //alert("Num of cases" + caseNum + ", case ID" + caseID);
+              var caseHTML = '<div class="row pb-3"><div class="col pb"><div class="card"><button id="'+ caseID +'" type="button" onclick="loadCase(this.id);" class="btn btn-light"><div class="card-body"><h3 class="pb-2">Case ' + caseNum + '</h3></div></button></div></div></div>';
+              document.getElementById("case" + caseNum).insertAdjacentHTML('beforeend', caseHTML);
+            },
+            error: function(xhr, status, error){
+            console.error(xhr);
+            }
+          });
+        }
+      }
+      function loadCase(clicked_id){
+        //alert(clicked_id);
+        $.ajax({
+            type: "POST",
+            url: 'Scripts/load_case.php',
+            data: {
+              "stuID": stuID,
+              "caseID": clicked_id
             },
             cache: false,
             success: function(data){
-              caseNum = parseInt(data);
+              // alert("caseID = " + clicked_id);
+              location.href = "dashboard.php";
+            },
+            error: function(xhr, status, error){
+            console.error(xhr);
+            }
+          });
+      }
+      function checkCase(){
+          $.ajax({
+            type: "POST",
+            url: 'Scripts/check_case.php',
+            data: {
+              "stuID": stuID
+            },
+            dataType: 'json',
+            cache: false,
+            success: function(data){
+              //alert(data[1]);
               for (i = 0; i < caseNum; i++) {
-                  document.getElementById("case" + caseNum).innerHTML +=
-                  '<div class="row pb-3"><div class="col pb"><div class="card"><form action="dashboard.html" method="get"><button type="submit" class="btn btn-light"><div class="card-body"><h3 class="pb-2">New Case</h3></div></button></form></div></div></div>';
+                var caseHTML = '<div class="row pb-3"><div class="col pb"><div class="card"><button id="'+data[i]+'" type="button" onclick="loadCase(this.id);" class="btn btn-light"><div class="card-body"><h3 class="pb-2">Case ' + (i+1) + '</h3></div></button></div></div></div>';
+                document.getElementById("case" + caseNum).insertAdjacentHTML('beforeend', caseHTML);
               }
             },
             error: function(xhr, status, error){
             console.error(xhr);
             }
           });
-          //checkCase();
-        }
       }
-      function checkCase() {
+      function checkCase2() {
         //load stored database variable
+        //alert(caseNum);
         for (i = 0; i < caseNum; i++) {
-          document.getElementById("case" + caseNum).innerHTML +=
-            '<div class="row pb-3"><div class="col pb"><div class="card"><form action="dashboard.html" method="get"><button type="submit" class="btn btn-light"><div class="card-body"><h3 class="pb-2">New Case</h3></div></button></form></div></div></div>';
+          var caseHTML = '<div class="row pb-3"><div class="col pb"><div class="card"><form action="dashboard.php" method="get"><button type="submit" class="btn btn-light"><div class="card-body"><h3 class="pb-2">New Case</h3></div></button></form></div></div></div>';
+          document.getElementById("case" + caseNum).insertAdjacentHTML('beforeend', caseHTML);
         }
       }
     </script>
