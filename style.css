@@ -78,6 +78,10 @@ textarea {
   margin-top: 10;
 }
 
+.btns {
+  text-align: center;
+}
+
 /* options-page */
 .input_text {
   width: 500px;
