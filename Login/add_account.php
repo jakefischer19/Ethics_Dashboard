@@ -103,8 +103,7 @@ $login_result = $login_sql->fetch();
 if($login_result){
 
   //header("Location: https://https://herrycooly.com/EBoard/Login/login.html");
-  // header("Location: add_account.php");
-  
+  header("Location: add_account.php");
   echo "<script>alert('User Account Already Exists'); window.location='stu_registration.html'</script>";
 
 }else{
@@ -116,11 +115,11 @@ if($login_result){
   $stmt_check->bind_param("ssss", $f_name, $l_name, $email, $hash);
   $stmt_check->execute();
 
-  echo "<script>alert('New User Account Created, Please Log In') window.location='stu_registration.html'</script>";
+  //echo "<script>alert('New User Account Created, Please Log In') window.location='stu_registration.html'</script>";
 
   $stmt_check->close();
 
   //header("Location: https://https://herrycooly.com/EBoard/Login/login.html");
-  header("Location: login.html");
+  header("Location: login.php");
 }
 ?>

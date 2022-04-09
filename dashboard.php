@@ -1,10 +1,11 @@
 <?php
+
   error_reporting(-1);
   ini_set('display_errors', 'On');
   session_start();
 
   if(empty($_SESSION['caseID']) || $_SESSION['caseID'] == ''){
-    header("Location: Login/login.html");
+    header("Location: Login/login.php");
     die();
   } 
 
@@ -13,18 +14,17 @@
   $stuID = $_SESSION["stuID"];
   $caseID = $_SESSION["caseID"];
 
-  $summary = "";
-  $role = "";
-  $dilemmas = "";
+$summary = "";
+$role = "";
+$dilemmas = "";
 
-  if (isset($_POST['save'])) {
+if (isset($_POST['save'])) {
 
-  if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $summary = filter_input(INPUT_POST, "case-summary");
-    $role = filter_input(INPUT_POST, "role");
-    $dilemmas = filter_input(INPUT_POST, "dilemmas");
-  }
-
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $summary = filter_input(INPUT_POST, "case-summary");
+  $role = filter_input(INPUT_POST, "role");
+  $dilemmas = filter_input(INPUT_POST, "dilemmas");
+}
 
 //get case # from db
 // $query = "SELECT caseNum FROM cases WHERE caseID ='".$caseID."'";
@@ -34,17 +34,24 @@
 
   $sql = "UPDATE cases SET summary='$summary', role='$role', dilemmas='$dilemmas' WHERE caseID='$caseID'";
 
-if ($db_connection->query($sql) === TRUE) {
-  echo "<script> alert('Your case information was saved sucessfully.'); window.location='dashboard.php'</script>";
-} else {
-  echo "<script> alert('Unable to save your information. Please try again.'); window.location='dashboard.php'</script>";
-}
+  if ($db_connection->query($sql) === TRUE) {
+    print "<div class='alert alert-success d-flex align-items-center' role='alert'><svg class='bi flex-shrink-0 me-2' width='24' height='24' role='img' aria-label='Success:'><use xlink:href='#check-circle-fill'/></svg>
+    <div>
+      You have successfully saved the information!
+    </div>
+  </div>";
+  } else {
+    print "<div class='alert alert-danger d-flex align-items-center' role='alert'>
+    <svg class='bi flex-shrink-0 me-2' width='24' height='24' role='img' aria-label='Danger:'><use xlink:href='#exclamation-triangle-fill'/></svg>
+    <div>
+      Save failed, please try again!
+    </div>
+  </div>";
+  }
 
 $db_connection->close();
 }
 
-
-  $db_connection->close();
 ?>
 
 <!DOCTYPE html>
@@ -59,7 +66,7 @@ $db_connection->close();
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="//code.jquery.com/jquery.min.js"></script>
     <link rel="stylesheet" href="style.css" />
     <title>Ethics Dashboard</title>
     <script>
@@ -73,15 +80,28 @@ $db_connection->close();
       });
     </script>
   </head>
-  <body onload="loadDash();">
+  <body>
     <!-- Load Header -->
     <div id="header">
+   
       <script>
-        $(function () {
-          $("#header").load("header.html");
+         $(function () {
+          $("#header").load("header.php");
         });
+        
+        var hook = true;
+      window.onbeforeunload = function () {
+        if (hook) {
+          return "Did you save your stuff?";
+        }
+      };
+      function unhook() {
+        hook = false;
+      }
+       
+        
       </script>
-    </div>
+  </div>
     <form action="dashboard.php" method="POST">
       <div class="container-fluid">
         <div class="row pb-3">
@@ -118,7 +138,7 @@ $db_connection->close();
           <div class="col-lg pb-3">
             <div class="card">
               <div class="card-body">
-                <h3 class="pb-2">Step 3 - Indentify the Dilemmas</h3>
+                <h3 class="pb-2">Step 3 - Identify the Dilemmas</h3>
                 <textarea
                   name="dilemmas"
                   id="dilemmas"
@@ -132,7 +152,7 @@ $db_connection->close();
           <div class="col-lg pb-3">
             <div class="card h-100">
               <div class="card-body">
-                <h3 class="pb-2">Step 4 -Indentify Your Options</h3>
+                <h3 class="pb-2">Step 4 -Identify Your Options</h3>
                 <a
                   href="options.html"
                   class="btn btn-dark"
@@ -169,13 +189,32 @@ $db_connection->close();
           </div>
         </div>
       </div>
+         <center>
       <input
-        class="btn btn-dark"
+        class="btn btn-dark justify-content-center"
         type="submit"
         name="save"
-        value="Save"
-        style="float: right; margin-bottom: 30px"
+        value="Save Data"
+        style="margin-bottom: 30px"
+        onclick="unhook()"
       />
+   
+      <a href="/EBoard/utilitarianism.html" style="margin-left: 20px; margin-bottom: 30px;" class="btn btn-dark justify-content-center"
+        name="nextPage">Go to utilitarianism</a>
+      </center>
+      <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+  </symbol>
+  <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+  </symbol>
+  <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+    <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+  </symbol>
+</svg>
+     
+      
     </form>
 
     <script
@@ -188,33 +227,5 @@ $db_connection->close();
       integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
       crossorigin="anonymous"
     ></script>
-    <script>
-      var stuID = <?php echo json_encode($stuID);?>;
-      var caseID = <?php echo json_encode($caseID);?>;
-      function loadDash(){
-        //alert("working");
-        $.ajax({
-          type: "POST",
-          url: 'Scripts/load_dash.php',
-          data: {
-            "caseID": caseID
-          },
-          dataType: 'json',
-          cache: false,
-          success: function(data){
-            var summary = data[0];
-            var role = data[1];
-            var dilemmas = data[2];
-            //alert(summary + role + dilemmas);
-            document.getElementById('case-summary').innerHTML = summary;
-            document.getElementById('role').innerHTML = role;
-            document.getElementById('dilemmas').innerHTML = dilemmas;
-          },
-          error: function(xhr, status, error){
-          console.error(xhr);
-          }
-          });
-      }
-    </script>
   </body>
 </html>

@@ -1,3 +1,10 @@
+<?php 
+session_start();
+$_SESSION['firstName'] = 'First Name';
+$_SESSION['lastName'] = 'Last Name';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -34,28 +41,8 @@
               style="border-radius: 1rem"
             >
               <div class="card-body p-5 text-center">
-                <h3 class="mb-5">Sign Up</h3>
-                <form action="add_account.php" method="post">
-                  <div class="form-outline mb-4">
-                    <input
-                      type="text"
-                      name="f_name"
-                      id="f_name"
-                      class="form-control form-control-lg col-10 mx-auto"
-                      required
-                    />
-                    <label class="form-label" for="email">First Name</label>
-                  </div>
-                  <div class="form-outline mb-4">
-                    <input
-                      type="text"
-                      name="l_name"
-                      id="l_name"
-                      class="form-control form-control-lg col-10 mx-auto"
-                      required
-                    />
-                    <label class="form-label" for="email">Last Name</label>
-                  </div>
+                <h3 class="mb-5">Sign in</h3>
+                <form action="authenticate.php" method="post">
                   <div class="form-outline mb-4">
                     <input
                       type="email"
@@ -66,6 +53,7 @@
                     />
                     <label class="form-label" for="email">Email</label>
                   </div>
+
                   <div class="form-outline mb-4">
                     <input
                       type="password"
@@ -77,15 +65,22 @@
                     <label class="form-label" for="password">Password</label>
                   </div>
                   <br />
+                  <button
+                    class="login-btn btn btn-dark btn-lg btn-block col-7 mx-auto"
+                    type="submit"
+                    name="Submit"
+                  >
+                    Login
+                  </button>
                   <hr class="my-4" />
+                </form>
+                <form action="stu_registration.html" method="post">
                   <button
                     class="register-btn btn btn-dark btn-lg btn-block col-7 mx-auto"
                     type="submit"
                   >
-                    Register
+                    Sign Up
                   </button>
-                  <br />
-                  <a href="login.php">Back to Login</a>
                 </form>
               </div>
             </div>

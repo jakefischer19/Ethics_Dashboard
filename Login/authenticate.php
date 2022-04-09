@@ -11,7 +11,7 @@ require_once "config.php";
 //check for required fields from the form
 if ((!filter_input(INPUT_POST, 'email')) || (!filter_input(INPUT_POST, 'password'))) {
  // header("Location: https://https://herrycooly.com/EBoard/Login/login.html");
-  header("Location: login.html");
+  header("Location: login.php");
   exit;
 }
 
@@ -21,7 +21,7 @@ $email = strtolower($old_email);
 $password = filter_input(INPUT_POST, 'password');
 //session username for home
 $_SESSION["email"] = "$email";
- 
+
 $login_sql = $db_connection->prepare("SELECT email FROM students WHERE email=?");
 $login_sql->bind_param("s", $email);
 $login_sql->execute();
@@ -32,7 +32,7 @@ $login_result = $login_sql->fetch();
 
 if($login_result){
   $login_sql->close();
-  $query = "SELECT password FROM students WHERE email='".$email."'";
+    $query = "SELECT password FROM students WHERE email='".$email."'";
   $result = mysqli_query($db_connection, $query);
 
   $row = mysqli_fetch_array($result, MYSQLI_NUM);
@@ -48,6 +48,18 @@ if($login_result){
     $stuID = $row[0] ?? false;
     $_SESSION["stuID"] = $stuID;
 
+    $userFirstNameQuery = "SELECT f_name FROM students where stuID = '".$stuID."'";
+    $firstNameResult = mysqli_query($db_connection, $userFirstNameQuery);
+    $firstNameRow = mysqli_fetch_array($firstNameResult, MYSQLI_NUM);
+    $firstName = $firstNameRow[0] ?? false;
+    $_SESSION["firstName"] = $firstName;
+
+    $userLastNameQuery = "SELECT l_name FROM students where stuID = '".$stuID."'";
+    $lastNameResult = mysqli_query($db_connection, $userLastNameQuery);
+    $lastNameRow = mysqli_fetch_array($lastNameResult, MYSQLI_NUM);
+    $lastName = $lastNameRow[0] ?? false;
+    $_SESSION["lastName"] = $lastName;
+
     //header("Location: https://https://herrycooly.com/EBoard/home.html");
     header("Location: /EBoard/home.php");
 
@@ -57,7 +69,7 @@ if($login_result){
     
     unset($_SESSION['email']);
     //header("Location: https://https://herrycooly.com/EBoard/Login/login.html");
-    header("Location: login.html");
+    header("Location: login.php");
 
     echo '<script language="javascript">alert("Incorrect email/password")</script>';
     exit;
@@ -90,14 +102,14 @@ if($login_result){
     }else{
       unset($_SESSION['email']);
       //header("Location: https://https://herrycooly.com/EBoard/Login/login.html");
-      header("Location: login.html");
+      header("Location: login.php");
     }
   }else{
     //redirect back to login form if not authorized
     
     unset($_SESSION['email']);
     //header("Location: https://https://herrycooly.com/EBoard/Login/login.html");
-    header("Location: login.html");
+    header("Location: login.php");
     exit;
   }
 }
