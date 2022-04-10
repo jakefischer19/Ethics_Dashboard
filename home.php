@@ -5,7 +5,7 @@ session_start();
 // If the user is not logged in redirect to the login page...
 if (!isset($_SESSION['loggedin'])) {
 	//die(header("location: 404.php"));
-  die(header("location: login.php"));
+  die(header("location: login.html"));
 	exit;
 }
 if (!isset($_SESSION['CREATED'])) {
