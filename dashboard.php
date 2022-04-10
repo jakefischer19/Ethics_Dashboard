@@ -63,6 +63,19 @@ $db_connection->close();
     <link rel="stylesheet" href="style.css" />
     <title>Ethics Dashboard</title>
     <script>
+           function nextPage() {
+        window.location.href = "utilitarianism.html";
+      }
+
+      var hook = true;
+      window.onbeforeunload = function () {
+        if (hook) {
+          return "Did you save your stuff?";
+        }
+      };
+      function unhook() {
+        hook = false;
+      }
       $(document).ready(function () {
         $(".dropdown").hover(function () {
           var dropdownMenu = $(this).children(".dropdown-menu");
@@ -78,7 +91,7 @@ $db_connection->close();
     <div id="header">
       <script>
         $(function () {
-          $("#header").load("header.html");
+          $("#header").load("header.php");
         });
       </script>
     </div>
@@ -169,13 +182,25 @@ $db_connection->close();
           </div>
         </div>
       </div>
+      <center>
       <input
-        class="btn btn-dark"
+        class="btn btn-dark justify-content-center"
         type="submit"
         name="save"
         value="Save"
-        style="float: right; margin-bottom: 30px"
+        style="margin-bottom: 30px"
+        onclick="unhook()"
       />
+
+      <input
+        class="btn btn-dark justify-content-center"
+        type="button"
+        name="go-util"
+        value="Go to Utilitarianism"
+        style=" margin-bottom: 30px"
+        onclick = "nextPage()"
+      />
+      </center>
     </form>
 
     <script
