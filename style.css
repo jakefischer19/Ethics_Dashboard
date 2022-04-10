@@ -47,16 +47,16 @@ textarea {
 }
 
 .btn {
-  padding: 16px 20px;
+  padding: 8px 16px;
   text-align: center;
-  font-size: 15px;
+  font-size: 14px;
   margin: 4px 2px;
   transition: 0.3s;
 }
 #logoutbtn {
-  padding: 16px 25px;
+  padding: 8px 16px;
   text-align: center;
-  font-size: 15px;
+  font-size: 16px;
   margin: 4px 2px;
   transition: 0.3s;
 }
@@ -76,10 +76,6 @@ textarea {
 
 .dropdown-menu {
   margin-top: 10;
-}
-
-.btns {
-  text-align: center;
 }
 
 /* options-page */
@@ -119,6 +115,11 @@ textarea {
   background-color: black;
   font-size: 16px;
   text-align: center;
+}
+
+.btns {
+  text-align: center;
+  position: relative;
 }
 
 @media only screen and (max-width: 400px) {
