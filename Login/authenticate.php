@@ -48,6 +48,18 @@ if($login_result){
     $stuID = $row[0] ?? false;
     $_SESSION["stuID"] = $stuID;
 
+    $userFirstNameQuery = "SELECT f_name FROM students where stuID = '".$stuID."'";
+    $firstNameResult = mysqli_query($db_connection, $userFirstNameQuery);
+    $firstNameRow = mysqli_fetch_array($firstNameResult, MYSQLI_NUM);
+    $firstName = $firstNameRow[0] ?? false;
+    $_SESSION["firstName"] = $firstName;
+
+    $userLastNameQuery = "SELECT l_name FROM students where stuID = '".$stuID."'";
+    $lastNameResult = mysqli_query($db_connection, $userLastNameQuery);
+    $lastNameRow = mysqli_fetch_array($lastNameResult, MYSQLI_NUM);
+    $lastName = $lastNameRow[0] ?? false;
+    $_SESSION["lastName"] = $lastName;
+
     //header("Location: https://https://herrycooly.com/EBoard/home.html");
     header("Location: /EBoard/home.php");
 
