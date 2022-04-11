@@ -14,11 +14,11 @@
     <script src="//code.jquery.com/jquery.min.js"></script>
 
     <script>
+      var counter = 3;
       function goBack() {
         window.location.href = "/EBoard/dashboard.php";
       }
 
-      var counter = 3;
       $(document).ready(function () {
         document.getElementById("Remove").disabled = true;
         document.getElementById("Remove").style.background = "grey";
@@ -63,6 +63,11 @@
           }
         });
       });
+
+      function sendStakeholdersCounter() {
+        // window.alert(counter);
+        localStorage.setItem("stakeholders_counter", counter);
+      }
     </script>
 
     <link rel="stylesheet" href="style.css" />
@@ -170,13 +175,14 @@
             <button id="Remove" class="stakeholders-btn ms-2 mt-3">
               Click to remove stakeholder
             </button>
-            <button
+            <input
+              type="button"
               id="Submit"
+              value="Submit"
               class="stakeholders-btn ms-2 mt-3"
-              onclick="unhook()"
-            >
-              Submit
-            </button>
+              onclick="sendStakeholdersCounter();unhook()"
+            />
+
             <button class="stakeholders-btn ms-2 mt-3" onclick="goBack()">
               Go back
             </button>
