@@ -21,8 +21,9 @@
         counter,
         opt_counter = "";
       $(document).ready(function () {
-        op3 = localStorage.getItem("title3");
-        document.getElementById("title-span").textContent = op3;
+        counter = localStorage.getItem("stakeholders_counter");
+        opt_counter = localStorage.getItem("opt_counter");
+        // window.alert(counter);
 
         b = localStorage.getItem("myValue");
         c = localStorage.getItem("myValue2");
@@ -33,6 +34,9 @@
         document.getElementById("o1-lt-agg-slider").value = c;
         document.getElementById("o2-st-agg-slider").value = d;
         document.getElementById("o2-lt-agg-slider").value = e;
+        /*
+        op3 = localStorage.getItem("title3");
+        document.getElementById("title-span").textContent = op3;
 
         st1 = localStorage.getItem("stake-1-value");
         st2 = localStorage.getItem("stake-2-value");
@@ -40,10 +44,8 @@
         st4 = localStorage.getItem("stake-4-value");
         st5 = localStorage.getItem("stake-5-value");
         st6 = localStorage.getItem("stake-6-value");
-        counter = localStorage.getItem("counter-val");
-        opt_counter = localStorage.getItem("opt_counter");
 
-        document.getElementById("st-stakeholders-name-1").textContent = st1;
+                document.getElementById("st-stakeholders-name-1").textContent = st1;
         document.getElementById("st-stakeholders-name-2").textContent = st2;
         document.getElementById("st-stakeholders-name-3").textContent = st3;
         document.getElementById("st-stakeholders-name-4").textContent = st4;
@@ -57,12 +59,13 @@
         document.getElementById("lt-stakeholders-name-5").textContent = st5;
         document.getElementById("lt-stakeholders-name-6").textContent = st6;
 
-        var resetValue = 0;
-        var resetValue2 = "OPTION 3";
+         var resetValue = 0;
+          var resetValue2 = "OPTION 3";
 
-        localStorage.setItem("myValue", resetValue);
-        localStorage.setItem("myValue2", resetValue);
-        localStorage.setItem("title3", resetValue2);
+          localStorage.setItem("myValue", resetValue);
+         localStorage.setItem("myValue2", resetValue);
+         localStorage.setItem("title3", resetValue2);
+*/
 
         //o1-st-agg-slider is the slider for Aggregation of short-term outcomes for option 1
         document.getElementById("o1-st-agg-slider").disabled = true;
@@ -105,6 +108,7 @@
           document.getElementById("agg-option-3").style.display = "none";
           document.getElementById("agg-option-3-sliders").style.display =
             "none";
+          document.getElementById("pag-option-3").style.display = "none";
         }
 
         $(".dropdown").hover(function () {
@@ -1199,20 +1203,26 @@
             <span class="sr-only">Previous</span>
           </a>
         </li>
+
         <li class="page-item">
-          <a class="page-link" href="utilitarianism.html">1</a>
+          <a class="page-link" href="utilitarianism.html">Options</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="utilitarianism-2.html">2</a>
+          <a class="page-link" href="utilitarianism-2.html">Stakeholders</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="utilitarianism-3.html">3</a>
+          <a class="page-link" href="utilitarianism-3.html">Option-1</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="utilitarianism-4.html">4</a>
+          <a class="page-link" href="utilitarianism-4.html">Option-2</a>
+        </li>
+        <li class="page-item active" id="pag-option-3">
+          <a class="page-link" href="utilitarianism-3rd-option.html"
+            >Option-3</a
+          >
         </li>
         <li class="page-item">
-          <a class="page-link" href="utilitarianism-5.html">5</a>
+          <a class="page-link" href="utilitarianism-5.html">Conclusion</a>
         </li>
 
         <li class="page-item">
@@ -1223,7 +1233,6 @@
         </li>
       </ul>
     </nav>
-
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
       integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"

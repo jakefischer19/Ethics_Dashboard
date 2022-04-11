@@ -13,6 +13,8 @@
     <title>Ethics Dashboard</title>
     <script src="//code.jquery.com/jquery.min.js"></script>
     <script>
+      var opt_counter = 2;
+
       function goBack() {
         window.location.href = "/EBoard/dashboard.php";
       }
@@ -28,13 +30,38 @@
       function add_field(el) {
         var total_text = document.getElementsByClassName("input_text");
         if (el.value === "Add another option") {
+          opt_counter++;
           el.value = "Remove option";
           document.getElementById("field_div").innerHTML =
-            "<br><h4 class='pb-2'>OPTION 3</h4><textarea cols='14' rows='9' placeholder='Enter your option here'></textarea>";
+            "<br><h4 class='pb-2'>OPTION 3</h4><textarea cols='14' rows='9' name = 'option3' id = 'option3' placeholder='Enter your option here' onchange='getOptions3Title()'></textarea>";
         } else {
+          opt_counter--;
           document.getElementById("field_div").innerHTML = "";
           el.value = "Add another option";
         }
+      }
+
+      var title1 = "";
+      var title2 = "";
+      var title3 = "";
+
+      function getOptions1Title() {
+        title1 = document.getElementById("option1").value;
+      }
+
+      function getOptions2Title() {
+        title2 = document.getElementById("option2").value;
+      }
+
+      function getOptions3Title() {
+        title3 = document.getElementById("option3").value;
+      }
+
+      function sendOptions() {
+        // localStorage.setItem("title1", title1);
+        // localStorage.setItem("title2", title2);
+        // localStorage.setItem("title3", title3);
+        localStorage.setItem("opt_counter", opt_counter);
       }
     </script>
     <link rel="stylesheet" href="style.css" />
@@ -89,20 +116,22 @@
             <div class="card-body" style="height: 650px; overflow-y: auto">
               <h4 class="pb-2">OPTION 1</h4>
               <textarea
-                name="options1"
-                id="options1"
+                name="option1"
+                id="option1"
                 cols="14"
                 rows="9"
                 placeholder="I can put loyalty to the company above my personal concerns and do my job – create the device."
+                onchange="getOptions1Title()"
               ></textarea>
               <br /><br />
               <h4 class="pb-2">OPTION 2</h4>
               <textarea
-                name="options2"
+                name="option2"
                 id="option2"
                 cols="14"
                 rows="9"
                 placeholder="I can betray the company, go to the press and blow the whistle."
+                onchange="getOptions2Title()"
               ></textarea>
 
               <div id="field_div"></div>
@@ -116,10 +145,10 @@
                   class="options-btn ms-1"
                 />
                 <input
-                  type="submit"
+                  type="button"
                   value="Submit"
                   class="options-btn ms-1"
-                  onclick="unhook()"
+                  onclick="sendOptions();unhook()"
                 />
                 <input
                   type="button"

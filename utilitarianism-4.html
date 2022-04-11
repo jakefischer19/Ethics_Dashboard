@@ -16,25 +16,30 @@
     <title>Ethics Dashboard</title>
 
     <script>
-      var b, c;
+      /* var b, c;
       var op2 = "";
       var st1,
         st2,
         st3,
         st4,
         st5,
-        st6,
-        counter,
+        st6,*/
+      var counter,
         opt_counter = "";
       $(document).ready(function () {
-        op2 = localStorage.getItem("title2");
-        document.getElementById("title-span").textContent = op2;
+        counter = localStorage.getItem("stakeholders_counter");
+        opt_counter = localStorage.getItem("options_counter");
 
         b = localStorage.getItem("myValue");
         c = localStorage.getItem("myValue2");
 
         document.getElementById("o1-st-agg-slider").value = b;
         document.getElementById("o1-lt-agg-slider").value = c;
+        //   window.alert(counter);
+        /*
+        op2 = localStorage.getItem("title2");
+        document.getElementById("title-span").textContent = op2;
+
 
         st1 = localStorage.getItem("stake-1-value");
         st2 = localStorage.getItem("stake-2-value");
@@ -42,9 +47,7 @@
         st4 = localStorage.getItem("stake-4-value");
         st5 = localStorage.getItem("stake-5-value");
         st6 = localStorage.getItem("stake-6-value");
-        counter = localStorage.getItem("counter-val");
-        opt_counter = localStorage.getItem("opt_counter");
-
+     
         document.getElementById("st-stakeholders-name-1").textContent = st1;
         document.getElementById("st-stakeholders-name-2").textContent = st2;
         document.getElementById("st-stakeholders-name-3").textContent = st3;
@@ -59,12 +62,13 @@
         document.getElementById("lt-stakeholders-name-5").textContent = st5;
         document.getElementById("lt-stakeholders-name-6").textContent = st6;
 
-        var resetValue = 0;
-        var resetValue2 = "OPTION 2";
+         var resetValue = 0;
+         var resetValue2 = "OPTION 2";
 
-        localStorage.setItem("myValue", resetValue);
-        localStorage.setItem("myValue2", resetValue);
-        localStorage.setItem("title2", resetValue2);
+         localStorage.setItem("myValue", resetValue);
+          localStorage.setItem("myValue2", resetValue);
+          localStorage.setItem("title2", resetValue2);
+*/
 
         //o1-st-agg-slider is the slider for Aggregation of short-term outcomes for option 1
         document.getElementById("o1-st-agg-slider").disabled = true;
@@ -114,6 +118,10 @@
           document.getElementById("agg-option-3").style.display = "none";
           document.getElementById("agg-option-3-sliders").style.display =
             "none";
+          document.getElementById("pag-option-3").style.display = "none";
+          document.getElementById("pag-next-1").style.display = "none";
+        } else {
+          document.getElementById("pag-next-2").style.display = "none";
         }
 
         $(".dropdown").hover(function () {
@@ -253,7 +261,7 @@
           localStorage.setItem("myValue3", send3);
           localStorage.setItem("myValue4", send4);
 
-          window.location.href = "utilitarianism-5.html";
+          //     window.location.href = "utilitarianism-5.html";
         } else {
           send = b;
           send2 = c;
@@ -1204,6 +1212,7 @@
       </div>
     </div>
     <br />
+    <br />
     <nav aria-label="Page navigation example">
       <ul class="pagination justify-content-center">
         <li class="page-item">
@@ -1216,23 +1225,39 @@
             <span class="sr-only">Previous</span>
           </a>
         </li>
-        <li class="page-item">
-          <a class="page-link" href="utilitarianism.html">1</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="utilitarianism-2.html">2</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="utilitarianism-3.html">3</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="utilitarianism-4.html">4</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="utilitarianism-5.html">5</a>
-        </li>
 
         <li class="page-item">
+          <a class="page-link" href="utilitarianism.html">Options</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="utilitarianism-2.html">Stakeholders</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="utilitarianism-3.html">Option-1</a>
+        </li>
+        <li class="page-item active">
+          <a class="page-link" href="utilitarianism-4.html">Option-2</a>
+        </li>
+        <li class="page-item" id="pag-option-3">
+          <a class="page-link" href="utilitarianism-3rd-option.html"
+            >Option-3</a
+          >
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="utilitarianism-5.html">Conclusion</a>
+        </li>
+
+        <li class="page-item" id="pag-next-1">
+          <a
+            class="page-link"
+            href="utilitarianism-3rd-option.html"
+            aria-label="Next"
+          >
+            <span aria-hidden="true">&raquo;</span>
+            <span class="sr-only">Next</span>
+          </a>
+        </li>
+        <li class="page-item" id="pag-next-2">
           <a class="page-link" href="utilitarianism-5.html" aria-label="Next">
             <span aria-hidden="true">&raquo;</span>
             <span class="sr-only">Next</span>
@@ -1240,7 +1265,6 @@
         </li>
       </ul>
     </nav>
-
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
       integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"

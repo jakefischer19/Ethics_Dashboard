@@ -63,10 +63,23 @@ $db_connection->close();
     <link rel="stylesheet" href="style.css" />
     <title>Ethics Dashboard</title>
     <script>
+        var op_count ,st_counter = "";
+      op_count = localStorage.getItem("opt_counter");
+      st_counter = localStorage.getItem("stakeholders_counter");
+
            function nextPage() {
         window.location.href = "utilitarianism.html";
       }
+ 
+    function sendOptionsCounter()
+    {
+      localStorage.setItem("options_counter", op_count);
+    }
 
+    function sendStakeholdersCounter()
+    {
+      localStorage.setItem("stakeholders_counter",  st_counter);
+    }
       var hook = true;
       window.onbeforeunload = function () {
         if (hook) {
@@ -198,7 +211,7 @@ $db_connection->close();
         name="go-util"
         value="Go to Utilitarianism"
         style=" margin-bottom: 30px"
-        onclick = "nextPage()"
+        onclick = "sendOptionsCounter();sendStakeholdersCounter();nextPage()"
       />
       </center>
     </form>

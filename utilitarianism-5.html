@@ -145,6 +145,10 @@
           document.getElementById("option-3").style.display = "none";
           document.getElementById("option-3-st").style.display = "none";
           document.getElementById("option-3-lt").style.display = "none";
+          document.getElementById("pag-option-3").style.display = "none";
+          document.getElementById("pag-prev-1").style.display = "none";
+        } else {
+          document.getElementById("pag-prev-2").style.display = "none";
         }
 
         $(".dropdown").hover(function () {
@@ -449,7 +453,17 @@ Option 2 will produce the greatest happiness and is therefore the right option."
     <br />
     <nav aria-label="Page navigation example">
       <ul class="pagination justify-content-center">
-        <li class="page-item">
+        <li class="page-item" id="pag-prev-1">
+          <a
+            class="page-link"
+            href="utilitarianism-3rd-option.html"
+            aria-label="Previous"
+          >
+            <span aria-hidden="true">&laquo;</span>
+            <span class="sr-only">Previous</span>
+          </a>
+        </li>
+        <li class="page-item" id="pag-prev-2">
           <a
             class="page-link"
             href="utilitarianism-4.html"
@@ -460,22 +474,27 @@ Option 2 will produce the greatest happiness and is therefore the right option."
           </a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="utilitarianism.html">1</a>
+          <a class="page-link" href="utilitarianism.html">Options</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="utilitarianism-2.html">2</a>
+          <a class="page-link" href="utilitarianism-2.html">Stakeholders</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="utilitarianism-3.html">3</a>
+          <a class="page-link" href="utilitarianism-3.html">Option-1</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="utilitarianism-4.html">4</a>
+          <a class="page-link" href="utilitarianism-4.html">Option-2</a>
         </li>
-        <li class="page-item">
-          <a class="page-link" href="utilitarianism-5.html">5</a>
+        <li class="page-item" id="pag-option-3">
+          <a class="page-link" href="utilitarianism-3rd-option.html"
+            >Option-3</a
+          >
+        </li>
+        <li class="page-item active">
+          <a class="page-link" href="utilitarianism-5.html">Conclusion</a>
         </li>
 
-        <li class="page-item">
+        <li class="page-item" id="pag-next-2">
           <a class="page-link" href="#" aria-label="Next">
             <span aria-hidden="true">&raquo;</span>
             <span class="sr-only">Next</span>
