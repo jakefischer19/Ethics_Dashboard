@@ -402,34 +402,34 @@
     <nav aria-label="Page navigation example">
       <ul class="pagination justify-content-center">
         <li class="page-item">
-          <a class="page-link" href="utilitarianism.html" aria-label="Previous">
+          <a class="page-link" href="utilitarianism.php" aria-label="Previous">
             <span aria-hidden="true">&laquo;</span>
             <span class="sr-only">Previous</span>
           </a>
         </li>
 
         <li class="page-item ">
-          <a class="page-link" href="utilitarianism.html">Options</a>
+          <a class="page-link" href="utilitarianism.php">Options</a>
         </li>
         <li class="page-item active">
-          <a class="page-link" href="utilitarianism-2.html">Stakeholders</a>
+          <a class="page-link" href="utilitarianism-2.php">Stakeholders</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="utilitarianism-3.html">Option-1</a>
+          <a class="page-link" href="utilitarianism-3.php">Option-1</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="utilitarianism-4.html">Option-2</a>
+          <a class="page-link" href="utilitarianism-4.php">Option-2</a>
         </li>
         <li class="page-item" id="pag-option-3">
           <a class="page-link" href="utilitarianism-3rd-option.html"
             >Option-3</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="utilitarianism-5.html">Conclusion</a>
+          <a class="page-link" href="utilitarianism-5.php">Conclusion</a>
         </li>
 
         <li class="page-item">
-          <a class="page-link" href="utilitarianism-3.html" aria-label="Next">
+          <a class="page-link" href="utilitarianism-3.php" aria-label="Next">
             <span aria-hidden="true">&raquo;</span>
             <span class="sr-only">Next</span>
           </a>
