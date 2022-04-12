@@ -61,7 +61,7 @@ $_SESSION["name"] = $_SESSION["firstName"] ." ". $_SESSION["lastName"];
               <div class="dropdown">
                 <a
                   class="btn dropdown-toggle btn-sm"
-                  href="utilitarianism.html"
+                  href="utilitarianism.php"
                   role="button"
                   id="dropdownMenuLink"
                   data-bs-toggle="dropdown"
@@ -75,20 +75,20 @@ $_SESSION["name"] = $_SESSION["firstName"] ." ". $_SESSION["lastName"];
                   aria-labelledby="dropdown-util"
                 >
                   <li>
-                    <a class="dropdown-item" href="utilitarianism.html">Options</a>
+                    <a class="dropdown-item" href="utilitarianism.php">Options</a>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="utilitarianism-2.html"
+                    <a class="dropdown-item" href="utilitarianism-2.php"
                       >Stakeholder analysis
                     </a>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="utilitarianism-3.html"
+                    <a class="dropdown-item" href="utilitarianism-3.php"
                       >Option 1 analysis
                     </a>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="utilitarianism-4.html"
+                    <a class="dropdown-item" href="utilitarianism-4.php"
                       >Option 2 analysis
                     </a>
                   </li>
@@ -98,7 +98,7 @@ $_SESSION["name"] = $_SESSION["firstName"] ." ". $_SESSION["lastName"];
                     </a>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="utilitarianism-5.html"
+                    <a class="dropdown-item" href="utilitarianism-5.php"
                       >Conclusion
                     </a>
                   </li>

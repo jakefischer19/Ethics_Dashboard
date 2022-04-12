@@ -19,26 +19,29 @@
 
   if (isset($_POST['save'])) {
 
-  if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $summary = filter_input(INPUT_POST, "case-summary");
-    $role = filter_input(INPUT_POST, "role");
-    $dilemmas = filter_input(INPUT_POST, "dilemmas");
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+      $summary = filter_input(INPUT_POST, "case-summary");
+      $role = filter_input(INPUT_POST, "role");
+      $dilemmas = filter_input(INPUT_POST, "dilemmas");
+    }
+
+
+    $sql = "UPDATE cases SET summary= ?, role= ?, dilemmas= ? WHERE caseID= ?";
+    $save_sql = $db_connection->prepare($sql);
+    $save_sql->bind_param("sssi", $summary, $role, $dilemmas, $caseID);
+    $save_sql->execute();
+    
+    if ($db_connection->query($sql) === TRUE) {
+    // $sql = "UPDATE cases SET summary='$summary', role='$role', dilemmas='$dilemmas' WHERE caseID='$caseID'";
+    if ($save_sql->affected_rows === 1) {
+      echo "<script> alert('Your case information was saved sucessfully.'); window.location='dashboard.php'</script>";
+    } else {
+      echo "<script> alert('Unable to save your information. Please try again.'); window.location='dashboard.php'</script>";
+    }
+      $save_sql->close();
+    }
   }
-  $sql = "UPDATE cases SET summary= ?, role= ?, dilemmas= ? WHERE caseID= ?";
-  $save_sql = $db_connection->prepare($sql);
-  $save_sql->bind_param("sssi", $summary, $role, $dilemmas, $caseID);
-  $save_sql->execute();
-  
-  if ($save_sql->affected_rows === 1) {
-    echo "<script> alert('Your case information was saved sucessfully.'); window.location='dashboard.php'</script>";
-  } else {
-    echo "<script> alert('Unable to save your information. Please try again.'); window.location='dashboard.php'</script>";
-  }
-  
-  $save_sql->close();
-  
   $db_connection->close();
-  }
 ?>
 
 <!DOCTYPE html>
@@ -62,7 +65,7 @@
       st_counter = localStorage.getItem("stakeholders_counter");
 
            function nextPage() {
-        window.location.href = "utilitarianism.html";
+        window.location.href = "utilitarianism.php";
       }
  
     function sendOptionsCounter()
@@ -154,7 +157,7 @@
               <div class="card-body">
                 <h3 class="pb-2">Step 4 -Indentify Your Options</h3>
                 <a
-                  href="options.html"
+                  href="options.php"
                   class="btn btn-dark"
                   role="button"
                   style="position: absolute; bottom: 8px; right: 8px"
@@ -174,7 +177,7 @@
                 <h3 class="pb-2">Step 5 - Stakeholders</h3>
                 <br />
                 <a
-                  href="stakeholders.html"
+                  href="stakeholders.php"
                   class="btn btn-dark"
                   role="button"
                   style="position: absolute; bottom: 8px; right: 8px"

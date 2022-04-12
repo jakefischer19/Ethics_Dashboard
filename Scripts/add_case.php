@@ -40,6 +40,12 @@ $resultID = mysqli_query($db_connection, $queryID);
 $fetchID = mysqli_fetch_object($resultID);
 $caseID = $fetchID->lastid;
 
+$stakeholders = "INSERT INTO stakeholders (`caseID`) VALUES ('".$caseID."')"; 
+mysqli_query($db_connection, $stakeholders);
+
+$util = "INSERT INTO util (`caseID`) VALUES ('".$caseID."')"; 
+mysqli_query($db_connection, $util);
+
 $returnArr = [$currentCases, $caseID];
 echo json_encode($returnArr);
 
