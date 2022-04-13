@@ -243,7 +243,7 @@
         </li>
 
         <li class="page-item">
-          <a class="page-link" href="utilitarianism-2.html" aria-label="Next">
+          <a class="page-link" href="utilitarianism-2.php" aria-label="Next">
             <span aria-hidden="true">&raquo;</span>
             <span class="sr-only">Next</span>
           </a>

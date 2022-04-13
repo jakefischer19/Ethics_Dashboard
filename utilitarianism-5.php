@@ -1,3 +1,43 @@
+<?php
+    error_reporting(-1);
+    ini_set('display_errors', 'On');
+    session_start();
+  
+    if(empty($_SESSION['caseID']) || $_SESSION['caseID'] == ''){
+      header("Location: Login/login.html");
+      die();
+    } 
+  
+    require_once "Login/config.php";
+  
+    $stuID = $_SESSION["stuID"];
+    $caseID = $_SESSION["caseID"];
+  
+    $txt = "";
+  
+    if (isset($_POST['agg-submit'])) {
+      if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $txt = filter_input(INPUT_POST, "course-of-action-txt");
+      }
+      
+      $sql = "UPDATE util SET course_of_action_txt= ? WHERE caseID= ?";
+      $save_sql = $db_connection->prepare($sql);
+      $save_sql->bind_param("si", $txt, $caseID);
+      $save_sql->execute();
+      
+      
+      if ($db_connection->query($sql) === TRUE) {
+        if ($save_sql->affected_rows === 1) {
+          echo "<script> alert('Your case information was saved sucessfully.'); window.location='dashboard.php'</script>";
+        } else {
+          echo "<script> alert('Unable to save your information. Please try again.'); window.location='dashboard.php'</script>";
+        }
+        $save_sql->close();
+      }
+    }
+    $db_connection->close();
+
+?>
 <!DOCTYPE html>
 <!--home.html may be renamed to dashboard, and dashboard.html renamed to home-->
 <html lang="en">
@@ -160,7 +200,7 @@
       });
     </script>
   </head>
-  <body>
+  <body onload="load();">
     <!-- Load Header -->
     <div id="header">
       <script>
@@ -169,287 +209,288 @@
         });
       </script>
     </div>
+    <form action="utilitarianism-5.php" method="POST">
+      <div class="container-fluid">
+        <div class="card">
+          <div class="card-body">
+            <div class="row p-2">
+              <div class="col-lg">
+                <h5 class="pb-2">
+                  The last thing to consider is the type of pleasures contributing
+                  to the greatest happiness. It isn’t just how many stakeholders
+                  experience higher pleasures – you have to judge how much the
+                  higher pleasure should be worth in your final analysis.
+                </h5>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div class="card">
+          <div class="card-body">
+            <h4 class="p-2">
+              <b><center>OPTION 1</center></b>
+            </h4>
 
-    <div class="container-fluid">
-      <div class="card">
-        <div class="card-body">
-          <div class="row p-2">
-            <div class="col-lg">
-              <h5 class="pb-2">
-                The last thing to consider is the type of pleasures contributing
-                to the greatest happiness. It isn’t just how many stakeholders
-                experience higher pleasures – you have to judge how much the
-                higher pleasure should be worth in your final analysis.
+            <div class="row p-2">
+              <h4 class="p-2">
+                <center>Aggregate of Short-term outcomes:</center>
+              </h4>
+              <div class="col-lg p-2">
+                <div class="border">
+                  <h6 class="pt-2" id="short-term-1">
+                    Pleasure
+                    <input
+                      type="range"
+                      min="1"
+                      max="100"
+                      value="50"
+                      class="slider"
+                      id="agg-st-o1-slider"
+                      name="agg-st-o1-slider"
+                      disabled
+                    />
+                    Pain
+                  </h6>
+                </div>
+              </div>
+              <div class="col-lg p-2">
+                <div class="util-3-text">
+                  <input
+                    type="text"
+                    id="agg-st-o1-slider-txt"
+                    name="agg-st-o1-slider-txt"
+                    class="text-class"
+                    placeholder="Higher Lower"
+                    disabled
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row p-2">
+              <h4 class="p-2">
+                <center>Aggregate of Long-term outcomes:</center>
+              </h4>
+              <div class="col-lg p-2">
+                <div class="border">
+                  <h6 class="pt-2" id="long-term-1">
+                    Pleasure
+                    <input
+                      type="range"
+                      min="1"
+                      max="100"
+                      value="50"
+                      class="slider"
+                      id="agg-lt-o1-slider"
+                      name="agg-lt-o1-slider"
+                      disabled
+                    />
+                    Pain
+                  </h6>
+                </div>
+              </div>
+              <div class="col-lg p-2">
+                <div class="util-3-text">
+                  <input
+                    type="text"
+                    id="agg-lt-o1-slider-txt"
+                    name="agg-lt-o1-slider-txt"
+                    class="text-class"
+                    placeholder="Higher Lower"
+                    disabled
+                  />
+                </div>
+              </div>
+            </div>
+            <br />
+            <h4 class="p-2">
+              <b><center>OPTION 2</center></b>
+            </h4>
+
+            <div class="row p-2">
+              <h4 class="p-2">
+                <center>Aggregate of Short-term outcomes:</center>
+              </h4>
+              <div class="col-lg p-2">
+                <div class="border">
+                  <h6 class="pt-2" id="short-term-2">
+                    Pleasure
+                    <input
+                      type="range"
+                      min="1"
+                      max="100"
+                      value="50"
+                      class="slider"
+                      id="agg-st-o2-slider"
+                      name="agg-st-o2-slider"
+                      disabled
+                    />
+                    Pain
+                  </h6>
+                </div>
+              </div>
+              <div class="col-lg p-2">
+                <div class="util-3-text">
+                  <input
+                    type="text"
+                    id="agg-st-o2-slider-txt"
+                    name="agg-st-o2-slider-txt"
+                    class="text-class"
+                    placeholder="Higher Lower"
+                    disabled
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row p-2">
+              <h4 class="p-2">
+                <center>Aggregate of Long-term outcomes:</center>
+              </h4>
+              <div class="col-lg p-2">
+                <div class="border">
+                  <h6 class="pt-2" id="long-term-2">
+                    Pleasure
+                    <input
+                      type="range"
+                      min="1"
+                      max="100"
+                      value="50"
+                      class="slider"
+                      id="agg-lt-o2-slider"
+                      name="agg-lt-o2-slider"
+                      disabled
+                    />
+                    Pain
+                  </h6>
+                </div>
+              </div>
+              <div class="col-lg p-2">
+                <div class="util-3-text">
+                  <input
+                    type="text"
+                    id="agg-lt-o2-slider-txt"
+                    name="agg-lt-o2-slider-txt"
+                    class="text-class"
+                    placeholder="Higher Lower"
+                    disabled
+                  />
+                </div>
+              </div>
+            </div>
+            <br />
+            <h4 class="p-2" id="option-3">
+              <b><center>OPTION 3</center></b>
+            </h4>
+
+            <div class="row p-2" id="option-3-st">
+              <h4 class="p-2">
+                <center>Aggregate of Short-term outcomes:</center>
+              </h4>
+              <div class="col-lg p-2">
+                <div class="border">
+                  <h6 class="pt-2" id="short-term-3">
+                    Pleasure
+                    <input
+                      type="range"
+                      min="1"
+                      max="100"
+                      value="50"
+                      class="slider"
+                      id="agg-st-o3-slider"
+                      name="agg-st-o3-slider"
+                      disabled
+                    />
+                    Pain
+                  </h6>
+                </div>
+              </div>
+              <div class="col-lg p-2">
+                <div class="util-3-text">
+                  <input
+                    type="text"
+                    id="agg-st-o3-slider-txt"
+                    name="agg-st-o3-slider-txt"
+                    class="text-class"
+                    placeholder="Higher Lower"
+                    disabled
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row p-2" id="option-3-lt">
+              <h4 class="p-2">
+                <center>Aggregate of Long-term outcomes:</center>
+              </h4>
+              <div class="col-lg p-2">
+                <div class="border">
+                  <h6 class="pt-2" id="long-term-3">
+                    Pleasure
+                    <input
+                      type="range"
+                      min="1"
+                      max="100"
+                      value="50"
+                      class="slider"
+                      id="agg-lt-o3-slider"
+                      name="agg-lt-o3-slider"
+                      disabled
+                    />
+                    Pain
+                  </h6>
+                </div>
+              </div>
+              <div class="col-lg p-2">
+                <div class="util-3-text">
+                  <input
+                    type="text"
+                    id="agg-lt-o3-slider-txt"
+                    name="agg-lt-o3-slider-txt"
+                    class="text-class"
+                    placeholder="Higher Lower"
+                    disabled
+                  />
+                </div>
+              </div>
+            </div>
+
+            <hr style="color: black; height: 2px" />
+            <div class="row p-2">
+              <div class="col-lg p-2">
+                <center>
+                  <h4 class="p-2">
+                    ENTER THE CORRECT ETHICAL DECISION / COURSE OF ACTION
+                  </h4>
+                </center>
+              </div>
+
+              <h5 class="p-2">
+                <textarea
+                  name="course-of-action-txt"
+                  id="course-of-action-txt"
+                  cols="10"
+                  rows="7"
+                  placeholder="Although Option 1 produces pleasures in the short-term , they are lower pleasures.
+
+  Option 2 results in less overall pain and higher pleasures to the stakeholders most impacted by the issue.
+
+  Option 2 will produce the greatest happiness and is therefore the right option."
+                ></textarea>
               </h5>
+              <div class="row justify-content-center">
+                <input
+                  type="submit"
+                  value="Save"
+                  onclick="unhook()"
+                  name="agg-submit"
+                  id="agg-submit"
+                  class="stakeholders-btn"
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <br />
-      <div class="card">
-        <div class="card-body">
-          <h4 class="p-2">
-            <b><center>OPTION 1</center></b>
-          </h4>
-
-          <div class="row p-2">
-            <h4 class="p-2">
-              <center>Aggregate of Short-term outcomes:</center>
-            </h4>
-            <div class="col-lg p-2">
-              <div class="border">
-                <h6 class="pt-2" id="short-term-1">
-                  Pleasure
-                  <input
-                    type="range"
-                    min="1"
-                    max="100"
-                    value="50"
-                    class="slider"
-                    id="agg-st-o1-slider"
-                    name="agg-st-o1-slider"
-                    disabled
-                  />
-                  Pain
-                </h6>
-              </div>
-            </div>
-            <div class="col-lg p-2">
-              <div class="util-3-text">
-                <input
-                  type="text"
-                  id="agg-st-o1-slider-txt"
-                  name="agg-st-o1-slider-txt"
-                  class="text-class"
-                  placeholder="Higher Lower"
-                  disabled
-                />
-              </div>
-            </div>
-          </div>
-          <div class="row p-2">
-            <h4 class="p-2">
-              <center>Aggregate of Long-term outcomes:</center>
-            </h4>
-            <div class="col-lg p-2">
-              <div class="border">
-                <h6 class="pt-2" id="long-term-1">
-                  Pleasure
-                  <input
-                    type="range"
-                    min="1"
-                    max="100"
-                    value="50"
-                    class="slider"
-                    id="agg-lt-o1-slider"
-                    name="agg-lt-o1-slider"
-                    disabled
-                  />
-                  Pain
-                </h6>
-              </div>
-            </div>
-            <div class="col-lg p-2">
-              <div class="util-3-text">
-                <input
-                  type="text"
-                  id="agg-lt-o1-slider-txt"
-                  name="agg-lt-o1-slider-txt"
-                  class="text-class"
-                  placeholder="Higher Lower"
-                  disabled
-                />
-              </div>
-            </div>
-          </div>
-          <br />
-          <h4 class="p-2">
-            <b><center>OPTION 2</center></b>
-          </h4>
-
-          <div class="row p-2">
-            <h4 class="p-2">
-              <center>Aggregate of Short-term outcomes:</center>
-            </h4>
-            <div class="col-lg p-2">
-              <div class="border">
-                <h6 class="pt-2" id="short-term-2">
-                  Pleasure
-                  <input
-                    type="range"
-                    min="1"
-                    max="100"
-                    value="50"
-                    class="slider"
-                    id="agg-st-o2-slider"
-                    name="agg-st-o2-slider"
-                    disabled
-                  />
-                  Pain
-                </h6>
-              </div>
-            </div>
-            <div class="col-lg p-2">
-              <div class="util-3-text">
-                <input
-                  type="text"
-                  id="agg-st-o2-slider-txt"
-                  name="agg-st-o2-slider-txt"
-                  class="text-class"
-                  placeholder="Higher Lower"
-                  disabled
-                />
-              </div>
-            </div>
-          </div>
-          <div class="row p-2">
-            <h4 class="p-2">
-              <center>Aggregate of Long-term outcomes:</center>
-            </h4>
-            <div class="col-lg p-2">
-              <div class="border">
-                <h6 class="pt-2" id="long-term-2">
-                  Pleasure
-                  <input
-                    type="range"
-                    min="1"
-                    max="100"
-                    value="50"
-                    class="slider"
-                    id="agg-lt-o2-slider"
-                    name="agg-lt-o2-slider"
-                    disabled
-                  />
-                  Pain
-                </h6>
-              </div>
-            </div>
-            <div class="col-lg p-2">
-              <div class="util-3-text">
-                <input
-                  type="text"
-                  id="agg-lt-o2-slider-txt"
-                  name="agg-lt-o2-slider-txt"
-                  class="text-class"
-                  placeholder="Higher Lower"
-                  disabled
-                />
-              </div>
-            </div>
-          </div>
-          <br />
-          <h4 class="p-2" id="option-3">
-            <b><center>OPTION 3</center></b>
-          </h4>
-
-          <div class="row p-2" id="option-3-st">
-            <h4 class="p-2">
-              <center>Aggregate of Short-term outcomes:</center>
-            </h4>
-            <div class="col-lg p-2">
-              <div class="border">
-                <h6 class="pt-2" id="short-term-3">
-                  Pleasure
-                  <input
-                    type="range"
-                    min="1"
-                    max="100"
-                    value="50"
-                    class="slider"
-                    id="agg-st-o3-slider"
-                    name="agg-st-o3-slider"
-                    disabled
-                  />
-                  Pain
-                </h6>
-              </div>
-            </div>
-            <div class="col-lg p-2">
-              <div class="util-3-text">
-                <input
-                  type="text"
-                  id="agg-st-o3-slider-txt"
-                  name="agg-st-o3-slider-txt"
-                  class="text-class"
-                  placeholder="Higher Lower"
-                  disabled
-                />
-              </div>
-            </div>
-          </div>
-          <div class="row p-2" id="option-3-lt">
-            <h4 class="p-2">
-              <center>Aggregate of Long-term outcomes:</center>
-            </h4>
-            <div class="col-lg p-2">
-              <div class="border">
-                <h6 class="pt-2" id="long-term-3">
-                  Pleasure
-                  <input
-                    type="range"
-                    min="1"
-                    max="100"
-                    value="50"
-                    class="slider"
-                    id="agg-lt-o3-slider"
-                    name="agg-lt-o3-slider"
-                    disabled
-                  />
-                  Pain
-                </h6>
-              </div>
-            </div>
-            <div class="col-lg p-2">
-              <div class="util-3-text">
-                <input
-                  type="text"
-                  id="agg-lt-o3-slider-txt"
-                  name="agg-lt-o3-slider-txt"
-                  class="text-class"
-                  placeholder="Higher Lower"
-                  disabled
-                />
-              </div>
-            </div>
-          </div>
-
-          <hr style="color: black; height: 2px" />
-          <div class="row p-2">
-            <div class="col-lg p-2">
-              <center>
-                <h4 class="p-2">
-                  ENTER THE CORRECT ETHICAL DECISION / COURSE OF ACTION
-                </h4>
-              </center>
-            </div>
-
-            <h5 class="p-2">
-              <textarea
-                name="course-of-action-txt"
-                id="course-of-action-txt"
-                cols="10"
-                rows="7"
-                placeholder="Although Option 1 produces pleasures in the short-term , they are lower pleasures.
-
-Option 2 results in less overall pain and higher pleasures to the stakeholders most impacted by the issue.
-
-Option 2 will produce the greatest happiness and is therefore the right option."
-              ></textarea>
-            </h5>
-            <div class="row justify-content-center">
-              <input
-                type="submit"
-                value="Save"
-                onclick="unhook()"
-                name="agg-submit"
-                id="agg-submit"
-                class="stakeholders-btn"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    </form>
     <br />
     <nav aria-label="Page navigation example">
       <ul class="pagination justify-content-center">
@@ -474,16 +515,16 @@ Option 2 will produce the greatest happiness and is therefore the right option."
           </a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="utilitarianism.html">Options</a>
+          <a class="page-link" href="utilitarianism.php">Options</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="utilitarianism-2.html">Stakeholders</a>
+          <a class="page-link" href="utilitarianism-2.php">Stakeholders</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="utilitarianism-3.html">Option-1</a>
+          <a class="page-link" href="utilitarianism-3.php">Option-1</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="utilitarianism-4.html">Option-2</a>
+          <a class="page-link" href="utilitarianism-4.php">Option-2</a>
         </li>
         <li class="page-item" id="pag-option-3">
           <a class="page-link" href="utilitarianism-3rd-option.html"
@@ -491,7 +532,7 @@ Option 2 will produce the greatest happiness and is therefore the right option."
           >
         </li>
         <li class="page-item active">
-          <a class="page-link" href="utilitarianism-5.html">Conclusion</a>
+          <a class="page-link" href="utilitarianism-5.php">Conclusion</a>
         </li>
 
         <li class="page-item" id="pag-next-2">
@@ -502,7 +543,6 @@ Option 2 will produce the greatest happiness and is therefore the right option."
         </li>
       </ul>
     </nav>
-
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
       integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
@@ -513,5 +553,27 @@ Option 2 will produce the greatest happiness and is therefore the right option."
       integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
       crossorigin="anonymous"
     ></script>
+    <script>
+      var stuID = <?php echo json_encode($stuID);?>;
+      var caseID = <?php echo json_encode($caseID);?>;
+      function load() {
+        $.ajax({
+          type: "POST",
+          url: 'Scripts/get_util5.php',
+          data: {
+            "caseID": caseID
+          },
+          dataType: 'json',
+          cache: false,
+          success: function(data){
+            var txt = data[0];
+            document.getElementById('course-of-action-txt').innerHTML = txt;
+          },
+          error: function(xhr, status, error){
+          console.error(xhr);
+          }
+          });
+      }
+    </script>
   </body>
 </html>
