@@ -1353,21 +1353,15 @@
             var st_o1_radio1 = data[11];
             var st_o1_radio2 = data[12];
             var st_o1_radio3 = data[13];
-            var st_o1_radio4 = data[14];
-            var st_o1_radio5 = data[15];
-            var st_o1_radio6 = data[16];
-            var lt_o1_slider1 = data[17];
-            var lt_o1_slider2 = data[18];
-            var lt_o1_slider3 = data[19];
-            var lt_o1_slider_txt_1 = data[20];
-            var lt_o1_slider_txt_2 = data[21];
-            var lt_o1_slider_txt_3 = data[22];
-            var lt_o1_radio1 = data[23];
-            var lt_o1_radio2 = data[24];
-            var lt_o1_radio3 = data[25];
-            var lt_o1_radio4 = data[26];
-            var lt_o1_radio5 = data[27];
-            var lt_o1_radio6 = data[28];
+            var lt_o1_slider1 = data[14];
+            var lt_o1_slider2 = data[15];
+            var lt_o1_slider3 = data[16];
+            var lt_o1_slider_txt_1 = data[17];
+            var lt_o1_slider_txt_2 = data[18];
+            var lt_o1_slider_txt_3 = data[19];
+            var lt_o1_radio1 = data[20];
+            var lt_o1_radio2 = data[21];
+            var lt_o1_radio3 = data[22];
             
             document.getElementById('option1-title').innerHTML = o1_name;
             

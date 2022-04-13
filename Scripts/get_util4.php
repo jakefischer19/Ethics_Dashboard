@@ -58,7 +58,7 @@ if (mysqli_num_rows($result) > 0) {
 $sql->close();
 
 //get rest of data
-$sql = $db_connection->prepare("SELECT st_o2_slider1, st_o2_slider2, st_o2_slider3, st_o2_slider_txt_1, st_o2_slider_txt_2, st_o2_slider_txt_3, st_o2_radio1, st_o2_radio2, st_o2_radio3, st_o2_radio4, st_o2_radio5, st_o2_radio6, lt_o2_slider1, lt_o2_slider2, lt_o2_slider3, lt_o2_slider_txt_1, lt_o2_slider_txt_2, lt_o2_slider_txt_3, lt_o2_radio1, lt_o2_radio2, lt_o2_radio3, lt_o2_radio4, lt_o2_radio5, lt_o2_radio6 FROM util WHERE caseID = ?");
+$sql = $db_connection->prepare("SELECT st_o2_slider1, st_o2_slider2, st_o2_slider3, st_o2_slider_txt_1, st_o2_slider_txt_2, st_o2_slider_txt_3, st_o2_radio1, st_o2_radio2, st_o2_radio3, lt_o2_slider1, lt_o2_slider2, lt_o2_slider3, lt_o2_slider_txt_1, lt_o2_slider_txt_2, lt_o2_slider_txt_3, lt_o2_radio1, lt_o2_radio2, lt_o2_radio3 FROM util WHERE caseID = ?");
 $sql->bind_param("i", $caseID);
 $sql->execute();
 $result = $sql->get_result();
@@ -75,9 +75,6 @@ if (mysqli_num_rows($result) > 0) {
     array_push($returnArr, $row["st_o2_radio1"]);
     array_push($returnArr, $row["st_o2_radio2"]);
     array_push($returnArr, $row["st_o2_radio3"]);
-    array_push($returnArr, $row["st_o2_radio4"]);
-    array_push($returnArr, $row["st_o2_radio5"]);
-    array_push($returnArr, $row["st_o2_radio6"]);
     array_push($returnArr, $row["lt_o2_slider1"]);
     array_push($returnArr, $row["lt_o2_slider2"]);
     array_push($returnArr, $row["lt_o2_slider3"]);
@@ -87,9 +84,6 @@ if (mysqli_num_rows($result) > 0) {
     array_push($returnArr, $row["lt_o2_radio1"]);
     array_push($returnArr, $row["lt_o2_radio2"]);
     array_push($returnArr, $row["lt_o2_radio3"]);
-    array_push($returnArr, $row["lt_o2_radio4"]);
-    array_push($returnArr, $row["lt_o2_radio5"]);
-    array_push($returnArr, $row["lt_o2_radio6"]);
   }
 } 
 
