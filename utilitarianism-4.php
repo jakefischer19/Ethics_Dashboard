@@ -1307,7 +1307,7 @@
         <li class="page-item">
           <a
             class="page-link"
-            href="utilitarianism-3.php"
+            href="utilitarianism-3.html"
             aria-label="Previous"
           >
             <span aria-hidden="true">&laquo;</span>

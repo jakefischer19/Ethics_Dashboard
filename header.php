@@ -119,7 +119,7 @@ $_SESSION["name"] = $_SESSION["firstName"] ." ". $_SESSION["lastName"];
                 >Care Ethics</a
               >
    
-              <a href="progress.html" class="btn justify-content-end btn-sm" role="button"
+              <a href="progress.php" class="btn justify-content-end btn-sm" role="button"
                 >My Progress</a
               >
                <a href="#" class="btn justify-content-end btn-sm" role="button"><img src="login-icon.png" height="20"> <?php echo $_SESSION["name"]; ?></a>

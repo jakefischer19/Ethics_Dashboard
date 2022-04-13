@@ -507,7 +507,7 @@
         <li class="page-item" id="pag-prev-2">
           <a
             class="page-link"
-            href="utilitarianism-4.php"
+            href="utilitarianism-4.html"
             aria-label="Previous"
           >
             <span aria-hidden="true">&laquo;</span>
