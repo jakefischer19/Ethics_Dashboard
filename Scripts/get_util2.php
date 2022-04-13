@@ -41,7 +41,7 @@ if (mysqli_num_rows($result) > 0) {
 } 
 $sql->close();
 
-$sql = $db_connection->prepare("SELECT s1_defense, s2_defense, s3_defense FROM util WHERE caseID = ?");
+$sql = $db_connection->prepare("SELECT s1_defense, s2_defense, s3_defense, s1_slider, s2_slider, s3_slider FROM util WHERE caseID = ?");
 $sql->bind_param("i", $caseID);
 $sql->execute();
 $result = $sql->get_result();
@@ -52,6 +52,9 @@ if (mysqli_num_rows($result) > 0) {
     array_push($returnArr, $row["s1_defense"]);
     array_push($returnArr, $row["s2_defense"]);
     array_push($returnArr, $row["s3_defense"]);
+    array_push($returnArr, $row["s1_slider"]);
+    array_push($returnArr, $row["s2_slider"]);
+    array_push($returnArr, $row["s3_slider"]);
   }
 } 
 

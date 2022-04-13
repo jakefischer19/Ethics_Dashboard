@@ -16,18 +16,24 @@
     $s1_defense = "";
     $s2_defense = "";
     $s3_defense = "";
+    $s1_slider = "";
+    $s2_slider = "";
+    $s3_slider = "";
   
     if (isset($_POST['util-2-submit'])) {
       if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $s1_defense = filter_input(INPUT_POST, "stakeholder-1");
         $s2_defense = filter_input(INPUT_POST, "stakeholder-2");
         $s3_defense = filter_input(INPUT_POST, "stakeholder-3");
+        $s1_slider = filter_input(INPUT_POST, "stakeholder1");
+        $s2_slider = filter_input(INPUT_POST, "stakeholder2");
+        $s3_slider = filter_input(INPUT_POST, "stakeholder3");
       }
   
       
-      $sql = "UPDATE util SET s1_defense= ?, s2_defense= ?, s3_defense= ? WHERE caseID= ?";
+      $sql = "UPDATE util SET s1_defense= ?, s2_defense= ?, s3_defense= ?, s1_slider= ?, s2_slider= ?, s3_slider= ? WHERE caseID= ?";
       $save_sql = $db_connection->prepare($sql);
-      $save_sql->bind_param("sssi", $s1_defense, $s2_defense, $s3_defense, $caseID);
+      $save_sql->bind_param("sssiiii", $s1_defense, $s2_defense, $s3_defense, $s1_slider, $s2_slider, $s3_slider, $caseID);
       $save_sql->execute();
       
       
@@ -259,7 +265,7 @@
             </div>
 
             <label for="stakeholder1" class="form-label stakeholder-input">Importance:</label>
-            <input type="range" class="form-range" id="stakeholder1" />
+            <input type="range" min="1" max="100" value="50" name="stakeholder1" class="form-range"  id="stakeholder1"  />
             <br><br>
 
 
@@ -287,7 +293,7 @@
 
             <label for="stakeholder2" class="form-label stakeholder-input">Importance:</label>
 
-            <input type="range" class="form-range" id="stakeholder2" />
+            <input type="range" min="1" max="100" value="50" name="stakeholder2" class="form-range" id="stakeholder2" />
 
         <br><br>
             <div class="row p-2">
@@ -312,7 +318,7 @@
             </div>
 
             <label for="stakeholder3" class="form-label stakeholder-input">Importance:</label>
-            <input type="range" class="form-range" id="stakeholder3" />
+            <input type="range" min="1" max="100" value="50" name="stakeholder3" class="form-range" id="stakeholder3" />
             <br><br>
 
             <div class="row p-2" id="stakeholder-4-div">
@@ -467,12 +473,19 @@
             var s1_response = data[3];
             var s2_response = data[4];
             var s3_response = data[5];
+            var s1_slider = data[6];
+            var s2_slider = data[7];
+            var s3_slider = data[8];
+
             document.getElementById('s1-title').innerHTML = s1_name;
             document.getElementById('stakeholder-1').innerHTML = s1_response;
             document.getElementById('s2-title').innerHTML = s2_name;
             document.getElementById('stakeholder-2').innerHTML = s2_response;
             document.getElementById('s3-title').innerHTML = s3_name;
             document.getElementById('stakeholder-3').innerHTML = s3_response;
+            document.getElementById("stakeholder1").value = s1_slider;
+            document.getElementById("stakeholder2").value = s2_slider;
+            document.getElementById("stakeholder3").value = s3_slider;
           },
           error: function(xhr, status, error){
           console.error(xhr);
