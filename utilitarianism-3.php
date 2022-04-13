@@ -12,7 +12,9 @@
   
     $stuID = $_SESSION["stuID"];
     $caseID = $_SESSION["caseID"];
-  
+    
+
+
     $sto1slider1 = "";
     $sto1slider2 = "";
     $sto1slider3 = "";
@@ -49,10 +51,7 @@
         $sto1radio1 = filter_input(INPUT_POST, "st-o1-radio-1");
         $sto1radio2 = filter_input(INPUT_POST, "st-o1-radio-2");
         $sto1radio3 = filter_input(INPUT_POST, "st-o1-radio-3");
-        $sto1radio4 = filter_input(INPUT_POST, "st-o1-radio-4");
-        $sto1radio5 = filter_input(INPUT_POST, "st-o1-radio-5");
-        $sto1radio6 = filter_input(INPUT_POST, "st-o1-radio-6");
-        $lto1slider1 = filter_input(INPUT_POST, "lt-o1-slider-1");//
+        $lto1slider1 = filter_input(INPUT_POST, "lt-o1-slider-1");
         $lto1slider2 = filter_input(INPUT_POST, "lt-o1-slider-2");
         $lto1slider3 = filter_input(INPUT_POST, "lt-o1-slider-3");
         $lto1slidertxt1 = filter_input(INPUT_POST, "lt-o1-slider-txt-1");
@@ -61,15 +60,11 @@
         $lto1radio1 = filter_input(INPUT_POST, "lt-o1-radio-1");
         $lto1radio2 = filter_input(INPUT_POST, "lt-o1-radio-2");
         $lto1radio3 = filter_input(INPUT_POST, "lt-o1-radio-3");
-        $lto1radio4 = filter_input(INPUT_POST, "lt-o1-radio-4");
-        $lto1radio5 = filter_input(INPUT_POST, "lt-o1-radio-5");
-        $lto1radio6 = filter_input(INPUT_POST, "lt-o1-radio-6");
       }
   
-      
-      $sql = "UPDATE util SET st_o1_slider1= ?, st_o1_slider2= ?, st_o1_slider3= ?, st_o1_slider_txt_1= ?, st_o1_slider_txt_2= ?, st_o1_slider_txt_3= ?, st_o1_radio1= ?, st_o1_radio2= ?, st_o1_radio3= ?, st_o1_radio4= ?, st_o1_radio5= ?, st_o1_radio6= ?, lt_o1_slider1= ?, lt_o1_slider2= ?, lt_o1_slider3= ?, lt_o1_slider_txt_1= ?, lt_o1_slider_txt_2= ?, lt_o1_slider_txt_3= ?, lt_o1_radio1= ?, lt_o1_radio2= ?, lt_o1_radio3= ?, lt_o1_radio4= ?, lt_o1_radio5= ?, lt_o1_radio6= ?  WHERE caseID= ?";
+      $sql = "UPDATE util SET st_o1_slider1= ?, st_o1_slider2= ?, st_o1_slider3= ?, st_o1_slider_txt_1= ?, st_o1_slider_txt_2= ?, st_o1_slider_txt_3= ?, st_o1_radio1= ?, st_o1_radio2= ?, st_o1_radio3= ?, lt_o1_slider1= ?, lt_o1_slider2= ?, lt_o1_slider3= ?, lt_o1_slider_txt_1= ?, lt_o1_slider_txt_2= ?, lt_o1_slider_txt_3= ?, lt_o1_radio1= ?, lt_o1_radio2= ?, lt_o1_radio3= ? WHERE caseID= ?";
       $save_sql = $db_connection->prepare($sql);
-      $save_sql->bind_param("iiisssiiiiiiiiisssiiiiiii", $sto1slider1, $sto1slider2, $sto1slider3, $sto1slidertxt1, $sto1slidertxt2, $sto1slidertxt3, $sto1radio1, $sto1radio2, $sto1radio3, $sto1radio4, $sto1radio5, $sto1radio6, $lto1slider1, $lto1slider2, $lto1slider3, $lto1slidertxt1, $lto1slidertxt2, $lto1slidertxt3, $lto1radio1, $lto1radio2, $lto1radio3, $lto1radio4, $lto1radio5, $lto1radio6, $caseID);
+      $save_sql->bind_param("iiissssssiiissssssi", $sto1slider1, $sto1slider2, $sto1slider3, $sto1slidertxt1, $sto1slidertxt2, $sto1slidertxt3, $sto1radio1, $sto1radio2, $sto1radio3, $lto1slider1, $lto1slider2, $lto1slider3, $lto1slidertxt1, $lto1slidertxt2, $lto1slidertxt3, $lto1radio1, $lto1radio2, $lto1radio3, $caseID);
       $save_sql->execute();
       
       
@@ -1334,7 +1329,7 @@
       var stuID = <?php echo json_encode($stuID);?>;
       var caseID = <?php echo json_encode($caseID);?>;
       function load() {
-        //alert("working");
+        
         $.ajax({
           type: "POST",
           url: 'Scripts/get_util3.php',
@@ -1349,15 +1344,6 @@
             var s1_name = data[2];
             var s2_name = data[3];
             var s3_name = data[4];
-            document.getElementById('option1-title').innerHTML = o1_name;
-            document.getElementById('option2-title').innerHTML = o2_name;
-            document.getElementById('st-stakeholders-name-1').innerHTML = s1_name;
-            document.getElementById('lt-stakeholders-name-1').innerHTML = s1_name;
-            document.getElementById('st-stakeholders-name-2').innerHTML = s2_name;
-            document.getElementById('lt-stakeholders-name-2').innerHTML = s2_name;
-            document.getElementById('st-stakeholders-name-3').innerHTML = s3_name;
-            document.getElementById('lt-stakeholders-name-3').innerHTML = s3_name;
-
             var st_o1_slider1 = data[5];
             var st_o1_slider2 = data[6];
             var st_o1_slider3 = data[7];
@@ -1382,32 +1368,55 @@
             var lt_o1_radio4 = data[26];
             var lt_o1_radio5 = data[27];
             var lt_o1_radio6 = data[28];
-
-            document.getElementById('st-o1-slider1').value() = st_o1_slider1;
-            /*document.getElementById('st-o1-slider2').innerHTML = st_o1_slider2;
-            document.getElementById('st-o1-slider3').innerHTML = st_o1_slider3;
-            document.getElementById('st-o1-slider-txt-1').innerHTML = st_o1_slider_txt_1;
-            document.getElementById('st-o1-slider-txt-2').innerHTML = st_o1_slider_txt_2;
-            document.getElementById('st-o1-slider-txt-3').innerHTML = st_o1_slider_txt_3;
-            document.getElementById('st-o1-radio1').innerHTML = st_o1_radio1;
-            document.getElementById('st-o1-radio2').innerHTML = st_o1_radio1;
-            document.getElementById('st-o1-radio3').innerHTML = st_o1_radio1;
-            document.getElementById('st-o1-radio4').innerHTML = st_o1_radio1;
-            document.getElementById('st-o1-radio5').innerHTML = st_o1_radio1;
-            document.getElementById('st-o1-radio6').innerHTML = st_o1_radio1;
-            document.getElementById('lt-o1-slider1').innerHTML = lt_o1_slider1;
-            document.getElementById('lt-o1-slider2').innerHTML = lt_o1_slider2;
-            document.getElementById('lt-o1-slider3').innerHTML = lt_o1_slider3;
-            document.getElementById('lt-o1-slider-txt-1').innerHTML = lt_o1_slider_txt_1;
-            document.getElementById('lt-o1-slider-txt-2').innerHTML = lt_o1_slider_txt_2;
-            document.getElementById('lt-o1-slider-txt-3').innerHTML = lt_o1_slider_txt_3;
-            document.getElementById('lt-o1-radio1').innerHTML = lt_o1_radio1;
-            document.getElementById('lt-o1-radio2').innerHTML = lt_o1_radio1;
-            document.getElementById('lt-o1-radio3').innerHTML = lt_o1_radio1;
-            document.getElementById('lt-o1-radio4').innerHTML = lt_o1_radio1;
-            document.getElementById('lt-o1-radio5').innerHTML = lt_o1_radio1;
-            document.getElementById('lt-o1-radio6').innerHTML = lt_o1_radio1;*/
-
+            
+            document.getElementById('option1-title').innerHTML = o1_name;
+            
+            document.getElementById('st-stakeholders-name-1').innerHTML = s1_name;
+            document.getElementById('lt-stakeholders-name-1').innerHTML = s1_name;
+            document.getElementById('st-stakeholders-name-2').innerHTML = s2_name;
+            document.getElementById('lt-stakeholders-name-2').innerHTML = s2_name;
+            document.getElementById('st-stakeholders-name-3').innerHTML = s3_name;
+            document.getElementById('lt-stakeholders-name-3').innerHTML = s3_name;
+            document.getElementById("st-o1-slider-1").value = st_o1_slider1;
+            document.getElementById('st-o1-slider-2').value = st_o1_slider2;
+            document.getElementById('st-o1-slider-3').value = st_o1_slider3;
+            document.getElementById('st-o1-slider-txt-1').value = st_o1_slider_txt_1;
+            document.getElementById('st-o1-slider-txt-2').value = st_o1_slider_txt_2;
+            document.getElementById('st-o1-slider-txt-3').value = st_o1_slider_txt_3;
+            if(st_o1_radio1 == "High"){
+              document.getElementById('st-o1-radio-1').checked = true;
+            }else{
+              document.getElementById('st-o1-radio-2').checked = true;
+            }
+            if(st_o1_radio2 == "High"){
+              document.getElementById('st-o1-radio-3').checked = true;
+            }else{
+              document.getElementById('st-o1-radio-4').checked = true;
+            }
+            if(st_o1_radio3 == "High"){
+              document.getElementById('st-o1-radio-5').checked = true;
+            }else{
+              document.getElementById('st-o1-radio-6').checked = true;
+            }
+            document.getElementById('lt-o1-slider-1').value = lt_o1_slider1;
+            document.getElementById('lt-o1-slider-2').value = lt_o1_slider2;
+            document.getElementById('lt-o1-slider-3').value = lt_o1_slider3;
+            document.getElementById('lt-o1-slider-txt-1').value = lt_o1_slider_txt_1;
+            document.getElementById('lt-o1-slider-txt-2').value = lt_o1_slider_txt_2;
+            document.getElementById('lt-o1-slider-txt-3').value = lt_o1_slider_txt_3;
+            if(lt_o1_radio1 == "High"){
+              document.getElementById('lt-o1-radio-1').checked = true;
+            }else{
+              document.getElementById('lt-o1-radio-2').checked = true;
+            }if(lt_o1_radio2 == "High"){
+              document.getElementById('lt-o1-radio-3').checked = true;
+            }else{
+              document.getElementById('lt-o1-radio-4').checked = true;
+            }if(lt_o1_radio3 == "High"){
+              document.getElementById('lt-o1-radio-5').checked = true;
+            }else{
+              document.getElementById('lt-o1-radio-6').checked = true;
+            }
           },
           error: function(xhr, status, error){
           console.error(xhr);

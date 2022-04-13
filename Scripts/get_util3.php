@@ -8,13 +8,11 @@ session_start();
 // $DATABASE_PASS = 'hY592836711@';
 // $DATABASE_NAME = 'herrycoo_Ethic_Dashboard';
 
-
 $DATABASE_HOST = 'localhost';
 $DATABASE_USER = 'root';
 $DATABASE_PASS = '';
 $DATABASE_NAME = 'herrycoo_Ethic_Dashboard';
 
- 
 //open mysql databse
 //$db_connection = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
 $db_connection = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
@@ -33,8 +31,6 @@ $sql = $db_connection->prepare("SELECT option1, option2 FROM cases WHERE caseID 
 $sql->bind_param("i", $caseID);
 $sql->execute();
 $result = $sql->get_result();
-
-
 
 if (mysqli_num_rows($result) > 0) {
   // output data of each row
@@ -100,8 +96,6 @@ if (mysqli_num_rows($result) > 0) {
 } 
 
 $sql->close();
-
 echo json_encode($returnArr);
-
 mysqli_close($db_connection);
 ?>
