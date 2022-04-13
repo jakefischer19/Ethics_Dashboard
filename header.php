@@ -64,7 +64,7 @@ $_SESSION["name"] = $_SESSION["firstName"] ." ". $_SESSION["lastName"];
                   href="utilitarianism.php"
                   role="button"
                   id="dropdownMenuLink"
-                  data-bs-toggle="dropdown"
+                  
                   aria-expanded="false"
                 >
                   Utilitarianism
