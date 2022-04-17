@@ -133,7 +133,7 @@
         );
         opt_3_lt_low_radio = localStorage.getItem("myValueLowRadioButton-LT-3");
 
-        opt_counter = localStorage.getItem("opt_counter");
+        opt_counter = localStorage.getItem("options_counter");
 
         document.getElementById("agg-st-o1-slider").value = b;
         document.getElementById("agg-lt-o1-slider").value = c;

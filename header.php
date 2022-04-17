@@ -5,7 +5,7 @@ $_SESSION["name"] = $_SESSION["firstName"] ." ". $_SESSION["lastName"];
     var op_count = "";
     //var resetValue = 0;
     $(document).ready(function () {
-      op_count = localStorage.getItem("opt_counter");
+      op_count = localStorage.getItem("options_counter");
     
       if (op_count < 3) {
         document.getElementById("util-3rd-option").style.display = "none";
