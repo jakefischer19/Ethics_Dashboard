@@ -1,3 +1,4 @@
+
 <?php
 error_reporting(-1);
 ini_set('display_errors', 'On');
@@ -6,7 +7,6 @@ session_start();
 
 //msqli server connection file
 require_once "config.php";
-
 
 //check for required fields from the form
 if ((!filter_input(INPUT_POST, 'email')) || (!filter_input(INPUT_POST, 'password'))) {
@@ -96,7 +96,21 @@ if($login_result){
     
     if(password_verify($password, $hash)){
       //header("Location: https://https://herrycooly.com/EBoard/Admin/admin_page.html");
-      header("Location: /EBoard/Admin/admin_page.html");
+
+
+      $adminFirstNameQuery = "SELECT f_name FROM admins where email = '".$email."'";
+      $firstNameResult = mysqli_query($db_connection, $adminFirstNameQuery);
+      $firstNameRow = mysqli_fetch_array($firstNameResult, MYSQLI_NUM);
+      $firstName = $firstNameRow[0] ?? false;
+      $_SESSION["adminFirstName"] = $firstName;
+  
+      $adminLastNameQuery = "SELECT l_name FROM admins where email = '".$email."'";
+      $lastNameResult = mysqli_query($db_connection, $adminLastNameQuery);
+      $lastNameRow = mysqli_fetch_array($lastNameResult, MYSQLI_NUM);
+      $lastName = $lastNameRow[0] ?? false;
+      $_SESSION["adminLastName"] = $lastName;
+
+      header("Location: /EBoard/Admin/admin_page.php");
 
       exit;
     }else{

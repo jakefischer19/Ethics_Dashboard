@@ -162,7 +162,7 @@ opt_counter++;
             </div>
             <div class="col-lg p-2">
               <div class="card">
-                <div class="card-body" style="height: 675px; overflow-y: auto">
+                <div class="card-body" style="height: 645px; overflow-y: auto">
                   <h4 class="pb-2">OPTION 1</h4>
                   <textarea
                     name="option1"

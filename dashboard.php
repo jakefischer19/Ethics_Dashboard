@@ -63,6 +63,7 @@
         var op_count ,st_counter = "";
       op_count = localStorage.getItem("options_counter");
       st_counter = localStorage.getItem("stakeholders_counter");
+      var admin_counter = 0;
 
            function nextPage() {
         window.location.href = "utilitarianism.php";
@@ -86,15 +87,40 @@
       function unhook() {
         hook = false;
       }
+    
       $(document).ready(function () {
+        //admin_counter verifies if the logged in user is admin or not
+        admin_counter = localStorage.getItem("admin_counter");
+     if(admin_counter < 1)
+     {
+       //Buttons for the feedback popups
+document.getElementById("options-fb-btn").innerText = "View the comments";
+document.getElementById("stakeholders-fb-btn").innerText = "View the comments";
+document.getElementById("dilemmas-fb-btn").innerText = "View the comments";
+document.getElementById("role-fb-btn").innerText = "View the comments";
+document.getElementById("summary-fb-btn").innerText = "View the comments";
+
+//save buttons for all the feedbacks
+document.getElementById("save-role-fb").style.display = "none";
+document.getElementById("save-summary-fb").style.display = "none";
+document.getElementById("save-stakeholders-fb").style.display = "none";
+document.getElementById("save-options-fb").style.display = "none";
+document.getElementById("save-dilemmas-fb").style.display = "none";
+     }
         $(".dropdown").hover(function () {
           var dropdownMenu = $(this).children(".dropdown-menu");
           if (dropdownMenu.is(":visible")) {
             dropdownMenu.parent().toggleClass("open");
           }
         });
+
       });
+
+   
     </script>
+    <style>
+      
+      </style>
   </head>
   <body onload="loadDash();">
     <!-- Load Header -->
@@ -119,6 +145,54 @@
                   rows="12"
                   placeholder="Briefly describe the key, features of the case—the who, what, where, when and why."
                 ></textarea>
+                   <!-- Button trigger modal -->
+                <button
+      type="button"
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+      id = "summary-fb-btn"
+      name = "summary-fb-btn"
+    >
+    Leave a comment
+    </button>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Feedback</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <textarea rows="7" cols="10" id="summary-fb" name="summary-fb">
+            </textarea>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary" id="save-summary-fb">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
               </div>
             </div>
           </div>
@@ -132,7 +206,56 @@
                   cols="30"
                   rows="12"
                   placeholder="Put yourself in the position of a key decision maker in the case."
+              
                 ></textarea>
+                       <!-- Button trigger modal -->
+                       <button
+      type="button"
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+      id = "role-fb-btn"
+      name = "role-fb-btn"
+    >
+    Leave a comment
+    </button>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Feedback</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <textarea rows="7" cols="10" id="role-fb" name="role-fb">
+            </textarea>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary" id="save-role-fb">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
               </div>
             </div>
           </div>
@@ -148,14 +271,113 @@
                   cols="30"
                   rows="13"
                   placeholder="What are the ethical dilemmas you are facing? Describe the dilemmas in ethical terms, eg. Honesty, deception, loyalty, betrayal, beneficence, malfeasance, autonmy, paternalism, confidentiality, transparency, integrity, etc..."
+                
                 ></textarea>
+                       <!-- Button trigger modal -->
+                       <button
+      type="button"
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+       id = "dilemmas-fb-btn"
+       name = "dilemmas-fb-btn"
+    >
+    Leave a comment
+    </button>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Feedback</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <textarea rows="7" cols="10" id="dilemmas-fb" name="dilemmas-fb">
+            </textarea>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary" id="save-dilemmas-fb">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
               </div>
             </div>
           </div>
+          
           <div class="col-lg pb-3">
             <div class="card h-100">
               <div class="card-body">
                 <h3 class="pb-2">Step 4 -Indentify Your Options</h3>
+       <!-- Button trigger modal -->
+       <button
+      type="button"
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+      style="position: absolute; bottom: 8px; left: 8px"
+       id = "options-fb-btn"
+       name = "options-fb-btn"
+    >
+    Leave a comment
+    </button>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Feedback</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <textarea rows="7" cols="10" id="options-fb" name="options-fb">
+            </textarea>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary" id="save-options-fb">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>                
                 <a
                   href="options.php"
                   class="btn btn-dark"
@@ -176,6 +398,55 @@
               <div class="card-body">
                 <h3 class="pb-2">Step 5 - Stakeholders</h3>
                 <br />
+                  <!-- Button trigger modal -->
+       <button
+      type="button"
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+      style="position: absolute; bottom: 8px; left: 8px"
+      id = "stakeholders-fb-btn"
+      name = "stakeholders-fb-btn"
+    >
+    Leave a comment
+    </button>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Feedback</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <textarea rows="7" cols="10" id="stakeholders-fb" name="stakeholders-fb">
+            </textarea>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary" id="save-stakeholders-fb">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>             
                 <a
                   href="stakeholders.php"
                   class="btn btn-dark"

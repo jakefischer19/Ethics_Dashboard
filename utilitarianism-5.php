@@ -86,6 +86,19 @@
         opt_counter = 0;
 
       $(document).ready(function () {
+
+        admin_counter = localStorage.getItem("admin_counter");
+     if(admin_counter < 1)
+     {
+       //Buttons for the feedback popups
+document.getElementById("util-5-fb-btn").innerText = "View the comments";
+
+
+//save buttons for all the feedbacks
+document.getElementById("save-util-5-fb").style.display = "none";
+
+     }
+
         document.getElementById("agg-st-o1-slider").disabled = true;
         document.getElementById("agg-st-o1-slider").style.background = "grey";
         document.getElementById("short-term-1").style.color = "grey";
@@ -476,7 +489,8 @@
   Option 2 will produce the greatest happiness and is therefore the right option."
                 ></textarea>
               </h5>
-              <div class="row justify-content-center">
+              
+              <div class="row justify-content-center"> 
                 <input
                   type="submit"
                   value="Save"
@@ -485,7 +499,57 @@
                   id="agg-submit"
                   class="stakeholders-btn"
                 />
-              </div>
+<!-- Button trigger modal -->
+<button
+      type="button"
+      class="stakeholders-btn"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+      id = "util-5-fb-btn"
+      name = "util-5-fb-btn"
+      style="margin-left:10px; background-color: blue;"
+    >
+    Leave a comment
+    </button>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Feedback</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <textarea rows="7" cols="10" id="util-5-fb" name="util-5-fb">
+            </textarea>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary" id="save-util-5-fb">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+          </div> 
+              
             </div>
           </div>
         </div>

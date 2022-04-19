@@ -21,7 +21,6 @@ $stuID = $_SESSION['stuID'];
 //connect to database for cases
 require_once "Login/config.php";
 
-
 $query = "SELECT COUNT(caseID) as mycount FROM cases WHERE stuID='".$stuID."'";
 $result = mysqli_query($db_connection, $query);
 $fetch = mysqli_fetch_object($result);
