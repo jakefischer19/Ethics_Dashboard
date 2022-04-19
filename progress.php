@@ -41,6 +41,29 @@
         i = 0,
         per = 0,
         countVal = 0;
+var  admin_counter = 0;
+        $(document).ready(function () {
+          admin_counter = localStorage.getItem("admin_counter");
+          if(admin_counter < 1)
+     {
+         
+          //student can see the grade , but can't edit it
+     document.getElementById("text-1").disabled = true;
+     document.getElementById("text-2").disabled = true;
+     document.getElementById("text-3").disabled = true;
+     document.getElementById("text-4").disabled = true;
+     document.getElementById("text-5").disabled = true;
+     document.getElementById("text-6").disabled = true;
+     //student can see the comment , but can't edit it
+     document.getElementById("progress-1").disabled = true;
+     document.getElementById("progress-2").disabled = true;
+     document.getElementById("progress-3").disabled = true;
+     document.getElementById("progress-4").disabled = true;
+     document.getElementById("progress-5").disabled = true;
+     document.getElementById("progress-6").disabled = true;
+     }  
+    });
+
       function assignValue() {
         i1 = document.getElementById("text-1").value;
         i = +i + +i1;
@@ -339,8 +362,11 @@
             </div>
           </div>
           <div class="row p-2 justify-content-center">
+            <input type = "submit" value="Save Data" name="grades-save" id="grades-save" class="stakeholders-btn"> &nbsp; &nbsp;
             <input
               type="submit"
+              name="calc-grade"
+              id="calc-grade"
               value="Calculate Grades"
               class="stakeholders-btn"
               onclick="assignValue();assignValue2();assignValue3();assignValue4();assignValue5();assignValue6();"
