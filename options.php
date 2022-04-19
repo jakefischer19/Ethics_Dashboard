@@ -61,7 +61,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
       var opt_counter = 2;
-
+    //  opt_counter = localStorage.getItem("opt_counter");
       function goBack() {
         window.location.href = "/EBoard/dashboard.php";
       }
@@ -74,7 +74,7 @@
       function unhook() {
         hook = false;
       }
-      function add_field(el) {
+     /* function add_field(el) {
         var total_text = document.getElementsByClassName("input_text");
         if (el.value === "Add another option") {
           opt_counter++;
@@ -86,7 +86,7 @@
           document.getElementById("field_div").innerHTML = "";
           el.value = "Add another option";
         }
-      }
+      }*/
 
       var title1 = "";
       var title2 = "";
@@ -104,11 +104,13 @@
         title3 = document.getElementById("option3").value;
       }
 
+ function incCounter()
+ {
+opt_counter++;
+ }
       function sendOptions() {
-        // localStorage.setItem("title1", title1);
-        // localStorage.setItem("title2", title2);
-        // localStorage.setItem("title3", title3);
-        localStorage.setItem("opt_counter", opt_counter);
+        window.alert(opt_counter);
+        localStorage.setItem("options_counter", opt_counter);
       }
     </script>
     <link rel="stylesheet" href="style.css" />
@@ -160,7 +162,7 @@
             </div>
             <div class="col-lg p-2">
               <div class="card">
-                <div class="card-body" style="height: 650px; overflow-y: auto">
+                <div class="card-body" style="height: 675px; overflow-y: auto">
                   <h4 class="pb-2">OPTION 1</h4>
                   <textarea
                     name="option1"
@@ -180,17 +182,22 @@
                     placeholder="I can betray the company, go to the press and blow the whistle."
                     onchange="getOptions2Title()"
                   ></textarea>
-
-                  <div id="field_div"></div>
+                  <br /><br />
+                  <h4 class="pb-2">OPTION 3</h4>
+                  <textarea
+                    name="option3"
+                    id="option3"
+                    cols="14"
+                    rows="9"
+                    placeholder="Enter your option here"
+                    onchange="getOptions3Title();incCounter()"
+                  ></textarea>
+                  <br /><br />
+                 <!-- <div id="field_div"></div> -->
 
                   <br />
                   <div class="button-wrapper">
-                    <input
-                      type="button"
-                      value="Add another option"
-                      onclick="add_field(this);"
-                      class="options-btn ms-1"
-                    />
+              
                     <input
                       type="submit"
                       name="save"
@@ -201,7 +208,7 @@
                     <input
                       type="button"
                       value="Go back"
-                      onclick="goBack();"
+                      onclick="goBack()"
                       class="options-btn ms-1"
                     />
                   </div>

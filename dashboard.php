@@ -61,7 +61,7 @@
     <title>Ethics Dashboard</title>
     <script>
         var op_count ,st_counter = "";
-      op_count = localStorage.getItem("opt_counter");
+      op_count = localStorage.getItem("options_counter");
       st_counter = localStorage.getItem("stakeholders_counter");
 
            function nextPage() {

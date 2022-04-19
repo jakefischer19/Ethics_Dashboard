@@ -76,7 +76,7 @@
 
       $(document).ready(function () {
         opt_counter = localStorage.getItem("options_counter");
-
+      window.alert(opt_counter);
         if (opt_counter < 3) {
           document.getElementById("option3").style.display = "none";
           document.getElementById("pag-option-3").style.display = "none";

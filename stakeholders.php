@@ -73,52 +73,15 @@
       }
 
       $(document).ready(function () {
-        document.getElementById("Remove").disabled = true;
-        document.getElementById("Remove").style.background = "grey";
-        $("#Add").on("click", function () {
-          counter++;
-          $("#textboxDiv").append(
-            "<div class='row p-2'><div class='col-lg p-2'><h4 class='pb-2'>STAKEHOLDER " +
-              counter +
-              "</h4><textarea name = stakeholder-" +
-              counter +
-              "id = stakeholder-" +
-              counter +
-              "cols=10 rows=7 placeholder='Enter the Stakeholder here'></textarea></div> <div class='col-lg p-2'><h4 class='pb-2'>INTERESTS " +
-              "</h4><textarea name = interests-" +
-              counter +
-              "id= interests-" +
-              counter +
-              "cols=10 rows=7 placeholder = 'Enter the Interest here'></textarea></div></div>"
-          );
+       // counter = localStorage.getItem("stakeholders_counter");
+           });
 
-          if (counter > 5) {
-            document.getElementById("Add").disabled = true;
-            document.getElementById("Add").style.background = "grey";
-          }
-
-          if (counter >= 4) {
-            document.getElementById("Remove").disabled = false;
-            document.getElementById("Remove").style.background = "black";
-          }
-        });
-        $("#Remove").on("click", function () {
-          counter--;
-          $("#textboxDiv").children().last().remove();
-          if (counter < 6) {
-            document.getElementById("Add").disabled = false;
-            document.getElementById("Add").style.background = "black";
-          }
-
-          if (counter <= 3) {
-            document.getElementById("Remove").disabled = true;
-            document.getElementById("Remove").style.background = "grey";
-          }
-        });
-      });
-
+      function incCounter()
+      {
+        counter++;
+      }
       function sendStakeholdersCounter() {
-        // window.alert(counter);
+         window.alert(counter);
         localStorage.setItem("stakeholders_counter", counter);
       }
     </script>
@@ -219,15 +182,79 @@
               </div>
             </div>
 
+            <div class="row p-2">
+              <div class="col-lg p-2">
+                <h4 class="pb-2">STAKEHOLDER 4</h4>
+                <textarea
+                  name="stakeholder-4"
+                  id="stakeholder-4"
+                  cols="10"
+                  rows="7"
+                  placeholder="Enter your stakeholder here"
+                  onchange = "incCounter()"
+                ></textarea>
+              </div>
+              <div class="col-lg p-2">
+                <h4 class="pb-2">INTERESTS</h4>
+                <textarea
+                  name="interests-4"
+                  id="interests-4"
+                  cols="10"
+                  rows="7"
+                  placeholder="Enter the interests here"
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="row p-2">
+              <div class="col-lg p-2">
+                <h4 class="pb-2">STAKEHOLDER 5</h4>
+                <textarea
+                  name="stakeholder-5"
+                  id="stakeholder-5"
+                  cols="10"
+                  rows="7"
+                  placeholder="Enter your stakeholder here"
+                  onchange = "incCounter()"
+                ></textarea>
+              </div>
+              <div class="col-lg p-2">
+                <h4 class="pb-2">INTERESTS</h4>
+                <textarea
+                  name="interests-5"
+                  id="interests-5"
+                  cols="10"
+                  rows="7"
+                  placeholder="Enter the interests here"
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="row p-2">
+              <div class="col-lg p-2">
+                <h4 class="pb-2">STAKEHOLDER 6</h4>
+                <textarea
+                  name="stakeholder-6"
+                  id="stakeholder-6"
+                  cols="10"
+                  rows="7"
+                  placeholder="Enter your stakeholder here"
+                  onchange = "incCounter()"
+                ></textarea>
+              </div>
+              <div class="col-lg p-2">
+                <h4 class="pb-2">INTERESTS</h4>
+                <textarea
+                  name="interests-6"
+                  id="interests-6"
+                  cols="10"
+                  rows="7"
+                  placeholder="Enter the interests here"
+                ></textarea>
+              </div>
+            </div>
             <br />
-            <div id="textboxDiv"></div>
-            <div class="btns">
-              <button id="Add" class="stakeholders-btn ms-1">
-                Click to add stakeholder
-              </button>
-              <button id="Remove" class="stakeholders-btn ms-2 mt-3">
-                Click to remove stakeholder
-              </button>
+                <div class="btns">
               <input
                 type="submit"
                 name="save"
@@ -237,9 +264,8 @@
                 onclick="sendStakeholdersCounter();unhook()"
               />
 
-              <button class="stakeholders-btn ms-2 mt-3" onclick="goBack()">
-                Go back
-              </button>
+              <input type = "button" class="stakeholders-btn ms-2 mt-3" value = "Go back" onclick="goBack()">
+               
             </div>
           </div>
         </div>
