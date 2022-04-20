@@ -189,7 +189,7 @@ document.getElementById("save-dilemmas-fb").style.display = "none";
             ></button>
           </div>
           <div class="modal-body">
-            <textarea rows="7" cols="10" id="summary-fb" name="summary-fb">
+            <textarea rows="15" cols="10" id="summary-fb" name="summary-fb">
             </textarea>
           </div>
           <div class="modal-footer">
@@ -252,7 +252,7 @@ document.getElementById("save-dilemmas-fb").style.display = "none";
             ></button>
           </div>
           <div class="modal-body">
-            <textarea rows="7" cols="10" id="role-fb" name="role-fb">
+            <textarea rows="15" cols="10" id="role-fb" name="role-fb">
             </textarea>
           </div>
           <div class="modal-footer">
@@ -317,7 +317,7 @@ document.getElementById("save-dilemmas-fb").style.display = "none";
             ></button>
           </div>
           <div class="modal-body">
-            <textarea rows="7" cols="10" id="dilemmas-fb" name="dilemmas-fb">
+            <textarea rows="15" cols="10" id="dilemmas-fb" name="dilemmas-fb">
             </textarea>
           </div>
           <div class="modal-footer">
@@ -374,7 +374,7 @@ document.getElementById("save-dilemmas-fb").style.display = "none";
             ></button>
           </div>
           <div class="modal-body">
-            <textarea rows="7" cols="10" id="options-fb" name="options-fb">
+            <textarea rows="15" cols="10" id="options-fb" name="options-fb">
             </textarea>
           </div>
           <div class="modal-footer">
@@ -444,7 +444,7 @@ document.getElementById("save-dilemmas-fb").style.display = "none";
             ></button>
           </div>
           <div class="modal-body">
-            <textarea rows="7" cols="10" id="stakeholders-fb" name="stakeholders-fb">
+            <textarea rows="15" cols="10" id="stakeholders-fb" name="stakeholders-fb">
             </textarea>
           </div>
           <div class="modal-footer">

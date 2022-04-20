@@ -538,7 +538,7 @@ document.getElementById("save-util-5-fb").style.display = "none";
             ></button>
           </div>
           <div class="modal-body">
-            <textarea rows="7" cols="10" id="util-5-fb" name="util-5-fb">
+            <textarea rows="15" cols="10" id="util-5-fb" name="util-5-fb">
             </textarea>
           </div>
           <div class="modal-footer">

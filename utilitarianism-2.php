@@ -366,7 +366,7 @@
             ></button>
           </div>
           <div class="modal-body">
-            <textarea rows="7" cols="10" id="util-stakeholders-fb" name="util-stakeholders-fb">
+            <textarea rows="15" cols="10" id="util-stakeholders-fb" name="util-stakeholders-fb">
             </textarea>
           </div>
           <div class="modal-footer">

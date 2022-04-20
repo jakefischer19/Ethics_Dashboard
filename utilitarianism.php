@@ -244,7 +244,7 @@
             ></button>
           </div>
           <div class="modal-body">
-            <textarea rows="7" cols="10" id="util-options-fb" name="util-options-fb">
+            <textarea rows="15" cols="10" id="util-options-fb" name="util-options-fb">
             </textarea>
           </div>
           <div class="modal-footer">
