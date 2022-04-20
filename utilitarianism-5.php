@@ -88,16 +88,22 @@
       $(document).ready(function () {
 
         admin_counter = localStorage.getItem("admin_counter");
-     if(admin_counter < 1)
+        ta_counter = localStorage.getItem("ta_counter");
+        
+     if(admin_counter < 1 && ta_counter < 1)
      {
        //Buttons for the feedback popups
 document.getElementById("util-5-fb-btn").innerText = "View the comments";
-
 
 //save buttons for all the feedbacks
 document.getElementById("save-util-5-fb").style.display = "none";
 
      }
+
+   if(ta_counter >=1)
+{
+    document.getElementById("course-of-action-txt").disabled = true;
+}
 
         document.getElementById("agg-st-o1-slider").disabled = true;
         document.getElementById("agg-st-o1-slider").style.background = "grey";

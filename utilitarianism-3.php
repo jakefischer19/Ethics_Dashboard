@@ -99,49 +99,87 @@
     <link rel="stylesheet" href="style.css" />
     <title>Ethics Dashboard</title>
     <script>
-      // var op1 = "";
-      /*var st1,
-        st2,
-        st3,
-        st4,
-        st5,
-        st6 = "";*/
+    
       var opt_counter = "";
       var counter = "";
-      //  opt_counter = "";
+    
       $(document).ready(function () {
-        /*  op1 = localStorage.getItem("title1");
-        document.getElementById("title-span").textContent = op1;
-
-        st1 = localStorage.getItem("stake-1-value");
-        st2 = localStorage.getItem("stake-2-value");
-        st3 = localStorage.getItem("stake-3-value");
-        st4 = localStorage.getItem("stake-4-value");
-        st5 = localStorage.getItem("stake-5-value");
-        st6 = localStorage.getItem("stake-6-value");*/
+      
         opt_counter = localStorage.getItem("options_counter");
 
         counter = localStorage.getItem("stakeholders_counter");
-        //  opt_counter = localStorage.getItem("opt_counter");
+        ta_counter = localStorage.getItem("ta_counter");
 
-        /*   document.getElementById("st-stakeholders-name-1").textContent = st1;
-        document.getElementById("st-stakeholders-name-2").textContent = st2;
-        document.getElementById("st-stakeholders-name-3").textContent = st3;
-        document.getElementById("st-stakeholders-name-4").textContent = st4;
-        document.getElementById("st-stakeholders-name-5").textContent = st5;
-        document.getElementById("st-stakeholders-name-6").textContent = st6;
+        if(ta_counter >=1)
+        {
+          //disabling radio buttons for a ta
+          
+             //short-term
+          document.getElementById("st-o1-radio-1").disabled = true;
+          document.getElementById("st-o1-radio-2").disabled = true;
+          document.getElementById("st-o1-radio-3").disabled = true;
+          document.getElementById("st-o1-radio-4").disabled = true;
+          document.getElementById("st-o1-radio-5").disabled = true;
+          document.getElementById("st-o1-radio-6").disabled = true;
+          document.getElementById("st-o1-radio-7").disabled = true;
+          document.getElementById("st-o1-radio-8").disabled = true;
+          document.getElementById("st-o1-radio-9").disabled = true;
+          document.getElementById("st-o1-radio-10").disabled = true;
+          document.getElementById("st-o1-radio-11").disabled = true;
+          document.getElementById("st-o1-radio-12").disabled = true;
 
-        document.getElementById("lt-stakeholders-name-1").textContent = st1;
-        document.getElementById("lt-stakeholders-name-2").textContent = st2;
-        document.getElementById("lt-stakeholders-name-3").textContent = st3;
-        document.getElementById("lt-stakeholders-name-4").textContent = st4;
-        document.getElementById("lt-stakeholders-name-5").textContent = st5;
-        document.getElementById("lt-stakeholders-name-6").textContent = st6;
+          //long-term
+          document.getElementById("lt-o1-radio-1").disabled = true;
+          document.getElementById("lt-o1-radio-2").disabled = true;
+          document.getElementById("lt-o1-radio-3").disabled = true;
+          document.getElementById("lt-o1-radio-4").disabled = true;
+          document.getElementById("lt-o1-radio-5").disabled = true;
+          document.getElementById("lt-o1-radio-6").disabled = true;
+          document.getElementById("lt-o1-radio-7").disabled = true;
+          document.getElementById("lt-o1-radio-8").disabled = true;
+          document.getElementById("lt-o1-radio-9").disabled = true;
+          document.getElementById("lt-o1-radio-10").disabled = true;
+          document.getElementById("lt-o1-radio-11").disabled = true;
+          document.getElementById("lt-o1-radio-12").disabled = true;
 
-           var resetValue = 0;
-          var resetValue2 = "OPTION 1";
-         localStorage.setItem("title", resetValue2);
-         */
+     //disabling sliders for a ta
+
+     //short-term
+     document.getElementById("st-o1-slider-1").disabled = true;
+     document.getElementById("st-o1-slider-2").disabled = true;
+     document.getElementById("st-o1-slider-3").disabled = true;
+     document.getElementById("st-o1-slider-4").disabled = true;
+     document.getElementById("st-o1-slider-5").disabled = true;
+     document.getElementById("st-o1-slider-6").disabled = true;
+
+     //long-term
+     document.getElementById("lt-o1-slider-1").disabled = true;
+     document.getElementById("lt-o1-slider-2").disabled = true;
+     document.getElementById("lt-o1-slider-3").disabled = true;
+     document.getElementById("lt-o1-slider-4").disabled = true;
+     document.getElementById("lt-o1-slider-5").disabled = true;
+     document.getElementById("lt-o1-slider-6").disabled = true;
+
+     //disabling textboxes for a ta
+
+     //short-term
+      document.getElementById("st-o1-slider-txt-1").disabled = true;
+      document.getElementById("st-o1-slider-txt-2").disabled = true;
+      document.getElementById("st-o1-slider-txt-3").disabled = true;
+      document.getElementById("st-o1-slider-txt-4").disabled = true;
+      document.getElementById("st-o1-slider-txt-5").disabled = true;
+      document.getElementById("st-o1-slider-txt-6").disabled = true;
+
+      //long-term
+      document.getElementById("lt-o1-slider-txt-1").disabled = true;
+      document.getElementById("lt-o1-slider-txt-2").disabled = true;
+      document.getElementById("lt-o1-slider-txt-3").disabled = true;
+      document.getElementById("lt-o1-slider-txt-4").disabled = true;
+      document.getElementById("lt-o1-slider-txt-5").disabled = true;
+      document.getElementById("lt-o1-slider-txt-6").disabled = true;
+    }
+      
+    
 
         //o1-st-agg-slider is the slider for Aggregation of short-term outcomes for option 1
         document.getElementById("o1-st-agg-slider").disabled = true;

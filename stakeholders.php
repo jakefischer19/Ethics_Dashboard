@@ -74,6 +74,24 @@
 
       $(document).ready(function () {
        // counter = localStorage.getItem("stakeholders_counter");
+        ta_counter = localStorage.getItem("ta_counter");
+        if(ta_counter >=1)
+        {
+          document.getElementById("stakeholder-1").disabled = true;
+       document.getElementById("stakeholder-2").disabled = true;
+       document.getElementById("stakeholder-3").disabled = true;
+       document.getElementById("stakeholder-4").disabled = true;
+       document.getElementById("stakeholder-5").disabled = true;
+       document.getElementById("stakeholder-6").disabled = true;
+
+
+       document.getElementById("interests-1").disabled = true;
+       document.getElementById("interests-2").disabled = true;
+       document.getElementById("interests-3").disabled = true;
+       document.getElementById("interests-4").disabled = true;
+       document.getElementById("interests-5").disabled = true;
+       document.getElementById("interests-6").disabled = true;
+        }
            });
 
       function incCounter()

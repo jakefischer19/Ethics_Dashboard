@@ -76,7 +76,14 @@
 
       $(document).ready(function () {
         opt_counter = localStorage.getItem("options_counter");
-      window.alert(opt_counter);
+        ta_counter = localStorage.getItem("ta_counter");
+        if(ta_counter >=1)
+        {
+          document.getElementById("util_option1_response").disabled = true;
+     document.getElementById("util_option2_response").disabled = true;
+      document.getElementById("util_option3_response").disabled = true;
+        }
+     // window.alert(opt_counter);
         if (opt_counter < 3) {
           document.getElementById("option3").style.display = "none";
           document.getElementById("pag-option-3").style.display = "none";

@@ -103,6 +103,24 @@
       $(document).ready(function () {
        st_counter = localStorage.getItem("stakeholders_counter");
       opt_counter = localStorage.getItem("options_counter");
+      ta_counter = localStorage.getItem("ta_counter");
+        if(ta_counter >=1)
+        {
+          document.getElementById("stakeholder-1").disabled = true;
+     document.getElementById("stakeholder-2").disabled = true;
+      document.getElementById("stakeholder-3").disabled = true;
+      document.getElementById("stakeholder-4").disabled = true;
+      document.getElementById("stakeholder-5").disabled = true;
+      document.getElementById("stakeholder-6").disabled = true;
+
+      document.getElementById("stakeholder1").disabled = true;
+      document.getElementById("stakeholder2").disabled = true;
+      document.getElementById("stakeholder3").disabled = true;
+      document.getElementById("stakeholder4").disabled = true;
+      document.getElementById("stakeholder5").disabled = true;
+      document.getElementById("stakeholder6").disabled = true;   
+    
+    }
 
   if (opt_counter < 3) {
   document.getElementById("pag-option-3").style.display = "none";
@@ -340,7 +358,7 @@
           
 
             <label for="stakeholder4" class="form-label stakeholder-input" id="stakeholder4-lbl">Importance:</label>
-            <input type="range" class="form-range" id="stakeholder4-slider" />
+            <input type="range" class="form-range" id="stakeholder4" />
           </div>
             <br><br>
           
@@ -362,7 +380,7 @@
               </div>
           
             <label for="stakeholder5" class="form-label stakeholder-input" id="stakeholder5-lbl">Importance:</label>
-            <input type="range" class="form-range" id="stakeholder5-slider" />
+            <input type="range" class="form-range" id="stakeholder5" />
           </div>
 
             <br><br>
@@ -386,7 +404,7 @@
           
 
             <label for="stakeholder6" class="form-label stakeholder-input" id="stakeholder6-lbl">Importance:</label>
-            <input type="range" class="form-range" id="stakeholder4-slider" />
+            <input type="range" class="form-range" id="stakeholder6" />
               </div>
           
               <div class="row ms-1 justify-content-center">

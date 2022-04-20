@@ -113,45 +113,84 @@
         counter = localStorage.getItem("stakeholders_counter");
         opt_counter = localStorage.getItem("options_counter");
 
+        ta_counter = localStorage.getItem("ta_counter");
+
+if(ta_counter >=1)
+{
+  //disabling radio buttons for a ta
+  
+     //short-term
+  document.getElementById("st-o2-radio-1").disabled = true;
+  document.getElementById("st-o2-radio-2").disabled = true;
+  document.getElementById("st-o2-radio-3").disabled = true;
+  document.getElementById("st-o2-radio-4").disabled = true;
+  document.getElementById("st-o2-radio-5").disabled = true;
+  document.getElementById("st-o2-radio-6").disabled = true;
+  document.getElementById("st-o2-radio-7").disabled = true;
+  document.getElementById("st-o2-radio-8").disabled = true;
+  document.getElementById("st-o2-radio-9").disabled = true;
+  document.getElementById("st-o2-radio-10").disabled = true;
+  document.getElementById("st-o2-radio-11").disabled = true;
+  document.getElementById("st-o2-radio-12").disabled = true;
+
+  //long-term
+  document.getElementById("lt-o2-radio-1").disabled = true;
+  document.getElementById("lt-o2-radio-2").disabled = true;
+  document.getElementById("lt-o2-radio-3").disabled = true;
+  document.getElementById("lt-o2-radio-4").disabled = true;
+  document.getElementById("lt-o2-radio-5").disabled = true;
+  document.getElementById("lt-o2-radio-6").disabled = true;
+  document.getElementById("lt-o2-radio-7").disabled = true;
+  document.getElementById("lt-o2-radio-8").disabled = true;
+  document.getElementById("lt-o2-radio-9").disabled = true;
+  document.getElementById("lt-o2-radio-10").disabled = true;
+  document.getElementById("lt-o2-radio-11").disabled = true;
+  document.getElementById("lt-o2-radio-12").disabled = true;
+
+//disabling sliders for a ta
+
+//short-term
+document.getElementById("st-o2-slider-1").disabled = true;
+document.getElementById("st-o2-slider-2").disabled = true;
+document.getElementById("st-o2-slider-3").disabled = true;
+document.getElementById("st-o2-slider-4").disabled = true;
+document.getElementById("st-o2-slider-5").disabled = true;
+document.getElementById("st-o2-slider-6").disabled = true;
+
+//long-term
+document.getElementById("lt-o2-slider-1").disabled = true;
+document.getElementById("lt-o2-slider-2").disabled = true;
+document.getElementById("lt-o2-slider-3").disabled = true;
+document.getElementById("lt-o2-slider-4").disabled = true;
+document.getElementById("lt-o2-slider-5").disabled = true;
+document.getElementById("lt-o2-slider-6").disabled = true;
+
+//disabling textboxes for a ta
+
+//short-term
+document.getElementById("st-o2-slider-txt-1").disabled = true;
+document.getElementById("st-o2-slider-txt-2").disabled = true;
+document.getElementById("st-o2-slider-txt-3").disabled = true;
+document.getElementById("st-o2-slider-txt-4").disabled = true;
+document.getElementById("st-o2-slider-txt-5").disabled = true;
+document.getElementById("st-o2-slider-txt-6").disabled = true;
+
+//long-term
+document.getElementById("lt-o2-slider-txt-1").disabled = true;
+document.getElementById("lt-o2-slider-txt-2").disabled = true;
+document.getElementById("lt-o2-slider-txt-3").disabled = true;
+document.getElementById("lt-o2-slider-txt-4").disabled = true;
+document.getElementById("lt-o2-slider-txt-5").disabled = true;
+document.getElementById("lt-o2-slider-txt-6").disabled = true;
+}
+
+
         b = localStorage.getItem("myValue");
         c = localStorage.getItem("myValue2");
 
         document.getElementById("o1-st-agg-slider").value = b;
         document.getElementById("o1-lt-agg-slider").value = c;
-        //   window.alert(counter);
-        /*
-        op2 = localStorage.getItem("title2");
-        document.getElementById("title-span").textContent = op2;
-
-
-        st1 = localStorage.getItem("stake-1-value");
-        st2 = localStorage.getItem("stake-2-value");
-        st3 = localStorage.getItem("stake-3-value");
-        st4 = localStorage.getItem("stake-4-value");
-        st5 = localStorage.getItem("stake-5-value");
-        st6 = localStorage.getItem("stake-6-value");
-     
-        document.getElementById("st-stakeholders-name-1").textContent = st1;
-        document.getElementById("st-stakeholders-name-2").textContent = st2;
-        document.getElementById("st-stakeholders-name-3").textContent = st3;
-        document.getElementById("st-stakeholders-name-4").textContent = st4;
-        document.getElementById("st-stakeholders-name-5").textContent = st5;
-        document.getElementById("st-stakeholders-name-6").textContent = st6;
-
-        document.getElementById("lt-stakeholders-name-1").textContent = st1;
-        document.getElementById("lt-stakeholders-name-2").textContent = st2;
-        document.getElementById("lt-stakeholders-name-3").textContent = st3;
-        document.getElementById("lt-stakeholders-name-4").textContent = st4;
-        document.getElementById("lt-stakeholders-name-5").textContent = st5;
-        document.getElementById("lt-stakeholders-name-6").textContent = st6;
-
-         var resetValue = 0;
-         var resetValue2 = "OPTION 2";
-
-         localStorage.setItem("myValue", resetValue);
-          localStorage.setItem("myValue2", resetValue);
-          localStorage.setItem("title2", resetValue2);
-*/
+       
 
         //o1-st-agg-slider is the slider for Aggregation of short-term outcomes for option 1
         document.getElementById("o1-st-agg-slider").disabled = true;

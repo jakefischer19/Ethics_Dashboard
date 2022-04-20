@@ -112,6 +112,16 @@ opt_counter++;
         window.alert(opt_counter);
         localStorage.setItem("options_counter", opt_counter);
       }
+    
+      $(document).ready(function () {  
+        ta_counter = localStorage.getItem("ta_counter");
+        if(ta_counter >=1)
+        {
+          document.getElementById("option1").disabled = true;
+       document.getElementById("option2").disabled = true;
+       document.getElementById("option3").disabled = true;
+        }
+      });
     </script>
     <link rel="stylesheet" href="style.css" />
   </head>
