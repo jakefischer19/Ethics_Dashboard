@@ -76,7 +76,15 @@
 
       $(document).ready(function () {
         opt_counter = localStorage.getItem("options_counter");
+        admin_counter = localStorage.getItem("admin_counter");
         ta_counter = localStorage.getItem("ta_counter");
+        
+        if(admin_counter < 1 && ta_counter < 1)
+     {
+      document.getElementById("util-options-fb-btn").innerText = "View the comments";
+     }
+
+       
         if(ta_counter >=1)
         {
           document.getElementById("util_option1_response").disabled = true;
@@ -203,6 +211,55 @@
 
                 <div class="row ms-1 justify-content-center">
                   &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                          <!-- Button trigger modal -->
+                <button
+                type="button"
+      class="stakeholders-btn"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+      id = "util-options-fb-btn"
+      name = "util-options-fb-btn"
+      style="margin-left:10px; margin-top:15px; background-color: blue;"
+    >
+    Leave a comment
+    </button>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Feedback</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <textarea rows="7" cols="10" id="util-options-fb" name="util-options-fb">
+            </textarea>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary" id="save-util-options-fb" name = "save-util-options-fb">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
                   <input
                     type="submit"
                     value="Save"

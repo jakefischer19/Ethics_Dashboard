@@ -104,6 +104,13 @@
        st_counter = localStorage.getItem("stakeholders_counter");
       opt_counter = localStorage.getItem("options_counter");
       ta_counter = localStorage.getItem("ta_counter");
+      admin_counter = localStorage.getItem("admin_counter");
+
+        if(admin_counter < 1 && ta_counter < 1)
+     {
+      document.getElementById("util-stakeholders-fb-btn").innerText = "View the comments";
+     }
+
         if(ta_counter >=1)
         {
           document.getElementById("stakeholder-1").disabled = true;
@@ -148,89 +155,7 @@
         }
       });
     });
-     /*   
-       opt_counter = localStorage.getItem("opt_counter");
-        if (opt_counter < 3) {
-          document.getElementById("util-3rd-option").style.display = "none";   
-        }
-      
-      function getStakeholder1Title() {
-        st1 = document.getElementById("stakeholder-1").value;
-      }
-      function getStakeholder2Title() {
-        st2 = document.getElementById("stakeholder-2").value;
-      }
-      function getStakeholder3Title() {
-        st3 = document.getElementById("stakeholder-3").value;
-      }
-      function getStakeholderTitle() {
-        st4 = document.getElementById("stakeholder-4").value;
-        st5 = document.getElementById("stakeholder-5").value;
-        st6 = document.getElementById("stakeholder-6").value;
-      }
-     
-      function sendStakeholders()
-      {
-        send1 = st1;
-        send2 = st2;
-        send3 = st3;
-        send4 = st4;
-        send5 = st5;
-        send6 = st6;
-        sendCounter = counter;
 
-        localStorage.setItem("stake-1-value", send1);
-        localStorage.setItem("stake-2-value", send2);
-        localStorage.setItem("stake-3-value", send3);
-        localStorage.setItem("stake-4-value", send4);
-        localStorage.setItem("stake-5-value", send5);
-        localStorage.setItem("stake-6-value", send6);
-        localStorage.setItem("counter-val",sendCounter);
-
-        
-      }
-
-      function sendStakeholders2()
-      {
-        send1 = st1;
-        send2 = st2;
-        send3 = st3;
-        send4 = st4;
-        send5 = st5;
-        send6 = st6;
-
-        localStorage.setItem("stake-1-value", send1);
-        localStorage.setItem("stake-2-value", send2);
-        localStorage.setItem("stake-3-value", send3);
-        localStorage.setItem("stake-4-value", send4);
-        localStorage.setItem("stake-5-value", send5);
-        localStorage.setItem("stake-6-value", send6);
-        localStorage.setItem("counter-val",sendCounter);
-
-        
-      }
-
-      
-      function sendStakeholders3()
-      {
-        send1 = st1;
-        send2 = st2;
-        send3 = st3;
-        send4 = st4;
-        send5 = st5;
-        send6 = st6;
-
-        localStorage.setItem("stake-1-value", send1);
-        localStorage.setItem("stake-2-value", send2);
-        localStorage.setItem("stake-3-value", send3);
-        localStorage.setItem("stake-4-value", send4);
-        localStorage.setItem("stake-5-value", send5);
-        localStorage.setItem("stake-6-value", send6);
-        localStorage.setItem("counter-val",sendCounter);
-
-        
-      }
-*/
       function sendStakeholdersCounter()
       {
         localStorage.setItem("stakeholders_counter", st_counter);
@@ -408,6 +333,55 @@
               </div>
           
               <div class="row ms-1 justify-content-center">
+                   <!-- Button trigger modal -->
+                   <button
+                type="button"
+      class="stakeholders-btn"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+      id = "util-stakeholders-fb-btn"
+      name = "util-stakeholders-fb-btn"
+      style="margin-left:10px; margin-top:15px; background-color: blue;"
+    >
+    Leave a comment
+    </button>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Feedback</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <textarea rows="7" cols="10" id="util-stakeholders-fb" name="util-stakeholders-fb">
+            </textarea>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary" id="save-util-stakeholders-fb" name = "save-util-stakeholders-fb">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
               <input
                 type="submit"
                 value="Save"
