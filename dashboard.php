@@ -91,7 +91,8 @@
       $(document).ready(function () {
         //admin_counter verifies if the logged in user is admin or not
         admin_counter = localStorage.getItem("admin_counter");
-     if(admin_counter < 1)
+        ta_counter = localStorage.getItem("ta_counter");
+     if(admin_counter < 1 && ta_counter < 1)
      {
        //Buttons for the feedback popups
 document.getElementById("options-fb-btn").innerText = "View the comments";
@@ -106,6 +107,17 @@ document.getElementById("save-summary-fb").style.display = "none";
 document.getElementById("save-stakeholders-fb").style.display = "none";
 document.getElementById("save-options-fb").style.display = "none";
 document.getElementById("save-dilemmas-fb").style.display = "none";
+     }
+     else
+     if(ta_counter >= 1)
+     {
+       document.getElementById("case-summary").disabled = true;
+       document.getElementById("role").disabled = true;
+       document.getElementById("dilemmas").disabled = true;
+       document.getElementById("options-btn").innerText = "View the options";
+       document.getElementById("stakeholders-btn").innerText = "View the stakeholders";
+
+
      }
         $(".dropdown").hover(function () {
           var dropdownMenu = $(this).children(".dropdown-menu");
@@ -383,6 +395,7 @@ document.getElementById("save-dilemmas-fb").style.display = "none";
                   class="btn btn-dark"
                   role="button"
                   style="position: absolute; bottom: 8px; right: 8px"
+                  id="options-btn"
                 >
                   Edit Options
                 </a>
@@ -452,6 +465,7 @@ document.getElementById("save-dilemmas-fb").style.display = "none";
                   class="btn btn-dark"
                   role="button"
                   style="position: absolute; bottom: 8px; right: 8px"
+                  id="stakeholders-btn"
                 >
                   Edit Stakeholders
                 </a>

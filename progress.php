@@ -44,7 +44,8 @@
 var  admin_counter = 0;
         $(document).ready(function () {
           admin_counter = localStorage.getItem("admin_counter");
-          if(admin_counter < 1)
+          ta_counter = localStorage.getItem("ta_counter");
+          if(admin_counter < 1 && ta_counter < 1)
      {
          
           //student can see the grade , but can't edit it
@@ -61,6 +62,8 @@ var  admin_counter = 0;
      document.getElementById("progress-4").disabled = true;
      document.getElementById("progress-5").disabled = true;
      document.getElementById("progress-6").disabled = true;
+
+     document.getElementById("grades-save").style.display = "none";
      }  
     });
 

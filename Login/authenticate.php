@@ -110,9 +110,22 @@ if($login_result){
       $lastName = $lastNameRow[0] ?? false;
       $_SESSION["adminLastName"] = $lastName;
 
-      header("Location: /EBoard/Admin/admin_page.php");
+      $taQuery = "SELECT admin FROM admins where email = '".$email."'";
+$taResult = mysqli_query($db_connection, $taQuery);
+$taRow = mysqli_fetch_array($taResult, MYSQLI_NUM);
+$taName = $taRow[0] ?? false;
 
-      exit;
+if($taName == 0)
+{
+  header("Location: /EBoard/Admin/ta_page.php");
+  exit;
+}
+else{
+
+  header("Location: /EBoard/Admin/admin_page.php");
+
+  exit;
+}
     }else{
       unset($_SESSION['email']);
       //header("Location: https://https://herrycooly.com/EBoard/Login/login.html");
