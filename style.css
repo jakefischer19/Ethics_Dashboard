@@ -1,0 +1,248 @@
+:root {
+  --clr-neutral-100: 0 0% 100%;
+  --clr-background: 210 46% 95%;
+  --clr-secondary-400: 217 19% 35%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+body {
+  background: hsl(var(--clr-background));
+  padding: 0 12rem;
+  padding-top: 8rem;
+  padding-bottom: 3rem;
+}
+
+textarea {
+  width: 100%;
+  resize: none;
+}
+
+.card h2 {
+  padding-bottom: 10px;
+}
+
+/* Login */
+
+.login-greeting {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.btn {
+  padding: 8px 16px;
+  text-align: center;
+  font-size: 14px;
+  margin: 4px 2px;
+  transition: 0.3s;
+}
+#logoutbtn {
+  padding: 8px 16px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: #616263;
+  color: white;
+}
+#logoutbtn:hover {
+  background-color: #007dfa;
+  color: white;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu {
+  margin-top: 10;
+}
+
+/* options-page */
+.input_text {
+  width: 500px;
+  height: 200px;
+  margin-right: 2px;
+  border-radius: 3px;
+  border: 1px solid green;
+}
+
+.options-btn {
+  background: none;
+  color: white;
+  border: none;
+  width: 200px;
+  height: 35px;
+  border-radius: 3px;
+  background-color: black;
+  font-size: 16px;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+/* options page ends */
+
+/*stakeholders page*/
+.stakeholders-btn {
+  background: none;
+  color: white;
+  border: none;
+  width: 300px;
+  height: 35px;
+  border-radius: 3px;
+  background-color: black;
+  font-size: 16px;
+  text-align: center;
+}
+
+.btns {
+  text-align: center;
+  position: relative;
+}
+
+@media only screen and (max-width: 400px) {
+  .stakeholders-btn {
+    margin-top: 10px;
+  }
+}
+/*stakeholders page ends*/
+
+/* Utilitarianism page*/
+textarea[name="util_option1"] {
+  font-size: 120%;
+}
+textarea[name="util_option2"] {
+  font-size: 120%;
+}
+textarea[name="util_option3"] {
+  font-size: 120%;
+}
+textarea[name="util_option1_response"] {
+  font-size: 120%;
+}
+textarea[name="util_option2_response"] {
+  font-size: 120%;
+}
+textarea[name="util_option3_response"] {
+  font-size: 120%;
+}
+
+.stakeholder-input {
+  font-size: 120%;
+}
+
+/* end of utilitariansim */
+
+/* Media */
+
+@media only screen and (max-width: 1200px) {
+  body {
+    padding: 0 5rem;
+    padding-top: 8rem;
+    padding-bottom: 3rem;
+  }
+}
+
+/* Progress page */
+.textarea-container {
+  position: relative;
+}
+
+.textarea-container .text-1 {
+  width: 80px;
+  position: absolute;
+  top: 0px;
+  right: 5px;
+  text-align: right;
+}
+
+@media only screen and (max-width: 420px) {
+  .textarea-container .text-1 {
+    width: 60px;
+  }
+}
+
+.box-container {
+  border: 1px solid grey;
+}
+/* Progress page ends */
+
+/*Utilitarianism-3,4,5,6,7 page */
+.slider-border {
+  border: 1px solid grey;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 75%;
+  height: 10px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: black;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #04aa6d;
+  cursor: pointer;
+}
+
+.util-3-text {
+  font-size: 18px;
+}
+
+.text-class {
+  width: 100%;
+  height: auto;
+}
+
+.title-span {
+  color: Red;
+}
+
+.stakeholders-name {
+  color: grey;
+}
+
+.course-of-action {
+  color: grey;
+}
+
+/*Utilitarianism-3,4,5,6,7 page ends */
