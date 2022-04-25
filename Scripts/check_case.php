@@ -38,4 +38,3 @@ if (mysqli_num_rows($result) > 0) {
 
 echo json_encode($returnArr);
 mysqli_close($db_connection);
-?>
