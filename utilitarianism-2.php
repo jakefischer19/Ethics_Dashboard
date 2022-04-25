@@ -386,8 +386,6 @@ $db_connection->close();
             var s5_slider = data[16];
             var s6_slider = data[17];
 
-            alert(s6_slider);
-
             document.getElementById('s1-title').innerHTML = s1_name;
             document.getElementById('stakeholder-1').innerHTML = s1_response;
             document.getElementById('s2-title').innerHTML = s2_name;
