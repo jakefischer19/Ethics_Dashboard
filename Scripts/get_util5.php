@@ -44,4 +44,3 @@ $sql->close();
 echo json_encode($returnArr);
 
 mysqli_close($db_connection);
-?>

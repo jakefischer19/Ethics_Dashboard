@@ -27,7 +27,7 @@ body {
   background: hsl(var(--clr-background));
   padding: 0 12rem;
   padding-top: 8rem;
-  padding-bottom: 3rem;
+  padding-bottom: 2rem;
 }
 
 textarea {
