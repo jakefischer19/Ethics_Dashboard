@@ -15,56 +15,132 @@ $caseID = $_SESSION["caseID"];
 
 
 
-$sto1slider1 = "";
-$sto1slider2 = "";
-$sto1slider3 = "";
-$sto1slidertxt1 = "";
-$sto1slidertxt2 = "";
-$sto1slidertxt3 = "";
-$sto1radio1 = "";
-$sto1radio2 = "";
-$sto1radio3 = "";
-$sto1radio4 = "";
-$sto1radio5 = "";
-$sto1radio6 = "";
-$lto1slider1 = "";
-$lto1slider2 = "";
-$lto1slider3 = "";
-$lto1slidertxt1 = "";
-$lto1slidertxt2 = "";
-$lto1slidertxt3 = "";
-$lto1radio1 = "";
-$lto1radio2 = "";
-$lto1radio3 = "";
-$lto1radio4 = "";
-$lto1radio5 = "";
-$lto1radio6 = "";
+$sto3slider1 = "";
+$sto3slider2 = "";
+$sto3slider3 = "";
+$sto3slider4 = "";
+$sto3slider5 = "";
+$sto3slider6 = "";
+$sto3slidertxt1 = "";
+$sto3slidertxt2 = "";
+$sto3slidertxt3 = "";
+$sto3slidertxt4 = "";
+$sto3slidertxt5 = "";
+$sto3slidertxt6 = "";
+$sto3radio1 = "";
+$sto3radio2 = "";
+$sto3radio3 = "";
+$sto3radio4 = "";
+$sto3radio5 = "";
+$sto3radio6 = "";
+$lto3slider1 = "";
+$lto3slider2 = "";
+$lto3slider3 = "";
+$lto3slider4 = "";
+$lto3slider5 = "";
+$lto3slider6 = "";
+$lto3slidertxt1 = "";
+$lto3slidertxt2 = "";
+$lto3slidertxt3 = "";
+$lto3slidertxt4 = "";
+$lto3slidertxt5 = "";
+$lto3slidertxt6 = "";
+$lto3radio1 = "";
+$lto3radio2 = "";
+$lto3radio3 = "";
+$lto3radio4 = "";
+$lto3radio5 = "";
+$lto3radio6 = "";
 
-if (isset($_POST['st-o1-submit'])) {
+if (isset($_POST['st-o3-submit'])) {
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $sto1slider1 = filter_input(INPUT_POST, "st-o1-slider-1");
-    $sto1slider2 = filter_input(INPUT_POST, "st-o1-slider-2");
-    $sto1slider3 = filter_input(INPUT_POST, "st-o1-slider-3");
-    $sto1slidertxt1 = filter_input(INPUT_POST, "st-o1-slider-txt-1");
-    $sto1slidertxt2 = filter_input(INPUT_POST, "st-o1-slider-txt-2");
-    $sto1slidertxt3 = filter_input(INPUT_POST, "st-o1-slider-txt-3");
-    $sto1radio1 = filter_input(INPUT_POST, "st-o1-radio-1");
-    $sto1radio2 = filter_input(INPUT_POST, "st-o1-radio-2");
-    $sto1radio3 = filter_input(INPUT_POST, "st-o1-radio-3");
-    $lto1slider1 = filter_input(INPUT_POST, "lt-o1-slider-1");
-    $lto1slider2 = filter_input(INPUT_POST, "lt-o1-slider-2");
-    $lto1slider3 = filter_input(INPUT_POST, "lt-o1-slider-3");
-    $lto1slidertxt1 = filter_input(INPUT_POST, "lt-o1-slider-txt-1");
-    $lto1slidertxt2 = filter_input(INPUT_POST, "lt-o1-slider-txt-2");
-    $lto1slidertxt3 = filter_input(INPUT_POST, "lt-o1-slider-txt-3");
-    $lto1radio1 = filter_input(INPUT_POST, "lt-o1-radio-1");
-    $lto1radio2 = filter_input(INPUT_POST, "lt-o1-radio-2");
-    $lto1radio3 = filter_input(INPUT_POST, "lt-o1-radio-3");
+    $sto3slider1 = filter_input(INPUT_POST, "st-o3-slider-1");
+    $sto3slider2 = filter_input(INPUT_POST, "st-o3-slider-2");
+    $sto3slider3 = filter_input(INPUT_POST, "st-o3-slider-3");
+    $sto3slider4 = filter_input(INPUT_POST, "st-o3-slider-4");
+    $sto3slider5 = filter_input(INPUT_POST, "st-o3-slider-5");
+    $sto3slider6 = filter_input(INPUT_POST, "st-o3-slider-6");
+    $sto3slidertxt1 = filter_input(INPUT_POST, "st-o3-slider-txt-1");
+    $sto3slidertxt2 = filter_input(INPUT_POST, "st-o3-slider-txt-2");
+    $sto3slidertxt3 = filter_input(INPUT_POST, "st-o3-slider-txt-3");
+    $sto3slidertxt4 = filter_input(INPUT_POST, "st-o3-slider-txt-4");
+    $sto3slidertxt5 = filter_input(INPUT_POST, "st-o3-slider-txt-5");
+    $sto3slidertxt6 = filter_input(INPUT_POST, "st-o3-slider-txt-6");
+    $sto3radio1 = filter_input(INPUT_POST, "st-o3-radio-1");
+    $sto3radio2 = filter_input(INPUT_POST, "st-o3-radio-2");
+    $sto3radio3 = filter_input(INPUT_POST, "st-o3-radio-3");
+    $sto3radio4 = filter_input(INPUT_POST, "st-o3-radio-4");
+    $sto3radio5 = filter_input(INPUT_POST, "st-o3-radio-5");
+    $sto3radio6 = filter_input(INPUT_POST, "st-o3-radio-6");
+    $lto3slider1 = filter_input(INPUT_POST, "lt-o3-slider-1");
+    $lto3slider2 = filter_input(INPUT_POST, "lt-o3-slider-2");
+    $lto3slider3 = filter_input(INPUT_POST, "lt-o3-slider-3");
+    $lto3slider4 = filter_input(INPUT_POST, "lt-o3-slider-4");
+    $lto3slider5 = filter_input(INPUT_POST, "lt-o3-slider-5");
+    $lto3slider6 = filter_input(INPUT_POST, "lt-o3-slider-6");
+    $lto3slidertxt1 = filter_input(INPUT_POST, "lt-o3-slider-txt-1");
+    $lto3slidertxt2 = filter_input(INPUT_POST, "lt-o3-slider-txt-2");
+    $lto3slidertxt3 = filter_input(INPUT_POST, "lt-o3-slider-txt-3");
+    $lto3slidertxt4 = filter_input(INPUT_POST, "lt-o3-slider-txt-4");
+    $lto3slidertxt5 = filter_input(INPUT_POST, "lt-o3-slider-txt-5");
+    $lto3slidertxt6 = filter_input(INPUT_POST, "lt-o3-slider-txt-6");
+    $lto3radio1 = filter_input(INPUT_POST, "lt-o3-radio-1");
+    $lto3radio2 = filter_input(INPUT_POST, "lt-o3-radio-2");
+    $lto3radio3 = filter_input(INPUT_POST, "lt-o3-radio-3");
+    $lto3radio4 = filter_input(INPUT_POST, "lt-o3-radio-4");
+    $lto3radio5 = filter_input(INPUT_POST, "lt-o3-radio-5");
+    $lto3radio6 = filter_input(INPUT_POST, "lt-o3-radio-6");
   }
 
-  $sql = "UPDATE util SET st_o1_slider1= ?, st_o1_slider2= ?, st_o1_slider3= ?, st_o1_slider_txt_1= ?, st_o1_slider_txt_2= ?, st_o1_slider_txt_3= ?, st_o1_radio1= ?, st_o1_radio2= ?, st_o1_radio3= ?, lt_o1_slider1= ?, lt_o1_slider2= ?, lt_o1_slider3= ?, lt_o1_slider_txt_1= ?, lt_o1_slider_txt_2= ?, lt_o1_slider_txt_3= ?, lt_o1_radio1= ?, lt_o1_radio2= ?, lt_o1_radio3= ? WHERE caseID= ?";
+  $sql = "UPDATE util 
+          SET st_o3_slider1= ?, st_o3_slider2= ?, st_o3_slider3= ?, st_o3_slider4= ?, st_o3_slider5= ?, st_o3_slider6= ?,
+              st_o3_slider_txt_1= ?, st_o3_slider_txt_2= ?, st_o3_slider_txt_3= ?, st_o3_slider_txt_4= ?, st_o3_slider_txt_5= ?, st_o3_slider_txt_6= ?, 
+              st_o3_radio1= ?, st_o3_radio2= ?, st_o3_radio3= ?, st_o3_radio4= ?, st_o3_radio5= ?, st_o3_radio6= ?,
+              lt_o3_slider1= ?, lt_o3_slider2= ?, lt_o3_slider3= ?, lt_o1_slider4= ?, lt_o3_slider5= ?, lt_o3_slider6= ?,
+              lt_o3_slider_txt_1= ?, lt_o3_slider_txt_2= ?, lt_o3_slider_txt_3= ?,  lt_o3_slider_txt_4= ?, lt_o3_slider_txt_5= ?, lt_o3_slider_txt_6= ?, 
+              lt_o3_radio1= ?, lt_o3_radio2= ?, lt_o3_radio3= ?, lt_o3_radio4= ?, lt_o3_radio5= ?, lt_o3_radio6= ?  
+          WHERE caseID= ?";
   $save_sql = $db_connection->prepare($sql);
-  $save_sql->bind_param("iiissssssiiissssssi", $sto1slider1, $sto1slider2, $sto1slider3, $sto1slidertxt1, $sto1slidertxt2, $sto1slidertxt3, $sto1radio1, $sto1radio2, $sto1radio3, $lto1slider1, $lto1slider2, $lto1slider3, $lto1slidertxt1, $lto1slidertxt2, $lto1slidertxt3, $lto1radio1, $lto1radio2, $lto1radio3, $caseID);
+  $save_sql->bind_param(
+    "iiiiiissssssssssssiiiiiissssssssssssi",
+    $sto3slider1,
+    $sto3slider2,
+    $sto3slider3,
+    $sto3slider4,
+    $sto3slider5,
+    $sto3slider6,
+    $sto3slidertxt1,
+    $sto3slidertxt2,
+    $sto3slidertxt3,
+    $sto3slidertxt4,
+    $sto3slidertxt5,
+    $sto3slidertxt6,
+    $sto3radio1,
+    $sto3radio2,
+    $sto3radio3,
+    $sto3radio4,
+    $sto3radio5,
+    $sto3radio6,
+    $lto3slider1,
+    $lto3slider2,
+    $lto3slider3,
+    $lto3slider4,
+    $lto3slider5,
+    $lto3slider6,
+    $lto3slidertxt1,
+    $lto3slidertxt2,
+    $lto3slidertxt3,
+    $lto3slidertxt4,
+    $lto3slidertxt5,
+    $lto3slidertxt6,
+    $lto3radio1,
+    $lto3radio2,
+    $lto3radio3,
+    $lto3radio4,
+    $lto3radio5,
+    $lto3radio6,
+    $caseID
+  );
   $save_sql->execute();
 
 
@@ -79,7 +155,6 @@ if (isset($_POST['st-o1-submit'])) {
   }
 }
 $db_connection->close();
-
 ?>
 
 <!DOCTYPE html>
@@ -429,7 +504,7 @@ $db_connection->close();
 </head>
 <style></style>
 
-<body>
+<body onload="load();">
   <!-- Load Header -->
   <div id="header">
     <script>
@@ -438,441 +513,442 @@ $db_connection->close();
       });
     </script>
   </div>
-
-  <div class="container-fluid">
-    <div class="card">
-      <div class="card-body">
-        <div class="row p-2">
-          <div class="col-lg">
-            <h5 class="pb-2">
-              The Greatest Happiness Principle, actions are right if they
-              promote happiness (pleasure) and wrong if they promote
-              unhappiness (pain). Consider the relative stakeholder pleasures
-              or pains for the options you identified. Identify the pleasures
-              as higher or lower by ticking the box.
-            </h5>
+  <form action="utilitarianism-3rd-option.php" method="POST">
+    <div class="container-fluid">
+      <div class="card">
+        <div class="card-body">
+          <div class="row p-2">
+            <div class="col-lg">
+              <h5 class="pb-2">
+                The Greatest Happiness Principle, actions are right if they
+                promote happiness (pleasure) and wrong if they promote
+                unhappiness (pain). Consider the relative stakeholder pleasures
+                or pains for the options you identified. Identify the pleasures
+                as higher or lower by ticking the box.
+              </h5>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="card">
-      <div class="card-body" style="height: 600px; overflow-y: auto">
-        <h4 class="p-2">
-          <center>
-            OPTION 3 -<span class="title-span" id="title-span">
-              I can betray the company...</span>
-          </center>
-        </h4>
-        <hr style="color: black; height: 2px" />
-        <h4 class="p-2">
-          <b>
-            <center>Short-term consequences</center>
-          </b>
-        </h4>
-        <br />
-        <div class="row p-2" id="st-o3-stakeholder-1">
-          <h4 class="p-2">STAKEHOLDER-1</h4>
-          <h5>
-            <span class="stakeholders-name" id="st-stakeholders-name-1" name="st-stakeholders-name-1">The engineer asked to design the VW defeat...</span>
-          </h5>
-
-          <div class="col-lg p-2">
-            <div class="border">
-              <h6 class="pt-2">
-                Pleasure
-                <input type="range" min="1" max="100" value="0" class="slider" id="st-o3-slider-1" name="st-o3-slider-1" onchange="stGetValue()" />
-                Pain
-              </h6>
-            </div>
-          </div>
-          <div class="col-lg p-2">
-            <div class="util-3-text">
-              <input type="text" id="st-o3-slider-txt-1" name="st-o3-slider-txt-1" class="text-class" placeholder="Explain the selection" />
-            </div>
-            <h5 class="p-2">
-              Pleasure:&ensp;<label>High</label>
-              <input type="radio" name="st-o3-radio-1" id="st-o3-radio-1" value="High" onclick="stCountHigh()" />&emsp; <label>Low</label>
-              <input type="radio" name="st-o3-radio-1" id="st-o3-radio-2" value="Low" onclick="stCountLow()" />
-            </h5>
-          </div>
-        </div>
-        <div class="row p-2" id="st-o3-stakeholder-2">
-          <h4 class="pb-2">STAKEHOLDER-2</h4>
-          <h5>
-            <span class="stakeholders-name" id="st-stakeholders-name-2" name="st-stakeholders-name-2">The decision makers at VW who asked...</span>
-          </h5>
-
-          <div class="col-lg p-2">
-            <div>
-              <h6 class="pt-2">
-                Pleasure
-                <input type="range" min="1" max="100" value="0" class="slider" id="st-o3-slider-2" name="st-o3-slider-2" onchange="stGetValue2()" />
-                Pain
-              </h6>
-            </div>
-          </div>
-          <div class="col-lg p-2">
-            <div class="util-3-text">
-              <input type="text" id="st-o3-slider-txt-2" name="st-o3-slider-txt-2" class="text-class" placeholder="Explain the selection" />
-            </div>
-            <h5 class="p-2">
-              Pleasure:&ensp;<label>High</label>
-              <input type="radio" name="st-o3-radio-2" id="st-o3-radio-3" value="High" onclick="stCountHigh()" />&emsp; <label>Low</label>
-              <input type="radio" name="st-o3-radio-2" id="st-o3-radio-4" value="Low" onclick="stCountLow()" />
-            </h5>
-          </div>
-        </div>
-        <div class="row p-2" id="st-o3-stakeholder-3">
-          <h4 class="pb-2">STAKEHOLDER-3</h4>
-          <h5>
-            <span class="stakeholders-name" id="st-stakeholders-name-3" name="st-stakeholders-name-3">Consumers...</span>
-          </h5>
-
-          <div class="col-lg p-2">
-            <div class="border">
-              <h6 class="pt-2">
-                Pleasure
-                <input type="range" min="1" max="100" value="0" class="slider" id="st-o3-slider-3" name="st-o3-slider-3" onchange="stGetValue3()" />
-                Pain
-              </h6>
-            </div>
-          </div>
-          <div class="col-lg p-2">
-            <div class="util-3-text">
-              <input type="text" id="st-o3-slider-txt-3" name="st-o3-slider-txt-3" class="text-class" placeholder="Explain the selection" />
-            </div>
-            <h5 class="p-2">
-              Pleasure:&ensp;<label>High</label>
-              <input type="radio" name="st-o3-radio-3" id="st-o3-radio-5" value="High" onclick="stCountHigh()" />&emsp; <label>Low</label>
-              <input type="radio" name="st-o3-radio-3" id="st-o3-radio-6" value="Low" onclick="stCountLow()" />
-            </h5>
-          </div>
-        </div>
-        <div class="row p-2" id="st-o3-stakeholder-4">
-          <h4 class="pb-2">STAKEHOLDER-4</h4>
-          <h5>
-            <span class="stakeholders-name" id="st-stakeholders-name-4" name="st-stakeholders-name-4">VW Owners/Shareholders...</span>
-          </h5>
-
-          <div class="col-lg p-2">
-            <div class="border">
-              <h6 class="pt-2">
-                Pleasure
-                <input type="range" min="1" max="100" value="0" class="slider" id="st-o3-slider-4" name="st-o3-slider-4" onchange="stGetValue4()" />
-                Pain
-              </h6>
-            </div>
-          </div>
-          <div class="col-lg p-2">
-            <div class="util-3-text">
-              <input type="text" id="st-o3-slider-txt-4" name="st-o3-slider-txt-4" class="text-class" placeholder="Explain the selection" />
-            </div>
-            <h5 class="p-2">
-              Pleasure:&ensp;<label>High</label>
-              <input type="radio" name="st-o3-radio-4" id="st-o3-radio-7" value="High" onclick="stCountHigh()" />&emsp; <label>Low</label>
-              <input type="radio" name="st-o3-radio-4" id="st-o3-radio-8" value="Low" onclick="stCountLow()" />
-            </h5>
-          </div>
-        </div>
-        <div class="row p-2" id="st-o3-stakeholder-5">
-          <h4 class="pb-2">STAKEHOLDER-5</h4>
-          <h5>
-            <span class="stakeholders-name" id="st-stakeholders-name-5" name="st-stakeholders-name-5">Stakeholder-5</span>
-          </h5>
-
-          <div class="col-lg p-2">
-            <div class="border">
-              <h6 class="pt-2">
-                Pleasure
-                <input type="range" min="1" max="100" value="0" class="slider" id="st-o3-slider-5" name="st-o3-slider-5" onchange="stGetValue5()" />
-                Pain
-              </h6>
-            </div>
-          </div>
-          <div class="col-lg p-2">
-            <div class="util-3-text">
-              <input type="text" id="st-o3-slider-txt-5" name="st-o3-slider-txt-5" class="text-class" placeholder="Explain the selection" />
-            </div>
-            <h5 class="p-2">
-              Pleasure:&ensp;<label>High</label>
-              <input type="radio" name="st-o3-radio-5" id="st-o3-radio-9" value="High" onclick="stCountHigh()" />&emsp; <label>Low</label>
-              <input type="radio" name="st-o3-radio-5" id="st-o3-radio-10" value="Low" onclick="stCountLow()" />
-            </h5>
-          </div>
-        </div>
-        <div class="row p-2" id="st-o3-stakeholder-6">
-          <h4 class="pb-2">STAKEHOLDER-6</h4>
-          <h5>
-            <span class="stakeholders-name" id="st-stakeholders-name-6" name="st-stakeholders-name-6">Stakeholder-6</span>
-          </h5>
-
-          <div class="col-lg p-2">
-            <div class="border">
-              <h6 class="pt-2">
-                Pleasure
-                <input type="range" min="1" max="100" value="0" class="slider" id="st-o3-slider-6" name="st-o3-slider-6" onchange="stGetValue6()" />
-                Pain
-              </h6>
-            </div>
-          </div>
-          <div class="col-lg p-2">
-            <div class="util-3-text">
-              <input type="text" id="st-o3-slider-txt-6" name="st-o3-slider-txt-6" class="text-class" placeholder="Explain the selection" />
-            </div>
-            <h5 class="p-2">
-              Pleasure:&ensp;<label>High</label>
-              <input type="radio" name="st-o3-radio-6" id="st-o3-radio-11" value="High" onclick="stCountHigh()" />&emsp; <label>Low</label>
-              <input type="radio" name="st-o3-radio-6" id="st-o3-radio-12" value="Low" onclick="stCountLow()" />
-            </h5>
-          </div>
-        </div>
-        <hr style="color: black; height: 2px" />
-        <h4 class="p-2">
-          <b>
-            <center>Long-term consequences</center>
-          </b>
-        </h4>
-        <br />
-        <div class="row p-2" id="lt-o3-stakeholder-1">
-          <h4 class="p-2">STAKEHOLDER-1</h4>
-          <h5>
-            <span class="stakeholders-name" id="lt-stakeholders-name-1" name="lt-stakeholders-name-1">The engineer asked to design the VW defeat...</span>
-          </h5>
-
-          <div class="col-lg p-2">
-            <div class="border">
-              <h6 class="pt-2">
-                Pleasure
-                <input type="range" min="1" max="100" value="0" class="slider" id="lt-o3-slider-1" name="lt-o3-slider-1" onchange="ltGetValue()" />
-                Pain
-              </h6>
-            </div>
-          </div>
-          <div class="col-lg p-2">
-            <div class="util-3-text">
-              <input type="text" id="lt-o3-slider-txt-1" name="lt-o3-slider-txt-1" class="text-class" placeholder="Explain the selection" />
-            </div>
-            <h5 class="p-2">
-              Pleasure:&ensp;<label>High</label>
-              <input type="radio" name="lt-o3-radio-1" id="lt-o3-radio-1" value="High" onclick="ltCountHigh()" />&emsp; <label>Low</label>
-              <input type="radio" name="lt-o3-radio-1" id="lt-o3-radio-2" value="Low" onclick="ltCountLow()" />
-            </h5>
-          </div>
-        </div>
-        <div class="row p-2" id="lt-o3-stakeholder-2">
-          <h4 class="pb-2">STAKEHOLDER-2</h4>
-          <h5>
-            <span class="stakeholders-name" id="lt-stakeholders-name-2" name="lt-stakeholders-name-2">The decision makers at VW who asked...</span>
-          </h5>
-
-          <div class="col-lg p-2">
-            <div class="border">
-              <h6 class="pt-2">
-                Pleasure
-                <input type="range" min="1" max="100" value="0" class="slider" id="lt-o3-slider-2" name="lt-o3-slider-2" onchange="ltGetValue2()" />
-                Pain
-              </h6>
-            </div>
-          </div>
-          <div class="col-lg p-2">
-            <div class="util-3-text">
-              <input type="text" id="lt-o3-slider-txt-2" name="lt-o3-slider-txt-2" class="text-class" placeholder="Explain the selection" />
-            </div>
-            <h5 class="p-2">
-              Pleasure:&ensp;<label>High</label>
-              <input type="radio" name="lt-o3-radio-2" id="lt-o3-radio-3" value="High" onclick="ltCountHigh()" />&emsp; <label>Low</label>
-              <input type="radio" name="lt-o3-radio-2" id="lt-o3-radio-4" value="Low" onclick="ltCountLow()" />
-            </h5>
-          </div>
-        </div>
-        <div class="row p-2" id="lt-o3-stakeholder-3">
-          <h4 class="pb-2">STAKEHOLDER-3</h4>
-          <h5>
-            <span class="stakeholders-name" id="lt-stakeholders-name-3" name="lt-stakeholders-name-3">Consumers...</span>
-          </h5>
-
-          <div class="col-lg p-2">
-            <div class="border">
-              <h6 class="pt-2">
-                Pleasure
-                <input type="range" min="1" max="100" value="0" class="slider" id="lt-o3-slider-3" name="lt-o3-slider-3" onchange="ltGetValue3()" />
-                Pain
-              </h6>
-            </div>
-          </div>
-          <div class="col-lg p-2">
-            <div class="util-3-text">
-              <input type="text" id="lt-o3-slider-txt-3" name="lt-o3-slider-txt-3" class="text-class" placeholder="Explain the selection" />
-            </div>
-            <h5 class="p-2">
-              Pleasure:&ensp;<label>High</label>
-              <input type="radio" name="lt-o3-radio-3" id="lt-o3-radio-5" value="High" onclick="ltCountHigh()" />&emsp; <label>Low</label>
-              <input type="radio" name="lt-o3-radio-3" id="lt-o3-radio-6" value="Low" onclick="ltCountLow()" />
-            </h5>
-          </div>
-        </div>
-        <div class="row p-2" id="lt-o3-stakeholder-4">
-          <h4 class="pb-2">STAKEHOLDER-4</h4>
-          <h5>
-            <span class="stakeholders-name" id="lt-stakeholders-name-4" name="lt-stakeholders-name-4">VW Owners/Shareholders...</span>
-          </h5>
-
-          <div class="col-lg p-2">
-            <div class="border">
-              <h6 class="pt-2">
-                Pleasure
-                <input type="range" min="1" max="100" value="0" class="slider" id="lt-o3-slider-4" name="lt-o3-slider-4" onchange="ltGetValue4()" />
-                Pain
-              </h6>
-            </div>
-          </div>
-          <div class="col-lg p-2">
-            <div class="util-3-text">
-              <input type="text" id="lt-o3-slider-txt-4" name="lt-o3-slider-txt-4" class="text-class" placeholder="Explain the selection" />
-            </div>
-            <h5 class="p-2">
-              Pleasure:&ensp;<label>High</label>
-              <input type="radio" name="lt-o3-radio-4" id="lt-o3-radio-7" value="High" onclick="ltCountHigh()" />&emsp; <label>Low</label>
-              <input type="radio" name="lt-o3-radio-4" id="lt-o3-radio-8" value="Low" onclick="ltCountLow()" />
-            </h5>
-          </div>
-        </div>
-        <div class="row p-2" id="lt-o3-stakeholder-5">
-          <h4 class="pb-2">STAKEHOLDER-5</h4>
-          <h5>
-            <span class="stakeholders-name" id="lt-stakeholders-name-5" name="lt-stakeholders-name-5">Stakeholder-5</span>
-          </h5>
-
-          <div class="col-lg p-2">
-            <div class="border">
-              <h6 class="pt-2">
-                Pleasure
-                <input type="range" min="1" max="100" value="0" class="slider" id="lt-o3-slider-5" name="lt-o3-slider-5" onchange="ltGetValue5()" />
-                Pain
-              </h6>
-            </div>
-          </div>
-          <div class="col-lg p-2">
-            <div class="util-3-text">
-              <input type="text" id="lt-o3-slider-txt-5" name="lt-o3-slider-txt-5" class="text-class" placeholder="Explain the selection" />
-            </div>
-            <h5 class="p-2">
-              Pleasure:&ensp;<label>High</label>
-              <input type="radio" name="lt-o3-radio-5" id="lt-o3-radio-9" value="High" onclick="ltCountHigh()" />&emsp; <label>Low</label>
-              <input type="radio" name="lt-o3-radio-5" id="lt-o3-radio-10" value="Low" onclick="ltCountLow()" />
-            </h5>
-          </div>
-        </div>
-        <div class="row p-2" id="lt-o3-stakeholder-6">
-          <h4 class="pb-2">STAKEHOLDER-6</h4>
-          <h5>
-            <span class="stakeholders-name" id="lt-stakeholders-name-6" name="lt-stakeholders-name-6">Stakeholder-6</span>
-          </h5>
-
-          <div class="col-lg p-2">
-            <div class="border">
-              <h6 class="pt-2">
-                Pleasure
-                <input type="range" min="1" max="100" value="0" class="slider" id="lt-o3-slider-6" name="lt-o3-slider-6" onchange="ltGetValue6()" />
-                Pain
-              </h6>
-            </div>
-          </div>
-          <div class="col-lg p-2">
-            <div class="util-3-text">
-              <input type="text" id="lt-o3-slider-txt-6" name="lt-o3-slider-txt-6" class="text-class" placeholder="Explain the selection" />
-            </div>
-            <h5 class="p-2">
-              Pleasure:&ensp;<label>High</label>
-              <input type="radio" name="lt-o3-radio-6" id="lt-o3-radio-11" value="High" onclick="ltCountHigh()" />&emsp; <label>Low</label>
-              <input type="radio" name="lt-o3-radio-6" id="lt-o3-radio-12" value="Low" onclick="ltCountLow()" />
-            </h5>
-          </div>
-        </div>
-        <hr style="color: black; height: 2px" />
-        <div class="row p-2">
-          <div class="col-lg p-2">
+      <div class="card">
+        <div class="card-body" style="height: 600px; overflow-y: auto">
+          <h4 class="p-2">
             <center>
-              <h4 class="p-2">OPTION 1 AGGREGATE</h4>
+              OPTION 3 -<span class="option3-title" id="option3-title" style="color: grey">
+                I can betray the company...</span>
             </center>
+          </h4>
+          <hr style="color: black; height: 2px" />
+          <h4 class="p-2">
+            <b>
+              <center>Short-term consequences</center>
+            </b>
+          </h4>
+          <br />
+          <div class="row p-2" id="st-o3-stakeholder-1">
+            <h4 class="p-2">STAKEHOLDER-1</h4>
+            <h5>
+              <span class="stakeholders-name" id="st-stakeholders-name-1" name="st-stakeholders-name-1">The engineer asked to design the VW defeat...</span>
+            </h5>
+
+            <div class="col-lg p-2">
+              <div class="border">
+                <h6 class="pt-2">
+                  Pleasure
+                  <input type="range" min="1" max="100" value="0" class="slider" id="st-o3-slider-1" name="st-o3-slider-1" onchange="stGetValue()" />
+                  Pain
+                </h6>
+              </div>
+            </div>
+            <div class="col-lg p-2">
+              <div class="util-3-text">
+                <input type="text" id="st-o3-slider-txt-1" name="st-o3-slider-txt-1" class="text-class" placeholder="Explain the selection" />
+              </div>
+              <h5 class="p-2">
+                Pleasure:&ensp;<label>High</label>
+                <input type="radio" name="st-o3-radio-1" id="st-o3-radio-1" value="High" onclick="stCountHigh()" />&emsp; <label>Low</label>
+                <input type="radio" name="st-o3-radio-1" id="st-o3-radio-2" value="Low" onclick="stCountLow()" />
+              </h5>
+            </div>
           </div>
-        </div>
-        <div class="row p-2">
-          <div class="col-lg p-2">
-            <h5 class="p-2" id="short-term">Short-term Outcomes:</h5>
-            <h6 class="pt-2" id="short-term-slider">
-              Pleasure
-              <input type="range" min="1" max="100" value="0" class="slider" id="o1-st-agg-slider" name="o1-st-agg-slider" />
-              Pain
-            </h6>
+          <div class="row p-2" id="st-o3-stakeholder-2">
+            <h4 class="pb-2">STAKEHOLDER-2</h4>
+            <h5>
+              <span class="stakeholders-name" id="st-stakeholders-name-2" name="st-stakeholders-name-2">The decision makers at VW who asked...</span>
+            </h5>
+
+            <div class="col-lg p-2">
+              <div>
+                <h6 class="pt-2">
+                  Pleasure
+                  <input type="range" min="1" max="100" value="0" class="slider" id="st-o3-slider-2" name="st-o3-slider-2" onchange="stGetValue2()" />
+                  Pain
+                </h6>
+              </div>
+            </div>
+            <div class="col-lg p-2">
+              <div class="util-3-text">
+                <input type="text" id="st-o3-slider-txt-2" name="st-o3-slider-txt-2" class="text-class" placeholder="Explain the selection" />
+              </div>
+              <h5 class="p-2">
+                Pleasure:&ensp;<label>High</label>
+                <input type="radio" name="st-o3-radio-2" id="st-o3-radio-3" value="High" onclick="stCountHigh()" />&emsp; <label>Low</label>
+                <input type="radio" name="st-o3-radio-2" id="st-o3-radio-4" value="Low" onclick="stCountLow()" />
+              </h5>
+            </div>
           </div>
-          <div class="col-lg p-2">
-            <h5 class="p-2" id="long-term">Long-term Outcomes:</h5>
-            <h6 class="pt-2" id="long-term-slider">
-              Pleasure
-              <input type="range" min="1" max="100" value="0" class="slider" id="o1-lt-agg-slider" name="o1-lt-agg-slider" />
-              Pain
-            </h6>
+          <div class="row p-2" id="st-o3-stakeholder-3">
+            <h4 class="pb-2">STAKEHOLDER-3</h4>
+            <h5>
+              <span class="stakeholders-name" id="st-stakeholders-name-3" name="st-stakeholders-name-3">Consumers...</span>
+            </h5>
+
+            <div class="col-lg p-2">
+              <div class="border">
+                <h6 class="pt-2">
+                  Pleasure
+                  <input type="range" min="1" max="100" value="0" class="slider" id="st-o3-slider-3" name="st-o3-slider-3" onchange="stGetValue3()" />
+                  Pain
+                </h6>
+              </div>
+            </div>
+            <div class="col-lg p-2">
+              <div class="util-3-text">
+                <input type="text" id="st-o3-slider-txt-3" name="st-o3-slider-txt-3" class="text-class" placeholder="Explain the selection" />
+              </div>
+              <h5 class="p-2">
+                Pleasure:&ensp;<label>High</label>
+                <input type="radio" name="st-o3-radio-3" id="st-o3-radio-5" value="High" onclick="stCountHigh()" />&emsp; <label>Low</label>
+                <input type="radio" name="st-o3-radio-3" id="st-o3-radio-6" value="Low" onclick="stCountLow()" />
+              </h5>
+            </div>
           </div>
-        </div>
-        <div class="row p-2">
-          <div class="col-lg p-2">
-            <center>
-              <h4 class="p-2" id="option-2">OPTION 2 AGGREGATE</h4>
-            </center>
+          <div class="row p-2" id="st-o3-stakeholder-4">
+            <h4 class="pb-2">STAKEHOLDER-4</h4>
+            <h5>
+              <span class="stakeholders-name" id="st-stakeholders-name-4" name="st-stakeholders-name-4">VW Owners/Shareholders...</span>
+            </h5>
+
+            <div class="col-lg p-2">
+              <div class="border">
+                <h6 class="pt-2">
+                  Pleasure
+                  <input type="range" min="1" max="100" value="0" class="slider" id="st-o3-slider-4" name="st-o3-slider-4" onchange="stGetValue4()" />
+                  Pain
+                </h6>
+              </div>
+            </div>
+            <div class="col-lg p-2">
+              <div class="util-3-text">
+                <input type="text" id="st-o3-slider-txt-4" name="st-o3-slider-txt-4" class="text-class" placeholder="Explain the selection" />
+              </div>
+              <h5 class="p-2">
+                Pleasure:&ensp;<label>High</label>
+                <input type="radio" name="st-o3-radio-4" id="st-o3-radio-7" value="High" onclick="stCountHigh()" />&emsp; <label>Low</label>
+                <input type="radio" name="st-o3-radio-4" id="st-o3-radio-8" value="Low" onclick="stCountLow()" />
+              </h5>
+            </div>
           </div>
-        </div>
-        <div class="row p-2">
-          <div class="col-lg p-2">
-            <h5 class="p-2" id="short-term-2">Short-term outcomes:</h5>
-            <h6 class="pt-2" id="short-term-slider-2">
-              Pleasure
-              <input type="range" min="1" max="100" value="0" class="slider" id="o2-st-agg-slider" name="o2-st-agg-slider" />
-              Pain
-            </h6>
+          <div class="row p-2" id="st-o3-stakeholder-5">
+            <h4 class="pb-2">STAKEHOLDER-5</h4>
+            <h5>
+              <span class="stakeholders-name" id="st-stakeholders-name-5" name="st-stakeholders-name-5">Stakeholder-5</span>
+            </h5>
+
+            <div class="col-lg p-2">
+              <div class="border">
+                <h6 class="pt-2">
+                  Pleasure
+                  <input type="range" min="1" max="100" value="0" class="slider" id="st-o3-slider-5" name="st-o3-slider-5" onchange="stGetValue5()" />
+                  Pain
+                </h6>
+              </div>
+            </div>
+            <div class="col-lg p-2">
+              <div class="util-3-text">
+                <input type="text" id="st-o3-slider-txt-5" name="st-o3-slider-txt-5" class="text-class" placeholder="Explain the selection" />
+              </div>
+              <h5 class="p-2">
+                Pleasure:&ensp;<label>High</label>
+                <input type="radio" name="st-o3-radio-5" id="st-o3-radio-9" value="High" onclick="stCountHigh()" />&emsp; <label>Low</label>
+                <input type="radio" name="st-o3-radio-5" id="st-o3-radio-10" value="Low" onclick="stCountLow()" />
+              </h5>
+            </div>
           </div>
-          <div class="col-lg p-2">
-            <h5 class="p-2" id="long-term-2">Long-term Outcomes:</h5>
-            <h6 class="pt-2" id="long-term-slider-2">
-              Pleasure
-              <input type="range" min="1" max="100" value="0" class="slider" id="o2-lt-agg-slider" name="o2-lt-agg-slider" />
-              Pain
-            </h6>
+          <div class="row p-2" id="st-o3-stakeholder-6">
+            <h4 class="pb-2">STAKEHOLDER-6</h4>
+            <h5>
+              <span class="stakeholders-name" id="st-stakeholders-name-6" name="st-stakeholders-name-6">Stakeholder-6</span>
+            </h5>
+
+            <div class="col-lg p-2">
+              <div class="border">
+                <h6 class="pt-2">
+                  Pleasure
+                  <input type="range" min="1" max="100" value="0" class="slider" id="st-o3-slider-6" name="st-o3-slider-6" onchange="stGetValue6()" />
+                  Pain
+                </h6>
+              </div>
+            </div>
+            <div class="col-lg p-2">
+              <div class="util-3-text">
+                <input type="text" id="st-o3-slider-txt-6" name="st-o3-slider-txt-6" class="text-class" placeholder="Explain the selection" />
+              </div>
+              <h5 class="p-2">
+                Pleasure:&ensp;<label>High</label>
+                <input type="radio" name="st-o3-radio-6" id="st-o3-radio-11" value="High" onclick="stCountHigh()" />&emsp; <label>Low</label>
+                <input type="radio" name="st-o3-radio-6" id="st-o3-radio-12" value="Low" onclick="stCountLow()" />
+              </h5>
+            </div>
           </div>
-        </div>
-        <div class="row p-2">
-          <div class="col-lg p-2">
-            <center>
-              <h4 class="p-2" id="option-3">OPTION 3 AGGREGATE</h4>
-            </center>
+          <hr style="color: black; height: 2px" />
+          <h4 class="p-2">
+            <b>
+              <center>Long-term consequences</center>
+            </b>
+          </h4>
+          <br />
+          <div class="row p-2" id="lt-o3-stakeholder-1">
+            <h4 class="p-2">STAKEHOLDER-1</h4>
+            <h5>
+              <span class="stakeholders-name" id="lt-stakeholders-name-1" name="lt-stakeholders-name-1">The engineer asked to design the VW defeat...</span>
+            </h5>
+
+            <div class="col-lg p-2">
+              <div class="border">
+                <h6 class="pt-2">
+                  Pleasure
+                  <input type="range" min="1" max="100" value="0" class="slider" id="lt-o3-slider-1" name="lt-o3-slider-1" onchange="ltGetValue()" />
+                  Pain
+                </h6>
+              </div>
+            </div>
+            <div class="col-lg p-2">
+              <div class="util-3-text">
+                <input type="text" id="lt-o3-slider-txt-1" name="lt-o3-slider-txt-1" class="text-class" placeholder="Explain the selection" />
+              </div>
+              <h5 class="p-2">
+                Pleasure:&ensp;<label>High</label>
+                <input type="radio" name="lt-o3-radio-1" id="lt-o3-radio-1" value="High" onclick="ltCountHigh()" />&emsp; <label>Low</label>
+                <input type="radio" name="lt-o3-radio-1" id="lt-o3-radio-2" value="Low" onclick="ltCountLow()" />
+              </h5>
+            </div>
           </div>
-        </div>
-        <div class="row p-2">
-          <div class="col-lg p-2">
-            <h5 class="p-2" id="short-term-3">Short-term outcomes:</h5>
-            <h6 class="pt-2" id="short-term-slider-3">
-              Pleasure
-              <input type="range" min="1" max="100" value="0" class="slider" id="o3-st-agg-slider" name="o3-st-agg-slider" />
-              Pain
-            </h6>
+          <div class="row p-2" id="lt-o3-stakeholder-2">
+            <h4 class="pb-2">STAKEHOLDER-2</h4>
+            <h5>
+              <span class="stakeholders-name" id="lt-stakeholders-name-2" name="lt-stakeholders-name-2">The decision makers at VW who asked...</span>
+            </h5>
+
+            <div class="col-lg p-2">
+              <div class="border">
+                <h6 class="pt-2">
+                  Pleasure
+                  <input type="range" min="1" max="100" value="0" class="slider" id="lt-o3-slider-2" name="lt-o3-slider-2" onchange="ltGetValue2()" />
+                  Pain
+                </h6>
+              </div>
+            </div>
+            <div class="col-lg p-2">
+              <div class="util-3-text">
+                <input type="text" id="lt-o3-slider-txt-2" name="lt-o3-slider-txt-2" class="text-class" placeholder="Explain the selection" />
+              </div>
+              <h5 class="p-2">
+                Pleasure:&ensp;<label>High</label>
+                <input type="radio" name="lt-o3-radio-2" id="lt-o3-radio-3" value="High" onclick="ltCountHigh()" />&emsp; <label>Low</label>
+                <input type="radio" name="lt-o3-radio-2" id="lt-o3-radio-4" value="Low" onclick="ltCountLow()" />
+              </h5>
+            </div>
           </div>
-          <div class="col-lg p-2">
-            <h5 class="p-2" id="long-term-3">Long-term Outcomes:</h5>
-            <h6 class="pt-2" id="long-term-slider-3">
-              Pleasure
-              <input type="range" min="1" max="100" value="0" class="slider" id="o3-lt-agg-slider" name="o3-lt-agg-slider" />
-              Pain
-            </h6>
+          <div class="row p-2" id="lt-o3-stakeholder-3">
+            <h4 class="pb-2">STAKEHOLDER-3</h4>
+            <h5>
+              <span class="stakeholders-name" id="lt-stakeholders-name-3" name="lt-stakeholders-name-3">Consumers...</span>
+            </h5>
+
+            <div class="col-lg p-2">
+              <div class="border">
+                <h6 class="pt-2">
+                  Pleasure
+                  <input type="range" min="1" max="100" value="0" class="slider" id="lt-o3-slider-3" name="lt-o3-slider-3" onchange="ltGetValue3()" />
+                  Pain
+                </h6>
+              </div>
+            </div>
+            <div class="col-lg p-2">
+              <div class="util-3-text">
+                <input type="text" id="lt-o3-slider-txt-3" name="lt-o3-slider-txt-3" class="text-class" placeholder="Explain the selection" />
+              </div>
+              <h5 class="p-2">
+                Pleasure:&ensp;<label>High</label>
+                <input type="radio" name="lt-o3-radio-3" id="lt-o3-radio-5" value="High" onclick="ltCountHigh()" />&emsp; <label>Low</label>
+                <input type="radio" name="lt-o3-radio-3" id="lt-o3-radio-6" value="Low" onclick="ltCountLow()" />
+              </h5>
+            </div>
           </div>
-        </div>
-        <br />
-        <div class="row justify-content-center">
-          <input type="submit" value="Save" id="st-o2-submit" name="st-o2-submit" class="stakeholders-btn" onclick="stValueSenderRadioButtonHigh();stValueSenderRadioButtonLow();ltValueSenderRadioButtonHigh();ltValueSenderRadioButtonLow();valueSender();unhook()" />
+          <div class="row p-2" id="lt-o3-stakeholder-4">
+            <h4 class="pb-2">STAKEHOLDER-4</h4>
+            <h5>
+              <span class="stakeholders-name" id="lt-stakeholders-name-4" name="lt-stakeholders-name-4">VW Owners/Shareholders...</span>
+            </h5>
+
+            <div class="col-lg p-2">
+              <div class="border">
+                <h6 class="pt-2">
+                  Pleasure
+                  <input type="range" min="1" max="100" value="0" class="slider" id="lt-o3-slider-4" name="lt-o3-slider-4" onchange="ltGetValue4()" />
+                  Pain
+                </h6>
+              </div>
+            </div>
+            <div class="col-lg p-2">
+              <div class="util-3-text">
+                <input type="text" id="lt-o3-slider-txt-4" name="lt-o3-slider-txt-4" class="text-class" placeholder="Explain the selection" />
+              </div>
+              <h5 class="p-2">
+                Pleasure:&ensp;<label>High</label>
+                <input type="radio" name="lt-o3-radio-4" id="lt-o3-radio-7" value="High" onclick="ltCountHigh()" />&emsp; <label>Low</label>
+                <input type="radio" name="lt-o3-radio-4" id="lt-o3-radio-8" value="Low" onclick="ltCountLow()" />
+              </h5>
+            </div>
+          </div>
+          <div class="row p-2" id="lt-o3-stakeholder-5">
+            <h4 class="pb-2">STAKEHOLDER-5</h4>
+            <h5>
+              <span class="stakeholders-name" id="lt-stakeholders-name-5" name="lt-stakeholders-name-5">Stakeholder-5</span>
+            </h5>
+
+            <div class="col-lg p-2">
+              <div class="border">
+                <h6 class="pt-2">
+                  Pleasure
+                  <input type="range" min="1" max="100" value="0" class="slider" id="lt-o3-slider-5" name="lt-o3-slider-5" onchange="ltGetValue5()" />
+                  Pain
+                </h6>
+              </div>
+            </div>
+            <div class="col-lg p-2">
+              <div class="util-3-text">
+                <input type="text" id="lt-o3-slider-txt-5" name="lt-o3-slider-txt-5" class="text-class" placeholder="Explain the selection" />
+              </div>
+              <h5 class="p-2">
+                Pleasure:&ensp;<label>High</label>
+                <input type="radio" name="lt-o3-radio-5" id="lt-o3-radio-9" value="High" onclick="ltCountHigh()" />&emsp; <label>Low</label>
+                <input type="radio" name="lt-o3-radio-5" id="lt-o3-radio-10" value="Low" onclick="ltCountLow()" />
+              </h5>
+            </div>
+          </div>
+          <div class="row p-2" id="lt-o3-stakeholder-6">
+            <h4 class="pb-2">STAKEHOLDER-6</h4>
+            <h5>
+              <span class="stakeholders-name" id="lt-stakeholders-name-6" name="lt-stakeholders-name-6">Stakeholder-6</span>
+            </h5>
+
+            <div class="col-lg p-2">
+              <div class="border">
+                <h6 class="pt-2">
+                  Pleasure
+                  <input type="range" min="1" max="100" value="0" class="slider" id="lt-o3-slider-6" name="lt-o3-slider-6" onchange="ltGetValue6()" />
+                  Pain
+                </h6>
+              </div>
+            </div>
+            <div class="col-lg p-2">
+              <div class="util-3-text">
+                <input type="text" id="lt-o3-slider-txt-6" name="lt-o3-slider-txt-6" class="text-class" placeholder="Explain the selection" />
+              </div>
+              <h5 class="p-2">
+                Pleasure:&ensp;<label>High</label>
+                <input type="radio" name="lt-o3-radio-6" id="lt-o3-radio-11" value="High" onclick="ltCountHigh()" />&emsp; <label>Low</label>
+                <input type="radio" name="lt-o3-radio-6" id="lt-o3-radio-12" value="Low" onclick="ltCountLow()" />
+              </h5>
+            </div>
+          </div>
+          <hr style="color: black; height: 2px" />
+          <div class="row p-2">
+            <div class="col-lg p-2">
+              <center>
+                <h4 class="p-2">OPTION 1 AGGREGATE</h4>
+              </center>
+            </div>
+          </div>
+          <div class="row p-2">
+            <div class="col-lg p-2">
+              <h5 class="p-2" id="short-term">Short-term Outcomes:</h5>
+              <h6 class="pt-2" id="short-term-slider">
+                Pleasure
+                <input type="range" min="1" max="100" value="0" class="slider" id="o1-st-agg-slider" name="o1-st-agg-slider" />
+                Pain
+              </h6>
+            </div>
+            <div class="col-lg p-2">
+              <h5 class="p-2" id="long-term">Long-term Outcomes:</h5>
+              <h6 class="pt-2" id="long-term-slider">
+                Pleasure
+                <input type="range" min="1" max="100" value="0" class="slider" id="o1-lt-agg-slider" name="o1-lt-agg-slider" />
+                Pain
+              </h6>
+            </div>
+          </div>
+          <div class="row p-2">
+            <div class="col-lg p-2">
+              <center>
+                <h4 class="p-2" id="option-2">OPTION 2 AGGREGATE</h4>
+              </center>
+            </div>
+          </div>
+          <div class="row p-2">
+            <div class="col-lg p-2">
+              <h5 class="p-2" id="short-term-2">Short-term outcomes:</h5>
+              <h6 class="pt-2" id="short-term-slider-2">
+                Pleasure
+                <input type="range" min="1" max="100" value="0" class="slider" id="o2-st-agg-slider" name="o2-st-agg-slider" />
+                Pain
+              </h6>
+            </div>
+            <div class="col-lg p-2">
+              <h5 class="p-2" id="long-term-2">Long-term Outcomes:</h5>
+              <h6 class="pt-2" id="long-term-slider-2">
+                Pleasure
+                <input type="range" min="1" max="100" value="0" class="slider" id="o2-lt-agg-slider" name="o2-lt-agg-slider" />
+                Pain
+              </h6>
+            </div>
+          </div>
+          <div class="row p-2">
+            <div class="col-lg p-2">
+              <center>
+                <h4 class="p-2" id="option-3">OPTION 3 AGGREGATE</h4>
+              </center>
+            </div>
+          </div>
+          <div class="row p-2">
+            <div class="col-lg p-2">
+              <h5 class="p-2" id="short-term-3">Short-term outcomes:</h5>
+              <h6 class="pt-2" id="short-term-slider-3">
+                Pleasure
+                <input type="range" min="1" max="100" value="0" class="slider" id="o3-st-agg-slider" name="o3-st-agg-slider" />
+                Pain
+              </h6>
+            </div>
+            <div class="col-lg p-2">
+              <h5 class="p-2" id="long-term-3">Long-term Outcomes:</h5>
+              <h6 class="pt-2" id="long-term-slider-3">
+                Pleasure
+                <input type="range" min="1" max="100" value="0" class="slider" id="o3-lt-agg-slider" name="o3-lt-agg-slider" />
+                Pain
+              </h6>
+            </div>
+          </div>
+          <br />
         </div>
       </div>
+      <div class="row justify-content-center">
+        <input type="submit" value="Save" id="st-o3-submit" name="st-o3-submit" class="stakeholders-btn mt-4" onclick="stValueSenderRadioButtonHigh();stValueSenderRadioButtonLow();ltValueSenderRadioButtonHigh();ltValueSenderRadioButtonLow();valueSender();unhook()" />
+      </div>
     </div>
-  </div>
+  </form>
   <br />
   <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center">
@@ -912,6 +988,172 @@ $db_connection->close();
   </nav>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+  <script>
+    var stuID = <?php echo json_encode($stuID); ?>;
+    var caseID = <?php echo json_encode($caseID); ?>;
+
+    function load() {
+
+      $.ajax({
+        type: "POST",
+        url: 'Scripts/get_util_3rd_opt.php',
+        data: {
+          "caseID": caseID
+        },
+        dataType: 'json',
+        cache: false,
+        success: function(data) {
+          var o1_name = data[0];
+          var o2_name = data[1];
+          var o3_name = data[2];
+          var s1_name = data[3];
+          var s2_name = data[4];
+          var s3_name = data[5];
+          var s4_name = data[6];
+          var s5_name = data[7];
+          var s6_name = data[8];
+          var st_o3_slider1 = data[9];
+          var st_o3_slider2 = data[10];
+          var st_o3_slider3 = data[11];
+          var st_o3_slider4 = data[12];
+          var st_o3_slider5 = data[13];
+          var st_o3_slider6 = data[14];
+          var st_o3_slider_txt_1 = data[15];
+          var st_o3_slider_txt_2 = data[16];
+          var st_o3_slider_txt_3 = data[17];
+          var st_o3_slider_txt_4 = data[18];
+          var st_o3_slider_txt_5 = data[19];
+          var st_o3_slider_txt_6 = data[20];
+          var st_o3_radio1 = data[21];
+          var st_o3_radio2 = data[22];
+          var st_o3_radio3 = data[23];
+          var st_o3_radio4 = data[24];
+          var st_o3_radio5 = data[25];
+          var st_o3_radio6 = data[26];
+          var lt_o3_slider1 = data[27];
+          var lt_o3_slider2 = data[28];
+          var lt_o3_slider3 = data[29];
+          var lt_o3_slider4 = data[30];
+          var lt_o3_slider5 = data[31];
+          var lt_o3_slider6 = data[32];
+          var lt_o3_slider_txt_1 = data[33];
+          var lt_o3_slider_txt_2 = data[34];
+          var lt_o3_slider_txt_3 = data[35];
+          var lt_o3_slider_txt_4 = data[36];
+          var lt_o3_slider_txt_5 = data[37];
+          var lt_o3_slider_txt_6 = data[38];
+          var lt_o3_radio1 = data[39];
+          var lt_o3_radio2 = data[40];
+          var lt_o3_radio3 = data[41];
+          var lt_o3_radio4 = data[42];
+          var lt_o3_radio5 = data[43];
+          var lt_o3_radio6 = data[44];
+
+          document.getElementById('option3-title').innerHTML = o3_name;
+
+          document.getElementById('st-stakeholders-name-1').innerHTML = s1_name;
+          document.getElementById('lt-stakeholders-name-1').innerHTML = s1_name;
+          document.getElementById('st-stakeholders-name-2').innerHTML = s2_name;
+          document.getElementById('lt-stakeholders-name-2').innerHTML = s2_name;
+          document.getElementById('st-stakeholders-name-3').innerHTML = s3_name;
+          document.getElementById('lt-stakeholders-name-3').innerHTML = s3_name;
+          document.getElementById('st-stakeholders-name-4').innerHTML = s4_name;
+          document.getElementById('lt-stakeholders-name-4').innerHTML = s4_name;
+          document.getElementById('st-stakeholders-name-5').innerHTML = s5_name;
+          document.getElementById('lt-stakeholders-name-5').innerHTML = s5_name;
+          document.getElementById('st-stakeholders-name-6').innerHTML = s6_name;
+          document.getElementById('lt-stakeholders-name-6').innerHTML = s6_name;
+          document.getElementById("st-o3-slider-1").value = st_o3_slider1;
+          document.getElementById('st-o3-slider-2').value = st_o3_slider2;
+          document.getElementById('st-o3-slider-3').value = st_o3_slider3;
+          document.getElementById("st-o3-slider-4").value = st_o3_slider4;
+          document.getElementById('st-o3-slider-5').value = st_o3_slider5;
+          document.getElementById('st-o3-slider-6').value = st_o3_slider6;
+          document.getElementById('st-o3-slider-txt-1').value = st_o3_slider_txt_1;
+          document.getElementById('st-o3-slider-txt-2').value = st_o3_slider_txt_2;
+          document.getElementById('st-o3-slider-txt-3').value = st_o3_slider_txt_3;
+          document.getElementById('st-o3-slider-txt-4').value = st_o3_slider_txt_4;
+          document.getElementById('st-o3-slider-txt-5').value = st_o3_slider_txt_5;
+          document.getElementById('st-o3-slider-txt-6').value = st_o3_slider_txt_6;
+          if (st_o3_radio1 == "High") {
+            document.getElementById('st-o3-radio-1').checked = true;
+          } else {
+            document.getElementById('st-o3-radio-2').checked = true;
+          }
+          if (st_o3_radio2 == "High") {
+            document.getElementById('st-o3-radio-3').checked = true;
+          } else {
+            document.getElementById('st-o3-radio-4').checked = true;
+          }
+          if (st_o3_radio3 == "High") {
+            document.getElementById('st-o3-radio-5').checked = true;
+          } else {
+            document.getElementById('st-o3-radio-6').checked = true;
+          }
+          if (st_o3_radio4 == "High") {
+            document.getElementById('st-o3-radio-7').checked = true;
+          } else {
+            document.getElementById('st-o3-radio-8').checked = true;
+          }
+          if (st_o3_radio5 == "High") {
+            document.getElementById('st-o3-radio-9').checked = true;
+          } else {
+            document.getElementById('st-o3-radio-10').checked = true;
+          }
+          if (st_o3_radio6 == "High") {
+            document.getElementById('st-o3-radio-11').checked = true;
+          } else {
+            document.getElementById('st-o3-radio-12').checked = true;
+          }
+          document.getElementById('lt-o3-slider-1').value = lt_o3_slider1;
+          document.getElementById('lt-o3-slider-2').value = lt_o3_slider2;
+          document.getElementById('lt-o3-slider-3').value = lt_o3_slider3;
+          document.getElementById('lt-o3-slider-4').value = lt_o3_slider4;
+          document.getElementById('lt-o3-slider-5').value = lt_o3_slider5;
+          document.getElementById('lt-o3-slider-6').value = lt_o3_slider6;
+          document.getElementById('lt-o3-slider-txt-1').value = lt_o3_slider_txt_1;
+          document.getElementById('lt-o3-slider-txt-2').value = lt_o3_slider_txt_2;
+          document.getElementById('lt-o3-slider-txt-3').value = lt_o3_slider_txt_3;
+          document.getElementById('lt-o3-slider-txt-4').value = lt_o3_slider_txt_4;
+          document.getElementById('lt-o3-slider-txt-5').value = lt_o3_slider_txt_5;
+          document.getElementById('lt-o3-slider-txt-6').value = lt_o3_slider_txt_6;
+          if (lt_o3_radio1 == "High") {
+            document.getElementById('lt-o3-radio-1').checked = true;
+          } else {
+            document.getElementById('lt-o3-radio-2').checked = true;
+          }
+          if (lt_o3_radio2 == "High") {
+            document.getElementById('lt-o3-radio-3').checked = true;
+          } else {
+            document.getElementById('lt-o3-radio-4').checked = true;
+          }
+          if (lt_o3_radio3 == "High") {
+            document.getElementById('lt-o3-radio-5').checked = true;
+          } else {
+            document.getElementById('lt-o3-radio-6').checked = true;
+          }
+          if (lt_o3_radio4 == "High") {
+            document.getElementById('lt-o3-radio-7').checked = true;
+          } else {
+            document.getElementById('lt-o3-radio-8').checked = true;
+          }
+          if (lt_o3_radio5 == "High") {
+            document.getElementById('lt-o3-radio-9').checked = true;
+          } else {
+            document.getElementById('lt-o3-radio-10').checked = true;
+          }
+          if (lt_o3_radio6 == "High") {
+            document.getElementById('lt-o3-radio-11').checked = true;
+          } else {
+            document.getElementById('lt-o3-radio-12').checked = true;
+          }
+        },
+        error: function(xhr, status, error) {
+          console.error(xhr);
+        }
+      });
+    }
+  </script>
 </body>
 
 </html>

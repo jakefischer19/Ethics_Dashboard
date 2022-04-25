@@ -57,26 +57,90 @@ if (isset($_POST['st-o1-submit'])) {
     $sto1slider1 = filter_input(INPUT_POST, "st-o1-slider-1");
     $sto1slider2 = filter_input(INPUT_POST, "st-o1-slider-2");
     $sto1slider3 = filter_input(INPUT_POST, "st-o1-slider-3");
+    $sto1slider4 = filter_input(INPUT_POST, "st-o1-slider-4");
+    $sto1slider5 = filter_input(INPUT_POST, "st-o1-slider-5");
+    $sto1slider6 = filter_input(INPUT_POST, "st-o1-slider-6");
     $sto1slidertxt1 = filter_input(INPUT_POST, "st-o1-slider-txt-1");
     $sto1slidertxt2 = filter_input(INPUT_POST, "st-o1-slider-txt-2");
     $sto1slidertxt3 = filter_input(INPUT_POST, "st-o1-slider-txt-3");
+    $sto1slidertxt4 = filter_input(INPUT_POST, "st-o1-slider-txt-4");
+    $sto1slidertxt5 = filter_input(INPUT_POST, "st-o1-slider-txt-5");
+    $sto1slidertxt6 = filter_input(INPUT_POST, "st-o1-slider-txt-6");
     $sto1radio1 = filter_input(INPUT_POST, "st-o1-radio-1");
     $sto1radio2 = filter_input(INPUT_POST, "st-o1-radio-2");
     $sto1radio3 = filter_input(INPUT_POST, "st-o1-radio-3");
+    $sto1radio4 = filter_input(INPUT_POST, "st-o1-radio-4");
+    $sto1radio5 = filter_input(INPUT_POST, "st-o1-radio-5");
+    $sto1radio6 = filter_input(INPUT_POST, "st-o1-radio-6");
     $lto1slider1 = filter_input(INPUT_POST, "lt-o1-slider-1");
     $lto1slider2 = filter_input(INPUT_POST, "lt-o1-slider-2");
     $lto1slider3 = filter_input(INPUT_POST, "lt-o1-slider-3");
+    $lto1slider4 = filter_input(INPUT_POST, "lt-o1-slider-4");
+    $lto1slider5 = filter_input(INPUT_POST, "lt-o1-slider-5");
+    $lto1slider6 = filter_input(INPUT_POST, "lt-o1-slider-6");
     $lto1slidertxt1 = filter_input(INPUT_POST, "lt-o1-slider-txt-1");
     $lto1slidertxt2 = filter_input(INPUT_POST, "lt-o1-slider-txt-2");
     $lto1slidertxt3 = filter_input(INPUT_POST, "lt-o1-slider-txt-3");
+    $lto1slidertxt4 = filter_input(INPUT_POST, "lt-o1-slider-txt-4");
+    $lto1slidertxt5 = filter_input(INPUT_POST, "lt-o1-slider-txt-5");
+    $lto1slidertxt6 = filter_input(INPUT_POST, "lt-o1-slider-txt-6");
     $lto1radio1 = filter_input(INPUT_POST, "lt-o1-radio-1");
     $lto1radio2 = filter_input(INPUT_POST, "lt-o1-radio-2");
     $lto1radio3 = filter_input(INPUT_POST, "lt-o1-radio-3");
+    $lto1radio4 = filter_input(INPUT_POST, "lt-o1-radio-4");
+    $lto1radio5 = filter_input(INPUT_POST, "lt-o1-radio-5");
+    $lto1radio6 = filter_input(INPUT_POST, "lt-o1-radio-6");
   }
 
-  $sql = "UPDATE util SET st_o1_slider1= ?, st_o1_slider2= ?, st_o1_slider3= ?, st_o1_slider_txt_1= ?, st_o1_slider_txt_2= ?, st_o1_slider_txt_3= ?, st_o1_radio1= ?, st_o1_radio2= ?, st_o1_radio3= ?, lt_o1_slider1= ?, lt_o1_slider2= ?, lt_o1_slider3= ?, lt_o1_slider_txt_1= ?, lt_o1_slider_txt_2= ?, lt_o1_slider_txt_3= ?, lt_o1_radio1= ?, lt_o1_radio2= ?, lt_o1_radio3= ? WHERE caseID= ?";
+  $sql = "UPDATE util 
+          SET st_o1_slider1= ?, st_o1_slider2= ?, st_o1_slider3= ?, st_o1_slider4= ?, st_o1_slider5= ?, st_o1_slider6= ?,
+              st_o1_slider_txt_1= ?, st_o1_slider_txt_2= ?, st_o1_slider_txt_3= ?, st_o1_slider_txt_4= ?, st_o1_slider_txt_5= ?, st_o1_slider_txt_6= ?, 
+              st_o1_radio1= ?, st_o1_radio2= ?, st_o1_radio3= ?, st_o1_radio4= ?, st_o1_radio5= ?, st_o1_radio6= ?,
+              lt_o1_slider1= ?, lt_o1_slider2= ?, lt_o1_slider3= ?, lt_o1_slider4= ?, lt_o1_slider5= ?, lt_o1_slider6= ?,
+              lt_o1_slider_txt_1= ?, lt_o1_slider_txt_2= ?, lt_o1_slider_txt_3= ?,  lt_o1_slider_txt_4= ?, lt_o1_slider_txt_5= ?, lt_o1_slider_txt_6= ?, 
+              lt_o1_radio1= ?, lt_o1_radio2= ?, lt_o1_radio3= ?, lt_o1_radio4= ?, lt_o1_radio5= ?, lt_o1_radio6= ?  
+          WHERE caseID= ?";
   $save_sql = $db_connection->prepare($sql);
-  $save_sql->bind_param("iiissssssiiissssssi", $sto1slider1, $sto1slider2, $sto1slider3, $sto1slidertxt1, $sto1slidertxt2, $sto1slidertxt3, $sto1radio1, $sto1radio2, $sto1radio3, $lto1slider1, $lto1slider2, $lto1slider3, $lto1slidertxt1, $lto1slidertxt2, $lto1slidertxt3, $lto1radio1, $lto1radio2, $lto1radio3, $caseID);
+  $save_sql->bind_param(
+    "iiiiiissssssssssssiiiiiissssssssssssi",
+    $sto1slider1,
+    $sto1slider2,
+    $sto1slider3,
+    $sto1slider4,
+    $sto1slider5,
+    $sto1slider6,
+    $sto1slidertxt1,
+    $sto1slidertxt2,
+    $sto1slidertxt3,
+    $sto1slidertxt4,
+    $sto1slidertxt5,
+    $sto1slidertxt6,
+    $sto1radio1,
+    $sto1radio2,
+    $sto1radio3,
+    $sto1radio4,
+    $sto1radio5,
+    $sto1radio6,
+    $lto1slider1,
+    $lto1slider2,
+    $lto1slider3,
+    $lto1slider4,
+    $lto1slider5,
+    $lto1slider6,
+    $lto1slidertxt1,
+    $lto1slidertxt2,
+    $lto1slidertxt3,
+    $lto1slidertxt4,
+    $lto1slidertxt5,
+    $lto1slidertxt6,
+    $lto1radio1,
+    $lto1radio2,
+    $lto1radio3,
+    $lto1radio4,
+    $lto1radio5,
+    $lto1radio6,
+    $caseID
+  );
   $save_sql->execute();
 
 
@@ -91,7 +155,6 @@ if (isset($_POST['st-o1-submit'])) {
   }
 }
 $db_connection->close();
-
 ?>
 
 <!DOCTYPE html>
