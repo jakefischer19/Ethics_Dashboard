@@ -18,9 +18,15 @@ $caseID = $_SESSION["caseID"];
 $sto2slider1 = "";
 $sto2slider2 = "";
 $sto2slider3 = "";
+$sto2slider4 = "";
+$sto2slider5 = "";
+$sto2slider6 = "";
 $sto2slidertxt1 = "";
 $sto2slidertxt2 = "";
 $sto2slidertxt3 = "";
+$sto2slidertxt4 = "";
+$sto2slidertxt5 = "";
+$sto2slidertxt6 = "";
 $sto2radio1 = "";
 $sto2radio2 = "";
 $sto2radio3 = "";
@@ -30,9 +36,15 @@ $sto2radio6 = "";
 $lto2slider1 = "";
 $lto2slider2 = "";
 $lto2slider3 = "";
+$lto2slider4 = "";
+$lto2slider5 = "";
+$lto2slider6 = "";
 $lto2slidertxt1 = "";
 $lto2slidertxt2 = "";
 $lto2slidertxt3 = "";
+$lto2slidertxt4 = "";
+$lto2slidertxt5 = "";
+$lto2slidertxt6 = "";
 $lto2radio1 = "";
 $lto2radio2 = "";
 $lto2radio3 = "";
@@ -45,26 +57,90 @@ if (isset($_POST['st-o2-submit'])) {
     $sto2slider1 = filter_input(INPUT_POST, "st-o2-slider-1");
     $sto2slider2 = filter_input(INPUT_POST, "st-o2-slider-2");
     $sto2slider3 = filter_input(INPUT_POST, "st-o2-slider-3");
+    $sto2slider4 = filter_input(INPUT_POST, "st-o2-slider-4");
+    $sto2slider5 = filter_input(INPUT_POST, "st-o2-slider-5");
+    $sto2slider6 = filter_input(INPUT_POST, "st-o2-slider-6");
     $sto2slidertxt1 = filter_input(INPUT_POST, "st-o2-slider-txt-1");
     $sto2slidertxt2 = filter_input(INPUT_POST, "st-o2-slider-txt-2");
     $sto2slidertxt3 = filter_input(INPUT_POST, "st-o2-slider-txt-3");
+    $sto2slidertxt4 = filter_input(INPUT_POST, "st-o2-slider-txt-4");
+    $sto2slidertxt5 = filter_input(INPUT_POST, "st-o2-slider-txt-5");
+    $sto2slidertxt6 = filter_input(INPUT_POST, "st-o2-slider-txt-6");
     $sto2radio1 = filter_input(INPUT_POST, "st-o2-radio-1");
     $sto2radio2 = filter_input(INPUT_POST, "st-o2-radio-2");
     $sto2radio3 = filter_input(INPUT_POST, "st-o2-radio-3");
+    $sto2radio4 = filter_input(INPUT_POST, "st-o2-radio-4");
+    $sto2radio5 = filter_input(INPUT_POST, "st-o2-radio-5");
+    $sto2radio6 = filter_input(INPUT_POST, "st-o2-radio-6");
     $lto2slider1 = filter_input(INPUT_POST, "lt-o2-slider-1");
     $lto2slider2 = filter_input(INPUT_POST, "lt-o2-slider-2");
     $lto2slider3 = filter_input(INPUT_POST, "lt-o2-slider-3");
+    $lto2slider4 = filter_input(INPUT_POST, "lt-o2-slider-4");
+    $lto2slider5 = filter_input(INPUT_POST, "lt-o2-slider-5");
+    $lto2slider6 = filter_input(INPUT_POST, "lt-o2-slider-6");
     $lto2slidertxt1 = filter_input(INPUT_POST, "lt-o2-slider-txt-1");
     $lto2slidertxt2 = filter_input(INPUT_POST, "lt-o2-slider-txt-2");
     $lto2slidertxt3 = filter_input(INPUT_POST, "lt-o2-slider-txt-3");
+    $lto2slidertxt4 = filter_input(INPUT_POST, "lt-o2-slider-txt-4");
+    $lto2slidertxt5 = filter_input(INPUT_POST, "lt-o2-slider-txt-5");
+    $lto2slidertxt6 = filter_input(INPUT_POST, "lt-o2-slider-txt-6");
     $lto2radio1 = filter_input(INPUT_POST, "lt-o2-radio-1");
     $lto2radio2 = filter_input(INPUT_POST, "lt-o2-radio-2");
     $lto2radio3 = filter_input(INPUT_POST, "lt-o2-radio-3");
+    $lto2radio4 = filter_input(INPUT_POST, "lt-o2-radio-4");
+    $lto2radio5 = filter_input(INPUT_POST, "lt-o2-radio-5");
+    $lto2radio6 = filter_input(INPUT_POST, "lt-o2-radio-6");
   }
 
-  $sql = "UPDATE util SET st_o2_slider1= ?, st_o2_slider2= ?, st_o2_slider3= ?, st_o2_slider_txt_1= ?, st_o2_slider_txt_2= ?, st_o2_slider_txt_3= ?, st_o2_radio1= ?, st_o2_radio2= ?, st_o2_radio3= ?, lt_o2_slider1= ?, lt_o2_slider2= ?, lt_o2_slider3= ?, lt_o2_slider_txt_1= ?, lt_o2_slider_txt_2= ?, lt_o2_slider_txt_3= ?, lt_o2_radio1= ?, lt_o2_radio2= ?, lt_o2_radio3= ? WHERE caseID= ?";
+  $sql = "UPDATE util 
+          SET st_o2_slider1= ?, st_o2_slider2= ?, st_o2_slider3= ?, st_o2_slider4= ?, st_o2_slider5= ?, st_o2_slider6= ?,
+              st_o2_slider_txt_1= ?, st_o2_slider_txt_2= ?, st_o2_slider_txt_3= ?, st_o2_slider_txt_4= ?, st_o2_slider_txt_5= ?, st_o2_slider_txt_6= ?, 
+              st_o2_radio1= ?, st_o2_radio2= ?, st_o2_radio3= ?, st_o2_radio4= ?, st_o2_radio5= ?, st_o2_radio6= ?,
+              lt_o2_slider1= ?, lt_o2_slider2= ?, lt_o2_slider3= ?, lt_o2_slider4= ?, lt_o2_slider5= ?, lt_o2_slider6= ?,
+              lt_o2_slider_txt_1= ?, lt_o2_slider_txt_2= ?, lt_o2_slider_txt_3= ?,  lt_o2_slider_txt_4= ?, lt_o2_slider_txt_5= ?, lt_o2_slider_txt_6= ?, 
+              lt_o2_radio1= ?, lt_o2_radio2= ?, lt_o2_radio3= ?, lt_o2_radio4= ?, lt_o2_radio5= ?, lt_o2_radio6= ?  
+          WHERE caseID= ?";
   $save_sql = $db_connection->prepare($sql);
-  $save_sql->bind_param("iiissssssiiissssssi", $sto2slider1, $sto2slider2, $sto2slider3, $sto2slidertxt1, $sto2slidertxt2, $sto2slidertxt3, $sto2radio1, $sto2radio2, $sto2radio3, $lto2slider1, $lto2slider2, $lto2slider3, $lto2slidertxt1, $lto2slidertxt2, $lto2slidertxt3, $lto2radio1, $lto2radio2, $lto2radio3, $caseID);
+  $save_sql->bind_param(
+    "iiiiiissssssssssssiiiiiissssssssssssi",
+    $sto2slider1,
+    $sto2slider2,
+    $sto2slider3,
+    $sto2slider4,
+    $sto2slider5,
+    $sto2slider6,
+    $sto2slidertxt1,
+    $sto2slidertxt2,
+    $sto2slidertxt3,
+    $sto2slidertxt4,
+    $sto2slidertxt5,
+    $sto2slidertxt6,
+    $sto2radio1,
+    $sto2radio2,
+    $sto2radio3,
+    $sto2radio4,
+    $sto2radio5,
+    $sto2radio6,
+    $lto2slider1,
+    $lto2slider2,
+    $lto2slider3,
+    $lto2slider4,
+    $lto2slider5,
+    $lto2slider6,
+    $lto2slidertxt1,
+    $lto2slidertxt2,
+    $lto2slidertxt3,
+    $lto2slidertxt4,
+    $lto2slidertxt5,
+    $lto2slidertxt6,
+    $lto2radio1,
+    $lto2radio2,
+    $lto2radio3,
+    $lto2radio4,
+    $lto2radio5,
+    $lto2radio6,
+    $caseID
+  );
   $save_sql->execute();
 
 
@@ -79,8 +155,8 @@ if (isset($_POST['st-o2-submit'])) {
   }
 }
 $db_connection->close();
-
 ?>
+
 <!DOCTYPE html>
 <!--home.html may be renamed to dashboard, and dashboard.html renamed to home-->
 <html lang="en">
@@ -95,20 +171,14 @@ $db_connection->close();
   <title>Ethics Dashboard</title>
 
   <script>
-    /* var b, c;
-      var op2 = "";
-      var st1,
-        st2,
-        st3,
-        st4,
-        st5,
-        st6,*/
-    var counter,
-      opt_counter = "";
+    var opt_counter = "";
+    var counter = "";
+
     $(document).ready(function() {
-      counter = localStorage.getItem("stakeholders_counter");
+
       opt_counter = localStorage.getItem("options_counter");
 
+      counter = localStorage.getItem("stakeholders_counter");
       ta_counter = localStorage.getItem("ta_counter");
 
       if (ta_counter >= 1) {
@@ -187,10 +257,10 @@ $db_connection->close();
       document.getElementById("o1-lt-agg-slider").value = c;
 
 
-      //o1-st-agg-slider is the slider for Aggregation of short-term outcomes for option 1
+      //o2-st-agg-slider is the slider for Aggregation of short-term outcomes for option 1
       document.getElementById("o1-st-agg-slider").disabled = true;
 
-      //o1-lt-agg-slider is the slider for Aggregation of long-term outcomes for option 1
+      //o2-lt-agg-slider is the slider for Aggregation of long-term outcomes for option 1
       document.getElementById("o1-lt-agg-slider").disabled = true;
 
       //o2-st-agg-slider is the slider for Aggregation of short-term outcomes for option 2
@@ -933,7 +1003,7 @@ $db_connection->close();
       </li>
     </ul>
   </nav>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo26oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
   <script>
     var stuID = <?php echo json_encode($stuID); ?>;
@@ -952,27 +1022,49 @@ $db_connection->close();
         success: function(data) {
           var o1_name = data[0];
           var o2_name = data[1];
-          var s1_name = data[2];
-          var s2_name = data[3];
-          var s3_name = data[4];
-          var st_o2_slider1 = data[5];
-          var st_o2_slider2 = data[6];
-          var st_o2_slider3 = data[7];
-          var st_o2_slider_txt_1 = data[8];
-          var st_o2_slider_txt_2 = data[9];
-          var st_o2_slider_txt_3 = data[10];
-          var st_o2_radio1 = data[11];
-          var st_o2_radio2 = data[12];
-          var st_o2_radio3 = data[13];
-          var lt_o2_slider1 = data[14];
-          var lt_o2_slider2 = data[15];
-          var lt_o2_slider3 = data[16];
-          var lt_o2_slider_txt_1 = data[17];
-          var lt_o2_slider_txt_2 = data[18];
-          var lt_o2_slider_txt_3 = data[19];
-          var lt_o2_radio1 = data[20];
-          var lt_o2_radio2 = data[21];
-          var lt_o2_radio3 = data[22];
+          var o3_name = data[2];
+          var s1_name = data[3];
+          var s2_name = data[4];
+          var s3_name = data[5];
+          var s4_name = data[6];
+          var s5_name = data[7];
+          var s6_name = data[8];
+          var st_o2_slider1 = data[9];
+          var st_o2_slider2 = data[10];
+          var st_o2_slider3 = data[11];
+          var st_o2_slider4 = data[12];
+          var st_o2_slider5 = data[13];
+          var st_o2_slider6 = data[14];
+          var st_o2_slider_txt_1 = data[15];
+          var st_o2_slider_txt_2 = data[16];
+          var st_o2_slider_txt_3 = data[17];
+          var st_o2_slider_txt_4 = data[18];
+          var st_o2_slider_txt_5 = data[19];
+          var st_o2_slider_txt_6 = data[20];
+          var st_o2_radio1 = data[21];
+          var st_o2_radio2 = data[22];
+          var st_o2_radio3 = data[23];
+          var st_o2_radio4 = data[24];
+          var st_o2_radio5 = data[25];
+          var st_o2_radio6 = data[26];
+          var lt_o2_slider1 = data[27];
+          var lt_o2_slider2 = data[28];
+          var lt_o2_slider3 = data[29];
+          var lt_o2_slider4 = data[30];
+          var lt_o2_slider5 = data[31];
+          var lt_o2_slider6 = data[32];
+          var lt_o2_slider_txt_1 = data[33];
+          var lt_o2_slider_txt_2 = data[34];
+          var lt_o2_slider_txt_3 = data[35];
+          var lt_o2_slider_txt_4 = data[36];
+          var lt_o2_slider_txt_5 = data[37];
+          var lt_o2_slider_txt_6 = data[38];
+          var lt_o2_radio1 = data[39];
+          var lt_o2_radio2 = data[40];
+          var lt_o2_radio3 = data[41];
+          var lt_o2_radio4 = data[42];
+          var lt_o2_radio5 = data[43];
+          var lt_o2_radio6 = data[44];
 
           document.getElementById('option2-title').innerHTML = o2_name;
 
@@ -982,12 +1074,24 @@ $db_connection->close();
           document.getElementById('lt-stakeholders-name-2').innerHTML = s2_name;
           document.getElementById('st-stakeholders-name-3').innerHTML = s3_name;
           document.getElementById('lt-stakeholders-name-3').innerHTML = s3_name;
+          document.getElementById('st-stakeholders-name-4').innerHTML = s4_name;
+          document.getElementById('lt-stakeholders-name-4').innerHTML = s4_name;
+          document.getElementById('st-stakeholders-name-5').innerHTML = s5_name;
+          document.getElementById('lt-stakeholders-name-5').innerHTML = s5_name;
+          document.getElementById('st-stakeholders-name-6').innerHTML = s6_name;
+          document.getElementById('lt-stakeholders-name-6').innerHTML = s6_name;
           document.getElementById("st-o2-slider-1").value = st_o2_slider1;
           document.getElementById('st-o2-slider-2').value = st_o2_slider2;
           document.getElementById('st-o2-slider-3').value = st_o2_slider3;
+          document.getElementById("st-o2-slider-4").value = st_o2_slider4;
+          document.getElementById('st-o2-slider-5').value = st_o2_slider5;
+          document.getElementById('st-o2-slider-6').value = st_o2_slider6;
           document.getElementById('st-o2-slider-txt-1').value = st_o2_slider_txt_1;
           document.getElementById('st-o2-slider-txt-2').value = st_o2_slider_txt_2;
           document.getElementById('st-o2-slider-txt-3').value = st_o2_slider_txt_3;
+          document.getElementById('st-o2-slider-txt-4').value = st_o2_slider_txt_4;
+          document.getElementById('st-o2-slider-txt-5').value = st_o2_slider_txt_5;
+          document.getElementById('st-o2-slider-txt-6').value = st_o2_slider_txt_6;
           if (st_o2_radio1 == "High") {
             document.getElementById('st-o2-radio-1').checked = true;
           } else {
@@ -1003,12 +1107,33 @@ $db_connection->close();
           } else {
             document.getElementById('st-o2-radio-6').checked = true;
           }
+          if (st_o2_radio4 == "High") {
+            document.getElementById('st-o2-radio-7').checked = true;
+          } else {
+            document.getElementById('st-o2-radio-8').checked = true;
+          }
+          if (st_o2_radio5 == "High") {
+            document.getElementById('st-o2-radio-9').checked = true;
+          } else {
+            document.getElementById('st-o2-radio-10').checked = true;
+          }
+          if (st_o2_radio6 == "High") {
+            document.getElementById('st-o2-radio-11').checked = true;
+          } else {
+            document.getElementById('st-o2-radio-12').checked = true;
+          }
           document.getElementById('lt-o2-slider-1').value = lt_o2_slider1;
           document.getElementById('lt-o2-slider-2').value = lt_o2_slider2;
           document.getElementById('lt-o2-slider-3').value = lt_o2_slider3;
+          document.getElementById('lt-o2-slider-4').value = lt_o2_slider4;
+          document.getElementById('lt-o2-slider-5').value = lt_o2_slider5;
+          document.getElementById('lt-o2-slider-6').value = lt_o2_slider6;
           document.getElementById('lt-o2-slider-txt-1').value = lt_o2_slider_txt_1;
           document.getElementById('lt-o2-slider-txt-2').value = lt_o2_slider_txt_2;
           document.getElementById('lt-o2-slider-txt-3').value = lt_o2_slider_txt_3;
+          document.getElementById('lt-o2-slider-txt-4').value = lt_o2_slider_txt_4;
+          document.getElementById('lt-o2-slider-txt-5').value = lt_o2_slider_txt_5;
+          document.getElementById('lt-o2-slider-txt-6').value = lt_o2_slider_txt_6;
           if (lt_o2_radio1 == "High") {
             document.getElementById('lt-o2-radio-1').checked = true;
           } else {
@@ -1023,6 +1148,21 @@ $db_connection->close();
             document.getElementById('lt-o2-radio-5').checked = true;
           } else {
             document.getElementById('lt-o2-radio-6').checked = true;
+          }
+          if (lt_o2_radio4 == "High") {
+            document.getElementById('lt-o2-radio-7').checked = true;
+          } else {
+            document.getElementById('lt-o2-radio-8').checked = true;
+          }
+          if (lt_o2_radio5 == "High") {
+            document.getElementById('lt-o2-radio-9').checked = true;
+          } else {
+            document.getElementById('lt-o2-radio-10').checked = true;
+          }
+          if (lt_o2_radio6 == "High") {
+            document.getElementById('lt-o2-radio-11').checked = true;
+          } else {
+            document.getElementById('lt-o2-radio-12').checked = true;
           }
         },
         error: function(xhr, status, error) {

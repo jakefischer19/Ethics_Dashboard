@@ -1,4 +1,4 @@
-<?php 
+<?php
 error_reporting(-1);
 ini_set('display_errors', 'On');
 session_start();
@@ -18,9 +18,8 @@ $DATABASE_NAME = 'herrycoo_Ethic_Dashboard';
 $db_connection = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
 
 //check if database connection succeeded 
-if(!$db_connection){
+if (!$db_connection) {
   die("Connection failed: " . mysqli_connect_error());
-  
 }
 
 $caseID = $_POST["caseID"];
@@ -34,12 +33,12 @@ $result = $sql->get_result();
 
 if (mysqli_num_rows($result) > 0) {
   // output data of each row
-  while($row = mysqli_fetch_assoc($result)) {
+  while ($row = mysqli_fetch_assoc($result)) {
     array_push($returnArr, $row["option1"]);
     array_push($returnArr, $row["option2"]);
     array_push($returnArr, $row["option3"]);
   }
-} 
+}
 $sql->close();
 
 //get stakeholders
@@ -51,7 +50,7 @@ $result = $sql->get_result();
 
 if (mysqli_num_rows($result) > 0) {
   // output data of each row
-  while($row = mysqli_fetch_assoc($result)) {
+  while ($row = mysqli_fetch_assoc($result)) {
     array_push($returnArr, $row["s1_name"]);
     array_push($returnArr, $row["s2_name"]);
     array_push($returnArr, $row["s3_name"]);
@@ -59,9 +58,8 @@ if (mysqli_num_rows($result) > 0) {
     array_push($returnArr, $row["s5_name"]);
     array_push($returnArr, $row["s6_name"]);
   }
-} 
+}
 $sql->close();
-
 //get rest of data
 
 $sql = $db_connection->prepare("SELECT st_o1_slider1, st_o1_slider2, st_o1_slider3, st_o1_slider4, st_o1_slider5, st_o1_slider6,
@@ -76,9 +74,10 @@ $sql->bind_param("i", $caseID);
 $sql->execute();
 $result = $sql->get_result();
 
+
 if (mysqli_num_rows($result) > 0) {
   // output data of each row
-  while($row = mysqli_fetch_assoc($result)) {
+  while ($row = mysqli_fetch_assoc($result)) {
     array_push($returnArr, $row["st_o1_slider1"]);
     array_push($returnArr, $row["st_o1_slider2"]);
     array_push($returnArr, $row["st_o1_slider3"]);
@@ -112,11 +111,11 @@ if (mysqli_num_rows($result) > 0) {
     array_push($returnArr, $row["lt_o1_radio1"]);
     array_push($returnArr, $row["lt_o1_radio2"]);
     array_push($returnArr, $row["lt_o1_radio3"]);
-    array_push($returnArr, $row["lt_o1_radio1"]);
+    array_push($returnArr, $row["lt_o1_radio4"]);
     array_push($returnArr, $row["lt_o1_radio5"]);
     array_push($returnArr, $row["lt_o1_radio6"]);
   }
-} 
+}
 
 $sql->close();
 echo json_encode($returnArr);
