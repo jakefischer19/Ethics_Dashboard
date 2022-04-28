@@ -326,6 +326,20 @@ $db_connection->close();
       </li>
       <li class="page-item active">
         <a class="page-link" href="utilitarianism-2.php">Stakeholders</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="utilitarianism-3.php">Option-1</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="utilitarianism-4.php">Option-2</a>
+      </li>
+      <li class="page-item" id="pag-option-3">
+        <a class="page-link" href="utilitarianism-3rd-option.php">Option-3</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="utilitarianism-5.php">Conclusion</a>
+      </li>
+      <li class="page-item">
         <a class="page-link" href="utilitarianism-3.php" aria-label="Next">
           <span aria-hidden="true">&raquo;</span>
           <span class="sr-only">Next</span>
@@ -333,84 +347,68 @@ $db_connection->close();
       </li>
     </ul>
   </nav>
-  </li>
-  <li class="page-item">
-    <a class="page-link" href="utilitarianism-3.php">Option-1</a>
-  </li>
-  <li class="page-item">
-    <a class="page-link" href="utilitarianism-4.php">Option-2</a>
-  </li>
-  <li class="page-item" id="pag-option-3">
-    <a class="page-link" href="utilitarianism-3rd-option.php">Option-3</a>
-  </li>
-  <li class="page-item">
-    <a class="page-link" href="utilitarianism-5.php">Conclusion</a>
-  </li>
 
-  <li class="page-item">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+  <script>
+    var stuID = <?php echo json_encode($stuID); ?>;
+    var caseID = <?php echo json_encode($caseID); ?>;
 
+    function loadStakeholders() {
+      //alert("working");
+      $.ajax({
+        type: "POST",
+        url: 'Scripts/get_util2.php',
+        data: {
+          "caseID": caseID
+        },
+        dataType: 'json',
+        cache: false,
+        success: function(data) {
+          var s1_name = data[0];
+          var s2_name = data[1];
+          var s3_name = data[2];
+          var s4_name = data[3];
+          var s5_name = data[4];
+          var s6_name = data[5];
+          var s1_response = data[6];
+          var s2_response = data[7];
+          var s3_response = data[8];
+          var s4_response = data[9];
+          var s5_response = data[10];
+          var s6_response = data[11];
+          var s1_slider = data[12];
+          var s2_slider = data[13];
+          var s3_slider = data[14];
+          var s4_slider = data[15];
+          var s5_slider = data[16];
+          var s6_slider = data[17];
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    <script>
-      var stuID = <?php echo json_encode($stuID); ?>;
-      var caseID = <?php echo json_encode($caseID); ?>;
-
-      function loadStakeholders() {
-        //alert("working");
-        $.ajax({
-          type: "POST",
-          url: 'Scripts/get_util2.php',
-          data: {
-            "caseID": caseID
-          },
-          dataType: 'json',
-          cache: false,
-          success: function(data) {
-            var s1_name = data[0];
-            var s2_name = data[1];
-            var s3_name = data[2];
-            var s4_name = data[3];
-            var s5_name = data[4];
-            var s6_name = data[5];
-            var s1_response = data[6];
-            var s2_response = data[7];
-            var s3_response = data[8];
-            var s4_response = data[9];
-            var s5_response = data[10];
-            var s6_response = data[11];
-            var s1_slider = data[12];
-            var s2_slider = data[13];
-            var s3_slider = data[14];
-            var s4_slider = data[15];
-            var s5_slider = data[16];
-            var s6_slider = data[17];
-
-            document.getElementById('s1-title').innerHTML = s1_name;
-            document.getElementById('stakeholder-1').innerHTML = s1_response;
-            document.getElementById('s2-title').innerHTML = s2_name;
-            document.getElementById('stakeholder-2').innerHTML = s2_response;
-            document.getElementById('s3-title').innerHTML = s3_name;
-            document.getElementById('stakeholder-3').innerHTML = s3_response;
-            document.getElementById('s4-title').innerHTML = s4_name;
-            document.getElementById('stakeholder-4').innerHTML = s4_response;
-            document.getElementById('s5-title').innerHTML = s5_name;
-            document.getElementById('stakeholder-5').innerHTML = s5_response;
-            document.getElementById('s6-title').innerHTML = s6_name;
-            document.getElementById('stakeholder-6').innerHTML = s6_response;
-            document.getElementById("stakeholder1").value = s1_slider;
-            document.getElementById("stakeholder2").value = s2_slider;
-            document.getElementById("stakeholder3").value = s3_slider;
-            document.getElementById("stakeholder4").value = s4_slider;
-            document.getElementById("stakeholder5").value = s5_slider;
-            document.getElementById("stakeholder6").value = s6_slider;
-          },
-          error: function(xhr, status, error) {
-            console.error(xhr);
-          }
-        });
-      }
-    </script>
+          document.getElementById('s1-title').innerHTML = s1_name;
+          document.getElementById('stakeholder-1').innerHTML = s1_response;
+          document.getElementById('s2-title').innerHTML = s2_name;
+          document.getElementById('stakeholder-2').innerHTML = s2_response;
+          document.getElementById('s3-title').innerHTML = s3_name;
+          document.getElementById('stakeholder-3').innerHTML = s3_response;
+          document.getElementById('s4-title').innerHTML = s4_name;
+          document.getElementById('stakeholder-4').innerHTML = s4_response;
+          document.getElementById('s5-title').innerHTML = s5_name;
+          document.getElementById('stakeholder-5').innerHTML = s5_response;
+          document.getElementById('s6-title').innerHTML = s6_name;
+          document.getElementById('stakeholder-6').innerHTML = s6_response;
+          document.getElementById("stakeholder1").value = s1_slider;
+          document.getElementById("stakeholder2").value = s2_slider;
+          document.getElementById("stakeholder3").value = s3_slider;
+          document.getElementById("stakeholder4").value = s4_slider;
+          document.getElementById("stakeholder5").value = s5_slider;
+          document.getElementById("stakeholder6").value = s6_slider;
+        },
+        error: function(xhr, status, error) {
+          console.error(xhr);
+        }
+      });
+    }
+  </script>
 </body>
 
 </html>
