@@ -62,3 +62,4 @@ if($login_result){
   //header("Location: https://https://herrycooly.com/EBoard/Login/login.html");
   header("Location: login.html");
 }
+?>
